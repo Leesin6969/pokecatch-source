@@ -1,0 +1,1399 @@
+[
+ {
+  "i": 0,
+  "start": 10733,
+  "size": 633,
+  "type": "AssignmentExpression",
+  "names": [
+   "TabLock"
+  ],
+  "topNames": [
+   "TabLock"
+  ],
+  "modules": [
+   "TabLock"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 1,
+  "start": 11367,
+  "size": 2330,
+  "type": "AssignmentExpression",
+  "names": [
+   "Clock"
+  ],
+  "topNames": [
+   "Clock"
+  ],
+  "modules": [
+   "Clock"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 2,
+  "start": 13698,
+  "size": 263228,
+  "type": "AssignmentExpression",
+  "names": [
+   "POKEDEX"
+  ],
+  "topNames": [
+   "POKEDEX"
+  ],
+  "modules": [
+   "POKEDEX"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 3,
+  "start": 276927,
+  "size": 6302,
+  "type": "AssignmentExpression",
+  "names": [
+   "EVOLUTIONS"
+  ],
+  "topNames": [
+   "EVOLUTIONS"
+  ],
+  "modules": [
+   "EVOLUTIONS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 4,
+  "start": 283230,
+  "size": 36700,
+  "type": "AssignmentExpression",
+  "names": [
+   "MOVES"
+  ],
+  "topNames": [
+   "MOVES"
+  ],
+  "modules": [
+   "MOVES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 5,
+  "start": 319931,
+  "size": 895,
+  "type": "AssignmentExpression",
+  "names": [
+   "ITEM_NAMES"
+  ],
+  "topNames": [
+   "ITEM_NAMES"
+  ],
+  "modules": [
+   "ITEM_NAMES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 6,
+  "start": 320827,
+  "size": 14368,
+  "type": "AssignmentExpression",
+  "names": [
+   "ENCOUNTERS"
+  ],
+  "topNames": [
+   "ENCOUNTERS"
+  ],
+  "modules": [
+   "ENCOUNTERS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 7,
+  "start": 335196,
+  "size": 1054,
+  "type": "AssignmentExpression",
+  "names": [
+   "BASE_EXP"
+  ],
+  "topNames": [
+   "BASE_EXP"
+  ],
+  "modules": [
+   "BASE_EXP"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 8,
+  "start": 336251,
+  "size": 37660,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 9,
+  "start": 373912,
+  "size": 788,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 10,
+  "start": 374701,
+  "size": 18961,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 11,
+  "start": 393663,
+  "size": 1058,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 12,
+  "start": 394722,
+  "size": 42353,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 13,
+  "start": 437076,
+  "size": 851,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 14,
+  "start": 437928,
+  "size": 589,
+  "type": "AssignmentExpression",
+  "names": [
+   "UNOWN"
+  ],
+  "topNames": [
+   "UNOWN"
+  ],
+  "modules": [
+   "UNOWN"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 15,
+  "start": 438518,
+  "size": 321,
+  "type": "AssignmentExpression",
+  "names": [
+   "SPECIALS"
+  ],
+  "topNames": [
+   "SPECIALS"
+  ],
+  "modules": [
+   "SPECIALS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 16,
+  "start": 438840,
+  "size": 4102,
+  "type": "AssignmentExpression",
+  "names": [
+   "FORMS"
+  ],
+  "topNames": [
+   "FORMS"
+  ],
+  "modules": [
+   "FORMS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 17,
+  "start": 442943,
+  "size": 21823,
+  "type": "AssignmentExpression",
+  "names": [
+   "CONFIG"
+  ],
+  "topNames": [
+   "CONFIG"
+  ],
+  "modules": [
+   "CONFIG"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 18,
+  "start": 464767,
+  "size": 1113,
+  "type": "AssignmentExpression",
+  "names": [
+   "ITEM_NAMES"
+  ],
+  "topNames": [
+   "ITEM_NAMES"
+  ],
+  "modules": [
+   "ITEM_NAMES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 19,
+  "start": 465881,
+  "size": 648,
+  "type": "AssignmentExpression",
+  "names": [
+   "TYPES"
+  ],
+  "topNames": [
+   "TYPES"
+  ],
+  "modules": [
+   "TYPES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 20,
+  "start": 466530,
+  "size": 1208,
+  "type": "AssignmentExpression",
+  "names": [
+   "TYPE_CHART"
+  ],
+  "topNames": [
+   "TYPE_CHART"
+  ],
+  "modules": [
+   "TYPE_CHART"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 21,
+  "start": 467739,
+  "size": 2053,
+  "type": "AssignmentExpression",
+  "names": [
+   "I18n"
+  ],
+  "topNames": [
+   "I18n"
+  ],
+  "modules": [
+   "I18n"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 22,
+  "start": 469793,
+  "size": 13,
+  "type": "AssignmentExpression",
+  "names": [
+   "_t"
+  ],
+  "topNames": [
+   "_t"
+  ],
+  "modules": [
+   "_t"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 23,
+  "start": 469807,
+  "size": 2033,
+  "type": "AssignmentExpression",
+  "names": [
+   "DAYTIME"
+  ],
+  "topNames": [
+   "DAYTIME"
+  ],
+  "modules": [
+   "DAYTIME"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 24,
+  "start": 471841,
+  "size": 4343,
+  "type": "AssignmentExpression",
+  "names": [
+   "WEATHER"
+  ],
+  "topNames": [
+   "WEATHER"
+  ],
+  "modules": [
+   "WEATHER"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 25,
+  "start": 476185,
+  "size": 33685,
+  "type": "AssignmentExpression",
+  "names": [
+   "HABITATS"
+  ],
+  "topNames": [
+   "HABITATS"
+  ],
+  "modules": [
+   "HABITATS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 26,
+  "start": 509871,
+  "size": 3248,
+  "type": "AssignmentExpression",
+  "names": [
+   "STATUS"
+  ],
+  "topNames": [
+   "STATUS"
+  ],
+  "modules": [
+   "STATUS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 27,
+  "start": 513120,
+  "size": 89480,
+  "type": "AssignmentExpression",
+  "names": [
+   "STORY"
+  ],
+  "topNames": [
+   "STORY"
+  ],
+  "modules": [
+   "STORY"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 28,
+  "start": 602601,
+  "size": 56910,
+  "type": "AssignmentExpression",
+  "names": [
+   "SCENES"
+  ],
+  "topNames": [
+   "SCENES"
+  ],
+  "modules": [
+   "SCENES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 29,
+  "start": 659512,
+  "size": 45344,
+  "type": "CallExpression",
+  "names": [
+   "Game"
+  ],
+  "topNames": [],
+  "modules": [
+   "Game"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 30,
+  "start": 704857,
+  "size": 4963,
+  "type": "AssignmentExpression",
+  "names": [
+   "LEAGUE_TEAMS"
+  ],
+  "topNames": [
+   "LEAGUE_TEAMS"
+  ],
+  "modules": [
+   "LEAGUE_TEAMS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 31,
+  "start": 709821,
+  "size": 75463,
+  "type": "CallExpression",
+  "names": [
+   "Adventure"
+  ],
+  "topNames": [],
+  "modules": [
+   "Adventure"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 32,
+  "start": 785285,
+  "size": 20118,
+  "type": "AssignmentExpression",
+  "names": [
+   "Underground"
+  ],
+  "topNames": [
+   "Underground"
+  ],
+  "modules": [
+   "Underground"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 33,
+  "start": 805404,
+  "size": 11847,
+  "type": "AssignmentExpression",
+  "names": [
+   "Events"
+  ],
+  "topNames": [
+   "Events"
+  ],
+  "modules": [
+   "Events"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 34,
+  "start": 817252,
+  "size": 57,
+  "type": "AssignmentExpression",
+  "names": [
+   "RAID_SWAPS"
+  ],
+  "topNames": [
+   "RAID_SWAPS"
+  ],
+  "modules": [
+   "RAID_SWAPS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 35,
+  "start": 817310,
+  "size": 21487,
+  "type": "AssignmentExpression",
+  "names": [
+   "Raids",
+   "RAID_SWAPS"
+  ],
+  "topNames": [
+   "Raids"
+  ],
+  "modules": [
+   "Raids",
+   "RAID_SWAPS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 36,
+  "start": 838798,
+  "size": 7474,
+  "type": "AssignmentExpression",
+  "names": [
+   "WorldBoss"
+  ],
+  "topNames": [
+   "WorldBoss"
+  ],
+  "modules": [
+   "WorldBoss"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 37,
+  "start": 846273,
+  "size": 12062,
+  "type": "AssignmentExpression",
+  "names": [
+   "Tower"
+  ],
+  "topNames": [
+   "Tower"
+  ],
+  "modules": [
+   "Tower"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 38,
+  "start": 858336,
+  "size": 6730,
+  "type": "AssignmentExpression",
+  "names": [
+   "CandyRun"
+  ],
+  "topNames": [
+   "CandyRun"
+  ],
+  "modules": [
+   "CandyRun"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 39,
+  "start": 865067,
+  "size": 21543,
+  "type": "CallExpression",
+  "names": [
+   "LegendZones"
+  ],
+  "topNames": [],
+  "modules": [
+   "LegendZones"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 40,
+  "start": 886611,
+  "size": 2002,
+  "type": "AssignmentExpression",
+  "names": [
+   "Roaming"
+  ],
+  "topNames": [
+   "Roaming"
+  ],
+  "modules": [
+   "Roaming"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 41,
+  "start": 888614,
+  "size": 62,
+  "type": "AssignmentExpression",
+  "names": [
+   "Sfx"
+  ],
+  "topNames": [
+   "Sfx"
+  ],
+  "modules": [
+   "Sfx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 42,
+  "start": 888677,
+  "size": 66,
+  "type": "AssignmentExpression",
+  "names": [
+   "Music"
+  ],
+  "topNames": [
+   "Music"
+  ],
+  "modules": [
+   "Music"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 43,
+  "start": 888744,
+  "size": 100043,
+  "type": "AssignmentExpression",
+  "names": [
+   "SPRITE_BOUNDS"
+  ],
+  "topNames": [
+   "SPRITE_BOUNDS"
+  ],
+  "modules": [
+   "SPRITE_BOUNDS"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 44,
+  "start": 988788,
+  "size": 81297,
+  "type": "CallExpression",
+  "names": [
+   "Screens",
+   "UI"
+  ],
+  "topNames": [],
+  "modules": [
+   "Screens",
+   "UI"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 45,
+  "start": 1070086,
+  "size": 1473,
+  "type": "AssignmentExpression",
+  "names": [
+   "Perf"
+  ],
+  "topNames": [
+   "Perf"
+  ],
+  "modules": [
+   "Perf"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 46,
+  "start": 1071560,
+  "size": 59158,
+  "type": "AssignmentExpression",
+  "names": [
+   "EliteFrames"
+  ],
+  "topNames": [
+   "EliteFrames"
+  ],
+  "modules": [
+   "EliteFrames"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 47,
+  "start": 1130719,
+  "size": 34175,
+  "type": "AssignmentExpression",
+  "names": [
+   "Frames"
+  ],
+  "topNames": [
+   "Frames"
+  ],
+  "modules": [
+   "Frames"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 48,
+  "start": 1164895,
+  "size": 11237,
+  "type": "AssignmentExpression",
+  "names": [
+   "BadgeShine"
+  ],
+  "topNames": [
+   "BadgeShine"
+  ],
+  "modules": [
+   "BadgeShine"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 49,
+  "start": 1176133,
+  "size": 179651,
+  "type": "AssignmentExpression",
+  "names": [
+   "BattleFX",
+   "FX_MOVES"
+  ],
+  "topNames": [
+   "BattleFX"
+  ],
+  "modules": [
+   "BattleFX",
+   "FX_MOVES"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 50,
+  "start": 1355785,
+  "size": 27162,
+  "type": "AssignmentExpression",
+  "names": [
+   "CaptureFX"
+  ],
+  "topNames": [
+   "CaptureFX"
+  ],
+  "modules": [
+   "CaptureFX"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 51,
+  "start": 1382948,
+  "size": 15978,
+  "type": "AssignmentExpression",
+  "names": [
+   "ItemFX",
+   "BerryFX"
+  ],
+  "topNames": [
+   "ItemFX"
+  ],
+  "modules": [
+   "ItemFX",
+   "BerryFX"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 52,
+  "start": 1398927,
+  "size": 42416,
+  "type": "AssignmentExpression",
+  "names": [
+   "LinkFx"
+  ],
+  "topNames": [
+   "LinkFx"
+  ],
+  "modules": [
+   "LinkFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 53,
+  "start": 1441344,
+  "size": 9966,
+  "type": "AssignmentExpression",
+  "names": [
+   "RaidDraw"
+  ],
+  "topNames": [
+   "RaidDraw"
+  ],
+  "modules": [
+   "RaidDraw"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 54,
+  "start": 1451311,
+  "size": 7744,
+  "type": "AssignmentExpression",
+  "names": [
+   "HealFX"
+  ],
+  "topNames": [
+   "HealFX"
+  ],
+  "modules": [
+   "HealFX"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 55,
+  "start": 1459056,
+  "size": 5714,
+  "type": "AssignmentExpression",
+  "names": [
+   "ShinyGlint"
+  ],
+  "topNames": [
+   "ShinyGlint"
+  ],
+  "modules": [
+   "ShinyGlint"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 56,
+  "start": 1464771,
+  "size": 855,
+  "type": "AssignmentExpression",
+  "names": [
+   "GiftFx"
+  ],
+  "topNames": [
+   "GiftFx"
+  ],
+  "modules": [
+   "GiftFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 57,
+  "start": 1465627,
+  "size": 12977,
+  "type": "AssignmentExpression",
+  "names": [
+   "GeodeFx"
+  ],
+  "topNames": [
+   "GeodeFx"
+  ],
+  "modules": [
+   "GeodeFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 58,
+  "start": 1478605,
+  "size": 11198,
+  "type": "AssignmentExpression",
+  "names": [
+   "RankFx"
+  ],
+  "topNames": [
+   "RankFx"
+  ],
+  "modules": [
+   "RankFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 59,
+  "start": 1489804,
+  "size": 25174,
+  "type": "CallExpression",
+  "names": [
+   "WeatherFx"
+  ],
+  "topNames": [],
+  "modules": [
+   "WeatherFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 60,
+  "start": 1514979,
+  "size": 5913,
+  "type": "CallExpression",
+  "names": [
+   "VGrid"
+  ],
+  "topNames": [],
+  "modules": [
+   "VGrid"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 61,
+  "start": 1520893,
+  "size": 5379,
+  "type": "AssignmentExpression",
+  "names": [
+   "EventUI"
+  ],
+  "topNames": [
+   "EventUI"
+  ],
+  "modules": [
+   "EventUI"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 62,
+  "start": 1526273,
+  "size": 16329,
+  "type": "AssignmentExpression",
+  "names": [
+   "EventTeam"
+  ],
+  "topNames": [
+   "EventTeam"
+  ],
+  "modules": [
+   "EventTeam"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 63,
+  "start": 1542603,
+  "size": 145854,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 64,
+  "start": 1688458,
+  "size": 54669,
+  "type": "CallExpression",
+  "names": [
+   "TravelFx"
+  ],
+  "topNames": [],
+  "modules": [
+   "TravelFx"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 65,
+  "start": 1743128,
+  "size": 19429,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 66,
+  "start": 1762558,
+  "size": 79053,
+  "type": "AssignmentExpression",
+  "names": [
+   "WorldBossView"
+  ],
+  "topNames": [
+   "WorldBossView"
+  ],
+  "modules": [
+   "WorldBossView"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 67,
+  "start": 1841612,
+  "size": 14285,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 68,
+  "start": 1855898,
+  "size": 12776,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 69,
+  "start": 1868675,
+  "size": 53019,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 70,
+  "start": 1921695,
+  "size": 6174,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 71,
+  "start": 1927870,
+  "size": 26620,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 72,
+  "start": 1954491,
+  "size": 27985,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 73,
+  "start": 1982477,
+  "size": 5828,
+  "type": "AssignmentExpression",
+  "names": [
+   "PensionBerryFX"
+  ],
+  "topNames": [
+   "PensionBerryFX"
+  ],
+  "modules": [
+   "PensionBerryFX"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 74,
+  "start": 1988306,
+  "size": 728,
+  "type": "AssignmentExpression",
+  "names": [
+   "BerryBites"
+  ],
+  "topNames": [
+   "BerryBites"
+  ],
+  "modules": [
+   "BerryBites"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 75,
+  "start": 1989035,
+  "size": 25060,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 76,
+  "start": 2014096,
+  "size": 10083,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 77,
+  "start": 2024180,
+  "size": 67082,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 78,
+  "start": 2091263,
+  "size": 43420,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 79,
+  "start": 2134684,
+  "size": 40040,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 80,
+  "start": 2174725,
+  "size": 8196,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 81,
+  "start": 2182922,
+  "size": 26104,
+  "type": "CallExpression",
+  "names": [
+   "TrainerCard"
+  ],
+  "topNames": [],
+  "modules": [
+   "TrainerCard"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 82,
+  "start": 2209027,
+  "size": 1465,
+  "type": "AssignmentExpression",
+  "names": [
+   "Names"
+  ],
+  "topNames": [
+   "Names"
+  ],
+  "modules": [
+   "Names"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 83,
+  "start": 2210493,
+  "size": 31745,
+  "type": "AssignmentExpression",
+  "names": [
+   "Cloud",
+   "onbeforeunload"
+  ],
+  "topNames": [
+   "Cloud"
+  ],
+  "modules": [
+   "Cloud"
+  ],
+  "nonModule": [
+   "onbeforeunload"
+  ]
+ },
+ {
+  "i": 84,
+  "start": 2242239,
+  "size": 6195,
+  "type": "AssignmentExpression",
+  "names": [
+   "Gifts"
+  ],
+  "topNames": [
+   "Gifts"
+  ],
+  "modules": [
+   "Gifts"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 85,
+  "start": 2248435,
+  "size": 749,
+  "type": "CallExpression",
+  "names": [],
+  "topNames": [],
+  "modules": [],
+  "nonModule": []
+ },
+ {
+  "i": 86,
+  "start": 2249185,
+  "size": 14390,
+  "type": "CallExpression",
+  "names": [
+   "onbeforeunload",
+   "Options"
+  ],
+  "topNames": [],
+  "modules": [
+   "Options"
+  ],
+  "nonModule": [
+   "onbeforeunload"
+  ]
+ },
+ {
+  "i": 87,
+  "start": 2263576,
+  "size": 324332,
+  "type": "AssignmentExpression",
+  "names": [
+   "CHANGELOG"
+  ],
+  "topNames": [
+   "CHANGELOG"
+  ],
+  "modules": [
+   "CHANGELOG"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 88,
+  "start": 2587909,
+  "size": 1784,
+  "type": "AssignmentExpression",
+  "names": [
+   "Changelog"
+  ],
+  "topNames": [
+   "Changelog"
+  ],
+  "modules": [
+   "Changelog"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 89,
+  "start": 2589694,
+  "size": 19823,
+  "type": "AssignmentExpression",
+  "names": [
+   "Guide"
+  ],
+  "topNames": [
+   "Guide"
+  ],
+  "modules": [
+   "Guide"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 90,
+  "start": 2609518,
+  "size": 7228,
+  "type": "AssignmentExpression",
+  "names": [
+   "News"
+  ],
+  "topNames": [
+   "News"
+  ],
+  "modules": [
+   "News"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 91,
+  "start": 2616747,
+  "size": 16721,
+  "type": "AssignmentExpression",
+  "names": [
+   "Title"
+  ],
+  "topNames": [
+   "Title"
+  ],
+  "modules": [
+   "Title"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 92,
+  "start": 2633469,
+  "size": 2517,
+  "type": "AssignmentExpression",
+  "names": [
+   "Update"
+  ],
+  "topNames": [
+   "Update"
+  ],
+  "modules": [
+   "Update"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 93,
+  "start": 2635987,
+  "size": 4942,
+  "type": "AssignmentExpression",
+  "names": [
+   "Sleep"
+  ],
+  "topNames": [
+   "Sleep"
+  ],
+  "modules": [
+   "Sleep"
+  ],
+  "nonModule": []
+ },
+ {
+  "i": 94,
+  "start": 2640930,
+  "size": 37330,
+  "type": "CallExpression",
+  "names": [
+   "CatchUp",
+   "onbeforeunload",
+   "setTimeout",
+   "setInterval",
+   "App"
+  ],
+  "topNames": [],
+  "modules": [
+   "CatchUp",
+   "App"
+  ],
+  "nonModule": [
+   "onbeforeunload",
+   "setTimeout",
+   "setInterval"
+  ]
+ }
+]
