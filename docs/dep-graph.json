@@ -1,0 +1,1551 @@
+{
+ "nodes": [
+  {
+   "file": "000-prelude.js",
+   "layer": "0 prelude",
+   "modules": [],
+   "deps": []
+  },
+  {
+   "file": "001-tab-lock.js",
+   "layer": "1 data tables",
+   "modules": [
+    "TabLock"
+   ],
+   "deps": []
+  },
+  {
+   "file": "002-clock.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Clock"
+   ],
+   "deps": [
+    "Game"
+   ]
+  },
+  {
+   "file": "003-pokedex.js",
+   "layer": "1 data tables",
+   "modules": [
+    "POKEDEX"
+   ],
+   "deps": []
+  },
+  {
+   "file": "004-evolutions.js",
+   "layer": "1 data tables",
+   "modules": [
+    "EVOLUTIONS"
+   ],
+   "deps": []
+  },
+  {
+   "file": "005-moves.js",
+   "layer": "1 data tables",
+   "modules": [
+    "MOVES"
+   ],
+   "deps": []
+  },
+  {
+   "file": "006-item-names.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "ITEM_NAMES"
+   ]
+  },
+  {
+   "file": "007-encounters-kanto.js",
+   "layer": "1 data tables",
+   "modules": [
+    "ENCOUNTERS"
+   ],
+   "deps": []
+  },
+  {
+   "file": "008-base-exp-kanto.js",
+   "layer": "1 data tables",
+   "modules": [
+    "BASE_EXP"
+   ],
+   "deps": []
+  },
+  {
+   "file": "009-encounters-johto-headbutt.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "ENCOUNTERS"
+   ]
+  },
+  {
+   "file": "010-base-exp-johto.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "BASE_EXP"
+   ]
+  },
+  {
+   "file": "011-encounters-hoenn.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "ENCOUNTERS"
+   ]
+  },
+  {
+   "file": "012-base-exp-hoenn.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "BASE_EXP"
+   ]
+  },
+  {
+   "file": "013-encounters-sinnoh.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "ENCOUNTERS"
+   ]
+  },
+  {
+   "file": "014-base-exp-sinnoh.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "BASE_EXP"
+   ]
+  },
+  {
+   "file": "015-unown.js",
+   "layer": "1 data tables",
+   "modules": [
+    "UNOWN"
+   ],
+   "deps": [
+    "BASE_EXP",
+    "I18n",
+    "POKEDEX"
+   ]
+  },
+  {
+   "file": "016-specials.js",
+   "layer": "1 data tables",
+   "modules": [
+    "SPECIALS"
+   ],
+   "deps": [
+    "BASE_EXP",
+    "POKEDEX"
+   ]
+  },
+  {
+   "file": "017-forms.js",
+   "layer": "1 data tables",
+   "modules": [
+    "FORMS"
+   ],
+   "deps": [
+    "BASE_EXP",
+    "EVOLUTIONS",
+    "I18n",
+    "MOVES",
+    "POKEDEX",
+    "TYPES",
+    "WEATHER"
+   ]
+  },
+  {
+   "file": "018-config.js",
+   "layer": "1 data tables",
+   "modules": [
+    "CONFIG"
+   ],
+   "deps": [
+    "CHANGELOG"
+   ]
+  },
+  {
+   "file": "019-item-names-2.js",
+   "layer": "1 data tables",
+   "modules": [
+    "ITEM_NAMES"
+   ],
+   "deps": [
+    "CONFIG"
+   ]
+  },
+  {
+   "file": "020-types.js",
+   "layer": "1 data tables",
+   "modules": [
+    "TYPES"
+   ],
+   "deps": []
+  },
+  {
+   "file": "021-type-chart.js",
+   "layer": "1 data tables",
+   "modules": [
+    "TYPE_CHART"
+   ],
+   "deps": []
+  },
+  {
+   "file": "022-i18n.js",
+   "layer": "1 data tables",
+   "modules": [
+    "I18n"
+   ],
+   "deps": [
+    "CONFIG",
+    "Game",
+    "ITEM_NAMES",
+    "MOVES",
+    "POKEDEX",
+    "TYPES"
+   ]
+  },
+  {
+   "file": "023-i18n-t.js",
+   "layer": "1 data tables",
+   "modules": [
+    "_t"
+   ],
+   "deps": [
+    "I18n"
+   ]
+  },
+  {
+   "file": "024-daytime.js",
+   "layer": "1 data tables",
+   "modules": [
+    "DAYTIME"
+   ],
+   "deps": [
+    "CONFIG",
+    "Clock",
+    "Game",
+    "SCENES",
+    "STORY"
+   ]
+  },
+  {
+   "file": "025-weather.js",
+   "layer": "1 data tables",
+   "modules": [
+    "WEATHER"
+   ],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "Clock",
+    "DAYTIME",
+    "Game",
+    "Roaming",
+    "STORY"
+   ]
+  },
+  {
+   "file": "026-habitats.js",
+   "layer": "1 data tables",
+   "modules": [
+    "HABITATS"
+   ],
+   "deps": []
+  },
+  {
+   "file": "027-status.js",
+   "layer": "1 data tables",
+   "modules": [
+    "STATUS"
+   ],
+   "deps": [
+    "Game",
+    "MOVES"
+   ]
+  },
+  {
+   "file": "028-story.js",
+   "layer": "1 data tables",
+   "modules": [
+    "STORY"
+   ],
+   "deps": [
+    "CONFIG",
+    "Clock",
+    "UNOWN"
+   ]
+  },
+  {
+   "file": "029-scenes.js",
+   "layer": "1 data tables",
+   "modules": [
+    "SCENES"
+   ],
+   "deps": [
+    "Game",
+    "LegendZones",
+    "STORY"
+   ]
+  },
+  {
+   "file": "030-game.js",
+   "layer": "2 state",
+   "modules": [],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "CandyRun",
+    "Clock",
+    "Cloud",
+    "DAYTIME",
+    "EVOLUTIONS",
+    "FORMS",
+    "Game",
+    "LegendZones",
+    "MOVES",
+    "POKEDEX",
+    "Raids",
+    "STATUS",
+    "STORY",
+    "TYPE_CHART",
+    "TabLock",
+    "Tower"
+   ]
+  },
+  {
+   "file": "031-league-teams.js",
+   "layer": "1 data tables",
+   "modules": [
+    "LEAGUE_TEAMS"
+   ],
+   "deps": []
+  },
+  {
+   "file": "032-adventure.js",
+   "layer": "3 simulation",
+   "modules": [
+    "Adventure"
+   ],
+   "deps": [
+    "BASE_EXP",
+    "BadgeShine",
+    "CONFIG",
+    "CandyRun",
+    "Cloud",
+    "DAYTIME",
+    "ENCOUNTERS",
+    "EVOLUTIONS",
+    "Events",
+    "FORMS",
+    "Game",
+    "HABITATS",
+    "LEAGUE_TEAMS",
+    "LegendZones",
+    "MOVES",
+    "Raids",
+    "Roaming",
+    "STATUS",
+    "STORY",
+    "TYPE_CHART",
+    "Tower",
+    "UNOWN",
+    "Update",
+    "WEATHER",
+    "WorldBoss"
+   ]
+  },
+  {
+   "file": "033-underground.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Underground"
+   ],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "CandyRun",
+    "EVOLUTIONS",
+    "FORMS",
+    "Game",
+    "STORY",
+    "TYPES",
+    "WorldBoss"
+   ]
+  },
+  {
+   "file": "034-events.js",
+   "layer": "4 systems",
+   "modules": [
+    "Events"
+   ],
+   "deps": [
+    "CONFIG",
+    "EVOLUTIONS",
+    "Game",
+    "News",
+    "POKEDEX",
+    "STORY",
+    "UI"
+   ]
+  },
+  {
+   "file": "035-raid-swaps.js",
+   "layer": "1 data tables",
+   "modules": [],
+   "deps": [
+    "RAID_SWAPS"
+   ]
+  },
+  {
+   "file": "036-raids.js",
+   "layer": "4 systems",
+   "modules": [
+    "RAID_SWAPS",
+    "Raids"
+   ],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "Cloud",
+    "EVOLUTIONS",
+    "EventUI",
+    "Frames",
+    "Game",
+    "News",
+    "POKEDEX",
+    "STORY",
+    "UI"
+   ]
+  },
+  {
+   "file": "037-worldboss.js",
+   "layer": "4 systems",
+   "modules": [
+    "WorldBoss"
+   ],
+   "deps": [
+    "CONFIG",
+    "Cloud",
+    "Game"
+   ]
+  },
+  {
+   "file": "038-tower.js",
+   "layer": "4 systems",
+   "modules": [
+    "Tower"
+   ],
+   "deps": [
+    "CONFIG",
+    "Cloud",
+    "EVOLUTIONS",
+    "Frames",
+    "Game",
+    "News",
+    "POKEDEX",
+    "STORY",
+    "UI"
+   ]
+  },
+  {
+   "file": "039-candy-run.js",
+   "layer": "4 systems",
+   "modules": [
+    "CandyRun"
+   ],
+   "deps": [
+    "CONFIG",
+    "Cloud",
+    "EVOLUTIONS",
+    "Game",
+    "POKEDEX",
+    "Raids",
+    "STATUS",
+    "STORY"
+   ]
+  },
+  {
+   "file": "040-legend-zones.js",
+   "layer": "4 systems",
+   "modules": [
+    "LegendZones"
+   ],
+   "deps": [
+    "CONFIG",
+    "Cloud",
+    "DAYTIME",
+    "Frames",
+    "Game",
+    "POKEDEX",
+    "STORY",
+    "TYPES",
+    "Tower",
+    "UI",
+    "Underground",
+    "WorldBoss"
+   ]
+  },
+  {
+   "file": "041-roaming.js",
+   "layer": "4 systems",
+   "modules": [
+    "Roaming"
+   ],
+   "deps": [
+    "CONFIG",
+    "DAYTIME",
+    "Game",
+    "STORY"
+   ]
+  },
+  {
+   "file": "042-sfx.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Sfx"
+   ],
+   "deps": []
+  },
+  {
+   "file": "043-music.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Music"
+   ],
+   "deps": []
+  },
+  {
+   "file": "044-sprite-bounds.js",
+   "layer": "1 data tables",
+   "modules": [
+    "SPRITE_BOUNDS"
+   ],
+   "deps": []
+  },
+  {
+   "file": "045-ui-core.js",
+   "layer": "5 UI core",
+   "modules": [
+    "Screens",
+    "UI"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "Cloud",
+    "DAYTIME",
+    "EVOLUTIONS",
+    "FORMS",
+    "Frames",
+    "Game",
+    "I18n",
+    "ITEM_NAMES",
+    "LegendZones",
+    "LinkFx",
+    "MOVES",
+    "News",
+    "POKEDEX",
+    "Perf",
+    "RankFx",
+    "SCENES",
+    "SPECIALS",
+    "SPRITE_BOUNDS",
+    "STATUS",
+    "STORY",
+    "Screens.adventure",
+    "Screens.map",
+    "Screens.shop",
+    "Sfx",
+    "TYPES",
+    "TYPE_CHART",
+    "TrainerCard",
+    "UNOWN",
+    "Underground",
+    "WEATHER"
+   ]
+  },
+  {
+   "file": "046-perf.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Game",
+    "Perf"
+   ],
+   "deps": [
+    "UI"
+   ]
+  },
+  {
+   "file": "047-elite-frames.js",
+   "layer": "5 UI core",
+   "modules": [
+    "EliteFrames"
+   ],
+   "deps": [
+    "Game",
+    "LegendZones"
+   ]
+  },
+  {
+   "file": "048-frames.js",
+   "layer": "5 UI core",
+   "modules": [
+    "Frames"
+   ],
+   "deps": [
+    "BadgeShine",
+    "CONFIG",
+    "CandyRun",
+    "Cloud",
+    "EliteFrames",
+    "Game",
+    "STORY",
+    "Tower",
+    "UNOWN",
+    "Underground"
+   ]
+  },
+  {
+   "file": "049-badge-shine.js",
+   "layer": "6 effects",
+   "modules": [
+    "BadgeShine"
+   ],
+   "deps": [
+    "Frames",
+    "Game",
+    "STORY",
+    "Sfx",
+    "TrainerCard",
+    "UI"
+   ]
+  },
+  {
+   "file": "050-battle-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "BattleFX",
+    "FX_MOVES"
+   ],
+   "deps": [
+    "Game",
+    "MOVES",
+    "SPRITE_BOUNDS"
+   ]
+  },
+  {
+   "file": "051-capture-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "CaptureFX"
+   ],
+   "deps": [
+    "Game",
+    "Sfx",
+    "ShinyGlint",
+    "UI"
+   ]
+  },
+  {
+   "file": "052-item-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "BerryFX",
+    "ItemFX"
+   ],
+   "deps": [
+    "CaptureFX",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "053-link-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "LinkFx"
+   ],
+   "deps": [
+    "CaptureFX",
+    "Game",
+    "I18n",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "054-raid-draw.js",
+   "layer": "6 effects",
+   "modules": [
+    "RaidDraw"
+   ],
+   "deps": [
+    "Game",
+    "TYPES",
+    "UI"
+   ]
+  },
+  {
+   "file": "055-heal-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "HealFX"
+   ],
+   "deps": [
+    "CaptureFX",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "056-shiny-glint.js",
+   "layer": "3 simulation",
+   "modules": [
+    "ShinyGlint"
+   ],
+   "deps": [
+    "Game"
+   ]
+  },
+  {
+   "file": "057-gift-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "GiftFx"
+   ],
+   "deps": [
+    "Game",
+    "LinkFx",
+    "UI"
+   ]
+  },
+  {
+   "file": "058-geode-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "GeodeFx"
+   ],
+   "deps": [
+    "Game",
+    "Sfx",
+    "TYPES",
+    "UI"
+   ]
+  },
+  {
+   "file": "059-rank-fx.js",
+   "layer": "6 effects",
+   "modules": [
+    "RankFx"
+   ],
+   "deps": [
+    "Game",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "060-weather-fx.js",
+   "layer": "1 data tables",
+   "modules": [
+    "WeatherFx"
+   ],
+   "deps": [
+    "Game"
+   ]
+  },
+  {
+   "file": "061-vgrid.js",
+   "layer": "5 UI core",
+   "modules": [
+    "VGrid"
+   ],
+   "deps": []
+  },
+  {
+   "file": "062-event-ui.js",
+   "layer": "7 screens",
+   "modules": [
+    "EventUI"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "Events",
+    "Game",
+    "LegendZones",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Sfx",
+    "TYPES",
+    "UI"
+   ]
+  },
+  {
+   "file": "063-event-team.js",
+   "layer": "7 screens",
+   "modules": [
+    "EventTeam"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "Cloud",
+    "Events",
+    "Game",
+    "LegendZones",
+    "Raids",
+    "Sfx",
+    "UI",
+    "VGrid"
+   ]
+  },
+  {
+   "file": "064-screen-adventure.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.adventure"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "BattleFX",
+    "BerryFX",
+    "CONFIG",
+    "CandyRun",
+    "CaptureFX",
+    "CatchUp",
+    "Cloud",
+    "DAYTIME",
+    "EVOLUTIONS",
+    "EventTeam",
+    "EventUI",
+    "Events",
+    "Game",
+    "HealFX",
+    "ITEM_NAMES",
+    "ItemFX",
+    "LegendZones",
+    "LinkFx",
+    "Music",
+    "News",
+    "Raids",
+    "SCENES",
+    "STATUS",
+    "STORY",
+    "Screens",
+    "Screens.candy",
+    "Screens.map",
+    "Screens.pokedex",
+    "Screens.raid",
+    "Screens.tower",
+    "Screens.trade",
+    "Sfx",
+    "TabLock",
+    "Tower",
+    "UI",
+    "Underground",
+    "WEATHER",
+    "WorldBoss"
+   ]
+  },
+  {
+   "file": "065-screen-map-event.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.event",
+    "Screens.map",
+    "TravelFx"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "Cloud",
+    "DAYTIME",
+    "EventTeam",
+    "EventUI",
+    "Events",
+    "Frames",
+    "Game",
+    "I18n",
+    "LegendZones",
+    "POKEDEX",
+    "Roaming",
+    "SCENES",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Screens.pokedex",
+    "Sfx",
+    "TYPES",
+    "UI",
+    "Underground",
+    "WEATHER"
+   ]
+  },
+  {
+   "file": "066-screen-raid.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.raid"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "CandyRun",
+    "Cloud",
+    "EventTeam",
+    "Game",
+    "RaidDraw",
+    "Raids",
+    "SCENES",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Screens.candy",
+    "Screens.tower",
+    "Sfx",
+    "TYPES",
+    "Tower",
+    "UI",
+    "WorldBoss",
+    "WorldBossView"
+   ]
+  },
+  {
+   "file": "067-worldboss-view.js",
+   "layer": "4 systems",
+   "modules": [
+    "WorldBossView"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "Cloud",
+    "EventTeam",
+    "Game",
+    "I18n",
+    "LegendZones",
+    "POKEDEX",
+    "Screens",
+    "Screens.adventure",
+    "Screens.raid",
+    "Sfx",
+    "TYPES",
+    "UI",
+    "WorldBoss"
+   ]
+  },
+  {
+   "file": "068-screen-tower.js",
+   "layer": "4 systems",
+   "modules": [
+    "Screens.tower"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "Cloud",
+    "Game",
+    "SCENES",
+    "Screens",
+    "Screens.adventure",
+    "Screens.candy",
+    "Screens.pension",
+    "Screens.raid",
+    "Sfx",
+    "Tower",
+    "UI"
+   ]
+  },
+  {
+   "file": "069-screen-candy.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.candy"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "CandyRun",
+    "Cloud",
+    "EventTeam",
+    "Game",
+    "Raids",
+    "SCENES",
+    "Screens",
+    "Screens.adventure",
+    "Screens.raid",
+    "TYPE_CHART",
+    "UI"
+   ]
+  },
+  {
+   "file": "070-screen-underground.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Screens.underground"
+   ],
+   "deps": [
+    "App",
+    "BattleFX",
+    "CONFIG",
+    "CaptureFX",
+    "EventTeam",
+    "Frames",
+    "Game",
+    "GeodeFx",
+    "I18n",
+    "SCENES",
+    "STORY",
+    "Screens",
+    "Sfx",
+    "TYPES",
+    "UI",
+    "Underground"
+   ]
+  },
+  {
+   "file": "071-screen-achievements.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.achievements"
+   ],
+   "deps": [
+    "Game",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Sfx",
+    "TrainerCard",
+    "UI"
+   ]
+  },
+  {
+   "file": "072-screen-team.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.team"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "EVOLUTIONS",
+    "FORMS",
+    "Game",
+    "I18n",
+    "STORY",
+    "Screens",
+    "Screens.pension",
+    "Sfx",
+    "TYPES",
+    "UI",
+    "Underground",
+    "VGrid"
+   ]
+  },
+  {
+   "file": "073-screen-pension.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.pension"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "DAYTIME",
+    "FORMS",
+    "Game",
+    "LinkFx",
+    "PensionBerryFX",
+    "SCENES",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Screens",
+    "Screens.team",
+    "Sfx",
+    "UI",
+    "VGrid",
+    "WEATHER"
+   ]
+  },
+  {
+   "file": "074-pension-berry-fx.js",
+   "layer": "4 systems",
+   "modules": [
+    "PensionBerryFX"
+   ],
+   "deps": [
+    "BerryBites",
+    "Game",
+    "UI"
+   ]
+  },
+  {
+   "file": "075-berry-bites.js",
+   "layer": "4 systems",
+   "modules": [
+    "BerryBites"
+   ],
+   "deps": []
+  },
+  {
+   "file": "076-screen-pokedex.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Screens.pokedex"
+   ],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "DAYTIME",
+    "EVOLUTIONS",
+    "FORMS",
+    "Game",
+    "HABITATS",
+    "I18n",
+    "LegendZones",
+    "POKEDEX",
+    "Roaming",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Screens.casino",
+    "Screens.map",
+    "Sfx",
+    "TYPES",
+    "UI",
+    "UNOWN",
+    "Underground",
+    "WEATHER"
+   ]
+  },
+  {
+   "file": "077-screen-shop.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.shop"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "Game",
+    "STORY",
+    "Screens",
+    "Screens.map",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "078-screen-casino.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.casino"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "Game",
+    "GiftFx",
+    "I18n",
+    "LegendZones",
+    "Perf",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Screens",
+    "Screens.market",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "079-screen-trade.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.trade"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CONFIG",
+    "CaptureFX",
+    "CatchUp",
+    "Cloud",
+    "Game",
+    "LinkFx",
+    "News",
+    "POKEDEX",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Screens",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "080-screen-market.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.market"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "CatchUp",
+    "Cloud",
+    "Game",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Screens",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "081-screen-friends.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.friends"
+   ],
+   "deps": [
+    "Cloud",
+    "Game",
+    "STORY",
+    "Screens",
+    "Sfx",
+    "TrainerCard",
+    "UI"
+   ]
+  },
+  {
+   "file": "082-trainer-card.js",
+   "layer": "5 UI core",
+   "modules": [
+    "TrainerCard"
+   ],
+   "deps": [
+    "App",
+    "BadgeShine",
+    "CONFIG",
+    "Cloud",
+    "Frames",
+    "Game",
+    "I18n",
+    "Names",
+    "POKEDEX",
+    "Perf",
+    "STORY",
+    "Screens",
+    "Screens.achievements",
+    "UI",
+    "Underground"
+   ]
+  },
+  {
+   "file": "083-names.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Names"
+   ],
+   "deps": []
+  },
+  {
+   "file": "084-cloud.js",
+   "layer": "4 systems",
+   "modules": [
+    "Cloud"
+   ],
+   "deps": [
+    "CONFIG",
+    "CatchUp",
+    "Clock",
+    "Game",
+    "I18n",
+    "LegendZones",
+    "News",
+    "Raids",
+    "TabLock",
+    "Tower",
+    "UI",
+    "Update"
+   ]
+  },
+  {
+   "file": "085-gifts.js",
+   "layer": "4 systems",
+   "modules": [
+    "Gifts"
+   ],
+   "deps": [
+    "App",
+    "CONFIG",
+    "Cloud",
+    "Game",
+    "GiftFx",
+    "I18n",
+    "Sfx",
+    "TrainerCard",
+    "UI"
+   ]
+  },
+  {
+   "file": "086-screen-admin-loader.js",
+   "layer": "7 screens",
+   "modules": [
+    "Screens.admin"
+   ],
+   "deps": [
+    "Cloud",
+    "Screens"
+   ]
+  },
+  {
+   "file": "087-options.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "Options"
+   ],
+   "deps": [
+    "App",
+    "BadgeShine",
+    "CONFIG",
+    "Changelog",
+    "Cloud",
+    "Game",
+    "Guide",
+    "I18n",
+    "Perf",
+    "TabLock",
+    "UI"
+   ]
+  },
+  {
+   "file": "088-changelog.js",
+   "layer": "1 data tables",
+   "modules": [
+    "CHANGELOG"
+   ],
+   "deps": []
+  },
+  {
+   "file": "089-changelog.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Changelog"
+   ],
+   "deps": [
+    "CHANGELOG",
+    "I18n",
+    "UI"
+   ]
+  },
+  {
+   "file": "090-guide.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "Guide"
+   ],
+   "deps": [
+    "CONFIG",
+    "Raids",
+    "Tower",
+    "UI"
+   ]
+  },
+  {
+   "file": "091-news.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "News"
+   ],
+   "deps": [
+    "Cloud",
+    "EventUI",
+    "Events",
+    "Game",
+    "I18n",
+    "STORY",
+    "UI"
+   ]
+  },
+  {
+   "file": "092-title.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "Title"
+   ],
+   "deps": [
+    "Changelog",
+    "Cloud",
+    "Game",
+    "Names",
+    "POKEDEX",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Sfx",
+    "UI"
+   ]
+  },
+  {
+   "file": "093-update.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "Update"
+   ],
+   "deps": [
+    "App",
+    "CatchUp",
+    "Cloud",
+    "Game",
+    "TabLock",
+    "UI"
+   ]
+  },
+  {
+   "file": "094-sleep.js",
+   "layer": "1 data tables",
+   "modules": [
+    "Sleep"
+   ],
+   "deps": [
+    "Adventure",
+    "App",
+    "CatchUp",
+    "Game",
+    "I18n",
+    "Perf",
+    "STORY",
+    "Screens",
+    "TabLock",
+    "UI"
+   ]
+  },
+  {
+   "file": "095-app-boot.js",
+   "layer": "8 shell/flow",
+   "modules": [
+    "App",
+    "CatchUp"
+   ],
+   "deps": [
+    "Adventure",
+    "CONFIG",
+    "Changelog",
+    "Clock",
+    "Cloud",
+    "EventUI",
+    "Events",
+    "Game",
+    "Gifts",
+    "LegendZones",
+    "News",
+    "Options",
+    "POKEDEX",
+    "Raids",
+    "SCENES",
+    "SPRITE_BOUNDS",
+    "STORY",
+    "Screens",
+    "Screens.adventure",
+    "Screens.casino",
+    "Screens.friends",
+    "Screens.market",
+    "Screens.pension",
+    "Screens.pokedex",
+    "Screens.team",
+    "Screens.trade",
+    "Screens.underground",
+    "Sfx",
+    "TabLock",
+    "Title",
+    "Tower",
+    "TrainerCard",
+    "UI",
+    "Update",
+    "VGrid",
+    "WorldBoss"
+   ]
+  }
+ ],
+ "cycles": [
+  [
+   "002-clock.js",
+   "015-unown.js",
+   "017-forms.js",
+   "022-i18n.js",
+   "024-daytime.js",
+   "025-weather.js",
+   "027-status.js",
+   "028-story.js",
+   "029-scenes.js",
+   "032-adventure.js",
+   "033-underground.js",
+   "034-events.js",
+   "036-raids.js",
+   "037-worldboss.js",
+   "038-tower.js",
+   "039-candy-run.js",
+   "040-legend-zones.js",
+   "041-roaming.js",
+   "045-ui-core.js",
+   "046-perf.js",
+   "047-elite-frames.js",
+   "048-frames.js",
+   "049-badge-shine.js",
+   "050-battle-fx.js",
+   "051-capture-fx.js",
+   "052-item-fx.js",
+   "053-link-fx.js",
+   "054-raid-draw.js",
+   "055-heal-fx.js",
+   "056-shiny-glint.js",
+   "057-gift-fx.js",
+   "058-geode-fx.js",
+   "059-rank-fx.js",
+   "062-event-ui.js",
+   "063-event-team.js",
+   "064-screen-adventure.js",
+   "065-screen-map-event.js",
+   "066-screen-raid.js",
+   "067-worldboss-view.js",
+   "068-screen-tower.js",
+   "069-screen-candy.js",
+   "070-screen-underground.js",
+   "071-screen-achievements.js",
+   "072-screen-team.js",
+   "073-screen-pension.js",
+   "074-pension-berry-fx.js",
+   "076-screen-pokedex.js",
+   "077-screen-shop.js",
+   "078-screen-casino.js",
+   "079-screen-trade.js",
+   "080-screen-market.js",
+   "081-screen-friends.js",
+   "082-trainer-card.js",
+   "084-cloud.js",
+   "085-gifts.js",
+   "087-options.js",
+   "089-changelog.js",
+   "090-guide.js",
+   "091-news.js",
+   "092-title.js",
+   "093-update.js",
+   "095-app-boot.js"
+  ]
+ ]
+}

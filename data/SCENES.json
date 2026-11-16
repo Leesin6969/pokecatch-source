@@ -1,0 +1,1891 @@
+{
+ "catalog": {
+  "1": {
+   "src": "assets/bg/scenes/01-prairie-ouverte-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/kanto-revision-qualite/01-prairie-ouverte/01-prairie-ouverte-v2-710x400.png"
+  },
+  "2": {
+   "src": "assets/bg/scenes/02-chemin-boise-lisiere-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-01/02-chemin-boise-lisiere-710x400.png"
+  },
+  "3": {
+   "src": "assets/bg/scenes/03-sentier-rocheux-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-01/03-sentier-rocheux-710x400.png"
+  },
+  "4": {
+   "src": "assets/bg/scenes/04-berge-riviere-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-01/04-berge-riviere-710x400.png"
+  },
+  "5": {
+   "src": "assets/bg/scenes/05-pont-pepite-v2-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-01/05-pont-pepite-v2-710x400.png"
+  },
+  "6": {
+   "src": "assets/bg/scenes/06-pontons-peche-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-02/06-pontons-peche-710x400.png"
+  },
+  "7": {
+   "src": "assets/bg/scenes/07-prairie-cotiere-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-02/07-prairie-cotiere-710x400.png"
+  },
+  "8": {
+   "src": "assets/bg/scenes/08-piste-cyclable-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-02/08-piste-cyclable-710x400.png"
+  },
+  "9": {
+   "src": "assets/bg/scenes/09-plage-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-02/09-plage-710x400.png"
+  },
+  "10": {
+   "src": "assets/bg/scenes/10-pleine-mer-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-02/10-pleine-mer-710x400.png"
+  },
+  "11": {
+   "src": "assets/bg/scenes/11-approche-ligue-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-03/11-approche-ligue-710x400.png"
+  },
+  "12": {
+   "src": "assets/bg/scenes/12-foret-jade-v2-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-04/12-foret-jade-v2-710x400.png"
+  },
+  "14": {
+   "src": "assets/bg/scenes/14-grotte-taupiqueur-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-03/14-grotte-taupiqueur-710x400.png"
+  },
+  "15": {
+   "src": "assets/bg/scenes/15-grotte-sombre-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-03/15-grotte-sombre-710x400.png"
+  },
+  "16": {
+   "src": "assets/bg/scenes/16-tour-pokemon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-04/16-tour-pokemon-710x400.png"
+  },
+  "17": {
+   "src": "assets/bg/scenes/17-safari-prairie-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-04/17-safari-prairie-710x400.png"
+  },
+  "18": {
+   "src": "assets/bg/scenes/18-safari-zone-humide-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-04/18-safari-zone-humide-710x400.png"
+  },
+  "19": {
+   "src": "assets/bg/scenes/19-centrale-abandonnee-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-04/19-centrale-abandonnee-710x400.png"
+  },
+  "20": {
+   "src": "assets/bg/scenes/20-iles-ecume-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/20-iles-ecume-v2-710x400.png"
+  },
+  "21": {
+   "src": "assets/bg/scenes/21-manoir-pokemon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/21-manoir-pokemon-710x400.png"
+  },
+  "22": {
+   "src": "assets/bg/scenes/22-repaire-rocket-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/22-repaire-rocket-710x400.png"
+  },
+  "23": {
+   "src": "assets/bg/scenes/23-sylphe-sarl-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/23-sylphe-sarl-710x400.png"
+  },
+  "24": {
+   "src": "assets/bg/scenes/24-route-victoire-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/24-route-victoire-710x400.png"
+  },
+  "25": {
+   "src": "assets/bg/scenes/25-caverne-azuree-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-05/25-caverne-azuree-710x400.png"
+  },
+  "26": {
+   "src": "assets/bg/scenes/26-arene-pierre-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/kanto-arene-pierre-v4/26-arene-pierre-v4-710x400.png"
+  },
+  "27": {
+   "src": "assets/bg/scenes/27-arene-ondine-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/kanto-revision-qualite/27-arene-ondine/27-arene-ondine-v2-710x400.png"
+  },
+  "28": {
+   "src": "assets/bg/scenes/28-arene-major-bob-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-06/28-arene-major-bob-710x400.png"
+  },
+  "29": {
+   "src": "assets/bg/scenes/29-arene-erika-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-06/29-arene-erika-710x400.png"
+  },
+  "30": {
+   "src": "assets/bg/scenes/30-arene-koga-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-06/30-arene-koga-710x400.png"
+  },
+  "31": {
+   "src": "assets/bg/scenes/31-arene-morgane-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-07/31-arene-morgane-710x400.png"
+  },
+  "32": {
+   "src": "assets/bg/scenes/32-arene-auguste-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-07/32-arene-auguste-710x400.png"
+  },
+  "33": {
+   "src": "assets/bg/scenes/33-arene-giovanni-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-07/33-arene-giovanni-710x400.png"
+  },
+  "34": {
+   "src": "assets/bg/scenes/34-ligue-olga-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-07/34-ligue-olga-710x400.png"
+  },
+  "35": {
+   "src": "assets/bg/scenes/35-ligue-aldo-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-07/35-ligue-aldo-v2-710x400.png"
+  },
+  "36": {
+   "src": "assets/bg/scenes/36-ligue-agatha-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-08/36-ligue-agatha-710x400.png"
+  },
+  "37": {
+   "src": "assets/bg/scenes/37-ligue-peter-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-08/37-ligue-peter-710x400.png"
+  },
+  "38": {
+   "src": "assets/bg/scenes/38-maitre-blue-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-08/38-maitre-blue-710x400.png"
+  },
+  "39": {
+   "src": "assets/bg/scenes/39-bourg-palette-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-08/39-bourg-palette-710x400.png"
+  },
+  "40": {
+   "src": "assets/bg/scenes/40-jadielle-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-08/40-jadielle-710x400.png"
+  },
+  "41": {
+   "src": "assets/bg/scenes/41-argenta-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-09/41-argenta-710x400.png"
+  },
+  "42": {
+   "src": "assets/bg/scenes/42-azuria-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-09/42-azuria-710x400.png"
+  },
+  "43": {
+   "src": "assets/bg/scenes/43-carmin-port-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-09/43-carmin-port-710x400.png"
+  },
+  "44": {
+   "src": "assets/bg/scenes/44-lavanville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-09/44-lavanville-710x400.png"
+  },
+  "45": {
+   "src": "assets/bg/scenes/45-celadopole-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-09/45-celadopole-710x400.png"
+  },
+  "46": {
+   "src": "assets/bg/scenes/46-safrania-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-10/46-safrania-710x400.png"
+  },
+  "47": {
+   "src": "assets/bg/scenes/47-parmanie-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-10/47-parmanie-710x400.png"
+  },
+  "48": {
+   "src": "assets/bg/scenes/48-cramois-ile-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-10/48-cramois-ile-710x400.png"
+  },
+  "49": {
+   "src": "assets/bg/scenes/49-plateau-indigo-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-10/49-plateau-indigo-710x400.png"
+  },
+  "50": {
+   "src": "assets/bg/scenes/50-centre-pokemon-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-10/50-centre-pokemon-v2-710x400.png"
+  },
+  "51": {
+   "src": "assets/bg/scenes/51-labo-cramois-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-11/51-labo-cramois-710x400.png"
+  },
+  "52": {
+   "src": "assets/bg/scenes/52-oceane-interieur-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-11/52-oceane-interieur-710x400.png"
+  },
+  "53": {
+   "src": "assets/bg/scenes/53-oceane-pont-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-11/53-oceane-pont-710x400.png"
+  },
+  "54": {
+   "src": "assets/bg/scenes/54-dojo-safrania-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-11/54-dojo-safrania-710x400.png"
+  },
+  "55": {
+   "src": "assets/bg/scenes/55-casino-celadopole-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-11/55-casino-celadopole-710x400.png"
+  },
+  "56": {
+   "src": "assets/bg/scenes/56-musee-argenta-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-12/56-musee-argenta-710x400.png"
+  },
+  "57": {
+   "src": "assets/bg/scenes/57-maison-leo-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-12/57-maison-leo-710x400.png"
+  },
+  "58": {
+   "src": "assets/bg/scenes/58-manoir-celadon-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/production-lot-12/58-manoir-celadon-710x400.png"
+  },
+  "59": {
+   "src": "assets/bg/scenes/59-souterrains-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-12/59-souterrains-710x400.png"
+  },
+  "60": {
+   "src": "assets/bg/scenes/60-boutique-pokemon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-12/60-boutique-pokemon-710x400.png"
+  },
+  "61": {
+   "src": "assets/bg/scenes/61-pantheon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/production-lot-13/61-pantheon-710x400.png"
+  },
+  "62": {
+   "src": "assets/bg/scenes/labo-professeur-chen-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/introduction-chen/labo-professeur-chen-v2-710x400.png"
+  },
+  "63": {
+   "src": "assets/bg/scenes/parc-pension-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/pension/parc-pension-710x400.png"
+  },
+  "johto-bois-chenes": {
+   "src": "assets/bg/scenes/johto-bois-chenes-v2-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-02/07-bois-chenes-v2-710x400.png"
+  },
+  "johto-caves-jumelles": {
+   "src": "assets/bg/scenes/johto-caves-jumelles-v8-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-02/05-caves-jumelles-v8-710x400.png"
+  },
+  "johto-tour-cendree": {
+   "src": "assets/bg/scenes/johto-tour-cendree-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-03/09-tour-cendree-710x400.png"
+  },
+  "johto-phare-oliville": {
+   "src": "assets/bg/scenes/johto-phare-oliville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-03/10-phare-oliville-710x400.png"
+  },
+  "johto-iles-tourbillon": {
+   "src": "assets/bg/scenes/johto-iles-tourbillon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-03/11-iles-tourbillon-710x400.png"
+  },
+  "johto-mont-creuset": {
+   "src": "assets/bg/scenes/johto-mont-creuset-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-03/12-mont-creuset-710x400.png"
+  },
+  "johto-lac-colere": {
+   "src": "assets/bg/scenes/johto-lac-colere-v2-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-04/13-lac-colere-v2-710x400.png"
+  },
+  "johto-tour-radio": {
+   "src": "assets/bg/scenes/johto-tour-radio-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-04/14-tour-radio-v2-710x400.png"
+  },
+  "johto-route-glace": {
+   "src": "assets/bg/scenes/johto-route-glace-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-04/15-route-glace-v2-710x400.png"
+  },
+  "johto-antre-dragon": {
+   "src": "assets/bg/scenes/johto-antre-dragon-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-04/16-antre-dragon-v2-710x400.png"
+  },
+  "johto-tour-carillon-v2": {
+   "src": "assets/bg/scenes/johto-tour-carillon-v2-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-05/17-tour-carillon-v2-710x400.png"
+  },
+  "johto-mont-argente-v2": {
+   "src": "assets/bg/scenes/johto-mont-argente-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-05/18-mont-argente-v2-710x400.png"
+  },
+  "johto-arene-mauville": {
+   "src": "assets/bg/scenes/johto-arene-mauville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-05/19-arene-mauville-710x400.png"
+  },
+  "johto-arene-ecorcia": {
+   "src": "assets/bg/scenes/johto-arene-ecorcia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-05/20-arene-ecorcia-710x400.png"
+  },
+  "johto-arene-doublonville": {
+   "src": "assets/bg/scenes/johto-arene-doublonville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-06/21-arene-doublonville-710x400.png"
+  },
+  "johto-arene-rosalia": {
+   "src": "assets/bg/scenes/johto-arene-rosalia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-06/22-arene-rosalia-710x400.png"
+  },
+  "johto-arene-irisia": {
+   "src": "assets/bg/scenes/johto-arene-irisia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-06/23-arene-irisia-710x400.png"
+  },
+  "johto-arene-oliville": {
+   "src": "assets/bg/scenes/johto-arene-oliville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-06/24-arene-oliville-710x400.png"
+  },
+  "johto-arene-acajou": {
+   "src": "assets/bg/scenes/johto-arene-acajou-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-07/25-arene-acajou-710x400.png"
+  },
+  "johto-arene-ebenelle": {
+   "src": "assets/bg/scenes/johto-arene-ebenelle-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-07/26-arene-ebenelle-710x400.png"
+  },
+  "johto-ligue-clement": {
+   "src": "assets/bg/scenes/johto-ligue-clement-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-07/27-ligue-clement-710x400.png"
+  },
+  "johto-ligue-koga": {
+   "src": "assets/bg/scenes/johto-ligue-koga-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-07/28-ligue-koga-710x400.png"
+  },
+  "johto-ligue-aldo": {
+   "src": "assets/bg/scenes/johto-ligue-aldo-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-08/29-ligue-aldo-710x400.png"
+  },
+  "johto-ligue-marion-v2": {
+   "src": "assets/bg/scenes/johto-ligue-marion-v2-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-08/30-ligue-marion-v2-710x400.png"
+  },
+  "johto-maitre-peter": {
+   "src": "assets/bg/scenes/johto-maitre-peter-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-08/31-maitre-peter-710x400.png"
+  },
+  "johto-bourg-geon": {
+   "src": "assets/bg/scenes/johto-bourg-geon-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-08/32-bourg-geon-710x400.png"
+  },
+  "johto-ville-griotte": {
+   "src": "assets/bg/scenes/johto-ville-griotte-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-09/33-ville-griotte-710x400.png"
+  },
+  "johto-mauville": {
+   "src": "assets/bg/scenes/johto-mauville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-09/34-mauville-710x400.png"
+  },
+  "johto-ecorcia": {
+   "src": "assets/bg/scenes/johto-ecorcia-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-09/35-ecorcia-710x400.png"
+  },
+  "johto-doublonville": {
+   "src": "assets/bg/scenes/johto-doublonville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-09/36-doublonville-710x400.png"
+  },
+  "johto-rosalia": {
+   "src": "assets/bg/scenes/johto-rosalia-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-10/37-rosalia-710x400.png"
+  },
+  "johto-oliville": {
+   "src": "assets/bg/scenes/johto-oliville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-10/38-oliville-710x400.png"
+  },
+  "johto-irisia": {
+   "src": "assets/bg/scenes/johto-irisia-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-10/39-irisia-710x400.png"
+  },
+  "johto-acajou": {
+   "src": "assets/bg/scenes/johto-acajou-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-10/40-acajou-710x400.png"
+  },
+  "johto-ebenelle": {
+   "src": "assets/bg/scenes/johto-ebenelle-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-11/41-ebenelle-v4-710x400.png"
+  },
+  "johto-prairies": {
+   "src": "assets/bg/scenes/johto-prairies-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-11/42-prairies-johto-v5-710x400.png"
+  },
+  "johto-cote": {
+   "src": "assets/bg/scenes/johto-cote-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-11/43-cote-johto-v5-710x400.png"
+  },
+  "jungle-x": {
+   "src": "assets/bg/scenes/jungle-x-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/jungle-x/jungle-x-v2-710x400.png"
+  },
+  "johto-sentier-montagne": {
+   "src": "assets/bg/scenes/johto-sentier-montagne-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-11/44-sentier-montagne-johto-v5-710x400.png"
+  },
+  "johto-repaire-rocket": {
+   "src": "assets/bg/scenes/johto-repaire-rocket-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-12/45-repaire-rocket-710x400.png"
+  },
+  "johto-sous-sol-doublonville": {
+   "src": "assets/bg/scenes/johto-sous-sol-doublonville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-12/46-sous-sol-doublonville-710x400.png"
+  },
+  "johto-maison-irisia": {
+   "src": "assets/bg/scenes/johto-maison-irisia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-12/47-maison-irisia-710x400.png"
+  },
+  "johto-sommet-mont-argente": {
+   "src": "assets/bg/scenes/johto-sommet-mont-argente-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-12/48-sommet-mont-argente-710x400.png"
+  },
+  "johto-labo-orme": {
+   "src": "assets/bg/scenes/johto-labo-orme-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-01/01-labo-orme-v2-710x400.png"
+  },
+  "johto-tour-chetiflor": {
+   "src": "assets/bg/scenes/johto-tour-chetiflor-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-01/03-tour-chetiflor-710x400.png"
+  },
+  "johto-ruines-alpha": {
+   "src": "assets/bg/scenes/johto-ruines-alpha-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-01/04-ruines-alpha-710x400.png"
+  },
+  "johto-puits-ramoloss": {
+   "src": "assets/bg/scenes/johto-puits-ramoloss-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-02/06-puits-ramoloss-710x400.png"
+  },
+  "johto-parc-naturel": {
+   "src": "assets/bg/scenes/johto-parc-naturel-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/johto-lot-02/08-parc-naturel-710x400.png"
+  },
+  "johto-theatre-rosalia": {
+   "src": "assets/bg/scenes/johto-theatre-rosalia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/johto-lot-13/49-theatre-rosalia-710x400.png"
+  },
+  "hoenn-algatia": {
+   "src": "assets/bg/scenes/hoenn-algatia-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-archipel-recifs": {
+   "src": "assets/bg/scenes/hoenn-archipel-recifs-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-atalanopolis": {
+   "src": "assets/bg/scenes/hoenn-atalanopolis-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-autequia": {
+   "src": "assets/bg/scenes/hoenn-autequia-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-bois-clementi": {
+   "src": "assets/bg/scenes/hoenn-bois-clementi-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-bourg-en-vol": {
+   "src": "assets/bg/scenes/hoenn-bourg-en-vol-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-cimetronelle": {
+   "src": "assets/bg/scenes/hoenn-cimetronelle-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-clementi-ville": {
+   "src": "assets/bg/scenes/hoenn-clementi-ville-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-contreforts-volcaniques": {
+   "src": "assets/bg/scenes/hoenn-contreforts-volcaniques-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-cote-rocheuse": {
+   "src": "assets/bg/scenes/hoenn-cote-rocheuse-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-courants-marins": {
+   "src": "assets/bg/scenes/hoenn-courants-marins-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-desert-route-111": {
+   "src": "assets/bg/scenes/hoenn-desert-route-111-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-eternara": {
+   "src": "assets/bg/scenes/hoenn-eternara-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-foret-lacs-route-120": {
+   "src": "assets/bg/scenes/hoenn-foret-lacs-route-120-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-ile-du-sud": {
+   "src": "assets/bg/scenes/hoenn-ile-du-sud-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-ile-mirage": {
+   "src": "assets/bg/scenes/hoenn-ile-mirage-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-jungle-route-119": {
+   "src": "assets/bg/scenes/hoenn-jungle-route-119-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-lavandia": {
+   "src": "assets/bg/scenes/hoenn-lavandia-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-lisiere-humide": {
+   "src": "assets/bg/scenes/hoenn-lisiere-humide-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-merouville": {
+   "src": "assets/bg/scenes/hoenn-merouville-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-myokara": {
+   "src": "assets/bg/scenes/hoenn-myokara-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-nenucrique": {
+   "src": "assets/bg/scenes/hoenn-nenucrique-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-pacifiville": {
+   "src": "assets/bg/scenes/hoenn-pacifiville-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-parc-safari-hoenn": {
+   "src": "assets/bg/scenes/hoenn-parc-safari-hoenn-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-piste-cyclable-maritime": {
+   "src": "assets/bg/scenes/hoenn-piste-cyclable-maritime-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-plage-tropicale": {
+   "src": "assets/bg/scenes/hoenn-plage-tropicale-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-pilier-celeste-sommet": {
+   "src": "assets/bg/scenes/hoenn-pilier-celeste-sommet-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-pleine-mer": {
+   "src": "assets/bg/scenes/hoenn-pleine-mer-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-poivressel": {
+   "src": "assets/bg/scenes/hoenn-poivressel-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-prairie-tropicale": {
+   "src": "assets/bg/scenes/hoenn-prairie-tropicale-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-rosyeres": {
+   "src": "assets/bg/scenes/hoenn-rosyeres-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-route-cendres": {
+   "src": "assets/bg/scenes/hoenn-route-cendres-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-sentier-sinuroc": {
+   "src": "assets/bg/scenes/hoenn-sentier-sinuroc-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-sommet-mont-chimnee": {
+   "src": "assets/bg/scenes/hoenn-sommet-mont-chimnee-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-sommet-mont-memoria": {
+   "src": "assets/bg/scenes/hoenn-sommet-mont-memoria-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-tour-mirage": {
+   "src": "assets/bg/scenes/hoenn-tour-mirage-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-vallee-route-114": {
+   "src": "assets/bg/scenes/hoenn-vallee-route-114-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-vergazon": {
+   "src": "assets/bg/scenes/hoenn-vergazon-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-vergers-est-hoenn": {
+   "src": "assets/bg/scenes/hoenn-vergers-est-hoenn-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-vermilava": {
+   "src": "assets/bg/scenes/hoenn-vermilava-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-voie-du-desert": {
+   "src": "assets/bg/scenes/hoenn-voie-du-desert-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-zone-combat-exterieur": {
+   "src": "assets/bg/scenes/hoenn-zone-combat-exterieur-710x400.webp",
+   "indoor": false
+  },
+  "hoenn-arene-algatia": {
+   "src": "assets/bg/scenes/hoenn-arene-algatia-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-atalanopolis": {
+   "src": "assets/bg/scenes/hoenn-arene-atalanopolis-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-cimetronelle": {
+   "src": "assets/bg/scenes/hoenn-arene-cimetronelle-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-clementi-ville": {
+   "src": "assets/bg/scenes/hoenn-arene-clementi-ville-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-lavandia": {
+   "src": "assets/bg/scenes/hoenn-arene-lavandia-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-merouville": {
+   "src": "assets/bg/scenes/hoenn-arene-merouville-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-myokara": {
+   "src": "assets/bg/scenes/hoenn-arene-myokara-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-arene-vermilava": {
+   "src": "assets/bg/scenes/hoenn-arene-vermilava-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-caverne-fondmer": {
+   "src": "assets/bg/scenes/hoenn-caverne-fondmer-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-centre-spatial": {
+   "src": "assets/bg/scenes/hoenn-centre-spatial-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-chambre-ancienne-sous-marine": {
+   "src": "assets/bg/scenes/hoenn-chambre-ancienne-sous-marine-710x400.webp",
+   "indoor": true,
+   "sky": "underwater"
+  },
+  "hoenn-chemin-ardent": {
+   "src": "assets/bg/scenes/hoenn-chemin-ardent-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-conseil4-aragon": {
+   "src": "assets/bg/scenes/hoenn-conseil4-aragon-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-conseil4-damien": {
+   "src": "assets/bg/scenes/hoenn-conseil4-damien-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-conseil4-glacia": {
+   "src": "assets/bg/scenes/hoenn-conseil4-glacia-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-conseil4-spectra": {
+   "src": "assets/bg/scenes/hoenn-conseil4-spectra-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-devon-sarl": {
+   "src": "assets/bg/scenes/hoenn-devon-sarl-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-dojo-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-dojo-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-dome-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-dome-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-epave": {
+   "src": "assets/bg/scenes/hoenn-epave-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-fonds-sous-marins": {
+   "src": "assets/bg/scenes/hoenn-fonds-sous-marins-710x400.webp",
+   "indoor": true,
+   "sky": "underwater"
+  },
+  "hoenn-grotte-granite": {
+   "src": "assets/bg/scenes/hoenn-grotte-granite-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-island": {
+   "src": "assets/bg/scenes/hoenn-grotte-island-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-marine": {
+   "src": "assets/bg/scenes/hoenn-grotte-marine-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-origine": {
+   "src": "assets/bg/scenes/hoenn-grotte-origine-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-terra": {
+   "src": "assets/bg/scenes/hoenn-grotte-terra-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-trefonds-glace": {
+   "src": "assets/bg/scenes/hoenn-grotte-trefonds-glace-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-grotte-trefonds-marees": {
+   "src": "assets/bg/scenes/hoenn-grotte-trefonds-marees-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-institut-meteo": {
+   "src": "assets/bg/scenes/hoenn-institut-meteo-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-laboratoire-seko": {
+   "src": "assets/bg/scenes/hoenn-laboratoire-seko-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-maison-pieges": {
+   "src": "assets/bg/scenes/hoenn-maison-pieges-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-maitre-pierre-rochard": {
+   "src": "assets/bg/scenes/hoenn-maitre-pierre-rochard-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-mont-memoria-interieur": {
+   "src": "assets/bg/scenes/hoenn-mont-memoria-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-musee-oceanographique": {
+   "src": "assets/bg/scenes/hoenn-musee-oceanographique-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-new-lavandia": {
+   "src": "assets/bg/scenes/hoenn-new-lavandia-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-palace-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-palace-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-pilier-celeste-interieur": {
+   "src": "assets/bg/scenes/hoenn-pilier-celeste-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-planque-aqua": {
+   "src": "assets/bg/scenes/hoenn-planque-aqua-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-planque-magma": {
+   "src": "assets/bg/scenes/hoenn-planque-magma-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-pyramide-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-pyramide-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-reptile-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-reptile-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-route-victoire-hoenn": {
+   "src": "assets/bg/scenes/hoenn-route-victoire-hoenn-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-ruines-desert": {
+   "src": "assets/bg/scenes/hoenn-ruines-desert-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-salle-concours": {
+   "src": "assets/bg/scenes/hoenn-salle-concours-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-sanctuaire-chambre-emergee": {
+   "src": "assets/bg/scenes/hoenn-sanctuaire-chambre-emergee-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-site-meteore": {
+   "src": "assets/bg/scenes/hoenn-site-meteore-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-tombeau-antique": {
+   "src": "assets/bg/scenes/hoenn-tombeau-antique-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-tour-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-tour-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-usine-combat-interieur": {
+   "src": "assets/bg/scenes/hoenn-usine-combat-interieur-710x400.webp",
+   "indoor": true
+  },
+  "hoenn-tunnel-merazon": {
+   "src": "assets/bg/scenes/hoenn-tunnel-merazon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/hoenn-lot-24/92-tunnel-merazon-710x400.png"
+  },
+  "hoenn-route-118": {
+   "src": "assets/bg/scenes/hoenn-route-118-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-24/93-route-118-710x400.png"
+  },
+  "hoenn-route-116": {
+   "src": "assets/bg/scenes/hoenn-route-116-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-24/94-route-116-710x400.png"
+  },
+  "hoenn-route-123": {
+   "src": "assets/bg/scenes/hoenn-route-123-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-24/95-route-123-710x400.png"
+  },
+  "hoenn-archipel-routes-105-108": {
+   "src": "assets/bg/scenes/hoenn-archipel-routes-105-108-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-25/v5/96-archipel-routes-105-108-710x400.png"
+  },
+  "hoenn-haute-mer-routes-129-131": {
+   "src": "assets/bg/scenes/hoenn-haute-mer-routes-129-131-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-25/v3/97-haute-mer-routes-129-131-710x400.png"
+  },
+  "hoenn-cote-route-125": {
+   "src": "assets/bg/scenes/hoenn-cote-route-125-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-lot-25/98-cote-route-125-710x400.png"
+  },
+  "hoenn-sommet-des-voeux-jirachi": {
+   "src": "assets/bg/scenes/hoenn-sommet-des-voeux-jirachi-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/hoenn-jirachi/sommet-des-voeux-jirachi-710x400.png"
+  },
+  "hoenn-ile-aurore-deoxys": {
+   "src": "assets/bg/scenes/ile-aurore-deoxys-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/deoxys-ile-aurore/02-aurore-eveil-710x400.png"
+  },
+  "groudon-chambre-magmatique": {
+   "src": "assets/bg/scenes/groudon-chambre-magmatique-710x400.webp",
+   "indoor": true
+  },
+  "kyogre-arene-tempete": {
+   "src": "assets/bg/scenes/kyogre-arene-tempete-710x400.webp",
+   "indoor": false
+  },
+  "rayquaza-pilier-celeste": {
+   "src": "assets/bg/scenes/rayquaza-pilier-celeste-710x400.webp",
+   "indoor": false
+  },
+  "artikodin-mer-gelee": {
+   "src": "assets/bg/scenes/artikodin-mer-gelee-710x400.webp",
+   "indoor": false
+  },
+  "sulfura-grotte-ardente": {
+   "src": "assets/bg/scenes/sulfura-grotte-ardente-710x400.webp",
+   "indoor": true,
+   "veil": false
+  },
+  "sinnoh-bonaugure": {
+   "src": "assets/bg/scenes/sinnoh-bonaugure-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-01/01-bonaugure-710x400.png"
+  },
+  "sinnoh-littorella": {
+   "src": "assets/bg/scenes/sinnoh-littorella-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-01/02-littorella-710x400.png"
+  },
+  "sinnoh-feli-cite": {
+   "src": "assets/bg/scenes/sinnoh-feli-cite-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-01/03-feli-cite-710x400.png"
+  },
+  "sinnoh-charbourg": {
+   "src": "assets/bg/scenes/sinnoh-charbourg-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-01/04-charbourg-710x400.png"
+  },
+  "sinnoh-floraville": {
+   "src": "assets/bg/scenes/sinnoh-floraville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-02/05-floraville-710x400.png"
+  },
+  "sinnoh-vestigion": {
+   "src": "assets/bg/scenes/sinnoh-vestigion-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-02/06-vestigion-710x400.png"
+  },
+  "sinnoh-unionpolis": {
+   "src": "assets/bg/scenes/sinnoh-unionpolis-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-02/07-unionpolis-710x400.png"
+  },
+  "sinnoh-bonville": {
+   "src": "assets/bg/scenes/sinnoh-bonville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-02/08-bonville-710x400.png"
+  },
+  "sinnoh-voilaroc": {
+   "src": "assets/bg/scenes/sinnoh-voilaroc-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-03/09-voilaroc-710x400.png"
+  },
+  "sinnoh-verchamps": {
+   "src": "assets/bg/scenes/sinnoh-verchamps-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-03/10-verchamps-710x400.png"
+  },
+  "sinnoh-celestia": {
+   "src": "assets/bg/scenes/sinnoh-celestia-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-03/11-celestia-710x400.png"
+  },
+  "sinnoh-joliberges": {
+   "src": "assets/bg/scenes/sinnoh-joliberges-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-03/12-joliberges-710x400.png"
+  },
+  "sinnoh-frimapic": {
+   "src": "assets/bg/scenes/sinnoh-frimapic-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-04/13-frimapic-710x400.png"
+  },
+  "sinnoh-rivamar": {
+   "src": "assets/bg/scenes/sinnoh-rivamar-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-04/14-rivamar-710x400.png"
+  },
+  "sinnoh-ligue-pokemon": {
+   "src": "assets/bg/scenes/sinnoh-ligue-pokemon-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-04/15-ligue-pokemon-710x400.png"
+  },
+  "sinnoh-aire-combat": {
+   "src": "assets/bg/scenes/sinnoh-aire-combat-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-04/16-aire-combat-710x400.png"
+  },
+  "sinnoh-aire-survie": {
+   "src": "assets/bg/scenes/sinnoh-aire-survie-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-05/17-aire-survie-710x400.png"
+  },
+  "sinnoh-aire-detente": {
+   "src": "assets/bg/scenes/sinnoh-aire-detente-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-05/18-aire-detente-710x400.png"
+  },
+  "sinnoh-route-201": {
+   "src": "assets/bg/scenes/sinnoh-route-201-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-05/19-route-201-710x400.png"
+  },
+  "sinnoh-route-202": {
+   "src": "assets/bg/scenes/sinnoh-route-202-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-05/20-route-202-710x400.png"
+  },
+  "sinnoh-route-203": {
+   "src": "assets/bg/scenes/sinnoh-route-203-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-06/21-route-203-710x400.png"
+  },
+  "sinnoh-route-204": {
+   "src": "assets/bg/scenes/sinnoh-route-204-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-06/22-route-204-710x400.png"
+  },
+  "sinnoh-route-205": {
+   "src": "assets/bg/scenes/sinnoh-route-205-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-06/23-route-205-710x400.png"
+  },
+  "sinnoh-route-206": {
+   "src": "assets/bg/scenes/sinnoh-route-206-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-06/24-route-206-710x400.png"
+  },
+  "sinnoh-route-207": {
+   "src": "assets/bg/scenes/sinnoh-route-207-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-07/25-route-207-710x400.png"
+  },
+  "sinnoh-route-208": {
+   "src": "assets/bg/scenes/sinnoh-route-208-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-07/26-route-208-710x400.png"
+  },
+  "sinnoh-route-209": {
+   "src": "assets/bg/scenes/sinnoh-route-209-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-07/27-route-209-710x400.png"
+  },
+  "sinnoh-route-210": {
+   "src": "assets/bg/scenes/sinnoh-route-210-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-07/28-route-210-710x400.png"
+  },
+  "sinnoh-route-211": {
+   "src": "assets/bg/scenes/sinnoh-route-211-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-08/29-route-211-710x400.png"
+  },
+  "sinnoh-route-212": {
+   "src": "assets/bg/scenes/sinnoh-route-212-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-08/30-route-212-710x400.png"
+  },
+  "sinnoh-route-213": {
+   "src": "assets/bg/scenes/sinnoh-route-213-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-08/31-route-213-710x400.png"
+  },
+  "sinnoh-route-214": {
+   "src": "assets/bg/scenes/sinnoh-route-214-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-08/32-route-214-710x400.png"
+  },
+  "sinnoh-route-215": {
+   "src": "assets/bg/scenes/sinnoh-route-215-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-09/33-route-215-710x400.png"
+  },
+  "sinnoh-route-216": {
+   "src": "assets/bg/scenes/sinnoh-route-216-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-09/34-route-216-710x400.png"
+  },
+  "sinnoh-route-217": {
+   "src": "assets/bg/scenes/sinnoh-route-217-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-09/35-route-217-710x400.png"
+  },
+  "sinnoh-route-218": {
+   "src": "assets/bg/scenes/sinnoh-route-218-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-09/36-route-218-710x400.png"
+  },
+  "sinnoh-route-219": {
+   "src": "assets/bg/scenes/sinnoh-route-219-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-10/37-route-219-710x400.png"
+  },
+  "sinnoh-chenal-220": {
+   "src": "assets/bg/scenes/sinnoh-chenal-220-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-10/38-chenal-220-710x400.png"
+  },
+  "sinnoh-route-221": {
+   "src": "assets/bg/scenes/sinnoh-route-221-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-10/39-route-221-710x400.png"
+  },
+  "sinnoh-route-222": {
+   "src": "assets/bg/scenes/sinnoh-route-222-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-10/40-route-222-710x400.png"
+  },
+  "sinnoh-chenal-223": {
+   "src": "assets/bg/scenes/sinnoh-chenal-223-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-11/41-chenal-223-710x400.png"
+  },
+  "sinnoh-route-224": {
+   "src": "assets/bg/scenes/sinnoh-route-224-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-11/42-route-224-710x400.png"
+  },
+  "sinnoh-route-225": {
+   "src": "assets/bg/scenes/sinnoh-route-225-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-11/43-route-225-710x400.png"
+  },
+  "sinnoh-chenal-226": {
+   "src": "assets/bg/scenes/sinnoh-chenal-226-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-11/44-chenal-226-710x400.png"
+  },
+  "sinnoh-route-227": {
+   "src": "assets/bg/scenes/sinnoh-route-227-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-12/45-route-227-710x400.png"
+  },
+  "sinnoh-route-228": {
+   "src": "assets/bg/scenes/sinnoh-route-228-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-12/46-route-228-710x400.png"
+  },
+  "sinnoh-route-229": {
+   "src": "assets/bg/scenes/sinnoh-route-229-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-12/47-route-229-710x400.png"
+  },
+  "sinnoh-chenal-230": {
+   "src": "assets/bg/scenes/sinnoh-chenal-230-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-12/48-chenal-230-710x400.png"
+  },
+  "sinnoh-route-210-sud": {
+   "src": "assets/bg/scenes/sinnoh-route-210-sud-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-13/49-route-210-sud-710x400.png"
+  },
+  "sinnoh-route-212-nord": {
+   "src": "assets/bg/scenes/sinnoh-route-212-nord-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-13/50-route-212-nord-710x400.png"
+  },
+  "sinnoh-lac-verite": {
+   "src": "assets/bg/scenes/sinnoh-lac-verite-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-13/51-lac-verite-710x400.png"
+  },
+  "sinnoh-lac-courage": {
+   "src": "assets/bg/scenes/sinnoh-lac-courage-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-13/52-lac-courage-710x400.png"
+  },
+  "sinnoh-lac-savoir": {
+   "src": "assets/bg/scenes/sinnoh-lac-savoir-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-14/53-lac-savoir-710x400.png"
+  },
+  "sinnoh-lac-courage-asseche": {
+   "src": "assets/bg/scenes/sinnoh-lac-courage-asseche-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-14/54-lac-courage-asseche-710x400.png"
+  },
+  "sinnoh-entree-charbourg": {
+   "src": "assets/bg/scenes/sinnoh-entree-charbourg-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-14/55-entree-charbourg-710x400.png"
+  },
+  "sinnoh-mine-charbourg": {
+   "src": "assets/bg/scenes/sinnoh-mine-charbourg-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-14/56-mine-charbourg-710x400.png"
+  },
+  "sinnoh-chemin-rocheux": {
+   "src": "assets/bg/scenes/sinnoh-chemin-rocheux-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-15/57-chemin-rocheux-710x400.png"
+  },
+  "sinnoh-pre-floraville": {
+   "src": "assets/bg/scenes/sinnoh-pre-floraville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-15/58-pre-floraville-710x400.png"
+  },
+  "sinnoh-eoliennes": {
+   "src": "assets/bg/scenes/sinnoh-eoliennes-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-15/59-eoliennes-710x400.png"
+  },
+  "sinnoh-foret-vestigion": {
+   "src": "assets/bg/scenes/sinnoh-foret-vestigion-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-15/60-foret-vestigion-710x400.png"
+  },
+  "sinnoh-vieux-chateau": {
+   "src": "assets/bg/scenes/sinnoh-vieux-chateau-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-16/61-vieux-chateau-710x400.png"
+  },
+  "sinnoh-grotte-reveche": {
+   "src": "assets/bg/scenes/sinnoh-grotte-reveche-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-16/62-grotte-reveche-710x400.png"
+  },
+  "sinnoh-mont-couronne-interieur": {
+   "src": "assets/bg/scenes/sinnoh-mont-couronne-interieur-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-16/63-mont-couronne-interieur-710x400.png"
+  },
+  "sinnoh-colonnes-lances": {
+   "src": "assets/bg/scenes/sinnoh-colonnes-lances-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-16/64-colonnes-lances-710x400.png"
+  },
+  "sinnoh-grand-marais": {
+   "src": "assets/bg/scenes/sinnoh-grand-marais-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-17/65-grand-marais-710x400.png"
+  },
+  "sinnoh-ruines-bonville": {
+   "src": "assets/bg/scenes/sinnoh-ruines-bonville-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-17/66-ruines-bonville-710x400.png"
+  },
+  "sinnoh-tour-perdue": {
+   "src": "assets/bg/scenes/sinnoh-tour-perdue-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-17/67-tour-perdue-710x400.png"
+  },
+  "sinnoh-forge-fuego": {
+   "src": "assets/bg/scenes/sinnoh-forge-fuego-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-17/68-forge-fuego-710x400.png"
+  },
+  "sinnoh-ile-fer": {
+   "src": "assets/bg/scenes/sinnoh-ile-fer-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-18/69-ile-fer-710x400.png"
+  },
+  "sinnoh-route-victoire": {
+   "src": "assets/bg/scenes/sinnoh-route-victoire-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-18/70-route-victoire-710x400.png"
+  },
+  "sinnoh-chemin-source": {
+   "src": "assets/bg/scenes/sinnoh-chemin-source-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-18/71-chemin-source-710x400.png"
+  },
+  "sinnoh-source-adieu": {
+   "src": "assets/bg/scenes/sinnoh-source-adieu-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-18/72-source-adieu-710x400.png"
+  },
+  "sinnoh-grotte-retour": {
+   "src": "assets/bg/scenes/sinnoh-grotte-retour-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-19/73-grotte-retour-710x400.png"
+  },
+  "sinnoh-temple-frimapic": {
+   "src": "assets/bg/scenes/sinnoh-temple-frimapic-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-19/74-temple-frimapic-710x400.png"
+  },
+  "sinnoh-mont-abrupt": {
+   "src": "assets/bg/scenes/sinnoh-mont-abrupt-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-19/75-mont-abrupt-710x400.png"
+  },
+  "sinnoh-souterrains-sinnoh": {
+   "src": "assets/bg/scenes/sinnoh-souterrains-sinnoh-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-19/76-souterrains-sinnoh-710x400.png"
+  },
+  "sinnoh-square-paisible": {
+   "src": "assets/bg/scenes/sinnoh-square-paisible-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-20/77-square-paisible-710x400.png"
+  },
+  "sinnoh-jardin-trophee": {
+   "src": "assets/bg/scenes/sinnoh-jardin-trophee-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-20/78-jardin-trophee-710x400.png"
+  },
+  "sinnoh-manoir-pokemon": {
+   "src": "assets/bg/scenes/sinnoh-manoir-pokemon-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-20/79-manoir-pokemon-710x400.png"
+  },
+  "sinnoh-tunnel-ruinemaniac": {
+   "src": "assets/bg/scenes/sinnoh-tunnel-ruinemaniac-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-20/80-tunnel-ruinemaniac-710x400.png"
+  },
+  "sinnoh-laboratoire-sorbier": {
+   "src": "assets/bg/scenes/sinnoh-laboratoire-sorbier-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-21/81-laboratoire-sorbier-710x400.png"
+  },
+  "sinnoh-musee-minier-charbourg": {
+   "src": "assets/bg/scenes/sinnoh-musee-minier-charbourg-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-21/82-musee-minier-charbourg-710x400.png"
+  },
+  "sinnoh-bibliotheque-joliberges": {
+   "src": "assets/bg/scenes/sinnoh-bibliotheque-joliberges-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-21/83-bibliotheque-joliberges-710x400.png"
+  },
+  "sinnoh-pokemontre-sa": {
+   "src": "assets/bg/scenes/sinnoh-pokemontre-sa-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-21/84-pokemontre-sa-710x400.png"
+  },
+  "sinnoh-batiment-galaxie-vestigion": {
+   "src": "assets/bg/scenes/sinnoh-batiment-galaxie-vestigion-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-22/85-batiment-galaxie-vestigion-710x400.png"
+  },
+  "sinnoh-hangar-galaxie": {
+   "src": "assets/bg/scenes/sinnoh-hangar-galaxie-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-22/86-hangar-galaxie-710x400.png"
+  },
+  "sinnoh-qg-galaxie-voilaroc": {
+   "src": "assets/bg/scenes/sinnoh-qg-galaxie-voilaroc-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-22/87-qg-galaxie-voilaroc-710x400.png"
+  },
+  "sinnoh-salle-concours-unionpolis": {
+   "src": "assets/bg/scenes/sinnoh-salle-concours-unionpolis-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-22/88-salle-concours-unionpolis-710x400.png"
+  },
+  "sinnoh-arene-charbourg": {
+   "src": "assets/bg/scenes/sinnoh-arene-charbourg-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-23/89-arene-charbourg-710x400.png"
+  },
+  "sinnoh-arene-vestigion": {
+   "src": "assets/bg/scenes/sinnoh-arene-vestigion-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-23/90-arene-vestigion-710x400.png"
+  },
+  "sinnoh-arene-voilaroc": {
+   "src": "assets/bg/scenes/sinnoh-arene-voilaroc-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-23/91-arene-voilaroc-710x400.png"
+  },
+  "sinnoh-arene-verchamps": {
+   "src": "assets/bg/scenes/sinnoh-arene-verchamps-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-23/92-arene-verchamps-710x400.png"
+  },
+  "sinnoh-arene-unionpolis": {
+   "src": "assets/bg/scenes/sinnoh-arene-unionpolis-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-24/93-arene-unionpolis-710x400.png"
+  },
+  "sinnoh-arene-joliberges": {
+   "src": "assets/bg/scenes/sinnoh-arene-joliberges-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-24/94-arene-joliberges-710x400.png"
+  },
+  "sinnoh-arene-frimapic": {
+   "src": "assets/bg/scenes/sinnoh-arene-frimapic-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-24/95-arene-frimapic-710x400.png"
+  },
+  "sinnoh-arene-rivamar": {
+   "src": "assets/bg/scenes/sinnoh-arene-rivamar-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-24/96-arene-rivamar-710x400.png"
+  },
+  "sinnoh-conseil-aaron": {
+   "src": "assets/bg/scenes/sinnoh-conseil-aaron-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-25/97-conseil-aaron-710x400.png"
+  },
+  "sinnoh-conseil-terry": {
+   "src": "assets/bg/scenes/sinnoh-conseil-terry-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-25/98-conseil-terry-710x400.png"
+  },
+  "sinnoh-conseil-adrien": {
+   "src": "assets/bg/scenes/sinnoh-conseil-adrien-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-25/99-conseil-adrien-710x400.png"
+  },
+  "sinnoh-conseil-lucio": {
+   "src": "assets/bg/scenes/sinnoh-conseil-lucio-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-25/100-conseil-lucio-710x400.png"
+  },
+  "sinnoh-salle-cynthia": {
+   "src": "assets/bg/scenes/sinnoh-salle-cynthia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-26/101-salle-cynthia-710x400.png"
+  },
+  "sinnoh-pantheon-sinnoh": {
+   "src": "assets/bg/scenes/sinnoh-pantheon-sinnoh-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-26/102-pantheon-sinnoh-710x400.png"
+  },
+  "sinnoh-hall-ligue-sinnoh": {
+   "src": "assets/bg/scenes/sinnoh-hall-ligue-sinnoh-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-26/103-hall-ligue-sinnoh-710x400.png"
+  },
+  "sinnoh-tour-combat": {
+   "src": "assets/bg/scenes/sinnoh-tour-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-26/104-tour-combat-710x400.png"
+  },
+  "sinnoh-mont-couronne-neige": {
+   "src": "assets/bg/scenes/sinnoh-mont-couronne-neige-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-27/105-mont-couronne-neige-710x400.png"
+  },
+  "sinnoh-monde-distorsion": {
+   "src": "assets/bg/scenes/sinnoh-monde-distorsion-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-27/106-monde-distorsion-710x400.png",
+   "sky": "distortion"
+  },
+  "sinnoh-ile-pleine-lune": {
+   "src": "assets/bg/scenes/sinnoh-ile-pleine-lune-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-27/107-ile-pleine-lune-710x400.png"
+  },
+  "sinnoh-ile-nouvellelune": {
+   "src": "assets/bg/scenes/sinnoh-ile-nouvellelune-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-27/108-ile-nouvellelune-710x400.png"
+  },
+  "sinnoh-passage-marin": {
+   "src": "assets/bg/scenes/sinnoh-passage-marin-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-28/109-passage-marin-710x400.png"
+  },
+  "sinnoh-paradis-fleuri": {
+   "src": "assets/bg/scenes/sinnoh-paradis-fleuri-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-28/110-paradis-fleuri-710x400.png"
+  },
+  "sinnoh-salle-originelle": {
+   "src": "assets/bg/scenes/sinnoh-salle-originelle-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-28/111-salle-originelle-710x400.png"
+  },
+  "sinnoh-colonnes-lances-portail": {
+   "src": "assets/bg/scenes/sinnoh-colonnes-lances-portail-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-28/112-colonnes-lances-portail-710x400.png"
+  },
+  "sinnoh-caverne-verite": {
+   "src": "assets/bg/scenes/sinnoh-caverne-verite-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-29/113-caverne-verite-710x400.png"
+  },
+  "sinnoh-caverne-courage": {
+   "src": "assets/bg/scenes/sinnoh-caverne-courage-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-29/114-caverne-courage-710x400.png"
+  },
+  "sinnoh-caverne-savoir": {
+   "src": "assets/bg/scenes/sinnoh-caverne-savoir-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-29/115-caverne-savoir-710x400.png"
+  },
+  "sinnoh-ruines-celestia": {
+   "src": "assets/bg/scenes/sinnoh-ruines-celestia-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-29/116-ruines-celestia-710x400.png"
+  },
+  "sinnoh-parc-amis": {
+   "src": "assets/bg/scenes/sinnoh-parc-amis-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-30/117-parc-amis-710x400.png"
+  },
+  "sinnoh-hotel-grand-lac": {
+   "src": "assets/bg/scenes/sinnoh-hotel-grand-lac-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-30/118-hotel-grand-lac-710x400.png"
+  },
+  "sinnoh-phare-panorama": {
+   "src": "assets/bg/scenes/sinnoh-phare-panorama-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-30/119-phare-panorama-710x400.png"
+  },
+  "sinnoh-pension-bonville": {
+   "src": "assets/bg/scenes/sinnoh-pension-bonville-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-30/120-pension-bonville-710x400.png"
+  },
+  "sinnoh-maison-joueur-bonaugure": {
+   "src": "assets/bg/scenes/sinnoh-maison-joueur-bonaugure-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-31/121-maison-joueur-bonaugure-710x400.png"
+  },
+  "sinnoh-ecole-dresseurs-felicite": {
+   "src": "assets/bg/scenes/sinnoh-ecole-dresseurs-felicite-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-31/122-ecole-dresseurs-felicite-710x400.png"
+  },
+  "sinnoh-feli-tele": {
+   "src": "assets/bg/scenes/sinnoh-feli-tele-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-31/123-feli-tele-710x400.png"
+  },
+  "sinnoh-grand-magasin-voilaroc": {
+   "src": "assets/bg/scenes/sinnoh-grand-magasin-voilaroc-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-31/124-grand-magasin-voilaroc-710x400.png"
+  },
+  "sinnoh-usine-combat": {
+   "src": "assets/bg/scenes/sinnoh-usine-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-32/125-usine-combat-710x400.png"
+  },
+  "sinnoh-scene-combat": {
+   "src": "assets/bg/scenes/sinnoh-scene-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-32/126-scene-combat-710x400.png"
+  },
+  "sinnoh-castel-combat": {
+   "src": "assets/bg/scenes/sinnoh-castel-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-32/127-castel-combat-710x400.png"
+  },
+  "sinnoh-arcade-combat": {
+   "src": "assets/bg/scenes/sinnoh-arcade-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-32/128-arcade-combat-710x400.png"
+  },
+  "sinnoh-villa-aire-detente": {
+   "src": "assets/bg/scenes/sinnoh-villa-aire-detente-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-33/129-villa-aire-detente-710x400.png"
+  },
+  "sinnoh-club-rubans": {
+   "src": "assets/bg/scenes/sinnoh-club-rubans-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-33/130-club-rubans-710x400.png"
+  },
+  "sinnoh-cafe-combat": {
+   "src": "assets/bg/scenes/sinnoh-cafe-combat-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-33/131-cafe-combat-710x400.png"
+  },
+  "sinnoh-restaurant-sept-etoiles": {
+   "src": "assets/bg/scenes/sinnoh-restaurant-sept-etoiles-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-33/132-restaurant-sept-etoiles-710x400.png"
+  },
+  "sinnoh-auberge-marin": {
+   "src": "assets/bg/scenes/sinnoh-auberge-marin-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-34/133-auberge-marin-710x400.png"
+  },
+  "sinnoh-ile-fer-exterieur": {
+   "src": "assets/bg/scenes/sinnoh-ile-fer-exterieur-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-34/134-ile-fer-exterieur-710x400.png"
+  },
+  "sinnoh-cafe-cabane-interieur": {
+   "src": "assets/bg/scenes/sinnoh-cafe-cabane-interieur-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-34/135-cafe-cabane-interieur-710x400.png"
+  },
+  "sinnoh-sanctuaire-unionpolis": {
+   "src": "assets/bg/scenes/sinnoh-sanctuaire-unionpolis-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-34/136-sanctuaire-unionpolis-710x400.png"
+  },
+  "sinnoh-ruines-pic-roche": {
+   "src": "assets/bg/scenes/sinnoh-ruines-pic-roche-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-35/137-ruines-pic-roche-710x400.png"
+  },
+  "sinnoh-ruines-iceberg": {
+   "src": "assets/bg/scenes/sinnoh-ruines-iceberg-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-35/138-ruines-iceberg-710x400.png"
+  },
+  "sinnoh-ruines-fer": {
+   "src": "assets/bg/scenes/sinnoh-ruines-fer-710x400.webp",
+   "indoor": true,
+   "source": "output/imagegen/sinnoh-lot-35/139-ruines-fer-710x400.png"
+  },
+  "sinnoh-tour-sacree": {
+   "src": "assets/bg/scenes/sinnoh-tour-sacree-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-35/140-tour-sacree-710x400.png"
+  },
+  "sinnoh-rive-lac-verite": {
+   "src": "assets/bg/scenes/sinnoh-rive-lac-verite-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-36/141-rive-lac-verite-710x400.png"
+  },
+  "sinnoh-rive-lac-courage": {
+   "src": "assets/bg/scenes/sinnoh-rive-lac-courage-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-36/142-rive-lac-courage-710x400.png"
+  },
+  "sinnoh-rive-lac-savoir": {
+   "src": "assets/bg/scenes/sinnoh-rive-lac-savoir-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-36/143-rive-lac-savoir-710x400.png"
+  },
+  "sinnoh-zone-combat-esplanade": {
+   "src": "assets/bg/scenes/sinnoh-zone-combat-esplanade-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/sinnoh-lot-36/144-zone-combat-esplanade-710x400.png"
+  },
+  "sinnoh-arceus-sommet": {
+   "src": "assets/bg/scenes/sinnoh-arceus-sommet-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/arceus-sommet/"
+  },
+  "sinnoh-arceus-sommet-sombre": {
+   "src": "assets/bg/scenes/sinnoh-arceus-sommet-sombre-710x400.webp",
+   "indoor": false,
+   "source": "output/imagegen/arceus-sommet/"
+  }
+ },
+ "places": {
+  "Aire de Survie": "sinnoh-aire-survie",
+  "Aire de Détente": "sinnoh-aire-detente",
+  "Frimapic": "sinnoh-frimapic",
+  "Rivamar": "sinnoh-rivamar",
+  "Aire de Combat": "sinnoh-aire-combat",
+  "Voilaroc": "sinnoh-voilaroc",
+  "Verchamps": "sinnoh-verchamps",
+  "Célestia": "sinnoh-celestia",
+  "Joliberges": "sinnoh-joliberges",
+  "Floraville": "sinnoh-floraville",
+  "Vestigion": "sinnoh-vestigion",
+  "Unionpolis": "sinnoh-unionpolis",
+  "Bonville": "sinnoh-bonville",
+  "Bonaugure": "sinnoh-bonaugure",
+  "Littorella": "sinnoh-littorella",
+  "Féli-Cité": "sinnoh-feli-cite",
+  "Charbourg": "sinnoh-charbourg",
+  "Sommet des Vœux": "hoenn-sommet-des-voeux-jirachi",
+  "Île Aurore": "hoenn-ile-aurore-deoxys",
+  "Théâtre de Rosalia": "johto-theatre-rosalia",
+  "Ébènelle": "johto-ebenelle",
+  "Rosalia": "johto-rosalia",
+  "Oliville": "johto-oliville",
+  "Irisia": "johto-irisia",
+  "Acajou": "johto-acajou",
+  "Ville Griotte": "johto-ville-griotte",
+  "Mauville": "johto-mauville",
+  "Écorcia": "johto-ecorcia",
+  "Doublonville": "johto-doublonville",
+  "Bourg Geon": "johto-bourg-geon",
+  "Arène d'Acajou": "johto-arene-acajou",
+  "Arène d'Ébènelle": "johto-arene-ebenelle",
+  "Arène de Doublonville": "johto-arene-doublonville",
+  "Arène de Rosalia": "johto-arene-rosalia",
+  "Arène d'Irisia": "johto-arene-irisia",
+  "Arène d'Oliville": "johto-arene-oliville",
+  "Tour Carillon": "johto-tour-carillon-v2",
+  "Tour Ferraille": "johto-tour-carillon-v2",
+  "Mont Argenté": "johto-mont-argente-v2",
+  "Arène de Mauville": "johto-arene-mauville",
+  "Arène d'Écorcia": "johto-arene-ecorcia",
+  "Lac Colère": "johto-lac-colere",
+  "Tour Radio": "johto-tour-radio",
+  "Tour Radio 5F": "johto-tour-radio",
+  "Route de Glace": "johto-route-glace",
+  "Antre du Dragon": "johto-antre-dragon",
+  "Tour Cendrée": "johto-tour-cendree",
+  "Phare d'Oliville": "johto-phare-oliville",
+  "Îles Tourbillon": "johto-iles-tourbillon",
+  "Mont Creuset": "johto-mont-creuset",
+  "Caves Jumelles": "johto-caves-jumelles",
+  "Bois aux Chênes": "johto-bois-chenes",
+  "Labo du Prof. Chen": 62,
+  "Maison de Léo": 57,
+  "Musée d'Argenta": 56,
+  "Route 1": 1,
+  "Route 2": 2,
+  "Forêt de Jade": 12,
+  "Route 3": 3,
+  "Route 4": 3,
+  "Centre Pokémon (Route 4)": 50,
+  "Mont Sélénite": 15,
+  "Mont Sélénite (sortie)": 15,
+  "Pont Pépite": 5,
+  "Route 5": 1,
+  "Route 6": 4,
+  "Océane": 52,
+  "Route 11": 1,
+  "Grotte Taupiqueur": 14,
+  "Route 9": 3,
+  "Route 10": 3,
+  "Grotte": 15,
+  "Route 8": 1,
+  "Route 7": 1,
+  "Manoir Céladon": 58,
+  "Tour Pokémon": 16,
+  "Route 12": 6,
+  "Route 12-13": 6,
+  "Routes 12-13": 6,
+  "Route 14-15": 7,
+  "Routes 14-15": 7,
+  "Parc Safari": 17,
+  "Piste Cyclable": 8,
+  "Repaire Rocket": 22,
+  "Routes 7-8": 1,
+  "Dojo de Safrania": 54,
+  "Sylphe SARL": 23,
+  "Sylphe SARL 7e": 23,
+  "Routes 19-20": 10,
+  "Centrale": 19,
+  "Îles Écume": 20,
+  "Labo de Cramois'Île": 51,
+  "Manoir Pokémon": 21,
+  "Route 21": 10,
+  "Route 22": 4,
+  "Route 23": 11,
+  "Route Victoire": 24,
+  "Caverne Azurée": 25,
+  "Arène d'Argenta": 26,
+  "Arène d'Azuria": 27,
+  "Arène de Carmin": 28,
+  "Arène de Céladopole": 29,
+  "Arène de Parmanie": 30,
+  "Arène de Safrania": 31,
+  "Arène de Cramois'Île": 32,
+  "Arène de Jadielle": 33,
+  "Bourg Palette": 39,
+  "Jadielle": 40,
+  "Argenta": 41,
+  "Azuria": 42,
+  "Carmin sur Mer": 43,
+  "Port de Carmin": 43,
+  "Lavanville": 44,
+  "Céladopole": 45,
+  "Safrania": 46,
+  "Parmanie": 47,
+  "Cramois'Île": 48,
+  "Plateau Indigo": 49,
+  "Routes 5-6": 1,
+  "Route 8 (est)": 1,
+  "Routes 9-10": 3,
+  "Route 24": 4,
+  "Route 16": 8,
+  "Route 15": 7,
+  "Route 20": 10,
+  "Rivages de Cramois'Île": 9,
+  "S.S. Aqua": 53,
+  "Route 19": 10,
+  "Grand Magasin": 60,
+  "Gare Magnet": 46,
+  "Place Sélénite": 15,
+  "Route 28": "johto-sentier-montagne",
+  "Île Lointaine": "jungle-x",
+  "Cap Azuria": 7,
+  "Ruines de Cramois'Île": 9,
+  "Routes 26-27": 11,
+  "Bourg-en-Vol": "hoenn-bourg-en-vol",
+  "Rosyères": "hoenn-rosyeres",
+  "Clémenti-Ville": "hoenn-clementi-ville",
+  "Mérouville": "hoenn-merouville",
+  "Myokara": "hoenn-myokara",
+  "Poivressel": "hoenn-poivressel",
+  "Lavandia": "hoenn-lavandia",
+  "Vergazon": "hoenn-vergazon",
+  "Autéquia": "hoenn-autequia",
+  "Vermilava": "hoenn-vermilava",
+  "Cimetronelle": "hoenn-cimetronelle",
+  "Nénucrique": "hoenn-nenucrique",
+  "Algatia": "hoenn-algatia",
+  "Atalanopolis": "hoenn-atalanopolis",
+  "Pacifiville": "hoenn-pacifiville",
+  "Éternara": "hoenn-eternara",
+  "Ruines du Désert": "hoenn-ruines-desert",
+  "Grotte de l'Île": "hoenn-grotte-island",
+  "Tombeau Antique": "hoenn-tombeau-antique",
+  "Grotte Terra": "hoenn-grotte-terra",
+  "Grotte Marine": "hoenn-grotte-marine",
+  "Pilier Céleste": "hoenn-pilier-celeste-sommet",
+  "Chutes Météore": "hoenn-site-meteore",
+  "Caverne Savoir": "sinnoh-caverne-savoir",
+  "Caverne Courage": "sinnoh-caverne-courage",
+  "Grotte Retour": "sinnoh-grotte-retour",
+  "Cœur du Mont Abrupt": "sinnoh-mont-abrupt",
+  "Temple de Frimapic": "sinnoh-temple-frimapic",
+  "Île Pleine Lune": "sinnoh-ile-pleine-lune",
+  "Île Nouvellune": "sinnoh-ile-nouvellelune",
+  "Paradis Fleuri": "sinnoh-paradis-fleuri"
+ }
+}
