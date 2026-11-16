@@ -1,0 +1,1275 @@
+{
+ "generatedAt": "2026-11-15T12:34:27.171Z",
+ "regions": [
+  {
+   "key": "unova",
+   "name": "Unys",
+   "badges": [
+    "Trio (Unys)",
+    "Basique (Unys)",
+    "Insecte (Unys)",
+    "Volt (Unys)",
+    "Sismique (Unys)",
+    "Jet (Unys)",
+    "Glaçon (Unys)",
+    "Légende (Unys)"
+   ],
+   "gyms": [
+    {
+     "leader": "Omar",
+     "type": "grass",
+     "badge": "Trio (Unys)",
+     "city": "Forêt d'Oraz",
+     "sprite": "erika",
+     "team": [
+      [
+       497,
+       60
+      ],
+      [
+       542,
+       61
+      ],
+      [
+       512,
+       62
+      ]
+     ]
+    },
+    {
+     "leader": "Aloé",
+     "type": "normal",
+     "badge": "Basique (Unys)",
+     "city": "Nacrene",
+     "sprite": "whitney",
+     "team": [
+      [
+       628,
+       62
+      ],
+      [
+       508,
+       63
+      ],
+      [
+       626,
+       64
+      ]
+     ]
+    },
+    {
+     "leader": "Artie",
+     "type": "bug",
+     "badge": "Insecte (Unys)",
+     "city": "Volucité",
+     "sprite": "bugsy",
+     "team": [
+      [
+       637,
+       64
+      ],
+      [
+       542,
+       65
+      ],
+      [
+       589,
+       66
+      ]
+     ]
+    },
+    {
+     "leader": "Inezia",
+     "type": "electric",
+     "badge": "Volt (Unys)",
+     "city": "Méanville",
+     "sprite": "ltsurge",
+     "team": [
+      [
+       604,
+       65
+      ],
+      [
+       523,
+       66
+      ],
+      [
+       596,
+       67
+      ],
+      [
+       618,
+       68
+      ]
+     ]
+    },
+    {
+     "leader": "Bardane",
+     "type": "ground",
+     "badge": "Sismique (Unys)",
+     "city": "Port Yonville",
+     "sprite": "giovanni",
+     "team": [
+      [
+       553,
+       67
+      ],
+      [
+       537,
+       68
+      ],
+      [
+       530,
+       69
+      ],
+      [
+       623,
+       70
+      ]
+     ]
+    },
+    {
+     "leader": "Carolina",
+     "type": "flying",
+     "badge": "Jet (Unys)",
+     "city": "Parsemille",
+     "sprite": "falkner",
+     "team": [
+      [
+       567,
+       69
+      ],
+      [
+       628,
+       70
+      ],
+      [
+       630,
+       71
+      ],
+      [
+       561,
+       72
+      ]
+     ]
+    },
+    {
+     "leader": "Zhu",
+     "type": "ice",
+     "badge": "Glaçon (Unys)",
+     "city": "Flocombe",
+     "sprite": "pryce",
+     "team": [
+      [
+       584,
+       70
+      ],
+      [
+       615,
+       71
+      ],
+      [
+       614,
+       72
+      ],
+      [
+       583,
+       73
+      ],
+      [
+       582,
+       74
+      ]
+     ]
+    },
+    {
+     "leader": "Watson",
+     "type": "dragon",
+     "badge": "Légende (Unys)",
+     "city": "Janusia",
+     "sprite": "clair",
+     "team": [
+      [
+       635,
+       72
+      ],
+      [
+       612,
+       73
+      ],
+      [
+       621,
+       74
+      ],
+      [
+       634,
+       75
+      ],
+      [
+       611,
+       76
+      ]
+     ]
+    }
+   ],
+   "league": {
+    "elites": [
+     [
+      "Shauntal",
+      "ghost"
+     ],
+     [
+      "Marshall",
+      "fighting"
+     ],
+     [
+      "Caitlin",
+      "psychic"
+     ],
+     [
+      "Grimsley",
+      "dark"
+     ]
+    ],
+    "champion": [
+     "Goyah",
+     "normal"
+    ],
+    "aces": [
+     79,
+     81,
+     83,
+     85,
+     88
+    ]
+   }
+  },
+  {
+   "key": "kalos",
+   "name": "Kalos",
+   "badges": [
+    "Insecte (Kalos)",
+    "Roche (Kalos)",
+    "Poing (Kalos)",
+    "Plante (Kalos)",
+    "Tension (Kalos)",
+    "Fée (Kalos)",
+    "Psychisme (Kalos)",
+    "Iceberg (Kalos)"
+   ],
+   "gyms": [
+    {
+     "leader": "Violette",
+     "type": "bug",
+     "badge": "Insecte (Kalos)",
+     "city": "Neuvartault",
+     "sprite": "bugsy",
+     "team": [
+      [
+       666,
+       78
+      ],
+      [
+       665,
+       79
+      ],
+      [
+       664,
+       80
+      ]
+     ]
+    },
+    {
+     "leader": "Grant",
+     "type": "rock",
+     "badge": "Roche (Kalos)",
+     "city": "Relifac-le-Haut",
+     "sprite": "brock",
+     "team": [
+      [
+       697,
+       80
+      ],
+      [
+       699,
+       81
+      ],
+      [
+       689,
+       82
+      ]
+     ]
+    },
+    {
+     "leader": "Cornélia",
+     "type": "fighting",
+     "badge": "Poing (Kalos)",
+     "city": "Yantreizh",
+     "sprite": "brawly",
+     "team": [
+      [
+       652,
+       82
+      ],
+      [
+       701,
+       83
+      ],
+      [
+       675,
+       84
+      ]
+     ]
+    },
+    {
+     "leader": "Amaro",
+     "type": "grass",
+     "badge": "Plante (Kalos)",
+     "city": "Flusselles",
+     "sprite": "erika",
+     "team": [
+      [
+       673,
+       83
+      ],
+      [
+       652,
+       84
+      ],
+      [
+       711,
+       85
+      ],
+      [
+       709,
+       86
+      ]
+     ]
+    },
+    {
+     "leader": "Lem",
+     "type": "electric",
+     "badge": "Tension (Kalos)",
+     "city": "Illumis",
+     "sprite": "ltsurge",
+     "team": [
+      [
+       695,
+       85
+      ],
+      [
+       702,
+       86
+      ],
+      [
+       694,
+       87
+      ],
+      [
+       659,
+       88
+      ]
+     ]
+    },
+    {
+     "leader": "Valériane",
+     "type": "fairy",
+     "badge": "Fée (Kalos)",
+     "city": "Romantica",
+     "sprite": "erika",
+     "team": [
+      [
+       671,
+       87
+      ],
+      [
+       700,
+       88
+      ],
+      [
+       703,
+       89
+      ],
+      [
+       685,
+       90
+      ]
+     ]
+    },
+    {
+     "leader": "Olympia",
+     "type": "psychic",
+     "badge": "Psychisme (Kalos)",
+     "city": "Flusselles",
+     "sprite": "sabrina",
+     "team": [
+      [
+       655,
+       88
+      ],
+      [
+       687,
+       89
+      ],
+      [
+       678,
+       90
+      ],
+      [
+       677,
+       91
+      ],
+      [
+       686,
+       92
+      ]
+     ]
+    },
+    {
+     "leader": "Urup",
+     "type": "ice",
+     "badge": "Iceberg (Kalos)",
+     "city": "Mozheim",
+     "sprite": "pryce",
+     "team": [
+      [
+       699,
+       90
+      ],
+      [
+       713,
+       91
+      ],
+      [
+       698,
+       92
+      ],
+      [
+       712,
+       93
+      ],
+      [
+       659,
+       94
+      ]
+     ]
+    }
+   ],
+   "league": {
+    "elites": [
+     [
+      "Malva",
+      "fire"
+     ],
+     [
+      "Siebold",
+      "water"
+     ],
+     [
+      "Wikstrom",
+      "steel"
+     ],
+     [
+      "Drasna",
+      "dragon"
+     ]
+    ],
+    "champion": [
+     "Dianthéa",
+     "fairy"
+    ],
+    "aces": [
+     95,
+     96,
+     97,
+     98,
+     99
+    ]
+   }
+  },
+  {
+   "key": "alola",
+   "name": "Alola",
+   "badges": [
+    "Verdant (Alola)",
+    "Lush (Alola)",
+    "Wela (Alola)",
+    "Brooklet (Alola)",
+    "Hokulani (Alola)",
+    "Thrifty (Alola)",
+    "Poni (Alola)",
+    "Vast (Alola)"
+   ],
+   "gyms": [
+    {
+     "leader": "Ilima",
+     "type": "normal",
+     "badge": "Verdant (Alola)",
+     "city": "Lili'i",
+     "sprite": "whitney",
+     "team": [
+      [
+       760,
+       93
+      ],
+      [
+       765,
+       94
+      ],
+      [
+       733,
+       95
+      ]
+     ]
+    },
+    {
+     "leader": "Barbara",
+     "type": "grass",
+     "badge": "Lush (Alola)",
+     "city": "Lush Jungle",
+     "sprite": "erika",
+     "team": [
+      [
+       798,
+       94
+      ],
+      [
+       724,
+       95
+      ],
+      [
+       781,
+       96
+      ]
+     ]
+    },
+    {
+     "leader": "Kiawe",
+     "type": "fire",
+     "badge": "Wela (Alola)",
+     "city": "Wela Volcano",
+     "sprite": "blaine",
+     "team": [
+      [
+       806,
+       95
+      ],
+      [
+       727,
+       96
+      ],
+      [
+       776,
+       97
+      ]
+     ]
+    },
+    {
+     "leader": "Néphie",
+     "type": "water",
+     "badge": "Brooklet (Alola)",
+     "city": "Brooklet Hill",
+     "sprite": "misty",
+     "team": [
+      [
+       730,
+       95
+      ],
+      [
+       768,
+       96
+      ],
+      [
+       748,
+       97
+      ],
+      [
+       779,
+       98
+      ]
+     ]
+    },
+    {
+     "leader": "Chrys",
+     "type": "electric",
+     "badge": "Hokulani (Alola)",
+     "city": "Hokulani",
+     "sprite": "ltsurge",
+     "team": [
+      [
+       796,
+       96
+      ],
+      [
+       738,
+       97
+      ],
+      [
+       777,
+       98
+      ],
+      [
+       737,
+       99
+      ]
+     ]
+    },
+    {
+     "leader": "Margie",
+     "type": "ghost",
+     "badge": "Thrifty (Alola)",
+     "city": "Thrifty Megamart",
+     "sprite": "morty",
+     "team": [
+      [
+       806,
+       96
+      ],
+      [
+       724,
+       97
+      ],
+      [
+       781,
+       98
+      ],
+      [
+       770,
+       99
+      ]
+     ]
+    },
+    {
+     "leader": "Mina",
+     "type": "fairy",
+     "badge": "Poni (Alola)",
+     "city": "Poni",
+     "sprite": "erika",
+     "team": [
+      [
+       730,
+       96
+      ],
+      [
+       764,
+       97
+      ],
+      [
+       778,
+       98
+      ],
+      [
+       743,
+       99
+      ],
+      [
+       756,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Hapu",
+     "type": "ground",
+     "badge": "Vast (Alola)",
+     "city": "Vast Poni Canyon",
+     "sprite": "giovanni",
+     "team": [
+      [
+       750,
+       96
+      ],
+      [
+       770,
+       97
+      ],
+      [
+       749,
+       98
+      ],
+      [
+       769,
+       99
+      ],
+      [
+       731,
+       100
+      ]
+     ]
+    }
+   ],
+   "league": {
+    "elites": [
+     [
+      "Hala",
+      "fighting"
+     ],
+     [
+      "Olivia",
+      "rock"
+     ],
+     [
+      "Molayne",
+      "steel"
+     ],
+     [
+      "Kahili",
+      "flying"
+     ]
+    ],
+    "champion": [
+     "Kukui",
+     "normal"
+    ],
+    "aces": [
+     100,
+     100,
+     100,
+     100,
+     100
+    ]
+   }
+  },
+  {
+   "key": "galar",
+   "name": "Galar",
+   "badges": [
+    "Herbe (Galar)",
+    "Eau (Galar)",
+    "Feu (Galar)",
+    "Combat (Galar)",
+    "Fée (Galar)",
+    "Roche (Galar)",
+    "Ténèbres (Galar)",
+    "Dragon (Galar)"
+   ],
+   "gyms": [
+    {
+     "leader": "Milo",
+     "type": "grass",
+     "badge": "Herbe (Galar)",
+     "city": "Kickenham",
+     "sprite": "erika",
+     "team": [
+      [
+       812,
+       94
+      ],
+      [
+       841,
+       95
+      ],
+      [
+       842,
+       96
+      ]
+     ]
+    },
+    {
+     "leader": "Donna",
+     "type": "water",
+     "badge": "Eau (Galar)",
+     "city": "Motorby",
+     "sprite": "misty",
+     "team": [
+      [
+       818,
+       95
+      ],
+      [
+       902,
+       96
+      ],
+      [
+       882,
+       97
+      ]
+     ]
+    },
+    {
+     "leader": "Kabu",
+     "type": "fire",
+     "badge": "Feu (Galar)",
+     "city": "Aiguilles",
+     "sprite": "blaine",
+     "team": [
+      [
+       815,
+       96
+      ],
+      [
+       851,
+       97
+      ],
+      [
+       839,
+       98
+      ]
+     ]
+    },
+    {
+     "leader": "Faïza",
+     "type": "fighting",
+     "badge": "Combat (Galar)",
+     "city": "Chavamure",
+     "sprite": "brawly",
+     "team": [
+      [
+       903,
+       96
+      ],
+      [
+       865,
+       97
+      ],
+      [
+       853,
+       98
+      ],
+      [
+       870,
+       99
+      ]
+     ]
+    },
+    {
+     "leader": "Opal",
+     "type": "fairy",
+     "badge": "Fée (Galar)",
+     "city": "Aliville",
+     "sprite": "erika",
+     "team": [
+      [
+       858,
+       97
+      ],
+      [
+       861,
+       98
+      ],
+      [
+       869,
+       99
+      ],
+      [
+       860,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Chaz",
+     "type": "rock",
+     "badge": "Roche (Galar)",
+     "city": "Chamboul",
+     "sprite": "brock",
+     "team": [
+      [
+       839,
+       97
+      ],
+      [
+       900,
+       98
+      ],
+      [
+       834,
+       99
+      ],
+      [
+       874,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Alistair",
+     "type": "dark",
+     "badge": "Ténèbres (Galar)",
+     "city": "Pitrouille",
+     "sprite": "koga",
+     "team": [
+      [
+       862,
+       96
+      ],
+      [
+       861,
+       97
+      ],
+      [
+       904,
+       98
+      ],
+      [
+       828,
+       99
+      ],
+      [
+       877,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Raihan",
+     "type": "dragon",
+     "badge": "Dragon (Galar)",
+     "city": "Kickenham",
+     "sprite": "clair",
+     "team": [
+      [
+       887,
+       96
+      ],
+      [
+       884,
+       97
+      ],
+      [
+       880,
+       98
+      ],
+      [
+       882,
+       99
+      ],
+      [
+       841,
+       100
+      ]
+     ]
+    }
+   ],
+   "league": {
+    "elites": [
+     [
+      "Nabil",
+      "dark"
+     ],
+     [
+      "Sally",
+      "fairy"
+     ],
+     [
+      "Roy",
+      "steel"
+     ],
+     [
+      "Duncan",
+      "dragon"
+     ]
+    ],
+    "champion": [
+     "Léon",
+     "fire"
+    ],
+    "aces": [
+     100,
+     100,
+     100,
+     100,
+     100
+    ]
+   }
+  },
+  {
+   "key": "paldea",
+   "name": "Paldea",
+   "badges": [
+    "Insecte (Paldea)",
+    "Plante (Paldea)",
+    "Volt (Paldea)",
+    "Eau (Paldea)",
+    "Normal (Paldea)",
+    "Spectre (Paldea)",
+    "Psy (Paldea)",
+    "Glace (Paldea)"
+   ],
+   "gyms": [
+    {
+     "leader": "Katy",
+     "type": "bug",
+     "badge": "Insecte (Paldea)",
+     "city": "Assimila",
+     "sprite": "bugsy",
+     "team": [
+      [
+       988,
+       95
+      ],
+      [
+       954,
+       96
+      ],
+      [
+       920,
+       97
+      ]
+     ]
+    },
+    {
+     "leader": "Brassius",
+     "type": "grass",
+     "badge": "Plante (Paldea)",
+     "city": "Artazon",
+     "sprite": "erika",
+     "team": [
+      [
+       1010,
+       96
+      ],
+      [
+       986,
+       97
+      ],
+      [
+       1019,
+       98
+      ]
+     ]
+    },
+    {
+     "leader": "Iono",
+     "type": "electric",
+     "badge": "Volt (Paldea)",
+     "city": "Levincia",
+     "sprite": "ltsurge",
+     "team": [
+      [
+       1021,
+       97
+      ],
+      [
+       989,
+       98
+      ],
+      [
+       992,
+       99
+      ]
+     ]
+    },
+    {
+     "leader": "Kofu",
+     "type": "water",
+     "badge": "Eau (Paldea)",
+     "city": "Cascarrafa",
+     "sprite": "misty",
+     "team": [
+      [
+       1009,
+       97
+      ],
+      [
+       991,
+       98
+      ],
+      [
+       914,
+       99
+      ],
+      [
+       977,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Larry",
+     "type": "normal",
+     "badge": "Normal (Paldea)",
+     "city": "Medali",
+     "sprite": "whitney",
+     "team": [
+      [
+       981,
+       97
+      ],
+      [
+       982,
+       98
+      ],
+      [
+       930,
+       99
+      ],
+      [
+       967,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Ryme",
+     "type": "ghost",
+     "badge": "Spectre (Paldea)",
+     "city": "Monténégro",
+     "sprite": "morty",
+     "team": [
+      [
+       987,
+       97
+      ],
+      [
+       1000,
+       98
+      ],
+      [
+       979,
+       99
+      ],
+      [
+       911,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Tulip",
+     "type": "psychic",
+     "badge": "Psy (Paldea)",
+     "city": "Faisandelle",
+     "sprite": "sabrina",
+     "team": [
+      [
+       1010,
+       96
+      ],
+      [
+       1022,
+       97
+      ],
+      [
+       1023,
+       98
+      ],
+      [
+       985,
+       99
+      ],
+      [
+       936,
+       100
+      ]
+     ]
+    },
+    {
+     "leader": "Grusha",
+     "type": "ice",
+     "badge": "Glace (Paldea)",
+     "city": "Zapapico",
+     "sprite": "pryce",
+     "team": [
+      [
+       998,
+       96
+      ],
+      [
+       991,
+       97
+      ],
+      [
+       975,
+       98
+      ],
+      [
+       997,
+       99
+      ],
+      [
+       974,
+       100
+      ]
+     ]
+    }
+   ],
+   "league": {
+    "elites": [
+     [
+      "Rika",
+      "ground"
+     ],
+     [
+      "Poppy",
+      "steel"
+     ],
+     [
+      "Larry",
+      "normal"
+     ],
+     [
+      "Hassel",
+      "dragon"
+     ]
+    ],
+    "champion": [
+     "Alisma",
+     "ground"
+    ],
+    "aces": [
+     100,
+     100,
+     100,
+     100,
+     100
+    ]
+   }
+  }
+ ],
+ "chapters": 65,
+ "gymChapters": 40,
+ "leagueChapters": 25,
+ "badges": [
+  {
+   "Trio (Unys)": 1,
+   "Basique (Unys)": 2,
+   "Insecte (Unys)": 3,
+   "Volt (Unys)": 4,
+   "Sismique (Unys)": 5,
+   "Jet (Unys)": 6,
+   "Glaçon (Unys)": 7,
+   "Légende (Unys)": 8
+  },
+  {
+   "Insecte (Kalos)": 1,
+   "Roche (Kalos)": 2,
+   "Poing (Kalos)": 3,
+   "Plante (Kalos)": 4,
+   "Tension (Kalos)": 5,
+   "Fée (Kalos)": 6,
+   "Psychisme (Kalos)": 7,
+   "Iceberg (Kalos)": 8
+  },
+  {
+   "Verdant (Alola)": 1,
+   "Lush (Alola)": 2,
+   "Wela (Alola)": 3,
+   "Brooklet (Alola)": 4,
+   "Hokulani (Alola)": 5,
+   "Thrifty (Alola)": 6,
+   "Poni (Alola)": 7,
+   "Vast (Alola)": 8
+  },
+  {
+   "Herbe (Galar)": 1,
+   "Eau (Galar)": 2,
+   "Feu (Galar)": 3,
+   "Combat (Galar)": 4,
+   "Fée (Galar)": 5,
+   "Roche (Galar)": 6,
+   "Ténèbres (Galar)": 7,
+   "Dragon (Galar)": 8
+  },
+  {
+   "Insecte (Paldea)": 1,
+   "Plante (Paldea)": 2,
+   "Volt (Paldea)": 3,
+   "Eau (Paldea)": 4,
+   "Normal (Paldea)": 5,
+   "Spectre (Paldea)": 6,
+   "Psy (Paldea)": 7,
+   "Glace (Paldea)": 8
+  }
+ ]
+}

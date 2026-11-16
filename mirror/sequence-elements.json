@@ -1,0 +1,762 @@
+[
+ {
+  "i": 0,
+  "label": "TabLock",
+  "start": 10733,
+  "end": 11366,
+  "size": 633,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 1,
+  "label": "Clock",
+  "start": 11367,
+  "end": 13697,
+  "size": 2330,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 2,
+  "label": "POKEDEX",
+  "start": 13698,
+  "end": 276926,
+  "size": 263228,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 3,
+  "label": "EVOLUTIONS",
+  "start": 276927,
+  "end": 283229,
+  "size": 6302,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 4,
+  "label": "MOVES",
+  "start": 283230,
+  "end": 319930,
+  "size": 36700,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 5,
+  "label": "ITEM_NAMES",
+  "start": 319931,
+  "end": 320826,
+  "size": 895,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 6,
+  "label": "ENCOUNTERS",
+  "start": 320827,
+  "end": 335195,
+  "size": 14368,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 7,
+  "label": "BASE_EXP",
+  "start": 335196,
+  "end": 336250,
+  "size": 1054,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 8,
+  "label": "?",
+  "start": 336251,
+  "end": 373911,
+  "size": 37660,
+  "type": "CallExpression"
+ },
+ {
+  "i": 9,
+  "label": "?",
+  "start": 373912,
+  "end": 374700,
+  "size": 788,
+  "type": "CallExpression"
+ },
+ {
+  "i": 10,
+  "label": "?",
+  "start": 374701,
+  "end": 393662,
+  "size": 18961,
+  "type": "CallExpression"
+ },
+ {
+  "i": 11,
+  "label": "?",
+  "start": 393663,
+  "end": 394721,
+  "size": 1058,
+  "type": "CallExpression"
+ },
+ {
+  "i": 12,
+  "label": "?",
+  "start": 394722,
+  "end": 437075,
+  "size": 42353,
+  "type": "CallExpression"
+ },
+ {
+  "i": 13,
+  "label": "?",
+  "start": 437076,
+  "end": 437927,
+  "size": 851,
+  "type": "CallExpression"
+ },
+ {
+  "i": 14,
+  "label": "UNOWN",
+  "start": 437928,
+  "end": 438517,
+  "size": 589,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 15,
+  "label": "SPECIALS",
+  "start": 438518,
+  "end": 438839,
+  "size": 321,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 16,
+  "label": "FORMS",
+  "start": 438840,
+  "end": 442942,
+  "size": 4102,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 17,
+  "label": "CONFIG",
+  "start": 442943,
+  "end": 464766,
+  "size": 21823,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 18,
+  "label": "ITEM_NAMES",
+  "start": 464767,
+  "end": 465880,
+  "size": 1113,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 19,
+  "label": "TYPES",
+  "start": 465881,
+  "end": 466529,
+  "size": 648,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 20,
+  "label": "TYPE_CHART",
+  "start": 466530,
+  "end": 467738,
+  "size": 1208,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 21,
+  "label": "I18n",
+  "start": 467739,
+  "end": 469792,
+  "size": 2053,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 22,
+  "label": "_t",
+  "start": 469793,
+  "end": 469806,
+  "size": 13,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 23,
+  "label": "DAYTIME",
+  "start": 469807,
+  "end": 471840,
+  "size": 2033,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 24,
+  "label": "WEATHER",
+  "start": 471841,
+  "end": 476184,
+  "size": 4343,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 25,
+  "label": "HABITATS",
+  "start": 476185,
+  "end": 509870,
+  "size": 33685,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 26,
+  "label": "STATUS",
+  "start": 509871,
+  "end": 513119,
+  "size": 3248,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 27,
+  "label": "STORY",
+  "start": 513120,
+  "end": 602600,
+  "size": 89480,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 28,
+  "label": "SCENES",
+  "start": 602601,
+  "end": 659511,
+  "size": 56910,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 29,
+  "label": "(iife)",
+  "start": 659512,
+  "end": 704856,
+  "size": 45344,
+  "type": "CallExpression"
+ },
+ {
+  "i": 30,
+  "label": "LEAGUE_TEAMS",
+  "start": 704857,
+  "end": 709820,
+  "size": 4963,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 31,
+  "label": "(iife)",
+  "start": 709821,
+  "end": 785284,
+  "size": 75463,
+  "type": "CallExpression"
+ },
+ {
+  "i": 32,
+  "label": "Underground",
+  "start": 785285,
+  "end": 805403,
+  "size": 20118,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 33,
+  "label": "Events",
+  "start": 805404,
+  "end": 817251,
+  "size": 11847,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 34,
+  "label": "RAID_SWAPS",
+  "start": 817252,
+  "end": 817309,
+  "size": 57,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 35,
+  "label": "Raids",
+  "start": 817310,
+  "end": 838797,
+  "size": 21487,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 36,
+  "label": "WorldBoss",
+  "start": 838798,
+  "end": 846272,
+  "size": 7474,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 37,
+  "label": "Tower",
+  "start": 846273,
+  "end": 858335,
+  "size": 12062,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 38,
+  "label": "CandyRun",
+  "start": 858336,
+  "end": 865066,
+  "size": 6730,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 39,
+  "label": "(iife)",
+  "start": 865067,
+  "end": 886610,
+  "size": 21543,
+  "type": "CallExpression"
+ },
+ {
+  "i": 40,
+  "label": "Roaming",
+  "start": 886611,
+  "end": 888613,
+  "size": 2002,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 41,
+  "label": "Sfx",
+  "start": 888614,
+  "end": 888676,
+  "size": 62,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 42,
+  "label": "Music",
+  "start": 888677,
+  "end": 888743,
+  "size": 66,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 43,
+  "label": "SPRITE_BOUNDS",
+  "start": 888744,
+  "end": 988787,
+  "size": 100043,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 44,
+  "label": "(iife)",
+  "start": 988788,
+  "end": 1070085,
+  "size": 81297,
+  "type": "CallExpression"
+ },
+ {
+  "i": 45,
+  "label": "Perf",
+  "start": 1070086,
+  "end": 1071559,
+  "size": 1473,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 46,
+  "label": "EliteFrames",
+  "start": 1071560,
+  "end": 1130718,
+  "size": 59158,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 47,
+  "label": "Frames",
+  "start": 1130719,
+  "end": 1164894,
+  "size": 34175,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 48,
+  "label": "BadgeShine",
+  "start": 1164895,
+  "end": 1176132,
+  "size": 11237,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 49,
+  "label": "BattleFX",
+  "start": 1176133,
+  "end": 1355784,
+  "size": 179651,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 50,
+  "label": "CaptureFX",
+  "start": 1355785,
+  "end": 1382947,
+  "size": 27162,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 51,
+  "label": "ItemFX",
+  "start": 1382948,
+  "end": 1398926,
+  "size": 15978,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 52,
+  "label": "LinkFx",
+  "start": 1398927,
+  "end": 1441343,
+  "size": 42416,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 53,
+  "label": "RaidDraw",
+  "start": 1441344,
+  "end": 1451310,
+  "size": 9966,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 54,
+  "label": "HealFX",
+  "start": 1451311,
+  "end": 1459055,
+  "size": 7744,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 55,
+  "label": "ShinyGlint",
+  "start": 1459056,
+  "end": 1464770,
+  "size": 5714,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 56,
+  "label": "GiftFx",
+  "start": 1464771,
+  "end": 1465626,
+  "size": 855,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 57,
+  "label": "GeodeFx",
+  "start": 1465627,
+  "end": 1478604,
+  "size": 12977,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 58,
+  "label": "RankFx",
+  "start": 1478605,
+  "end": 1489803,
+  "size": 11198,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 59,
+  "label": "(iife)",
+  "start": 1489804,
+  "end": 1514978,
+  "size": 25174,
+  "type": "CallExpression"
+ },
+ {
+  "i": 60,
+  "label": "(iife)",
+  "start": 1514979,
+  "end": 1520892,
+  "size": 5913,
+  "type": "CallExpression"
+ },
+ {
+  "i": 61,
+  "label": "EventUI",
+  "start": 1520893,
+  "end": 1526272,
+  "size": 5379,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 62,
+  "label": "EventTeam",
+  "start": 1526273,
+  "end": 1542602,
+  "size": 16329,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 63,
+  "label": "(iife)",
+  "start": 1542603,
+  "end": 1688457,
+  "size": 145854,
+  "type": "CallExpression"
+ },
+ {
+  "i": 64,
+  "label": "(iife)",
+  "start": 1688458,
+  "end": 1743127,
+  "size": 54669,
+  "type": "CallExpression"
+ },
+ {
+  "i": 65,
+  "label": "(iife)",
+  "start": 1743128,
+  "end": 1762557,
+  "size": 19429,
+  "type": "CallExpression"
+ },
+ {
+  "i": 66,
+  "label": "WorldBossView",
+  "start": 1762558,
+  "end": 1841611,
+  "size": 79053,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 67,
+  "label": "(iife)",
+  "start": 1841612,
+  "end": 1855897,
+  "size": 14285,
+  "type": "CallExpression"
+ },
+ {
+  "i": 68,
+  "label": "(iife)",
+  "start": 1855898,
+  "end": 1868674,
+  "size": 12776,
+  "type": "CallExpression"
+ },
+ {
+  "i": 69,
+  "label": "(iife)",
+  "start": 1868675,
+  "end": 1921694,
+  "size": 53019,
+  "type": "CallExpression"
+ },
+ {
+  "i": 70,
+  "label": "(iife)",
+  "start": 1921695,
+  "end": 1927869,
+  "size": 6174,
+  "type": "CallExpression"
+ },
+ {
+  "i": 71,
+  "label": "(iife)",
+  "start": 1927870,
+  "end": 1954490,
+  "size": 26620,
+  "type": "CallExpression"
+ },
+ {
+  "i": 72,
+  "label": "(iife)",
+  "start": 1954491,
+  "end": 1982476,
+  "size": 27985,
+  "type": "CallExpression"
+ },
+ {
+  "i": 73,
+  "label": "PensionBerryFX",
+  "start": 1982477,
+  "end": 1988305,
+  "size": 5828,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 74,
+  "label": "BerryBites",
+  "start": 1988306,
+  "end": 1989034,
+  "size": 728,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 75,
+  "label": "(iife)",
+  "start": 1989035,
+  "end": 2014095,
+  "size": 25060,
+  "type": "CallExpression"
+ },
+ {
+  "i": 76,
+  "label": "(iife)",
+  "start": 2014096,
+  "end": 2024179,
+  "size": 10083,
+  "type": "CallExpression"
+ },
+ {
+  "i": 77,
+  "label": "(iife)",
+  "start": 2024180,
+  "end": 2091262,
+  "size": 67082,
+  "type": "CallExpression"
+ },
+ {
+  "i": 78,
+  "label": "(iife)",
+  "start": 2091263,
+  "end": 2134683,
+  "size": 43420,
+  "type": "CallExpression"
+ },
+ {
+  "i": 79,
+  "label": "(iife)",
+  "start": 2134684,
+  "end": 2174724,
+  "size": 40040,
+  "type": "CallExpression"
+ },
+ {
+  "i": 80,
+  "label": "(iife)",
+  "start": 2174725,
+  "end": 2182921,
+  "size": 8196,
+  "type": "CallExpression"
+ },
+ {
+  "i": 81,
+  "label": "(iife)",
+  "start": 2182922,
+  "end": 2209026,
+  "size": 26104,
+  "type": "CallExpression"
+ },
+ {
+  "i": 82,
+  "label": "Names",
+  "start": 2209027,
+  "end": 2210492,
+  "size": 1465,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 83,
+  "label": "Cloud",
+  "start": 2210493,
+  "end": 2242238,
+  "size": 31745,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 84,
+  "label": "Gifts",
+  "start": 2242239,
+  "end": 2248434,
+  "size": 6195,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 85,
+  "label": "(iife)",
+  "start": 2248435,
+  "end": 2249184,
+  "size": 749,
+  "type": "CallExpression"
+ },
+ {
+  "i": 86,
+  "label": "(iife)",
+  "start": 2249185,
+  "end": 2263575,
+  "size": 14390,
+  "type": "CallExpression"
+ },
+ {
+  "i": 87,
+  "label": "CHANGELOG",
+  "start": 2263576,
+  "end": 2587908,
+  "size": 324332,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 88,
+  "label": "Changelog",
+  "start": 2587909,
+  "end": 2589693,
+  "size": 1784,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 89,
+  "label": "Guide",
+  "start": 2589694,
+  "end": 2609517,
+  "size": 19823,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 90,
+  "label": "News",
+  "start": 2609518,
+  "end": 2616746,
+  "size": 7228,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 91,
+  "label": "Title",
+  "start": 2616747,
+  "end": 2633468,
+  "size": 16721,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 92,
+  "label": "Update",
+  "start": 2633469,
+  "end": 2635986,
+  "size": 2517,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 93,
+  "label": "Sleep",
+  "start": 2635987,
+  "end": 2640929,
+  "size": 4942,
+  "type": "AssignmentExpression"
+ },
+ {
+  "i": 94,
+  "label": "(iife)",
+  "start": 2640930,
+  "end": 2678260,
+  "size": 37330,
+  "type": "CallExpression"
+ }
+]

@@ -1,0 +1,562 @@
+[
+ {
+  "name": "TabLock",
+  "start": 10733,
+  "end": 11366,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Clock",
+  "start": 11367,
+  "end": 13697,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "POKEDEX",
+  "start": 13698,
+  "end": 276926,
+  "right": "ArrayExpression",
+  "op": "="
+ },
+ {
+  "name": "EVOLUTIONS",
+  "start": 276927,
+  "end": 283229,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "MOVES",
+  "start": 283230,
+  "end": 319930,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "ITEM_NAMES",
+  "start": 319931,
+  "end": 320826,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "ENCOUNTERS",
+  "start": 320827,
+  "end": 335195,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "BASE_EXP",
+  "start": 335196,
+  "end": 336250,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "UNOWN",
+  "start": 437928,
+  "end": 438517,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "SPECIALS",
+  "start": 438518,
+  "end": 438839,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "FORMS",
+  "start": 438840,
+  "end": 442942,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "CONFIG",
+  "start": 442943,
+  "end": 464766,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "TYPES",
+  "start": 465881,
+  "end": 466529,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "TYPE_CHART",
+  "start": 466530,
+  "end": 467738,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "I18n",
+  "start": 467739,
+  "end": 469792,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "_t",
+  "start": 469793,
+  "end": 469806,
+  "right": "MemberExpression",
+  "op": "="
+ },
+ {
+  "name": "DAYTIME",
+  "start": 469807,
+  "end": 471840,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "WEATHER",
+  "start": 471841,
+  "end": 476184,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "HABITATS",
+  "start": 476185,
+  "end": 509870,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "STATUS",
+  "start": 509871,
+  "end": 513119,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "STORY",
+  "start": 513120,
+  "end": 602600,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "SCENES",
+  "start": 602601,
+  "end": 659511,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Game",
+  "start": 702296,
+  "end": 704853,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "LEAGUE_TEAMS",
+  "start": 704857,
+  "end": 709820,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Adventure",
+  "start": 784507,
+  "end": 785281,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Underground",
+  "start": 785285,
+  "end": 805403,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Events",
+  "start": 805404,
+  "end": 817251,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "RAID_SWAPS",
+  "start": 817252,
+  "end": 817309,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Raids",
+  "start": 817310,
+  "end": 838797,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "WorldBoss",
+  "start": 838798,
+  "end": 846272,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Tower",
+  "start": 846273,
+  "end": 858335,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "CandyRun",
+  "start": 858336,
+  "end": 865066,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "LegendZones",
+  "start": 885964,
+  "end": 886607,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Roaming",
+  "start": 886611,
+  "end": 888613,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Sfx",
+  "start": 888614,
+  "end": 888676,
+  "right": "NewExpression",
+  "op": "="
+ },
+ {
+  "name": "Music",
+  "start": 888677,
+  "end": 888743,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "SPRITE_BOUNDS",
+  "start": 888744,
+  "end": 988787,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Screens",
+  "start": 1068840,
+  "end": 1068863,
+  "right": "LogicalExpression",
+  "op": "="
+ },
+ {
+  "name": "UI",
+  "start": 1068864,
+  "end": 1070082,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Perf",
+  "start": 1070086,
+  "end": 1071559,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "EliteFrames",
+  "start": 1071560,
+  "end": 1130718,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Frames",
+  "start": 1130719,
+  "end": 1164894,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "BadgeShine",
+  "start": 1164895,
+  "end": 1176132,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "BattleFX",
+  "start": 1176133,
+  "end": 1355784,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "FX_MOVES",
+  "start": 1177218,
+  "end": 1195133,
+  "right": "ArrayExpression",
+  "op": "="
+ },
+ {
+  "name": "CaptureFX",
+  "start": 1355785,
+  "end": 1382947,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "ItemFX",
+  "start": 1382948,
+  "end": 1398926,
+  "right": "AssignmentExpression",
+  "op": "="
+ },
+ {
+  "name": "BerryFX",
+  "start": 1382957,
+  "end": 1398926,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "LinkFx",
+  "start": 1398927,
+  "end": 1441343,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "RaidDraw",
+  "start": 1441344,
+  "end": 1451310,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "HealFX",
+  "start": 1451311,
+  "end": 1459055,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "ShinyGlint",
+  "start": 1459056,
+  "end": 1464770,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "GiftFx",
+  "start": 1464771,
+  "end": 1465626,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "GeodeFx",
+  "start": 1465627,
+  "end": 1478604,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "RankFx",
+  "start": 1478605,
+  "end": 1489803,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "WeatherFx",
+  "start": 1513957,
+  "end": 1514020,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "VGrid",
+  "start": 1514990,
+  "end": 1520837,
+  "right": "FunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "EventUI",
+  "start": 1520893,
+  "end": 1526272,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "EventTeam",
+  "start": 1526273,
+  "end": 1542602,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "TravelFx",
+  "start": 1731689,
+  "end": 1731718,
+  "right": "ArrowFunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "WorldBossView",
+  "start": 1762558,
+  "end": 1841611,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "PensionBerryFX",
+  "start": 1982477,
+  "end": 1988305,
+  "right": "FunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "BerryBites",
+  "start": 1988306,
+  "end": 1989034,
+  "right": "FunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "TrainerCard",
+  "start": 2208911,
+  "end": 2209023,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "Names",
+  "start": 2209027,
+  "end": 2210492,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Cloud",
+  "start": 2210493,
+  "end": 2242238,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "onbeforeunload",
+  "start": 2221275,
+  "end": 2221296,
+  "right": "Literal",
+  "op": "="
+ },
+ {
+  "name": "Gifts",
+  "start": 2242239,
+  "end": 2248434,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Options",
+  "start": 2263553,
+  "end": 2263572,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "CHANGELOG",
+  "start": 2263576,
+  "end": 2587908,
+  "right": "ArrayExpression",
+  "op": "="
+ },
+ {
+  "name": "Changelog",
+  "start": 2587909,
+  "end": 2589693,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Guide",
+  "start": 2589694,
+  "end": 2609517,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "News",
+  "start": 2609518,
+  "end": 2616746,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Title",
+  "start": 2616747,
+  "end": 2633468,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Update",
+  "start": 2633469,
+  "end": 2635986,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "Sleep",
+  "start": 2635987,
+  "end": 2640929,
+  "right": "CallExpression",
+  "op": "="
+ },
+ {
+  "name": "CatchUp",
+  "start": 2658435,
+  "end": 2658622,
+  "right": "ObjectExpression",
+  "op": "="
+ },
+ {
+  "name": "setTimeout",
+  "start": 2672640,
+  "end": 2672692,
+  "right": "ArrowFunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "setInterval",
+  "start": 2672693,
+  "end": 2672746,
+  "right": "ArrowFunctionExpression",
+  "op": "="
+ },
+ {
+  "name": "App",
+  "start": 2678161,
+  "end": 2678252,
+  "right": "ObjectExpression",
+  "op": "="
+ }
+]

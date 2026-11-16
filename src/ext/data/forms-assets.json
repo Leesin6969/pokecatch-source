@@ -1,0 +1,240 @@
+{
+ "forms": 103,
+ "dataMissing": [],
+ "icons": 103,
+ "shinyIcons": 103,
+ "gifs": 103,
+ "shinyGifs": 102,
+ "staticFallback": [],
+ "gifFallback": [
+  {
+   "id": 3001,
+   "slug": "venusaur-mega",
+   "src": "ani/venusaur-mega"
+  },
+  {
+   "id": 6002,
+   "slug": "charizard-mega-y",
+   "src": "ani/charizard-megay"
+  },
+  {
+   "id": 9001,
+   "slug": "blastoise-mega",
+   "src": "ani/blastoise-mega"
+  },
+  {
+   "id": 18001,
+   "slug": "pidgeot-mega",
+   "src": "ani/pidgeot-mega"
+  },
+  {
+   "id": 58001,
+   "slug": "growlithe-hisui",
+   "src": "ani/growlithe-hisui"
+  },
+  {
+   "id": 59001,
+   "slug": "arcanine-hisui",
+   "src": "ani/arcanine-hisui"
+  },
+  {
+   "id": 78001,
+   "slug": "rapidash-galar",
+   "src": "ani/rapidash-galar"
+  },
+  {
+   "id": 80002,
+   "slug": "slowbro-mega",
+   "src": "ani/slowbro-mega"
+  },
+  {
+   "id": 94001,
+   "slug": "gengar-mega",
+   "src": "ani/gengar-mega"
+  },
+  {
+   "id": 101001,
+   "slug": "electrode-hisui",
+   "src": "ani/electrode-hisui"
+  },
+  {
+   "id": 115001,
+   "slug": "kangaskhan-mega",
+   "src": "ani/kangaskhan-mega"
+  },
+  {
+   "id": 127001,
+   "slug": "pinsir-mega",
+   "src": "ani/pinsir-mega"
+  },
+  {
+   "id": 130001,
+   "slug": "gyarados-mega",
+   "src": "ani/gyarados-mega"
+  },
+  {
+   "id": 142001,
+   "slug": "aerodactyl-mega",
+   "src": "ani/aerodactyl-mega"
+  },
+  {
+   "id": 146001,
+   "slug": "moltres-galar",
+   "src": "ani/moltres-galar"
+  },
+  {
+   "id": 157001,
+   "slug": "typhlosion-hisui",
+   "src": "ani/typhlosion-hisui"
+  },
+  {
+   "id": 211001,
+   "slug": "qwilfish-hisui",
+   "src": "ani/qwilfish-hisui"
+  },
+  {
+   "id": 214001,
+   "slug": "heracross-mega",
+   "src": "ani/heracross-mega"
+  },
+  {
+   "id": 215001,
+   "slug": "sneasel-hisui",
+   "src": "ani/sneasel-hisui"
+  },
+  {
+   "id": 229001,
+   "slug": "houndoom-mega",
+   "src": "ani/houndoom-mega"
+  },
+  {
+   "id": 254001,
+   "slug": "sceptile-mega",
+   "src": "ani/sceptile-mega"
+  },
+  {
+   "id": 260001,
+   "slug": "swampert-mega",
+   "src": "ani/swampert-mega"
+  },
+  {
+   "id": 302001,
+   "slug": "sableye-mega",
+   "src": "ani/sableye-mega"
+  },
+  {
+   "id": 306001,
+   "slug": "aggron-mega",
+   "src": "ani/aggron-mega"
+  },
+  {
+   "id": 319001,
+   "slug": "sharpedo-mega",
+   "src": "ani/sharpedo-mega"
+  },
+  {
+   "id": 323001,
+   "slug": "camerupt-mega",
+   "src": "ani/camerupt-mega"
+  },
+  {
+   "id": 334001,
+   "slug": "altaria-mega",
+   "src": "ani/altaria-mega"
+  },
+  {
+   "id": 376001,
+   "slug": "metagross-mega",
+   "src": "ani/metagross-mega"
+  },
+  {
+   "id": 428001,
+   "slug": "lopunny-mega",
+   "src": "ani/lopunny-mega"
+  },
+  {
+   "id": 475001,
+   "slug": "gallade-mega",
+   "src": "ani/gallade-mega"
+  },
+  {
+   "id": 531001,
+   "slug": "audino-mega",
+   "src": "ani/audino-mega"
+  },
+  {
+   "id": 554001,
+   "slug": "darumaka-galar",
+   "src": "ani/darumaka-galar"
+  },
+  {
+   "id": 555001,
+   "slug": "darmanitan-galar",
+   "src": "ani/darmanitan-galar"
+  },
+  {
+   "id": 562001,
+   "slug": "yamask-galar",
+   "src": "ani/yamask-galar"
+  },
+  {
+   "id": 570001,
+   "slug": "zorua-hisui",
+   "src": "ani/zorua-hisui"
+  },
+  {
+   "id": 618001,
+   "slug": "stunfisk-galar",
+   "src": "ani/stunfisk-galar"
+  },
+  {
+   "id": 628001,
+   "slug": "braviary-hisui",
+   "src": "ani/braviary-hisui"
+  },
+  {
+   "id": 713001,
+   "slug": "avalugg-hisui",
+   "src": "ani/avalugg-hisui"
+  },
+  {
+   "id": 719001,
+   "slug": "diancie-mega",
+   "src": "ani/diancie-mega"
+  },
+  {
+   "id": 724001,
+   "slug": "decidueye-hisui",
+   "src": "ani/decidueye-hisui"
+  }
+ ],
+ "artFallback": [
+  {
+   "id": 122001,
+   "slug": "mr-mime-galar",
+   "from": 122
+  },
+  {
+   "id": 122001,
+   "slug": "mr-mime-galar",
+   "from": 122,
+   "shiny": true
+  }
+ ],
+ "missing": [],
+ "items": 0,
+ "itemIcons": 48,
+ "itemMissing": [
+  "abomasnowite"
+ ],
+ "itemFallback": [
+  {
+   "id": "red-orb",
+   "from": "lustrous-orb.png"
+  },
+  {
+   "id": "blue-orb",
+   "from": "adamant-orb.png"
+  }
+ ]
+}

@@ -1,0 +1,1213 @@
+{
+ "clamp": {
+  "name": "Claquoir",
+  "type": "water",
+  "power": 35,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "razor-wind": {
+  "name": "Coupe-Vent",
+  "type": "normal",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "skull-bash": {
+  "name": "Coud’Krâne",
+  "type": "normal",
+  "power": 130,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "spike-cannon": {
+  "name": "Picanon",
+  "type": "normal",
+  "power": 20,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "constrict": {
+  "name": "Constriction",
+  "type": "normal",
+  "power": 10,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "bubble": {
+  "name": "Écume",
+  "type": "water",
+  "power": 40,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "dizzy-punch": {
+  "name": "Uppercut",
+  "type": "normal",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "hyper-fang": {
+  "name": "Croc de Mort",
+  "type": "normal",
+  "power": 80,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "feint-attack": {
+  "name": "Feinte",
+  "type": "dark",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "karate-chop": {
+  "name": "Poing Karaté",
+  "type": "fighting",
+  "power": 50,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "pursuit": {
+  "name": "Poursuite",
+  "type": "dark",
+  "power": 40,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "jump-kick": {
+  "name": "Pied Sauté",
+  "type": "fighting",
+  "power": 100,
+  "acc": 95,
+  "cat": "phys"
+ },
+ "rolling-kick": {
+  "name": "Mawashi Geri",
+  "type": "fighting",
+  "power": 60,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "secret-power": {
+  "name": "Force Cachée",
+  "type": "normal",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "double-slap": {
+  "name": "Torgnoles",
+  "type": "normal",
+  "power": 15,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "ice-ball": {
+  "name": "Ball’Glace",
+  "type": "ice",
+  "power": 30,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "needle-arm": {
+  "name": "Poing Dard",
+  "type": "grass",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "silver-wind": {
+  "name": "Vent Argenté",
+  "type": "bug",
+  "power": 60,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "signal-beam": {
+  "name": "Rayon Signal",
+  "type": "bug",
+  "power": 75,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "sky-uppercut": {
+  "name": "Stratopercut",
+  "type": "fighting",
+  "power": 85,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "wake-up-slap": {
+  "name": "Réveil Forcé",
+  "type": "fighting",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "comet-punch": {
+  "name": "Poing Comète",
+  "type": "normal",
+  "power": 18,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "twineedle": {
+  "name": "Double Dard",
+  "type": "bug",
+  "power": 25,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "focus-blast": {
+  "name": "Exploforce",
+  "type": "fighting",
+  "power": 120,
+  "acc": 70,
+  "cat": "spec"
+ },
+ "avalanche": {
+  "name": "Avalanche",
+  "type": "ice",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "mud-bomb": {
+  "name": "Boue-Bombe",
+  "type": "ground",
+  "power": 65,
+  "acc": 85,
+  "cat": "spec"
+ },
+ "mirror-shot": {
+  "name": "Miroi-Tir",
+  "type": "steel",
+  "power": 65,
+  "acc": 85,
+  "cat": "spec"
+ },
+ "rock-climb": {
+  "name": "Escalade",
+  "type": "normal",
+  "power": 90,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "magnet-bomb": {
+  "name": "Bombe Aimant",
+  "type": "steel",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "ominous-wind": {
+  "name": "Vent Mauvais",
+  "type": "ghost",
+  "power": 60,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "flame-burst": {
+  "name": "Rebondifeu",
+  "type": "fire",
+  "power": 70,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "synchronoise": {
+  "name": "Synchropeine",
+  "type": "psychic",
+  "power": 120,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "chip-away": {
+  "name": "Attrition",
+  "type": "normal",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "scald": {
+  "name": "Ébullition",
+  "type": "water",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "sky-drop": {
+  "name": "Chute Libre",
+  "type": "flying",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "circle-throw": {
+  "name": "Projection",
+  "type": "fighting",
+  "power": 60,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "electroweb": {
+  "name": "Toile Élek",
+  "type": "electric",
+  "power": 55,
+  "acc": 95,
+  "cat": "spec"
+ },
+ "heart-stamp": {
+  "name": "Crève-Cœur",
+  "type": "psychic",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "horn-leech": {
+  "name": "Encornebois",
+  "type": "grass",
+  "power": 75,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "sacred-sword": {
+  "name": "Lame Sainte",
+  "type": "fighting",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "steamroller": {
+  "name": "Bulldoboule",
+  "type": "bug",
+  "power": 65,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "night-daze": {
+  "name": "Explonuit",
+  "type": "dark",
+  "power": 85,
+  "acc": 95,
+  "cat": "spec"
+ },
+ "tail-slap": {
+  "name": "Plumo-Queue",
+  "type": "normal",
+  "power": 25,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "head-charge": {
+  "name": "Peignée",
+  "type": "normal",
+  "power": 120,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "gear-grind": {
+  "name": "Lancécrou",
+  "type": "steel",
+  "power": 50,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "searing-shot": {
+  "name": "Incendie",
+  "type": "fire",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "techno-blast": {
+  "name": "Techno-Buster",
+  "type": "normal",
+  "power": 120,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "relic-song": {
+  "name": "Chant Antique",
+  "type": "normal",
+  "power": 75,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "secret-sword": {
+  "name": "Lame Ointe",
+  "type": "fighting",
+  "power": 85,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "glaciate": {
+  "name": "Ère Glaciaire",
+  "type": "ice",
+  "power": 65,
+  "acc": 95,
+  "cat": "spec"
+ },
+ "bolt-strike": {
+  "name": "Charge Foudre",
+  "type": "electric",
+  "power": 130,
+  "acc": 85,
+  "cat": "phys"
+ },
+ "blue-flare": {
+  "name": "Flamme Bleue",
+  "type": "fire",
+  "power": 130,
+  "acc": 85,
+  "cat": "spec"
+ },
+ "fiery-dance": {
+  "name": "Danse du Feu",
+  "type": "fire",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "icicle-crash": {
+  "name": "Chute Glace",
+  "type": "ice",
+  "power": 85,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "v-create": {
+  "name": "Coup Victoire",
+  "type": "fire",
+  "power": 180,
+  "acc": 95,
+  "cat": "phys"
+ },
+ "fusion-flare": {
+  "name": "Flamme Croix",
+  "type": "fire",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "fusion-bolt": {
+  "name": "Éclair Croix",
+  "type": "electric",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "flying-press": {
+  "name": "Flying Press",
+  "type": "fighting",
+  "power": 100,
+  "acc": 95,
+  "cat": "phys"
+ },
+ "parabolic-charge": {
+  "name": "Parabocharge",
+  "type": "electric",
+  "power": 65,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "diamond-storm": {
+  "name": "Orage Adamantin",
+  "type": "rock",
+  "power": 100,
+  "acc": 95,
+  "cat": "phys"
+ },
+ "steam-eruption": {
+  "name": "Jet de Vapeur",
+  "type": "water",
+  "power": 110,
+  "acc": 95,
+  "cat": "spec"
+ },
+ "hyperspace-hole": {
+  "name": "TrouDimensionnel",
+  "type": "psychic",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "water-shuriken": {
+  "name": "Sheauriken",
+  "type": "water",
+  "power": 15,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "mystical-fire": {
+  "name": "Feu Ensorcelé",
+  "type": "fire",
+  "power": 75,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "power-up-punch": {
+  "name": "Poing Boost",
+  "type": "fighting",
+  "power": 40,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "oblivion-wing": {
+  "name": "Mort’Ailes",
+  "type": "flying",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "thousand-arrows": {
+  "name": "Myria-Flèches",
+  "type": "ground",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "thousand-waves": {
+  "name": "Myria-Vagues",
+  "type": "ground",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "lands-wrath": {
+  "name": "Force Chtonienne",
+  "type": "ground",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "first-impression": {
+  "name": "Escarmouche",
+  "type": "bug",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "spirit-shackle": {
+  "name": "Tisse Ombre",
+  "type": "ghost",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "darkest-lariat": {
+  "name": "Dark Lariat",
+  "type": "dark",
+  "power": 85,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "sparkling-aria": {
+  "name": "Aria de l’Écume",
+  "type": "water",
+  "power": 90,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "ice-hammer": {
+  "name": "Marteau de Glace",
+  "type": "ice",
+  "power": 100,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "solar-blade": {
+  "name": "Lame Solaire",
+  "type": "grass",
+  "power": 125,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "pollen-puff": {
+  "name": "Boule Pollen",
+  "type": "bug",
+  "power": 90,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "anchor-shot": {
+  "name": "Ancrage",
+  "type": "steel",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "fire-lash": {
+  "name": "Fouet de Feu",
+  "type": "fire",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "burn-up": {
+  "name": "Flamme Ultime",
+  "type": "fire",
+  "power": 130,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "revelation-dance": {
+  "name": "Danse Éveil",
+  "type": "normal",
+  "power": 90,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "core-enforcer": {
+  "name": "Sanction Suprême",
+  "type": "dragon",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "trop-kick": {
+  "name": "Botte Sucrette",
+  "type": "grass",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "beak-blast": {
+  "name": "Bec-Canon",
+  "type": "flying",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "clanging-scales": {
+  "name": "Vibrécaille",
+  "type": "dragon",
+  "power": 110,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "dragon-hammer": {
+  "name": "Draco-Marteau",
+  "type": "dragon",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "brutal-swing": {
+  "name": "Centrifugifle",
+  "type": "dark",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "shell-trap": {
+  "name": "Carapiège",
+  "type": "fire",
+  "power": 150,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "fleur-cannon": {
+  "name": "Canon Floral",
+  "type": "fairy",
+  "power": 130,
+  "acc": 90,
+  "cat": "spec"
+ },
+ "psychic-fangs": {
+  "name": "Psycho-Croc",
+  "type": "psychic",
+  "power": 85,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "accelerock": {
+  "name": "Vif Roc",
+  "type": "rock",
+  "power": 40,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "prismatic-laser": {
+  "name": "Laser Prisme",
+  "type": "psychic",
+  "power": 160,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "spectral-thief": {
+  "name": "Clepto-Mânes",
+  "type": "ghost",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "sunsteel-strike": {
+  "name": "Choc Météore",
+  "type": "steel",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "moongeist-beam": {
+  "name": "Rayon Spectral",
+  "type": "ghost",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "zing-zap": {
+  "name": "Électrikipik",
+  "type": "electric",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "multi-attack": {
+  "name": "Coup Varia-Type",
+  "type": "normal",
+  "power": 120,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "mind-blown": {
+  "name": "Caboche-Kaboum",
+  "type": "fire",
+  "power": 150,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "plasma-fists": {
+  "name": "Plasma Punch",
+  "type": "electric",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "photon-geyser": {
+  "name": "Photo-Geyser",
+  "type": "psychic",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "double-iron-bash": {
+  "name": "Écrous d’Poing",
+  "type": "steel",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "dynamax-cannon": {
+  "name": "Canon Dynamax",
+  "type": "dragon",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "snipe-shot": {
+  "name": "Tir de Précision",
+  "type": "water",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "jaw-lock": {
+  "name": "Croque Fort",
+  "type": "dark",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "dragon-darts": {
+  "name": "Draco-Flèches",
+  "type": "dragon",
+  "power": 50,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "bolt-beak": {
+  "name": "Prise de Bec",
+  "type": "electric",
+  "power": 85,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "fishious-rend": {
+  "name": "Branchicrok",
+  "type": "water",
+  "power": 85,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "drum-beating": {
+  "name": "Tambour Battant",
+  "type": "grass",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "pyro-ball": {
+  "name": "Ballon Brûlant",
+  "type": "fire",
+  "power": 120,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "aura-wheel": {
+  "name": "Roue Libre",
+  "type": "electric",
+  "power": 110,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "breaking-swipe": {
+  "name": "Abattage",
+  "type": "dragon",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "branch-poke": {
+  "name": "Tapotige",
+  "type": "grass",
+  "power": 40,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "overdrive": {
+  "name": "Overdrive",
+  "type": "electric",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "apple-acid": {
+  "name": "Acide Malique",
+  "type": "grass",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "grav-apple": {
+  "name": "Force G",
+  "type": "grass",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "spirit-break": {
+  "name": "Choc Émotionnel",
+  "type": "fairy",
+  "power": 75,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "false-surrender": {
+  "name": "Fourbette",
+  "type": "dark",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "meteor-assault": {
+  "name": "Joute Astrale",
+  "type": "fighting",
+  "power": 150,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "eternabeam": {
+  "name": "Laser Infinimax",
+  "type": "dragon",
+  "power": 160,
+  "acc": 90,
+  "cat": "spec"
+ },
+ "expanding-force": {
+  "name": "Vaste Pouvoir",
+  "type": "psychic",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "steel-roller": {
+  "name": "Métalliroue",
+  "type": "steel",
+  "power": 130,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "rising-voltage": {
+  "name": "Monte-Tension",
+  "type": "electric",
+  "power": 70,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "terrain-pulse": {
+  "name": "Champlification",
+  "type": "normal",
+  "power": 50,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "skitter-smack": {
+  "name": "Ravage Rampant",
+  "type": "bug",
+  "power": 70,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "flip-turn": {
+  "name": "Eau Revoir",
+  "type": "water",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "dual-wingbeat": {
+  "name": "Double Volée",
+  "type": "flying",
+  "power": 40,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "wicked-blow": {
+  "name": "Poing Obscur",
+  "type": "dark",
+  "power": 75,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "thunder-cage": {
+  "name": "Voltageôle",
+  "type": "electric",
+  "power": 80,
+  "acc": 90,
+  "cat": "spec"
+ },
+ "dragon-energy": {
+  "name": "Draco-Énergie",
+  "type": "dragon",
+  "power": 150,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "dire-claw": {
+  "name": "Griffes Funestes",
+  "type": "poison",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "psyshield-bash": {
+  "name": "Sprint Bouclier",
+  "type": "psychic",
+  "power": 70,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "stone-axe": {
+  "name": "Hache de Pierre",
+  "type": "rock",
+  "power": 65,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "springtide-storm": {
+  "name": "Typhon Passionné",
+  "type": "fairy",
+  "power": 100,
+  "acc": 80,
+  "cat": "spec"
+ },
+ "barb-barrage": {
+  "name": "Multitoxik",
+  "type": "poison",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "bleakwind-storm": {
+  "name": "Typhon Hivernal",
+  "type": "flying",
+  "power": 100,
+  "acc": 80,
+  "cat": "spec"
+ },
+ "wildbolt-storm": {
+  "name": "Typhon Fulgurant",
+  "type": "electric",
+  "power": 100,
+  "acc": 80,
+  "cat": "spec"
+ },
+ "sandsear-storm": {
+  "name": "Typhon Pyrosable",
+  "type": "ground",
+  "power": 100,
+  "acc": 80,
+  "cat": "spec"
+ },
+ "last-respects": {
+  "name": "Hommage Posthume",
+  "type": "ghost",
+  "power": 50,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "lumina-crash": {
+  "name": "Lumino-Impact",
+  "type": "psychic",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "order-up": {
+  "name": "Plat du Jour",
+  "type": "dragon",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "jet-punch": {
+  "name": "Poing Sonique",
+  "type": "water",
+  "power": 60,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "spin-out": {
+  "name": "Dérapage",
+  "type": "steel",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "population-bomb": {
+  "name": "Prolifération",
+  "type": "normal",
+  "power": 20,
+  "acc": 90,
+  "cat": "phys"
+ },
+ "ice-spinner": {
+  "name": "Cryo-Pirouette",
+  "type": "ice",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "glaive-rush": {
+  "name": "Charge Glaive",
+  "type": "dragon",
+  "power": 120,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "salt-cure": {
+  "name": "Salaison",
+  "type": "rock",
+  "power": 40,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "triple-dive": {
+  "name": "Triple Plongeon",
+  "type": "water",
+  "power": 30,
+  "acc": 95,
+  "cat": "phys"
+ },
+ "mortal-spin": {
+  "name": "Toupie Éclat",
+  "type": "poison",
+  "power": 30,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "kowtow-cleave": {
+  "name": "Génusection",
+  "type": "dark",
+  "power": 85,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "flower-trick": {
+  "name": "Magie Florale",
+  "type": "grass",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "torch-song": {
+  "name": "Chant Flamboyant",
+  "type": "fire",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "aqua-step": {
+  "name": "Danse Aquatique",
+  "type": "water",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "make-it-rain": {
+  "name": "Ruée d'Or",
+  "type": "steel",
+  "power": 120,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "psyblade": {
+  "name": "Lame Psychique",
+  "type": "psychic",
+  "power": 80,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "hydro-steam": {
+  "name": "Hydrovapeur",
+  "type": "water",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "ruination": {
+  "name": "Cataclysme",
+  "type": "dark",
+  "power": 1,
+  "acc": 90,
+  "cat": "spec"
+ },
+ "collision-course": {
+  "name": "Nitro Crash",
+  "type": "fighting",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "electro-drift": {
+  "name": "Turbo Volt",
+  "type": "electric",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "armor-cannon": {
+  "name": "Canon Blindé",
+  "type": "fire",
+  "power": 120,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "bitter-blade": {
+  "name": "Lame en Peine",
+  "type": "fire",
+  "power": 90,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "double-shock": {
+  "name": "Double Décharge",
+  "type": "electric",
+  "power": 120,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "gigaton-hammer": {
+  "name": "Marteau Mastoc",
+  "type": "steel",
+  "power": 160,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "aqua-cutter": {
+  "name": "Tranch'Aqua",
+  "type": "water",
+  "power": 70,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "matcha-gotcha": {
+  "name": "Mortier Matcha",
+  "type": "grass",
+  "power": 80,
+  "acc": 90,
+  "cat": "spec"
+ },
+ "syrup-bomb": {
+  "name": "Bombe au Sirop",
+  "type": "grass",
+  "power": 60,
+  "acc": 85,
+  "cat": "spec"
+ },
+ "ivy-cudgel": {
+  "name": "Massue Liane",
+  "type": "grass",
+  "power": 100,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "electro-shot": {
+  "name": "Fulgurayon",
+  "type": "electric",
+  "power": 130,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "tera-starstorm": {
+  "name": "Pluie Térastrale",
+  "type": "normal",
+  "power": 120,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "fickle-beam": {
+  "name": "Laser Hasard",
+  "type": "dragon",
+  "power": 80,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "thunderclap": {
+  "name": "Vif Éclair",
+  "type": "electric",
+  "power": 70,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "mighty-cleave": {
+  "name": "Lame Puissante",
+  "type": "rock",
+  "power": 95,
+  "acc": 100,
+  "cat": "phys"
+ },
+ "tachyon-cutter": {
+  "name": "Lame Tachyonique",
+  "type": "steel",
+  "power": 50,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "malignant-chain": {
+  "name": "Chaîne Malsaine",
+  "type": "poison",
+  "power": 100,
+  "acc": 100,
+  "cat": "spec"
+ },
+ "rage": {
+  "name": "Frénésie",
+  "type": "normal",
+  "power": 20,
+  "acc": 100,
+  "cat": "phys"
+ }
+}

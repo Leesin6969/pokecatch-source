@@ -1,0 +1,9082 @@
+{
+ "generatedAt": "2026-11-15T12:23:00.181Z",
+ "source": {
+  "icons": "PokéSprite v2",
+  "art": "Pokémon Showdown gen5ani/ani/dex",
+  "data": "PokéAPI v2"
+ },
+ "counts": {
+  "forms": 103,
+  "regional": 53,
+  "mega": 48,
+  "primal": 2,
+  "items": 49
+ },
+ "forms": [
+  {
+   "id": 3001,
+   "base": 3,
+   "slug": "venusaur-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "grass",
+    "poison"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 100,
+    "def": 123,
+    "spa": 122,
+    "spd": 120,
+    "spe": 80
+   },
+   "height": 2.4,
+   "weight": 155.5,
+   "baseExp": 281,
+   "baseName": "Florizarre",
+   "learn": [
+    [
+     0,
+     "petal-blizzard"
+    ],
+    [
+     9,
+     "leech-seed"
+    ],
+    [
+     12,
+     "razor-leaf"
+    ],
+    [
+     15,
+     "poison-powder"
+    ],
+    [
+     15,
+     "sleep-powder"
+    ],
+    [
+     20,
+     "seed-bomb"
+    ],
+    [
+     25,
+     "take-down"
+    ],
+    [
+     30,
+     "sweet-scent"
+    ],
+    [
+     37,
+     "synthesis"
+    ],
+    [
+     44,
+     "worry-seed"
+    ],
+    [
+     51,
+     "power-whip"
+    ],
+    [
+     58,
+     "solar-beam"
+    ]
+   ]
+  },
+  {
+   "id": 6001,
+   "base": 6,
+   "slug": "charizard-mega-x",
+   "label": "Méga-Évolution X",
+   "kind": "mega",
+   "types": [
+    "fire",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 78,
+    "atk": 130,
+    "def": 111,
+    "spa": 130,
+    "spd": 85,
+    "spe": 100
+   },
+   "height": 1.7,
+   "weight": 110.5,
+   "baseExp": 285,
+   "baseName": "Dracaufeu",
+   "learn": [
+    [
+     0,
+     "air-slash"
+    ],
+    [
+     12,
+     "dragon-breath"
+    ],
+    [
+     19,
+     "fire-fang"
+    ],
+    [
+     24,
+     "slash"
+    ],
+    [
+     30,
+     "flamethrower"
+    ],
+    [
+     39,
+     "scary-face"
+    ],
+    [
+     46,
+     "fire-spin"
+    ],
+    [
+     54,
+     "inferno"
+    ],
+    [
+     62,
+     "flare-blitz"
+    ]
+   ]
+  },
+  {
+   "id": 6002,
+   "base": 6,
+   "slug": "charizard-mega-y",
+   "label": "Méga-Évolution Y",
+   "kind": "mega",
+   "types": [
+    "fire",
+    "flying"
+   ],
+   "stats": {
+    "hp": 78,
+    "atk": 104,
+    "def": 78,
+    "spa": 159,
+    "spd": 115,
+    "spe": 100
+   },
+   "height": 1.7,
+   "weight": 100.5,
+   "baseExp": 285,
+   "baseName": "Dracaufeu",
+   "learn": [
+    [
+     0,
+     "air-slash"
+    ],
+    [
+     12,
+     "dragon-breath"
+    ],
+    [
+     19,
+     "fire-fang"
+    ],
+    [
+     24,
+     "slash"
+    ],
+    [
+     30,
+     "flamethrower"
+    ],
+    [
+     39,
+     "scary-face"
+    ],
+    [
+     46,
+     "fire-spin"
+    ],
+    [
+     54,
+     "inferno"
+    ],
+    [
+     62,
+     "flare-blitz"
+    ]
+   ]
+  },
+  {
+   "id": 9001,
+   "base": 9,
+   "slug": "blastoise-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "water"
+   ],
+   "stats": {
+    "hp": 79,
+    "atk": 103,
+    "def": 120,
+    "spa": 135,
+    "spd": 115,
+    "spe": 78
+   },
+   "height": 1.6,
+   "weight": 101.1,
+   "baseExp": 284,
+   "baseName": "Tortank",
+   "learn": [
+    [
+     0,
+     "flash-cannon"
+    ],
+    [
+     9,
+     "rapid-spin"
+    ],
+    [
+     12,
+     "bite"
+    ],
+    [
+     15,
+     "water-pulse"
+    ],
+    [
+     20,
+     "protect"
+    ],
+    [
+     25,
+     "rain-dance"
+    ],
+    [
+     30,
+     "aqua-tail"
+    ],
+    [
+     35,
+     "shell-smash"
+    ],
+    [
+     42,
+     "iron-defense"
+    ],
+    [
+     49,
+     "hydro-pump"
+    ],
+    [
+     56,
+     "wave-crash"
+    ]
+   ]
+  },
+  {
+   "id": 15001,
+   "base": 15,
+   "slug": "beedrill-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "bug",
+    "poison"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 150,
+    "def": 40,
+    "spa": 15,
+    "spd": 80,
+    "spe": 145
+   },
+   "height": 1.4,
+   "weight": 40.5,
+   "baseExp": 223,
+   "baseName": "Dardargnan",
+   "learn": [
+    [
+     0,
+     "fury-attack"
+    ],
+    [
+     11,
+     "fury-cutter"
+    ],
+    [
+     14,
+     "laser-focus"
+    ],
+    [
+     20,
+     "focus-energy"
+    ],
+    [
+     23,
+     "venoshock"
+    ],
+    [
+     26,
+     "assurance"
+    ],
+    [
+     29,
+     "toxic-spikes"
+    ],
+    [
+     32,
+     "pin-missile"
+    ],
+    [
+     35,
+     "poison-jab"
+    ],
+    [
+     38,
+     "agility"
+    ],
+    [
+     41,
+     "endeavor"
+    ],
+    [
+     44,
+     "fell-stinger"
+    ]
+   ]
+  },
+  {
+   "id": 18001,
+   "base": 18,
+   "slug": "pidgeot-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "normal",
+    "flying"
+   ],
+   "stats": {
+    "hp": 83,
+    "atk": 80,
+    "def": 80,
+    "spa": 135,
+    "spd": 80,
+    "spe": 121
+   },
+   "height": 2.2,
+   "weight": 50.5,
+   "baseExp": 261,
+   "baseName": "Roucarnage",
+   "learn": [
+    [
+     17,
+     "whirlwind"
+    ],
+    [
+     22,
+     "twister"
+    ],
+    [
+     27,
+     "feather-dance"
+    ],
+    [
+     32,
+     "agility"
+    ],
+    [
+     38,
+     "wing-attack"
+    ],
+    [
+     44,
+     "roost"
+    ],
+    [
+     50,
+     "tailwind"
+    ],
+    [
+     56,
+     "aerial-ace"
+    ],
+    [
+     62,
+     "air-slash"
+    ]
+   ]
+  },
+  {
+   "id": 19001,
+   "base": 19,
+   "slug": "rattata-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "normal"
+   ],
+   "stats": {
+    "hp": 30,
+    "atk": 56,
+    "def": 35,
+    "spa": 25,
+    "spd": 35,
+    "spe": 72
+   },
+   "height": 0.3,
+   "weight": 3.8,
+   "baseExp": 51,
+   "baseName": "Rattata",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "tail-whip"
+    ],
+    [
+     4,
+     "quick-attack"
+    ],
+    [
+     7,
+     "focus-energy"
+    ],
+    [
+     10,
+     "bite"
+    ],
+    [
+     13,
+     "laser-focus"
+    ],
+    [
+     16,
+     "take-down"
+    ],
+    [
+     19,
+     "assurance"
+    ],
+    [
+     22,
+     "crunch"
+    ],
+    [
+     25,
+     "sucker-punch"
+    ],
+    [
+     28,
+     "super-fang"
+    ],
+    [
+     31,
+     "double-edge"
+    ],
+    [
+     34,
+     "endeavor"
+    ]
+   ]
+  },
+  {
+   "id": 20001,
+   "base": 20,
+   "slug": "raticate-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "normal"
+   ],
+   "stats": {
+    "hp": 75,
+    "atk": 71,
+    "def": 70,
+    "spa": 40,
+    "spd": 80,
+    "spe": 77
+   },
+   "height": 0.7,
+   "weight": 25.5,
+   "baseExp": 145,
+   "baseName": "Rattatac",
+   "learn": [
+    [
+     0,
+     "scary-face"
+    ],
+    [
+     10,
+     "bite"
+    ],
+    [
+     13,
+     "laser-focus"
+    ],
+    [
+     16,
+     "take-down"
+    ],
+    [
+     19,
+     "assurance"
+    ],
+    [
+     24,
+     "crunch"
+    ],
+    [
+     29,
+     "sucker-punch"
+    ],
+    [
+     34,
+     "super-fang"
+    ],
+    [
+     39,
+     "double-edge"
+    ],
+    [
+     44,
+     "endeavor"
+    ]
+   ]
+  },
+  {
+   "id": 26001,
+   "base": 26,
+   "slug": "raichu-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "electric",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 85,
+    "def": 50,
+    "spa": 95,
+    "spd": 85,
+    "spe": 110
+   },
+   "height": 0.7,
+   "weight": 21,
+   "baseExp": 243,
+   "baseName": "Raichu",
+   "learn": [
+    [
+     0,
+     "thunder-punch"
+    ],
+    [
+     5,
+     "thunderbolt"
+    ]
+   ]
+  },
+  {
+   "id": 27001,
+   "base": 27,
+   "slug": "sandshrew-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ice",
+    "steel"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 75,
+    "def": 90,
+    "spa": 10,
+    "spd": 35,
+    "spe": 40
+   },
+   "height": 0.7,
+   "weight": 40,
+   "baseExp": 60,
+   "baseName": "Sabelette",
+   "learn": [
+    [
+     1,
+     "scratch"
+    ],
+    [
+     1,
+     "defense-curl"
+    ],
+    [
+     3,
+     "poison-sting"
+    ],
+    [
+     6,
+     "sand-attack"
+    ],
+    [
+     9,
+     "rollout"
+    ],
+    [
+     12,
+     "fury-cutter"
+    ],
+    [
+     15,
+     "rapid-spin"
+    ],
+    [
+     18,
+     "bulldoze"
+    ],
+    [
+     21,
+     "swift"
+    ],
+    [
+     24,
+     "fury-swipes"
+    ],
+    [
+     27,
+     "agility"
+    ],
+    [
+     30,
+     "slash"
+    ],
+    [
+     33,
+     "dig"
+    ],
+    [
+     36,
+     "gyro-ball"
+    ],
+    [
+     39,
+     "swords-dance"
+    ],
+    [
+     42,
+     "sandstorm"
+    ],
+    [
+     45,
+     "earthquake"
+    ]
+   ]
+  },
+  {
+   "id": 28001,
+   "base": 28,
+   "slug": "sandslash-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ice",
+    "steel"
+   ],
+   "stats": {
+    "hp": 75,
+    "atk": 100,
+    "def": 120,
+    "spa": 25,
+    "spd": 65,
+    "spe": 65
+   },
+   "height": 1.2,
+   "weight": 55,
+   "baseExp": 158,
+   "baseName": "Sablaireau",
+   "learn": [
+    [
+     9,
+     "rollout"
+    ],
+    [
+     12,
+     "fury-cutter"
+    ],
+    [
+     15,
+     "rapid-spin"
+    ],
+    [
+     18,
+     "bulldoze"
+    ],
+    [
+     21,
+     "swift"
+    ],
+    [
+     26,
+     "fury-swipes"
+    ],
+    [
+     31,
+     "sand-tomb"
+    ],
+    [
+     36,
+     "slash"
+    ],
+    [
+     41,
+     "dig"
+    ],
+    [
+     46,
+     "gyro-ball"
+    ],
+    [
+     51,
+     "swords-dance"
+    ],
+    [
+     56,
+     "sandstorm"
+    ],
+    [
+     61,
+     "earthquake"
+    ]
+   ]
+  },
+  {
+   "id": 37001,
+   "base": 37,
+   "slug": "vulpix-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ice"
+   ],
+   "stats": {
+    "hp": 38,
+    "atk": 41,
+    "def": 40,
+    "spa": 50,
+    "spd": 65,
+    "spe": 65
+   },
+   "height": 0.6,
+   "weight": 9.9,
+   "baseExp": 60,
+   "baseName": "Goupix",
+   "learn": [
+    [
+     1,
+     "tail-whip"
+    ],
+    [
+     1,
+     "ember"
+    ],
+    [
+     4,
+     "disable"
+    ],
+    [
+     8,
+     "quick-attack"
+    ],
+    [
+     12,
+     "spite"
+    ],
+    [
+     16,
+     "incinerate"
+    ],
+    [
+     20,
+     "confuse-ray"
+    ],
+    [
+     24,
+     "will-o-wisp"
+    ],
+    [
+     28,
+     "extrasensory"
+    ],
+    [
+     32,
+     "flamethrower"
+    ],
+    [
+     36,
+     "imprison"
+    ],
+    [
+     40,
+     "fire-spin"
+    ],
+    [
+     44,
+     "safeguard"
+    ],
+    [
+     48,
+     "inferno"
+    ],
+    [
+     52,
+     "fire-blast"
+    ]
+   ]
+  },
+  {
+   "id": 38001,
+   "base": 38,
+   "slug": "ninetales-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ice",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 73,
+    "atk": 67,
+    "def": 75,
+    "spa": 81,
+    "spd": 100,
+    "spe": 109
+   },
+   "height": 1.1,
+   "weight": 19.9,
+   "baseExp": 177,
+   "baseName": "Feunard",
+   "learn": []
+  },
+  {
+   "id": 50001,
+   "base": 50,
+   "slug": "diglett-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ground",
+    "steel"
+   ],
+   "stats": {
+    "hp": 10,
+    "atk": 55,
+    "def": 30,
+    "spa": 35,
+    "spd": 45,
+    "spe": 90
+   },
+   "height": 0.2,
+   "weight": 1,
+   "baseExp": 53,
+   "baseName": "Taupiqueur",
+   "learn": [
+    [
+     1,
+     "scratch"
+    ],
+    [
+     1,
+     "sand-attack"
+    ],
+    [
+     4,
+     "growl"
+    ],
+    [
+     8,
+     "astonish"
+    ],
+    [
+     12,
+     "mud-slap"
+    ],
+    [
+     16,
+     "bulldoze"
+    ],
+    [
+     20,
+     "sucker-punch"
+    ],
+    [
+     24,
+     "slash"
+    ],
+    [
+     28,
+     "sandstorm"
+    ],
+    [
+     32,
+     "dig"
+    ],
+    [
+     36,
+     "earth-power"
+    ],
+    [
+     40,
+     "earthquake"
+    ],
+    [
+     44,
+     "fissure"
+    ]
+   ]
+  },
+  {
+   "id": 51001,
+   "base": 51,
+   "slug": "dugtrio-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "ground",
+    "steel"
+   ],
+   "stats": {
+    "hp": 35,
+    "atk": 100,
+    "def": 60,
+    "spa": 50,
+    "spd": 70,
+    "spe": 110
+   },
+   "height": 0.7,
+   "weight": 66.6,
+   "baseExp": 149,
+   "baseName": "Triopikeur",
+   "learn": [
+    [
+     0,
+     "sand-tomb"
+    ],
+    [
+     12,
+     "mud-slap"
+    ],
+    [
+     16,
+     "bulldoze"
+    ],
+    [
+     20,
+     "sucker-punch"
+    ],
+    [
+     24,
+     "slash"
+    ],
+    [
+     30,
+     "sandstorm"
+    ],
+    [
+     36,
+     "dig"
+    ],
+    [
+     42,
+     "earth-power"
+    ],
+    [
+     48,
+     "earthquake"
+    ],
+    [
+     54,
+     "fissure"
+    ]
+   ]
+  },
+  {
+   "id": 52001,
+   "base": 52,
+   "slug": "meowth-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "dark"
+   ],
+   "stats": {
+    "hp": 40,
+    "atk": 35,
+    "def": 35,
+    "spa": 50,
+    "spd": 40,
+    "spe": 90
+   },
+   "height": 0.4,
+   "weight": 4.2,
+   "baseExp": 58,
+   "baseName": "Miaouss",
+   "learn": [
+    [
+     1,
+     "growl"
+    ],
+    [
+     1,
+     "fake-out"
+    ],
+    [
+     4,
+     "feint"
+    ],
+    [
+     8,
+     "scratch"
+    ],
+    [
+     12,
+     "pay-day"
+    ],
+    [
+     16,
+     "bite"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     24,
+     "assurance"
+    ],
+    [
+     29,
+     "fury-swipes"
+    ],
+    [
+     32,
+     "screech"
+    ],
+    [
+     36,
+     "slash"
+    ],
+    [
+     40,
+     "nasty-plot"
+    ],
+    [
+     44,
+     "play-rough"
+    ]
+   ]
+  },
+  {
+   "id": 52002,
+   "base": 52,
+   "slug": "meowth-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "steel"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 65,
+    "def": 55,
+    "spa": 40,
+    "spd": 40,
+    "spe": 40
+   },
+   "height": 0.4,
+   "weight": 7.5,
+   "baseExp": 58,
+   "baseName": "Miaouss",
+   "learn": [
+    [
+     1,
+     "growl"
+    ],
+    [
+     1,
+     "fake-out"
+    ],
+    [
+     4,
+     "feint"
+    ],
+    [
+     8,
+     "scratch"
+    ],
+    [
+     12,
+     "pay-day"
+    ],
+    [
+     16,
+     "bite"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     24,
+     "assurance"
+    ],
+    [
+     29,
+     "fury-swipes"
+    ],
+    [
+     32,
+     "screech"
+    ],
+    [
+     36,
+     "slash"
+    ],
+    [
+     40,
+     "nasty-plot"
+    ],
+    [
+     44,
+     "play-rough"
+    ]
+   ]
+  },
+  {
+   "id": 53001,
+   "base": 53,
+   "slug": "persian-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "dark"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 60,
+    "def": 60,
+    "spa": 75,
+    "spd": 65,
+    "spe": 115
+   },
+   "height": 1.1,
+   "weight": 33,
+   "baseExp": 154,
+   "baseName": "Persian",
+   "learn": [
+    [
+     0,
+     "power-gem"
+    ],
+    [
+     12,
+     "pay-day"
+    ],
+    [
+     16,
+     "bite"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     24,
+     "assurance"
+    ],
+    [
+     31,
+     "fury-swipes"
+    ],
+    [
+     36,
+     "screech"
+    ],
+    [
+     42,
+     "slash"
+    ],
+    [
+     48,
+     "nasty-plot"
+    ],
+    [
+     54,
+     "play-rough"
+    ]
+   ]
+  },
+  {
+   "id": 58001,
+   "base": 58,
+   "slug": "growlithe-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "fire",
+    "rock"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 75,
+    "def": 45,
+    "spa": 65,
+    "spd": 50,
+    "spe": 55
+   },
+   "height": 0.8,
+   "weight": 22.7,
+   "baseExp": 70,
+   "baseName": "Caninos",
+   "learn": [
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "ember"
+    ],
+    [
+     4,
+     "howl"
+    ],
+    [
+     8,
+     "bite"
+    ],
+    [
+     12,
+     "flame-wheel"
+    ],
+    [
+     16,
+     "helping-hand"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     24,
+     "fire-fang"
+    ],
+    [
+     28,
+     "retaliate"
+    ],
+    [
+     32,
+     "crunch"
+    ],
+    [
+     36,
+     "take-down"
+    ],
+    [
+     40,
+     "flamethrower"
+    ],
+    [
+     44,
+     "roar"
+    ],
+    [
+     48,
+     "play-rough"
+    ],
+    [
+     52,
+     "reversal"
+    ],
+    [
+     56,
+     "flare-blitz"
+    ]
+   ]
+  },
+  {
+   "id": 59001,
+   "base": 59,
+   "slug": "arcanine-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "fire",
+    "rock"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 115,
+    "def": 80,
+    "spa": 95,
+    "spd": 80,
+    "spe": 90
+   },
+   "height": 2,
+   "weight": 168,
+   "baseExp": 194,
+   "baseName": "Arcanin",
+   "learn": [
+    [
+     0,
+     "extreme-speed"
+    ],
+    [
+     5,
+     "flamethrower"
+    ]
+   ]
+  },
+  {
+   "id": 65001,
+   "base": 65,
+   "slug": "alakazam-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "psychic"
+   ],
+   "stats": {
+    "hp": 55,
+    "atk": 50,
+    "def": 65,
+    "spa": 175,
+    "spd": 105,
+    "spe": 150
+   },
+   "height": 1.2,
+   "weight": 48,
+   "baseExp": 270,
+   "baseName": "Alakazam",
+   "learn": [
+    [
+     5,
+     "psybeam"
+    ],
+    [
+     10,
+     "reflect"
+    ],
+    [
+     15,
+     "ally-switch"
+    ],
+    [
+     20,
+     "psycho-cut"
+    ],
+    [
+     25,
+     "recover"
+    ],
+    [
+     30,
+     "psyshock"
+    ],
+    [
+     35,
+     "psychic"
+    ],
+    [
+     40,
+     "role-play"
+    ],
+    [
+     45,
+     "future-sight"
+    ],
+    [
+     50,
+     "calm-mind"
+    ]
+   ]
+  },
+  {
+   "id": 74001,
+   "base": 74,
+   "slug": "geodude-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "rock",
+    "electric"
+   ],
+   "stats": {
+    "hp": 40,
+    "atk": 80,
+    "def": 100,
+    "spa": 30,
+    "spd": 30,
+    "spe": 20
+   },
+   "height": 0.4,
+   "weight": 20.3,
+   "baseExp": 60,
+   "baseName": "Racaillou",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "defense-curl"
+    ],
+    [
+     6,
+     "rock-polish"
+    ],
+    [
+     10,
+     "rollout"
+    ],
+    [
+     12,
+     "bulldoze"
+    ],
+    [
+     16,
+     "rock-throw"
+    ],
+    [
+     18,
+     "smack-down"
+    ],
+    [
+     24,
+     "self-destruct"
+    ],
+    [
+     28,
+     "stealth-rock"
+    ],
+    [
+     30,
+     "rock-blast"
+    ],
+    [
+     34,
+     "earthquake"
+    ],
+    [
+     36,
+     "explosion"
+    ],
+    [
+     40,
+     "double-edge"
+    ],
+    [
+     42,
+     "stone-edge"
+    ]
+   ]
+  },
+  {
+   "id": 75001,
+   "base": 75,
+   "slug": "graveler-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "rock",
+    "electric"
+   ],
+   "stats": {
+    "hp": 55,
+    "atk": 95,
+    "def": 115,
+    "spa": 45,
+    "spd": 45,
+    "spe": 35
+   },
+   "height": 1,
+   "weight": 110,
+   "baseExp": 137,
+   "baseName": "Gravalanch",
+   "learn": [
+    [
+     10,
+     "rollout"
+    ],
+    [
+     12,
+     "bulldoze"
+    ],
+    [
+     16,
+     "rock-throw"
+    ],
+    [
+     18,
+     "smack-down"
+    ],
+    [
+     24,
+     "self-destruct"
+    ],
+    [
+     30,
+     "stealth-rock"
+    ],
+    [
+     34,
+     "rock-blast"
+    ],
+    [
+     40,
+     "earthquake"
+    ],
+    [
+     44,
+     "explosion"
+    ],
+    [
+     50,
+     "double-edge"
+    ],
+    [
+     54,
+     "stone-edge"
+    ]
+   ]
+  },
+  {
+   "id": 76001,
+   "base": 76,
+   "slug": "golem-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "rock",
+    "electric"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 120,
+    "def": 130,
+    "spa": 55,
+    "spd": 65,
+    "spe": 45
+   },
+   "height": 1.7,
+   "weight": 316,
+   "baseExp": 223,
+   "baseName": "Grolem",
+   "learn": [
+    [
+     16,
+     "rock-throw"
+    ],
+    [
+     18,
+     "smack-down"
+    ],
+    [
+     22,
+     "bulldoze"
+    ],
+    [
+     24,
+     "self-destruct"
+    ],
+    [
+     30,
+     "stealth-rock"
+    ],
+    [
+     34,
+     "rock-blast"
+    ],
+    [
+     40,
+     "earthquake"
+    ],
+    [
+     44,
+     "explosion"
+    ],
+    [
+     50,
+     "double-edge"
+    ],
+    [
+     54,
+     "stone-edge"
+    ]
+   ]
+  },
+  {
+   "id": 77001,
+   "base": 77,
+   "slug": "ponyta-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "psychic"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 85,
+    "def": 55,
+    "spa": 65,
+    "spd": 65,
+    "spe": 90
+   },
+   "height": 0.8,
+   "weight": 24,
+   "baseExp": 82,
+   "baseName": "Ponyta",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "growl"
+    ],
+    [
+     5,
+     "tail-whip"
+    ],
+    [
+     10,
+     "ember"
+    ],
+    [
+     15,
+     "flame-charge"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     25,
+     "flame-wheel"
+    ],
+    [
+     30,
+     "stomp"
+    ],
+    [
+     35,
+     "fire-spin"
+    ],
+    [
+     41,
+     "take-down"
+    ],
+    [
+     45,
+     "inferno"
+    ],
+    [
+     50,
+     "fire-blast"
+    ],
+    [
+     55,
+     "flare-blitz"
+    ]
+   ]
+  },
+  {
+   "id": 78001,
+   "base": 78,
+   "slug": "rapidash-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "psychic",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 100,
+    "def": 70,
+    "spa": 80,
+    "spd": 80,
+    "spe": 105
+   },
+   "height": 1.7,
+   "weight": 80,
+   "baseExp": 175,
+   "baseName": "Galopa",
+   "learn": [
+    [
+     0,
+     "smart-strike"
+    ],
+    [
+     15,
+     "flame-charge"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     25,
+     "flame-wheel"
+    ],
+    [
+     30,
+     "stomp"
+    ],
+    [
+     35,
+     "fire-spin"
+    ],
+    [
+     43,
+     "take-down"
+    ],
+    [
+     49,
+     "inferno"
+    ],
+    [
+     56,
+     "fire-blast"
+    ],
+    [
+     63,
+     "flare-blitz"
+    ]
+   ]
+  },
+  {
+   "id": 79001,
+   "base": 79,
+   "slug": "slowpoke-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "psychic"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 65,
+    "def": 65,
+    "spa": 40,
+    "spd": 40,
+    "spe": 15
+   },
+   "height": 1.2,
+   "weight": 36,
+   "baseExp": 63,
+   "baseName": "Ramoloss",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "curse"
+    ],
+    [
+     3,
+     "growl"
+    ],
+    [
+     6,
+     "water-gun"
+    ],
+    [
+     9,
+     "yawn"
+    ],
+    [
+     12,
+     "confusion"
+    ],
+    [
+     15,
+     "disable"
+    ],
+    [
+     18,
+     "water-pulse"
+    ],
+    [
+     21,
+     "headbutt"
+    ],
+    [
+     24,
+     "zen-headbutt"
+    ],
+    [
+     27,
+     "amnesia"
+    ],
+    [
+     30,
+     "surf"
+    ],
+    [
+     33,
+     "slack-off"
+    ],
+    [
+     36,
+     "psychic"
+    ],
+    [
+     39,
+     "psych-up"
+    ],
+    [
+     42,
+     "rain-dance"
+    ],
+    [
+     45,
+     "heal-pulse"
+    ]
+   ]
+  },
+  {
+   "id": 80001,
+   "base": 80,
+   "slug": "slowbro-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "poison",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 100,
+    "def": 95,
+    "spa": 100,
+    "spd": 70,
+    "spe": 30
+   },
+   "height": 1.6,
+   "weight": 70.5,
+   "baseExp": 172,
+   "baseName": "Flagadoss",
+   "learn": [
+    [
+     9,
+     "yawn"
+    ],
+    [
+     12,
+     "confusion"
+    ],
+    [
+     15,
+     "disable"
+    ],
+    [
+     18,
+     "water-pulse"
+    ],
+    [
+     21,
+     "headbutt"
+    ],
+    [
+     24,
+     "zen-headbutt"
+    ],
+    [
+     27,
+     "amnesia"
+    ],
+    [
+     30,
+     "surf"
+    ],
+    [
+     33,
+     "slack-off"
+    ],
+    [
+     36,
+     "psychic"
+    ],
+    [
+     41,
+     "psych-up"
+    ],
+    [
+     46,
+     "rain-dance"
+    ],
+    [
+     51,
+     "heal-pulse"
+    ]
+   ]
+  },
+  {
+   "id": 80002,
+   "base": 80,
+   "slug": "slowbro-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "water",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 75,
+    "def": 180,
+    "spa": 130,
+    "spd": 80,
+    "spe": 30
+   },
+   "height": 2,
+   "weight": 120,
+   "baseExp": 207,
+   "baseName": "Flagadoss",
+   "learn": [
+    [
+     9,
+     "yawn"
+    ],
+    [
+     12,
+     "confusion"
+    ],
+    [
+     15,
+     "disable"
+    ],
+    [
+     18,
+     "water-pulse"
+    ],
+    [
+     21,
+     "headbutt"
+    ],
+    [
+     24,
+     "zen-headbutt"
+    ],
+    [
+     27,
+     "amnesia"
+    ],
+    [
+     30,
+     "surf"
+    ],
+    [
+     33,
+     "slack-off"
+    ],
+    [
+     36,
+     "psychic"
+    ],
+    [
+     41,
+     "psych-up"
+    ],
+    [
+     46,
+     "rain-dance"
+    ],
+    [
+     51,
+     "heal-pulse"
+    ]
+   ]
+  },
+  {
+   "id": 83001,
+   "base": 83,
+   "slug": "farfetchd-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "fighting"
+   ],
+   "stats": {
+    "hp": 52,
+    "atk": 95,
+    "def": 55,
+    "spa": 58,
+    "spd": 62,
+    "spe": 55
+   },
+   "height": 0.8,
+   "weight": 42,
+   "baseExp": 132,
+   "baseName": "Canarticho",
+   "learn": [
+    [
+     1,
+     "sand-attack"
+    ],
+    [
+     1,
+     "peck"
+    ],
+    [
+     5,
+     "leer"
+    ],
+    [
+     10,
+     "fury-cutter"
+    ],
+    [
+     15,
+     "cut"
+    ],
+    [
+     20,
+     "aerial-ace"
+    ],
+    [
+     25,
+     "air-cutter"
+    ],
+    [
+     30,
+     "knock-off"
+    ],
+    [
+     35,
+     "false-swipe"
+    ],
+    [
+     40,
+     "slash"
+    ],
+    [
+     45,
+     "swords-dance"
+    ],
+    [
+     50,
+     "air-slash"
+    ],
+    [
+     55,
+     "leaf-blade"
+    ],
+    [
+     60,
+     "agility"
+    ],
+    [
+     65,
+     "brave-bird"
+    ]
+   ]
+  },
+  {
+   "id": 88001,
+   "base": 88,
+   "slug": "grimer-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "poison",
+    "dark"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 80,
+    "def": 50,
+    "spa": 40,
+    "spd": 50,
+    "spe": 25
+   },
+   "height": 0.7,
+   "weight": 42,
+   "baseExp": 65,
+   "baseName": "Tadmorv",
+   "learn": [
+    [
+     1,
+     "pound"
+    ],
+    [
+     1,
+     "poison-gas"
+    ],
+    [
+     4,
+     "harden"
+    ],
+    [
+     7,
+     "mud-slap"
+    ],
+    [
+     12,
+     "disable"
+    ],
+    [
+     15,
+     "sludge"
+    ],
+    [
+     18,
+     "mud-shot"
+    ],
+    [
+     21,
+     "minimize"
+    ],
+    [
+     26,
+     "toxic"
+    ],
+    [
+     29,
+     "sludge-bomb"
+    ],
+    [
+     32,
+     "sludge-wave"
+    ],
+    [
+     37,
+     "screech"
+    ],
+    [
+     40,
+     "gunk-shot"
+    ],
+    [
+     43,
+     "acid-armor"
+    ],
+    [
+     46,
+     "belch"
+    ],
+    [
+     48,
+     "memento"
+    ]
+   ]
+  },
+  {
+   "id": 89001,
+   "base": 89,
+   "slug": "muk-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "poison",
+    "dark"
+   ],
+   "stats": {
+    "hp": 105,
+    "atk": 105,
+    "def": 75,
+    "spa": 65,
+    "spd": 100,
+    "spe": 50
+   },
+   "height": 1,
+   "weight": 52,
+   "baseExp": 175,
+   "baseName": "Grotadmorv",
+   "learn": [
+    [
+     12,
+     "disable"
+    ],
+    [
+     15,
+     "sludge"
+    ],
+    [
+     18,
+     "mud-shot"
+    ],
+    [
+     21,
+     "minimize"
+    ],
+    [
+     26,
+     "toxic"
+    ],
+    [
+     29,
+     "sludge-bomb"
+    ],
+    [
+     32,
+     "sludge-wave"
+    ],
+    [
+     37,
+     "screech"
+    ],
+    [
+     40,
+     "gunk-shot"
+    ],
+    [
+     46,
+     "acid-armor"
+    ],
+    [
+     52,
+     "belch"
+    ],
+    [
+     57,
+     "memento"
+    ]
+   ]
+  },
+  {
+   "id": 94001,
+   "base": 94,
+   "slug": "gengar-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "ghost",
+    "poison"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 65,
+    "def": 80,
+    "spa": 170,
+    "spd": 95,
+    "spe": 130
+   },
+   "height": 1.4,
+   "weight": 40.5,
+   "baseExp": 270,
+   "baseName": "Ectoplasma",
+   "learn": [
+    [
+     12,
+     "payback"
+    ],
+    [
+     16,
+     "spite"
+    ],
+    [
+     20,
+     "curse"
+    ],
+    [
+     24,
+     "hex"
+    ],
+    [
+     30,
+     "night-shade"
+    ],
+    [
+     36,
+     "sucker-punch"
+    ],
+    [
+     42,
+     "dark-pulse"
+    ],
+    [
+     48,
+     "shadow-ball"
+    ],
+    [
+     54,
+     "destiny-bond"
+    ],
+    [
+     60,
+     "dream-eater"
+    ]
+   ]
+  },
+  {
+   "id": 100001,
+   "base": 100,
+   "slug": "voltorb-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "electric",
+    "grass"
+   ],
+   "stats": {
+    "hp": 40,
+    "atk": 30,
+    "def": 50,
+    "spa": 55,
+    "spd": 55,
+    "spe": 100
+   },
+   "height": 0.5,
+   "weight": 13,
+   "baseExp": 66,
+   "baseName": "Voltorbe",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "charge"
+    ],
+    [
+     4,
+     "thunder-shock"
+    ],
+    [
+     6,
+     "eerie-impulse"
+    ],
+    [
+     9,
+     "spark"
+    ],
+    [
+     11,
+     "rollout"
+    ],
+    [
+     13,
+     "screech"
+    ],
+    [
+     16,
+     "charge-beam"
+    ],
+    [
+     20,
+     "swift"
+    ],
+    [
+     22,
+     "electro-ball"
+    ],
+    [
+     26,
+     "self-destruct"
+    ],
+    [
+     29,
+     "light-screen"
+    ],
+    [
+     34,
+     "magnet-rise"
+    ],
+    [
+     37,
+     "discharge"
+    ],
+    [
+     41,
+     "explosion"
+    ],
+    [
+     46,
+     "gyro-ball"
+    ],
+    [
+     50,
+     "mirror-coat"
+    ]
+   ]
+  },
+  {
+   "id": 101001,
+   "base": 101,
+   "slug": "electrode-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "electric",
+    "grass"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 50,
+    "def": 70,
+    "spa": 80,
+    "spd": 80,
+    "spe": 150
+   },
+   "height": 1.2,
+   "weight": 71,
+   "baseExp": 172,
+   "baseName": "Électrode",
+   "learn": [
+    [
+     9,
+     "spark"
+    ],
+    [
+     11,
+     "rollout"
+    ],
+    [
+     13,
+     "screech"
+    ],
+    [
+     16,
+     "charge-beam"
+    ],
+    [
+     20,
+     "swift"
+    ],
+    [
+     22,
+     "electro-ball"
+    ],
+    [
+     26,
+     "self-destruct"
+    ],
+    [
+     29,
+     "light-screen"
+    ],
+    [
+     36,
+     "magnet-rise"
+    ],
+    [
+     41,
+     "discharge"
+    ],
+    [
+     47,
+     "explosion"
+    ],
+    [
+     54,
+     "gyro-ball"
+    ],
+    [
+     58,
+     "mirror-coat"
+    ]
+   ]
+  },
+  {
+   "id": 103001,
+   "base": 103,
+   "slug": "exeggutor-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "grass",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 105,
+    "def": 85,
+    "spa": 125,
+    "spd": 75,
+    "spe": 45
+   },
+   "height": 10.9,
+   "weight": 415.6,
+   "baseExp": 186,
+   "baseName": "Noadkoko",
+   "learn": [
+    [
+     0,
+     "stomp"
+    ]
+   ]
+  },
+  {
+   "id": 105001,
+   "base": 105,
+   "slug": "marowak-alola",
+   "label": "Forme d'Alola",
+   "kind": "regional",
+   "types": [
+    "fire",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 80,
+    "def": 110,
+    "spa": 50,
+    "spd": 80,
+    "spe": 45
+   },
+   "height": 1,
+   "weight": 34,
+   "baseExp": 149,
+   "baseName": "Ossatueur",
+   "learn": [
+    [
+     12,
+     "headbutt"
+    ],
+    [
+     16,
+     "retaliate"
+    ],
+    [
+     20,
+     "fling"
+    ],
+    [
+     24,
+     "stomping-tantrum"
+    ],
+    [
+     31,
+     "bone-rush"
+    ],
+    [
+     36,
+     "focus-energy"
+    ],
+    [
+     42,
+     "endeavor"
+    ],
+    [
+     48,
+     "bonemerang"
+    ],
+    [
+     54,
+     "thrash"
+    ],
+    [
+     60,
+     "double-edge"
+    ]
+   ]
+  },
+  {
+   "id": 110001,
+   "base": 110,
+   "slug": "weezing-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "poison",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 90,
+    "def": 120,
+    "spa": 85,
+    "spd": 70,
+    "spe": 60
+   },
+   "height": 3,
+   "weight": 16,
+   "baseExp": 172,
+   "baseName": "Smogogo",
+   "learn": [
+    [
+     0,
+     "double-hit"
+    ],
+    [
+     12,
+     "clear-smog"
+    ],
+    [
+     16,
+     "assurance"
+    ],
+    [
+     20,
+     "sludge"
+    ],
+    [
+     24,
+     "haze"
+    ],
+    [
+     28,
+     "self-destruct"
+    ],
+    [
+     32,
+     "sludge-bomb"
+    ],
+    [
+     38,
+     "toxic"
+    ],
+    [
+     44,
+     "belch"
+    ],
+    [
+     50,
+     "explosion"
+    ],
+    [
+     56,
+     "memento"
+    ],
+    [
+     62,
+     "destiny-bond"
+    ]
+   ]
+  },
+  {
+   "id": 115001,
+   "base": 115,
+   "slug": "kangaskhan-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "normal"
+   ],
+   "stats": {
+    "hp": 105,
+    "atk": 125,
+    "def": 100,
+    "spa": 60,
+    "spd": 100,
+    "spe": 100
+   },
+   "height": 2.2,
+   "weight": 100,
+   "baseExp": 207,
+   "baseName": "Kangourex",
+   "learn": [
+    [
+     1,
+     "pound"
+    ],
+    [
+     1,
+     "tail-whip"
+    ],
+    [
+     4,
+     "growl"
+    ],
+    [
+     8,
+     "fake-out"
+    ],
+    [
+     12,
+     "bite"
+    ],
+    [
+     16,
+     "stomp"
+    ],
+    [
+     20,
+     "focus-energy"
+    ],
+    [
+     24,
+     "headbutt"
+    ],
+    [
+     28,
+     "sucker-punch"
+    ],
+    [
+     32,
+     "double-hit"
+    ],
+    [
+     36,
+     "crunch"
+    ],
+    [
+     40,
+     "endure"
+    ],
+    [
+     44,
+     "reversal"
+    ],
+    [
+     48,
+     "outrage"
+    ],
+    [
+     52,
+     "last-resort"
+    ]
+   ]
+  },
+  {
+   "id": 122001,
+   "base": 122,
+   "slug": "mr-mime-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ice",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 65,
+    "def": 65,
+    "spa": 90,
+    "spd": 90,
+    "spe": 100
+   },
+   "height": 1.4,
+   "weight": 56.8,
+   "baseExp": 161,
+   "baseName": "M. Mime",
+   "learn": [
+    [
+     1,
+     "pound"
+    ],
+    [
+     1,
+     "baton-pass"
+    ],
+    [
+     1,
+     "encore"
+    ],
+    [
+     1,
+     "copycat"
+    ],
+    [
+     1,
+     "power-swap"
+    ],
+    [
+     1,
+     "guard-swap"
+    ],
+    [
+     1,
+     "wide-guard"
+    ],
+    [
+     1,
+     "quick-guard"
+    ],
+    [
+     12,
+     "confusion"
+    ],
+    [
+     16,
+     "role-play"
+    ],
+    [
+     20,
+     "protect"
+    ],
+    [
+     24,
+     "recycle"
+    ],
+    [
+     28,
+     "psybeam"
+    ],
+    [
+     32,
+     "mimic"
+    ],
+    [
+     36,
+     "light-screen"
+    ],
+    [
+     36,
+     "reflect"
+    ],
+    [
+     36,
+     "safeguard"
+    ],
+    [
+     40,
+     "sucker-punch"
+    ],
+    [
+     44,
+     "dazzling-gleam"
+    ],
+    [
+     48,
+     "psychic"
+    ],
+    [
+     52,
+     "teeter-dance"
+    ]
+   ]
+  },
+  {
+   "id": 127001,
+   "base": 127,
+   "slug": "pinsir-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "bug",
+    "flying"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 155,
+    "def": 120,
+    "spa": 65,
+    "spd": 90,
+    "spe": 105
+   },
+   "height": 1.7,
+   "weight": 59,
+   "baseExp": 210,
+   "baseName": "Scarabrute",
+   "learn": [
+    [
+     1,
+     "vice-grip"
+    ],
+    [
+     1,
+     "harden"
+    ],
+    [
+     4,
+     "focus-energy"
+    ],
+    [
+     8,
+     "bind"
+    ],
+    [
+     12,
+     "seismic-toss"
+    ],
+    [
+     16,
+     "bug-bite"
+    ],
+    [
+     20,
+     "storm-throw"
+    ],
+    [
+     24,
+     "double-hit"
+    ],
+    [
+     28,
+     "vital-throw"
+    ],
+    [
+     32,
+     "x-scissor"
+    ],
+    [
+     36,
+     "strength"
+    ],
+    [
+     40,
+     "swords-dance"
+    ],
+    [
+     44,
+     "submission"
+    ],
+    [
+     48,
+     "guillotine"
+    ],
+    [
+     52,
+     "superpower"
+    ]
+   ]
+  },
+  {
+   "id": 130001,
+   "base": 130,
+   "slug": "gyarados-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "water",
+    "dark"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 155,
+    "def": 109,
+    "spa": 70,
+    "spd": 130,
+    "spe": 81
+   },
+   "height": 6.5,
+   "weight": 305,
+   "baseExp": 224,
+   "baseName": "Léviator",
+   "learn": [
+    [
+     0,
+     "bite"
+    ],
+    [
+     4,
+     "whirlpool"
+    ],
+    [
+     8,
+     "ice-fang"
+    ],
+    [
+     12,
+     "brine"
+    ],
+    [
+     16,
+     "scary-face"
+    ],
+    [
+     21,
+     "waterfall"
+    ],
+    [
+     24,
+     "crunch"
+    ],
+    [
+     28,
+     "rain-dance"
+    ],
+    [
+     32,
+     "aqua-tail"
+    ],
+    [
+     36,
+     "dragon-dance"
+    ],
+    [
+     40,
+     "hydro-pump"
+    ],
+    [
+     44,
+     "hurricane"
+    ],
+    [
+     48,
+     "thrash"
+    ],
+    [
+     52,
+     "hyper-beam"
+    ]
+   ]
+  },
+  {
+   "id": 142001,
+   "base": 142,
+   "slug": "aerodactyl-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "rock",
+    "flying"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 135,
+    "def": 85,
+    "spa": 70,
+    "spd": 95,
+    "spe": 150
+   },
+   "height": 2.1,
+   "weight": 79,
+   "baseExp": 215,
+   "baseName": "Ptéra",
+   "learn": [
+    [
+     1,
+     "bite"
+    ],
+    [
+     1,
+     "ancient-power"
+    ],
+    [
+     5,
+     "supersonic"
+    ],
+    [
+     10,
+     "wing-attack"
+    ],
+    [
+     15,
+     "scary-face"
+    ],
+    [
+     20,
+     "rock-slide"
+    ],
+    [
+     25,
+     "roar"
+    ],
+    [
+     30,
+     "crunch"
+    ],
+    [
+     35,
+     "iron-head"
+    ],
+    [
+     40,
+     "take-down"
+    ],
+    [
+     45,
+     "stone-edge"
+    ],
+    [
+     50,
+     "agility"
+    ],
+    [
+     55,
+     "hyper-beam"
+    ],
+    [
+     60,
+     "giga-impact"
+    ]
+   ]
+  },
+  {
+   "id": 144001,
+   "base": 144,
+   "slug": "articuno-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "psychic",
+    "flying"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 85,
+    "def": 85,
+    "spa": 125,
+    "spd": 100,
+    "spe": 95
+   },
+   "height": 1.7,
+   "weight": 50.9,
+   "baseExp": 290,
+   "baseName": "Artikodin",
+   "learn": [
+    [
+     1,
+     "gust"
+    ],
+    [
+     1,
+     "mist"
+    ],
+    [
+     5,
+     "powder-snow"
+    ],
+    [
+     10,
+     "reflect"
+    ],
+    [
+     15,
+     "ice-shard"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     25,
+     "ancient-power"
+    ],
+    [
+     30,
+     "tailwind"
+    ],
+    [
+     35,
+     "freeze-dry"
+    ],
+    [
+     40,
+     "roost"
+    ],
+    [
+     45,
+     "ice-beam"
+    ],
+    [
+     50,
+     "snowscape"
+    ],
+    [
+     55,
+     "hurricane"
+    ],
+    [
+     60,
+     "haze"
+    ],
+    [
+     65,
+     "blizzard"
+    ],
+    [
+     70,
+     "sheer-cold"
+    ]
+   ]
+  },
+  {
+   "id": 145001,
+   "base": 145,
+   "slug": "zapdos-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "fighting",
+    "flying"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 125,
+    "def": 90,
+    "spa": 85,
+    "spd": 90,
+    "spe": 100
+   },
+   "height": 1.6,
+   "weight": 58.2,
+   "baseExp": 290,
+   "baseName": "Électhor",
+   "learn": [
+    [
+     1,
+     "peck"
+    ],
+    [
+     1,
+     "thunder-wave"
+    ],
+    [
+     5,
+     "thunder-shock"
+    ],
+    [
+     10,
+     "light-screen"
+    ],
+    [
+     15,
+     "pluck"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     25,
+     "ancient-power"
+    ],
+    [
+     30,
+     "charge"
+    ],
+    [
+     35,
+     "drill-peck"
+    ],
+    [
+     40,
+     "roost"
+    ],
+    [
+     45,
+     "discharge"
+    ],
+    [
+     50,
+     "rain-dance"
+    ],
+    [
+     55,
+     "thunder"
+    ],
+    [
+     60,
+     "detect"
+    ],
+    [
+     65,
+     "magnetic-flux"
+    ],
+    [
+     70,
+     "zap-cannon"
+    ]
+   ]
+  },
+  {
+   "id": 146001,
+   "base": 146,
+   "slug": "moltres-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "flying"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 85,
+    "def": 90,
+    "spa": 100,
+    "spd": 125,
+    "spe": 90
+   },
+   "height": 2,
+   "weight": 66,
+   "baseExp": 290,
+   "baseName": "Sulfura",
+   "learn": [
+    [
+     1,
+     "gust"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     5,
+     "ember"
+    ],
+    [
+     10,
+     "safeguard"
+    ],
+    [
+     15,
+     "wing-attack"
+    ],
+    [
+     20,
+     "agility"
+    ],
+    [
+     25,
+     "ancient-power"
+    ],
+    [
+     30,
+     "incinerate"
+    ],
+    [
+     35,
+     "air-slash"
+    ],
+    [
+     40,
+     "roost"
+    ],
+    [
+     45,
+     "heat-wave"
+    ],
+    [
+     50,
+     "sunny-day"
+    ],
+    [
+     55,
+     "hurricane"
+    ],
+    [
+     60,
+     "endure"
+    ],
+    [
+     65,
+     "overheat"
+    ],
+    [
+     70,
+     "sky-attack"
+    ]
+   ]
+  },
+  {
+   "id": 150001,
+   "base": 150,
+   "slug": "mewtwo-mega-x",
+   "label": "Méga-Évolution X",
+   "kind": "mega",
+   "types": [
+    "psychic",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 106,
+    "atk": 190,
+    "def": 100,
+    "spa": 154,
+    "spd": 100,
+    "spe": 130
+   },
+   "height": 2.3,
+   "weight": 127,
+   "baseExp": 351,
+   "baseName": "Mewtwo",
+   "learn": [
+    [
+     1,
+     "disable"
+    ],
+    [
+     1,
+     "confusion"
+    ],
+    [
+     1,
+     "swift"
+    ],
+    [
+     1,
+     "life-dew"
+    ],
+    [
+     8,
+     "ancient-power"
+    ],
+    [
+     16,
+     "psycho-cut"
+    ],
+    [
+     24,
+     "safeguard"
+    ],
+    [
+     32,
+     "amnesia"
+    ],
+    [
+     40,
+     "aura-sphere"
+    ],
+    [
+     48,
+     "psychic"
+    ],
+    [
+     56,
+     "power-swap"
+    ],
+    [
+     56,
+     "guard-swap"
+    ],
+    [
+     64,
+     "mist"
+    ],
+    [
+     72,
+     "psystrike"
+    ],
+    [
+     80,
+     "recover"
+    ],
+    [
+     88,
+     "future-sight"
+    ]
+   ]
+  },
+  {
+   "id": 150002,
+   "base": 150,
+   "slug": "mewtwo-mega-y",
+   "label": "Méga-Évolution Y",
+   "kind": "mega",
+   "types": [
+    "psychic"
+   ],
+   "stats": {
+    "hp": 106,
+    "atk": 150,
+    "def": 70,
+    "spa": 194,
+    "spd": 120,
+    "spe": 140
+   },
+   "height": 1.5,
+   "weight": 33,
+   "baseExp": 351,
+   "baseName": "Mewtwo",
+   "learn": [
+    [
+     1,
+     "disable"
+    ],
+    [
+     1,
+     "confusion"
+    ],
+    [
+     1,
+     "swift"
+    ],
+    [
+     1,
+     "life-dew"
+    ],
+    [
+     8,
+     "ancient-power"
+    ],
+    [
+     16,
+     "psycho-cut"
+    ],
+    [
+     24,
+     "safeguard"
+    ],
+    [
+     32,
+     "amnesia"
+    ],
+    [
+     40,
+     "aura-sphere"
+    ],
+    [
+     48,
+     "psychic"
+    ],
+    [
+     56,
+     "power-swap"
+    ],
+    [
+     56,
+     "guard-swap"
+    ],
+    [
+     64,
+     "mist"
+    ],
+    [
+     72,
+     "psystrike"
+    ],
+    [
+     80,
+     "recover"
+    ],
+    [
+     88,
+     "future-sight"
+    ]
+   ]
+  },
+  {
+   "id": 157001,
+   "base": 157,
+   "slug": "typhlosion-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "fire",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 73,
+    "atk": 84,
+    "def": 78,
+    "spa": 119,
+    "spd": 85,
+    "spe": 95
+   },
+   "height": 1.6,
+   "weight": 69.8,
+   "baseExp": 240,
+   "baseName": "Typhlosion",
+   "learn": [
+    [
+     13,
+     "quick-attack"
+    ],
+    [
+     20,
+     "flame-wheel"
+    ],
+    [
+     24,
+     "defense-curl"
+    ],
+    [
+     31,
+     "swift"
+    ],
+    [
+     35,
+     "flame-charge"
+    ],
+    [
+     43,
+     "lava-plume"
+    ],
+    [
+     48,
+     "flamethrower"
+    ],
+    [
+     56,
+     "inferno"
+    ],
+    [
+     61,
+     "rollout"
+    ],
+    [
+     74,
+     "overheat"
+    ]
+   ]
+  },
+  {
+   "id": 181001,
+   "base": 181,
+   "slug": "ampharos-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "electric",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 95,
+    "def": 105,
+    "spa": 165,
+    "spd": 110,
+    "spe": 45
+   },
+   "height": 1.4,
+   "weight": 61.5,
+   "baseExp": 275,
+   "baseName": "Pharamp",
+   "learn": [
+    [
+     0,
+     "thunder-punch"
+    ],
+    [
+     11,
+     "cotton-spore"
+    ],
+    [
+     16,
+     "charge"
+    ],
+    [
+     20,
+     "take-down"
+    ],
+    [
+     25,
+     "electro-ball"
+    ],
+    [
+     29,
+     "confuse-ray"
+    ],
+    [
+     35,
+     "power-gem"
+    ],
+    [
+     40,
+     "discharge"
+    ],
+    [
+     46,
+     "cotton-guard"
+    ],
+    [
+     51,
+     "dazzling-gleam"
+    ],
+    [
+     57,
+     "light-screen"
+    ],
+    [
+     62,
+     "thunder"
+    ]
+   ]
+  },
+  {
+   "id": 199001,
+   "base": 199,
+   "slug": "slowking-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "poison",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 65,
+    "def": 80,
+    "spa": 110,
+    "spd": 110,
+    "spe": 30
+   },
+   "height": 1.8,
+   "weight": 79.5,
+   "baseExp": 172,
+   "baseName": "Roigada",
+   "learn": [
+    [
+     9,
+     "yawn"
+    ],
+    [
+     12,
+     "confusion"
+    ],
+    [
+     15,
+     "disable"
+    ],
+    [
+     18,
+     "water-pulse"
+    ],
+    [
+     21,
+     "headbutt"
+    ],
+    [
+     27,
+     "amnesia"
+    ],
+    [
+     30,
+     "surf"
+    ],
+    [
+     33,
+     "slack-off"
+    ],
+    [
+     36,
+     "psychic"
+    ],
+    [
+     39,
+     "psych-up"
+    ],
+    [
+     42,
+     "rain-dance"
+    ],
+    [
+     45,
+     "heal-pulse"
+    ]
+   ]
+  },
+  {
+   "id": 208001,
+   "base": 208,
+   "slug": "steelix-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "steel",
+    "ground"
+   ],
+   "stats": {
+    "hp": 75,
+    "atk": 125,
+    "def": 230,
+    "spa": 55,
+    "spd": 95,
+    "spe": 30
+   },
+   "height": 10.5,
+   "weight": 740,
+   "baseExp": 214,
+   "baseName": "Steelix",
+   "learn": [
+    [
+     4,
+     "smack-down"
+    ],
+    [
+     8,
+     "autotomize"
+    ],
+    [
+     12,
+     "dragon-breath"
+    ],
+    [
+     16,
+     "curse"
+    ],
+    [
+     20,
+     "rock-slide"
+    ],
+    [
+     24,
+     "screech"
+    ],
+    [
+     28,
+     "sand-tomb"
+    ],
+    [
+     32,
+     "stealth-rock"
+    ],
+    [
+     36,
+     "slam"
+    ],
+    [
+     40,
+     "sandstorm"
+    ],
+    [
+     44,
+     "dig"
+    ],
+    [
+     48,
+     "iron-tail"
+    ],
+    [
+     52,
+     "stone-edge"
+    ],
+    [
+     56,
+     "double-edge"
+    ],
+    [
+     60,
+     "magnet-rise"
+    ]
+   ]
+  },
+  {
+   "id": 211001,
+   "base": 211,
+   "slug": "qwilfish-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "poison"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 95,
+    "def": 85,
+    "spa": 55,
+    "spd": 55,
+    "spe": 85
+   },
+   "height": 0.5,
+   "weight": 3.9,
+   "baseExp": 88,
+   "baseName": "Qwilfish",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "poison-sting"
+    ],
+    [
+     4,
+     "harden"
+    ],
+    [
+     8,
+     "water-gun"
+    ],
+    [
+     12,
+     "fell-stinger"
+    ],
+    [
+     16,
+     "minimize"
+    ],
+    [
+     20,
+     "spikes"
+    ],
+    [
+     24,
+     "brine"
+    ],
+    [
+     28,
+     "poison-jab"
+    ],
+    [
+     32,
+     "pin-missile"
+    ],
+    [
+     36,
+     "toxic-spikes"
+    ],
+    [
+     40,
+     "stockpile"
+    ],
+    [
+     40,
+     "spit-up"
+    ],
+    [
+     44,
+     "toxic"
+    ],
+    [
+     48,
+     "aqua-tail"
+    ],
+    [
+     52,
+     "acupressure"
+    ],
+    [
+     56,
+     "destiny-bond"
+    ]
+   ]
+  },
+  {
+   "id": 212001,
+   "base": 212,
+   "slug": "scizor-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "bug",
+    "steel"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 150,
+    "def": 140,
+    "spa": 65,
+    "spd": 100,
+    "spe": 75
+   },
+   "height": 2,
+   "weight": 125,
+   "baseExp": 210,
+   "baseName": "Cizayox",
+   "learn": [
+    [
+     0,
+     "bullet-punch"
+    ],
+    [
+     12,
+     "metal-claw"
+    ],
+    [
+     16,
+     "double-team"
+    ],
+    [
+     20,
+     "double-hit"
+    ],
+    [
+     24,
+     "slash"
+    ],
+    [
+     28,
+     "focus-energy"
+    ],
+    [
+     32,
+     "iron-defense"
+    ],
+    [
+     36,
+     "iron-head"
+    ],
+    [
+     40,
+     "x-scissor"
+    ],
+    [
+     44,
+     "swords-dance"
+    ]
+   ]
+  },
+  {
+   "id": 214001,
+   "base": 214,
+   "slug": "heracross-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "bug",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 185,
+    "def": 115,
+    "spa": 40,
+    "spd": 105,
+    "spe": 75
+   },
+   "height": 1.7,
+   "weight": 62.5,
+   "baseExp": 210,
+   "baseName": "Scarhino",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "arm-thrust"
+    ],
+    [
+     5,
+     "fury-attack"
+    ],
+    [
+     10,
+     "endure"
+    ],
+    [
+     15,
+     "aerial-ace"
+    ],
+    [
+     20,
+     "horn-attack"
+    ],
+    [
+     25,
+     "counter"
+    ],
+    [
+     30,
+     "brick-break"
+    ],
+    [
+     35,
+     "pin-missile"
+    ],
+    [
+     40,
+     "throat-chop"
+    ],
+    [
+     45,
+     "thrash"
+    ],
+    [
+     50,
+     "swords-dance"
+    ],
+    [
+     55,
+     "megahorn"
+    ],
+    [
+     60,
+     "close-combat"
+    ]
+   ]
+  },
+  {
+   "id": 215001,
+   "base": 215,
+   "slug": "sneasel-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "fighting",
+    "poison"
+   ],
+   "stats": {
+    "hp": 55,
+    "atk": 95,
+    "def": 55,
+    "spa": 35,
+    "spd": 75,
+    "spe": 115
+   },
+   "height": 0.9,
+   "weight": 27,
+   "baseExp": 86,
+   "baseName": "Farfuret",
+   "learn": [
+    [
+     1,
+     "scratch"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     6,
+     "taunt"
+    ],
+    [
+     12,
+     "quick-attack"
+    ],
+    [
+     18,
+     "metal-claw"
+    ],
+    [
+     24,
+     "icy-wind"
+    ],
+    [
+     30,
+     "fury-swipes"
+    ],
+    [
+     36,
+     "hone-claws"
+    ],
+    [
+     42,
+     "beat-up"
+    ],
+    [
+     48,
+     "agility"
+    ],
+    [
+     54,
+     "screech"
+    ],
+    [
+     60,
+     "slash"
+    ]
+   ]
+  },
+  {
+   "id": 222001,
+   "base": 222,
+   "slug": "corsola-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ghost"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 55,
+    "def": 100,
+    "spa": 65,
+    "spd": 100,
+    "spe": 30
+   },
+   "height": 0.6,
+   "weight": 0.5,
+   "baseExp": 144,
+   "baseName": "Corayon",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "harden"
+    ],
+    [
+     5,
+     "water-gun"
+    ],
+    [
+     10,
+     "aqua-ring"
+    ],
+    [
+     15,
+     "endure"
+    ],
+    [
+     20,
+     "ancient-power"
+    ],
+    [
+     25,
+     "bubble-beam"
+    ],
+    [
+     30,
+     "flail"
+    ],
+    [
+     35,
+     "life-dew"
+    ],
+    [
+     40,
+     "power-gem"
+    ],
+    [
+     45,
+     "earth-power"
+    ],
+    [
+     50,
+     "recover"
+    ],
+    [
+     55,
+     "mirror-coat"
+    ]
+   ]
+  },
+  {
+   "id": 229001,
+   "base": 229,
+   "slug": "houndoom-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dark",
+    "fire"
+   ],
+   "stats": {
+    "hp": 75,
+    "atk": 90,
+    "def": 90,
+    "spa": 140,
+    "spd": 90,
+    "spe": 115
+   },
+   "height": 1.9,
+   "weight": 49.5,
+   "baseExp": 210,
+   "baseName": "Démolosse",
+   "learn": [
+    [
+     13,
+     "roar"
+    ],
+    [
+     16,
+     "bite"
+    ],
+    [
+     20,
+     "incinerate"
+    ],
+    [
+     26,
+     "beat-up"
+    ],
+    [
+     30,
+     "fire-fang"
+    ],
+    [
+     35,
+     "torment"
+    ],
+    [
+     41,
+     "comeuppance"
+    ],
+    [
+     45,
+     "foul-play"
+    ],
+    [
+     50,
+     "flamethrower"
+    ],
+    [
+     56,
+     "crunch"
+    ],
+    [
+     62,
+     "inferno"
+    ]
+   ]
+  },
+  {
+   "id": 248001,
+   "base": 248,
+   "slug": "tyranitar-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "rock",
+    "dark"
+   ],
+   "stats": {
+    "hp": 100,
+    "atk": 164,
+    "def": 150,
+    "spa": 95,
+    "spd": 120,
+    "spe": 71
+   },
+   "height": 2.5,
+   "weight": 255,
+   "baseExp": 315,
+   "baseName": "Tyranocif",
+   "learn": [
+    [
+     9,
+     "bite"
+    ],
+    [
+     12,
+     "scary-face"
+    ],
+    [
+     15,
+     "rock-slide"
+    ],
+    [
+     18,
+     "stomping-tantrum"
+    ],
+    [
+     21,
+     "screech"
+    ],
+    [
+     24,
+     "smack-down"
+    ],
+    [
+     27,
+     "crunch"
+    ],
+    [
+     33,
+     "earthquake"
+    ],
+    [
+     37,
+     "stone-edge"
+    ],
+    [
+     42,
+     "thrash"
+    ],
+    [
+     47,
+     "sandstorm"
+    ],
+    [
+     52,
+     "hyper-beam"
+    ],
+    [
+     59,
+     "giga-impact"
+    ]
+   ]
+  },
+  {
+   "id": 254001,
+   "base": 254,
+   "slug": "sceptile-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "grass",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 110,
+    "def": 75,
+    "spa": 145,
+    "spd": 85,
+    "spe": 145
+   },
+   "height": 1.9,
+   "weight": 55.2,
+   "baseExp": 284,
+   "baseName": "Jungko",
+   "learn": [
+    [
+     0,
+     "leaf-blade"
+    ],
+    [
+     5,
+     "mega-drain"
+    ],
+    [
+     12,
+     "detect"
+    ],
+    [
+     15,
+     "quick-guard"
+    ],
+    [
+     20,
+     "assurance"
+    ],
+    [
+     25,
+     "giga-drain"
+    ],
+    [
+     30,
+     "slam"
+    ],
+    [
+     35,
+     "double-team"
+    ],
+    [
+     42,
+     "screech"
+    ],
+    [
+     49,
+     "endeavor"
+    ],
+    [
+     56,
+     "leaf-storm"
+    ]
+   ]
+  },
+  {
+   "id": 257001,
+   "base": 257,
+   "slug": "blaziken-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "fire",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 160,
+    "def": 80,
+    "spa": 130,
+    "spd": 80,
+    "spe": 100
+   },
+   "height": 1.9,
+   "weight": 52,
+   "baseExp": 284,
+   "baseName": "Braségali",
+   "learn": [
+    [
+     0,
+     "blaze-kick"
+    ],
+    [
+     9,
+     "flame-charge"
+    ],
+    [
+     12,
+     "detect"
+    ],
+    [
+     15,
+     "sand-attack"
+    ],
+    [
+     20,
+     "aerial-ace"
+    ],
+    [
+     25,
+     "slash"
+    ],
+    [
+     30,
+     "bounce"
+    ],
+    [
+     35,
+     "focus-energy"
+    ],
+    [
+     42,
+     "bulk-up"
+    ],
+    [
+     49,
+     "reversal"
+    ],
+    [
+     56,
+     "flare-blitz"
+    ],
+    [
+     63,
+     "brave-bird"
+    ]
+   ]
+  },
+  {
+   "id": 260001,
+   "base": 260,
+   "slug": "swampert-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "water",
+    "ground"
+   ],
+   "stats": {
+    "hp": 100,
+    "atk": 150,
+    "def": 110,
+    "spa": 95,
+    "spd": 110,
+    "spe": 70
+   },
+   "height": 1.9,
+   "weight": 102,
+   "baseExp": 286,
+   "baseName": "Laggron",
+   "learn": [
+    [
+     9,
+     "rock-throw"
+    ],
+    [
+     12,
+     "protect"
+    ],
+    [
+     15,
+     "supersonic"
+    ],
+    [
+     20,
+     "water-pulse"
+    ],
+    [
+     25,
+     "rock-slide"
+    ],
+    [
+     30,
+     "take-down"
+    ],
+    [
+     35,
+     "amnesia"
+    ],
+    [
+     42,
+     "muddy-water"
+    ],
+    [
+     49,
+     "screech"
+    ],
+    [
+     56,
+     "endeavor"
+    ],
+    [
+     63,
+     "hydro-pump"
+    ]
+   ]
+  },
+  {
+   "id": 263001,
+   "base": 263,
+   "slug": "zigzagoon-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "normal"
+   ],
+   "stats": {
+    "hp": 38,
+    "atk": 30,
+    "def": 41,
+    "spa": 30,
+    "spd": 41,
+    "spe": 60
+   },
+   "height": 0.4,
+   "weight": 17.5,
+   "baseExp": 56,
+   "baseName": "Zigzaton",
+   "learn": [
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "growl"
+    ],
+    [
+     3,
+     "sand-attack"
+    ],
+    [
+     6,
+     "tail-whip"
+    ],
+    [
+     9,
+     "covet"
+    ],
+    [
+     12,
+     "headbutt"
+    ],
+    [
+     15,
+     "baby-doll-eyes"
+    ],
+    [
+     18,
+     "pin-missile"
+    ],
+    [
+     21,
+     "rest"
+    ],
+    [
+     24,
+     "take-down"
+    ],
+    [
+     27,
+     "fling"
+    ],
+    [
+     30,
+     "flail"
+    ],
+    [
+     33,
+     "belly-drum"
+    ],
+    [
+     36,
+     "double-edge"
+    ]
+   ]
+  },
+  {
+   "id": 264001,
+   "base": 264,
+   "slug": "linoone-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "dark",
+    "normal"
+   ],
+   "stats": {
+    "hp": 78,
+    "atk": 70,
+    "def": 61,
+    "spa": 50,
+    "spd": 61,
+    "spe": 100
+   },
+   "height": 0.5,
+   "weight": 32.5,
+   "baseExp": 147,
+   "baseName": "Linéon",
+   "learn": [
+    [
+     0,
+     "slash"
+    ],
+    [
+     9,
+     "covet"
+    ],
+    [
+     12,
+     "headbutt"
+    ],
+    [
+     15,
+     "hone-claws"
+    ],
+    [
+     18,
+     "fury-swipes"
+    ],
+    [
+     23,
+     "rest"
+    ],
+    [
+     28,
+     "take-down"
+    ],
+    [
+     33,
+     "fling"
+    ],
+    [
+     38,
+     "flail"
+    ],
+    [
+     43,
+     "belly-drum"
+    ],
+    [
+     48,
+     "double-edge"
+    ]
+   ]
+  },
+  {
+   "id": 282001,
+   "base": 282,
+   "slug": "gardevoir-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "psychic",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 68,
+    "atk": 85,
+    "def": 65,
+    "spa": 165,
+    "spd": 135,
+    "spe": 100
+   },
+   "height": 1.6,
+   "weight": 48.4,
+   "baseExp": 278,
+   "baseName": "Gardevoir",
+   "learn": [
+    [
+     0,
+     "dazzling-gleam"
+    ],
+    [
+     9,
+     "hypnosis"
+    ],
+    [
+     12,
+     "draining-kiss"
+    ],
+    [
+     15,
+     "teleport"
+    ],
+    [
+     18,
+     "psybeam"
+    ],
+    [
+     23,
+     "life-dew"
+    ],
+    [
+     28,
+     "wish"
+    ],
+    [
+     35,
+     "calm-mind"
+    ],
+    [
+     42,
+     "psychic"
+    ],
+    [
+     49,
+     "moonblast"
+    ],
+    [
+     56,
+     "dream-eater"
+    ],
+    [
+     63,
+     "future-sight"
+    ]
+   ]
+  },
+  {
+   "id": 302001,
+   "base": 302,
+   "slug": "sableye-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dark",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 85,
+    "def": 125,
+    "spa": 85,
+    "spd": 115,
+    "spe": 20
+   },
+   "height": 0.5,
+   "weight": 161,
+   "baseExp": 168,
+   "baseName": "Ténéfix",
+   "learn": [
+    [
+     1,
+     "scratch"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     3,
+     "astonish"
+    ],
+    [
+     9,
+     "shadow-sneak"
+    ],
+    [
+     12,
+     "fake-out"
+    ],
+    [
+     15,
+     "disable"
+    ],
+    [
+     18,
+     "detect"
+    ],
+    [
+     21,
+     "night-shade"
+    ],
+    [
+     24,
+     "fury-swipes"
+    ],
+    [
+     27,
+     "knock-off"
+    ],
+    [
+     30,
+     "quash"
+    ],
+    [
+     33,
+     "shadow-claw"
+    ],
+    [
+     36,
+     "mean-look"
+    ],
+    [
+     39,
+     "power-gem"
+    ],
+    [
+     42,
+     "zen-headbutt"
+    ],
+    [
+     45,
+     "shadow-ball"
+    ],
+    [
+     48,
+     "foul-play"
+    ]
+   ]
+  },
+  {
+   "id": 303001,
+   "base": 303,
+   "slug": "mawile-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "steel",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 105,
+    "def": 125,
+    "spa": 55,
+    "spd": 95,
+    "spe": 50
+   },
+   "height": 1,
+   "weight": 23.5,
+   "baseExp": 168,
+   "baseName": "Mysdibule",
+   "learn": [
+    [
+     1,
+     "growl"
+    ],
+    [
+     1,
+     "astonish"
+    ],
+    [
+     4,
+     "fairy-wind"
+    ],
+    [
+     8,
+     "baton-pass"
+    ],
+    [
+     12,
+     "bite"
+    ],
+    [
+     16,
+     "stockpile"
+    ],
+    [
+     16,
+     "spit-up"
+    ],
+    [
+     16,
+     "swallow"
+    ],
+    [
+     20,
+     "sucker-punch"
+    ],
+    [
+     24,
+     "iron-defense"
+    ],
+    [
+     28,
+     "crunch"
+    ],
+    [
+     32,
+     "sweet-scent"
+    ],
+    [
+     36,
+     "iron-head"
+    ],
+    [
+     40,
+     "taunt"
+    ],
+    [
+     44,
+     "fake-tears"
+    ],
+    [
+     48,
+     "play-rough"
+    ]
+   ]
+  },
+  {
+   "id": 306001,
+   "base": 306,
+   "slug": "aggron-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "steel"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 140,
+    "def": 230,
+    "spa": 60,
+    "spd": 80,
+    "spe": 50
+   },
+   "height": 2.2,
+   "weight": 395,
+   "baseExp": 284,
+   "baseName": "Galeking",
+   "learn": [
+    [
+     12,
+     "roar"
+    ],
+    [
+     16,
+     "headbutt"
+    ],
+    [
+     20,
+     "protect"
+    ],
+    [
+     24,
+     "rock-slide"
+    ],
+    [
+     28,
+     "iron-head"
+    ],
+    [
+     35,
+     "metal-sound"
+    ],
+    [
+     40,
+     "take-down"
+    ],
+    [
+     48,
+     "autotomize"
+    ],
+    [
+     56,
+     "iron-tail"
+    ],
+    [
+     64,
+     "iron-defense"
+    ],
+    [
+     72,
+     "heavy-slam"
+    ],
+    [
+     80,
+     "double-edge"
+    ],
+    [
+     88,
+     "metal-burst"
+    ]
+   ]
+  },
+  {
+   "id": 308001,
+   "base": 308,
+   "slug": "medicham-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "fighting",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 60,
+    "atk": 100,
+    "def": 85,
+    "spa": 80,
+    "spd": 85,
+    "spe": 100
+   },
+   "height": 1.3,
+   "weight": 31.5,
+   "baseExp": 179,
+   "baseName": "Charmina",
+   "learn": [
+    [
+     12,
+     "endure"
+    ],
+    [
+     15,
+     "feint"
+    ],
+    [
+     17,
+     "force-palm"
+    ],
+    [
+     20,
+     "psybeam"
+    ],
+    [
+     23,
+     "calm-mind"
+    ],
+    [
+     25,
+     "zen-headbutt"
+    ],
+    [
+     28,
+     "high-jump-kick"
+    ],
+    [
+     31,
+     "psych-up"
+    ],
+    [
+     33,
+     "acupressure"
+    ],
+    [
+     36,
+     "power-trick"
+    ],
+    [
+     47,
+     "recover"
+    ],
+    [
+     53,
+     "counter"
+    ],
+    [
+     53,
+     "axe-kick"
+    ]
+   ]
+  },
+  {
+   "id": 310001,
+   "base": 310,
+   "slug": "manectric-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "electric"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 75,
+    "def": 80,
+    "spa": 135,
+    "spd": 80,
+    "spe": 135
+   },
+   "height": 1.8,
+   "weight": 44,
+   "baseExp": 201,
+   "baseName": "Élecsprint",
+   "learn": [
+    [
+     12,
+     "quick-attack"
+    ],
+    [
+     16,
+     "shock-wave"
+    ],
+    [
+     20,
+     "bite"
+    ],
+    [
+     24,
+     "thunder-fang"
+    ],
+    [
+     30,
+     "roar"
+    ],
+    [
+     36,
+     "discharge"
+    ],
+    [
+     42,
+     "charge"
+    ],
+    [
+     48,
+     "wild-charge"
+    ],
+    [
+     54,
+     "thunder"
+    ],
+    [
+     60,
+     "electric-terrain"
+    ]
+   ]
+  },
+  {
+   "id": 319001,
+   "base": 319,
+   "slug": "sharpedo-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "water",
+    "dark"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 140,
+    "def": 70,
+    "spa": 110,
+    "spd": 65,
+    "spe": 105
+   },
+   "height": 2.5,
+   "weight": 130.3,
+   "baseExp": 196,
+   "baseName": "Sharpedo",
+   "learn": [
+    [
+     0,
+     "slash"
+    ],
+    [
+     12,
+     "scary-face"
+    ],
+    [
+     16,
+     "bite"
+    ],
+    [
+     20,
+     "ice-fang"
+    ],
+    [
+     24,
+     "screech"
+    ],
+    [
+     28,
+     "swagger"
+    ],
+    [
+     34,
+     "crunch"
+    ],
+    [
+     40,
+     "agility"
+    ],
+    [
+     46,
+     "liquidation"
+    ],
+    [
+     52,
+     "take-down"
+    ]
+   ]
+  },
+  {
+   "id": 323001,
+   "base": 323,
+   "slug": "camerupt-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "fire",
+    "ground"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 120,
+    "def": 100,
+    "spa": 145,
+    "spd": 105,
+    "spe": 20
+   },
+   "height": 2.5,
+   "weight": 320.5,
+   "baseExp": 196,
+   "baseName": "Camérupt",
+   "learn": [
+    [
+     0,
+     "rock-slide"
+    ],
+    [
+     12,
+     "bulldoze"
+    ],
+    [
+     15,
+     "incinerate"
+    ],
+    [
+     19,
+     "amnesia"
+    ],
+    [
+     22,
+     "lava-plume"
+    ],
+    [
+     26,
+     "earth-power"
+    ],
+    [
+     29,
+     "curse"
+    ],
+    [
+     31,
+     "take-down"
+    ],
+    [
+     39,
+     "yawn"
+    ],
+    [
+     46,
+     "earthquake"
+    ]
+   ]
+  },
+  {
+   "id": 334001,
+   "base": 334,
+   "slug": "altaria-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 75,
+    "atk": 110,
+    "def": 110,
+    "spa": 110,
+    "spd": 105,
+    "spe": 80
+   },
+   "height": 1.5,
+   "weight": 20.6,
+   "baseExp": 207,
+   "baseName": "Altaria",
+   "learn": [
+    [
+     0,
+     "dragon-pulse"
+    ],
+    [
+     12,
+     "fury-attack"
+    ],
+    [
+     16,
+     "round"
+    ],
+    [
+     20,
+     "dragon-breath"
+    ],
+    [
+     24,
+     "safeguard"
+    ],
+    [
+     28,
+     "sing"
+    ],
+    [
+     32,
+     "cotton-guard"
+    ],
+    [
+     38,
+     "take-down"
+    ],
+    [
+     44,
+     "moonblast"
+    ],
+    [
+     50,
+     "perish-song"
+    ],
+    [
+     56,
+     "sky-attack"
+    ]
+   ]
+  },
+  {
+   "id": 354001,
+   "base": 354,
+   "slug": "banette-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "ghost"
+   ],
+   "stats": {
+    "hp": 64,
+    "atk": 165,
+    "def": 75,
+    "spa": 93,
+    "spd": 83,
+    "spe": 75
+   },
+   "height": 1.2,
+   "weight": 13,
+   "baseExp": 194,
+   "baseName": "Branette",
+   "learn": [
+    [
+     0,
+     "knock-off"
+    ],
+    [
+     16,
+     "will-o-wisp"
+    ],
+    [
+     19,
+     "shadow-sneak"
+    ],
+    [
+     22,
+     "hex"
+    ],
+    [
+     26,
+     "curse"
+    ],
+    [
+     30,
+     "shadow-ball"
+    ],
+    [
+     34,
+     "role-play"
+    ],
+    [
+     40,
+     "sucker-punch"
+    ],
+    [
+     46,
+     "trick"
+    ],
+    [
+     53,
+     "phantom-force"
+    ]
+   ]
+  },
+  {
+   "id": 359001,
+   "base": 359,
+   "slug": "absol-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dark"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 150,
+    "def": 60,
+    "spa": 115,
+    "spd": 60,
+    "spe": 115
+   },
+   "height": 1.2,
+   "weight": 49,
+   "baseExp": 198,
+   "baseName": "Absol",
+   "learn": [
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "quick-attack"
+    ],
+    [
+     5,
+     "double-team"
+    ],
+    [
+     10,
+     "knock-off"
+    ],
+    [
+     15,
+     "detect"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     25,
+     "slash"
+    ],
+    [
+     30,
+     "night-slash"
+    ],
+    [
+     35,
+     "focus-energy"
+    ],
+    [
+     40,
+     "sucker-punch"
+    ],
+    [
+     45,
+     "swords-dance"
+    ],
+    [
+     50,
+     "future-sight"
+    ],
+    [
+     55,
+     "perish-song"
+    ]
+   ]
+  },
+  {
+   "id": 362001,
+   "base": 362,
+   "slug": "glalie-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "ice"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 120,
+    "def": 80,
+    "spa": 120,
+    "spd": 80,
+    "spe": 100
+   },
+   "height": 2.1,
+   "weight": 350.2,
+   "baseExp": 203,
+   "baseName": "Oniglali",
+   "learn": [
+    [
+     0,
+     "freeze-dry"
+    ],
+    [
+     15,
+     "ice-shard"
+    ],
+    [
+     20,
+     "protect"
+    ],
+    [
+     25,
+     "icy-wind"
+    ],
+    [
+     30,
+     "frost-breath"
+    ],
+    [
+     35,
+     "bite"
+    ],
+    [
+     40,
+     "ice-fang"
+    ],
+    [
+     47,
+     "snowscape"
+    ],
+    [
+     54,
+     "weather-ball"
+    ],
+    [
+     61,
+     "crunch"
+    ],
+    [
+     68,
+     "blizzard"
+    ]
+   ]
+  },
+  {
+   "id": 373001,
+   "base": 373,
+   "slug": "salamence-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "flying"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 145,
+    "def": 130,
+    "spa": 120,
+    "spd": 90,
+    "spe": 120
+   },
+   "height": 1.8,
+   "weight": 112.6,
+   "baseExp": 315,
+   "baseName": "Drattak",
+   "learn": [
+    [
+     0,
+     "fly"
+    ],
+    [
+     15,
+     "headbutt"
+    ],
+    [
+     20,
+     "scary-face"
+    ],
+    [
+     25,
+     "crunch"
+    ],
+    [
+     33,
+     "dragon-claw"
+    ],
+    [
+     39,
+     "zen-headbutt"
+    ],
+    [
+     46,
+     "focus-energy"
+    ],
+    [
+     55,
+     "flamethrower"
+    ],
+    [
+     73,
+     "double-edge"
+    ]
+   ]
+  },
+  {
+   "id": 376001,
+   "base": 376,
+   "slug": "metagross-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "steel",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 145,
+    "def": 150,
+    "spa": 105,
+    "spd": 110,
+    "spe": 110
+   },
+   "height": 2.5,
+   "weight": 942.9,
+   "baseExp": 315,
+   "baseName": "Métalosse",
+   "learn": [
+    [
+     0,
+     "hammer-arm"
+    ],
+    [
+     6,
+     "zen-headbutt"
+    ],
+    [
+     12,
+     "magnet-rise"
+    ],
+    [
+     16,
+     "flash-cannon"
+    ],
+    [
+     26,
+     "take-down"
+    ],
+    [
+     34,
+     "psychic"
+    ],
+    [
+     42,
+     "scary-face"
+    ],
+    [
+     52,
+     "meteor-mash"
+    ],
+    [
+     62,
+     "iron-defense"
+    ],
+    [
+     72,
+     "agility"
+    ],
+    [
+     82,
+     "hyper-beam"
+    ]
+   ]
+  },
+  {
+   "id": 380001,
+   "base": 380,
+   "slug": "latias-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 100,
+    "def": 120,
+    "spa": 140,
+    "spd": 150,
+    "spe": 110
+   },
+   "height": 1.8,
+   "weight": 52,
+   "baseExp": 315,
+   "baseName": "Latias",
+   "learn": [
+    [
+     1,
+     "charm"
+    ],
+    [
+     1,
+     "stored-power"
+    ],
+    [
+     5,
+     "helping-hand"
+    ],
+    [
+     10,
+     "recover"
+    ],
+    [
+     15,
+     "confusion"
+    ],
+    [
+     20,
+     "tailwind"
+    ],
+    [
+     25,
+     "dragon-breath"
+    ],
+    [
+     30,
+     "wish"
+    ],
+    [
+     35,
+     "mist-ball"
+    ],
+    [
+     40,
+     "zen-headbutt"
+    ],
+    [
+     45,
+     "dragon-pulse"
+    ],
+    [
+     50,
+     "heal-pulse"
+    ],
+    [
+     55,
+     "reflect-type"
+    ],
+    [
+     60,
+     "psychic"
+    ],
+    [
+     65,
+     "guard-split"
+    ],
+    [
+     70,
+     "healing-wish"
+    ]
+   ]
+  },
+  {
+   "id": 381001,
+   "base": 381,
+   "slug": "latios-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "psychic"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 130,
+    "def": 100,
+    "spa": 160,
+    "spd": 120,
+    "spe": 110
+   },
+   "height": 2.3,
+   "weight": 70,
+   "baseExp": 315,
+   "baseName": "Latios",
+   "learn": [
+    [
+     1,
+     "dragon-dance"
+    ],
+    [
+     1,
+     "stored-power"
+    ],
+    [
+     5,
+     "helping-hand"
+    ],
+    [
+     10,
+     "recover"
+    ],
+    [
+     15,
+     "confusion"
+    ],
+    [
+     20,
+     "tailwind"
+    ],
+    [
+     25,
+     "dragon-breath"
+    ],
+    [
+     30,
+     "ally-switch"
+    ],
+    [
+     35,
+     "luster-purge"
+    ],
+    [
+     40,
+     "zen-headbutt"
+    ],
+    [
+     45,
+     "dragon-pulse"
+    ],
+    [
+     50,
+     "heal-pulse"
+    ],
+    [
+     55,
+     "simple-beam"
+    ],
+    [
+     60,
+     "psychic"
+    ],
+    [
+     65,
+     "power-split"
+    ],
+    [
+     70,
+     "memento"
+    ]
+   ]
+  },
+  {
+   "id": 382001,
+   "base": 382,
+   "slug": "kyogre-primal",
+   "label": "Forme Primitive",
+   "kind": "primal",
+   "types": [
+    "water"
+   ],
+   "stats": {
+    "hp": 100,
+    "atk": 150,
+    "def": 90,
+    "spa": 180,
+    "spd": 160,
+    "spe": 90
+   },
+   "height": 9.8,
+   "weight": 430,
+   "baseExp": 347,
+   "baseName": "Kyogre",
+   "learn": [
+    [
+     1,
+     "body-slam"
+    ],
+    [
+     1,
+     "scary-face"
+    ],
+    [
+     1,
+     "ancient-power"
+    ],
+    [
+     1,
+     "water-pulse"
+    ],
+    [
+     1,
+     "origin-pulse"
+    ],
+    [
+     9,
+     "aqua-tail"
+    ],
+    [
+     18,
+     "calm-mind"
+    ],
+    [
+     27,
+     "muddy-water"
+    ],
+    [
+     36,
+     "ice-beam"
+    ],
+    [
+     45,
+     "sheer-cold"
+    ],
+    [
+     54,
+     "aqua-ring"
+    ],
+    [
+     72,
+     "hydro-pump"
+    ],
+    [
+     81,
+     "double-edge"
+    ],
+    [
+     90,
+     "water-spout"
+    ]
+   ]
+  },
+  {
+   "id": 383001,
+   "base": 383,
+   "slug": "groudon-primal",
+   "label": "Forme Primitive",
+   "kind": "primal",
+   "types": [
+    "ground",
+    "fire"
+   ],
+   "stats": {
+    "hp": 100,
+    "atk": 180,
+    "def": 160,
+    "spa": 150,
+    "spd": 90,
+    "spe": 90
+   },
+   "height": 5,
+   "weight": 999.7,
+   "baseExp": 347,
+   "baseName": "Groudon",
+   "learn": [
+    [
+     1,
+     "scary-face"
+    ],
+    [
+     1,
+     "ancient-power"
+    ],
+    [
+     1,
+     "mud-shot"
+    ],
+    [
+     1,
+     "lava-plume"
+    ],
+    [
+     1,
+     "precipice-blades"
+    ],
+    [
+     9,
+     "earth-power"
+    ],
+    [
+     18,
+     "bulk-up"
+    ],
+    [
+     27,
+     "earthquake"
+    ],
+    [
+     36,
+     "hammer-arm"
+    ],
+    [
+     45,
+     "fissure"
+    ],
+    [
+     54,
+     "rest"
+    ],
+    [
+     72,
+     "fire-blast"
+    ],
+    [
+     81,
+     "solar-beam"
+    ],
+    [
+     90,
+     "eruption"
+    ]
+   ]
+  },
+  {
+   "id": 384001,
+   "base": 384,
+   "slug": "rayquaza-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "flying"
+   ],
+   "stats": {
+    "hp": 105,
+    "atk": 180,
+    "def": 100,
+    "spa": 180,
+    "spd": 100,
+    "spe": 115
+   },
+   "height": 10.8,
+   "weight": 392,
+   "baseExp": 351,
+   "baseName": "Rayquaza",
+   "learn": [
+    [
+     1,
+     "scary-face"
+    ],
+    [
+     1,
+     "twister"
+    ],
+    [
+     1,
+     "ancient-power"
+    ],
+    [
+     1,
+     "air-slash"
+    ],
+    [
+     1,
+     "dragon-ascent"
+    ],
+    [
+     9,
+     "crunch"
+    ],
+    [
+     18,
+     "dragon-dance"
+    ],
+    [
+     27,
+     "extreme-speed"
+    ],
+    [
+     36,
+     "dragon-pulse"
+    ],
+    [
+     45,
+     "hyper-voice"
+    ],
+    [
+     54,
+     "rest"
+    ],
+    [
+     63,
+     "fly"
+    ],
+    [
+     72,
+     "hurricane"
+    ],
+    [
+     81,
+     "outrage"
+    ],
+    [
+     90,
+     "hyper-beam"
+    ]
+   ]
+  },
+  {
+   "id": 428001,
+   "base": 428,
+   "slug": "lopunny-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "normal",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 65,
+    "atk": 136,
+    "def": 94,
+    "spa": 54,
+    "spd": 96,
+    "spe": 135
+   },
+   "height": 1.3,
+   "weight": 28.3,
+   "baseExp": 203,
+   "baseName": "Lockpin",
+   "learn": [
+    [
+     12,
+     "after-you"
+    ],
+    [
+     16,
+     "quick-attack"
+    ],
+    [
+     20,
+     "double-kick"
+    ],
+    [
+     24,
+     "charm"
+    ],
+    [
+     28,
+     "baton-pass"
+    ],
+    [
+     32,
+     "headbutt"
+    ],
+    [
+     36,
+     "agility"
+    ],
+    [
+     40,
+     "entrainment"
+    ],
+    [
+     44,
+     "flatter"
+    ],
+    [
+     48,
+     "bounce"
+    ],
+    [
+     52,
+     "healing-wish"
+    ],
+    [
+     56,
+     "high-jump-kick"
+    ]
+   ]
+  },
+  {
+   "id": 445001,
+   "base": 445,
+   "slug": "garchomp-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "dragon",
+    "ground"
+   ],
+   "stats": {
+    "hp": 108,
+    "atk": 170,
+    "def": 115,
+    "spa": 120,
+    "spd": 95,
+    "spe": 92
+   },
+   "height": 1.9,
+   "weight": 95,
+   "baseExp": 315,
+   "baseName": "Carchacrok",
+   "learn": [
+    [
+     0,
+     "crunch"
+    ],
+    [
+     18,
+     "bulldoze"
+    ],
+    [
+     27,
+     "bite"
+    ],
+    [
+     34,
+     "slash"
+    ],
+    [
+     42,
+     "dragon-claw"
+    ],
+    [
+     52,
+     "dig"
+    ],
+    [
+     62,
+     "sandstorm"
+    ],
+    [
+     72,
+     "take-down"
+    ],
+    [
+     82,
+     "dragon-rush"
+    ]
+   ]
+  },
+  {
+   "id": 448001,
+   "base": 448,
+   "slug": "lucario-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "fighting",
+    "steel"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 145,
+    "def": 88,
+    "spa": 140,
+    "spd": 70,
+    "spe": 112
+   },
+   "height": 1.3,
+   "weight": 57.5,
+   "baseExp": 219,
+   "baseName": "Lucario",
+   "learn": [
+    [
+     0,
+     "aura-sphere"
+    ],
+    [
+     12,
+     "counter"
+    ],
+    [
+     16,
+     "work-up"
+    ],
+    [
+     20,
+     "force-palm"
+    ],
+    [
+     24,
+     "calm-mind"
+    ],
+    [
+     28,
+     "metal-sound"
+    ],
+    [
+     32,
+     "quick-guard"
+    ],
+    [
+     36,
+     "bone-rush"
+    ],
+    [
+     40,
+     "swords-dance"
+    ],
+    [
+     44,
+     "heal-pulse"
+    ],
+    [
+     48,
+     "meteor-mash"
+    ],
+    [
+     52,
+     "dragon-pulse"
+    ],
+    [
+     56,
+     "extreme-speed"
+    ],
+    [
+     60,
+     "close-combat"
+    ]
+   ]
+  },
+  {
+   "id": 460001,
+   "base": 460,
+   "slug": "abomasnow-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "grass",
+    "ice"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 132,
+    "def": 105,
+    "spa": 132,
+    "spd": 105,
+    "spe": 30
+   },
+   "height": 2.7,
+   "weight": 185,
+   "baseExp": 208,
+   "baseName": "Blizzaroi",
+   "learn": [
+    [
+     0,
+     "ice-punch"
+    ],
+    [
+     15,
+     "ice-shard"
+    ],
+    [
+     20,
+     "razor-leaf"
+    ],
+    [
+     25,
+     "icy-wind"
+    ],
+    [
+     30,
+     "swagger"
+    ],
+    [
+     35,
+     "ingrain"
+    ],
+    [
+     43,
+     "wood-hammer"
+    ],
+    [
+     49,
+     "blizzard"
+    ],
+    [
+     56,
+     "sheer-cold"
+    ]
+   ]
+  },
+  {
+   "id": 475001,
+   "base": 475,
+   "slug": "gallade-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "psychic",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 68,
+    "atk": 165,
+    "def": 95,
+    "spa": 65,
+    "spd": 115,
+    "spe": 110
+   },
+   "height": 1.6,
+   "weight": 56.4,
+   "baseExp": 278,
+   "baseName": "Gallame",
+   "learn": [
+    [
+     0,
+     "slash"
+    ],
+    [
+     9,
+     "helping-hand"
+    ],
+    [
+     12,
+     "feint"
+    ],
+    [
+     15,
+     "teleport"
+    ],
+    [
+     18,
+     "aerial-ace"
+    ],
+    [
+     23,
+     "false-swipe"
+    ],
+    [
+     28,
+     "protect"
+    ],
+    [
+     35,
+     "swords-dance"
+    ],
+    [
+     42,
+     "psycho-cut"
+    ],
+    [
+     49,
+     "heal-pulse"
+    ],
+    [
+     56,
+     "wide-guard"
+    ],
+    [
+     56,
+     "quick-guard"
+    ],
+    [
+     63,
+     "close-combat"
+    ]
+   ]
+  },
+  {
+   "id": 503001,
+   "base": 503,
+   "slug": "samurott-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "water",
+    "dark"
+   ],
+   "stats": {
+    "hp": 90,
+    "atk": 108,
+    "def": 80,
+    "spa": 100,
+    "spd": 65,
+    "spe": 85
+   },
+   "height": 1.5,
+   "weight": 58.2,
+   "baseExp": 238,
+   "baseName": "Clamiral",
+   "learn": [
+    [
+     1,
+     "megahorn"
+    ],
+    [
+     1,
+     "slash"
+    ],
+    [
+     1,
+     "soak"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "tail-whip"
+    ],
+    [
+     1,
+     "water-gun"
+    ],
+    [
+     1,
+     "withdraw"
+    ],
+    [
+     13,
+     "focus-energy"
+    ],
+    [
+     18,
+     "razor-shell"
+    ],
+    [
+     21,
+     "fury-cutter"
+    ],
+    [
+     25,
+     "water-pulse"
+    ],
+    [
+     29,
+     "aerial-ace"
+    ],
+    [
+     29,
+     "revenge"
+    ],
+    [
+     34,
+     "aqua-jet"
+    ],
+    [
+     39,
+     "encore"
+    ],
+    [
+     46,
+     "aqua-tail"
+    ],
+    [
+     51,
+     "retaliate"
+    ],
+    [
+     58,
+     "swords-dance"
+    ],
+    [
+     63,
+     "hydro-pump"
+    ]
+   ]
+  },
+  {
+   "id": 531001,
+   "base": 531,
+   "slug": "audino-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "normal",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 103,
+    "atk": 60,
+    "def": 126,
+    "spa": 80,
+    "spd": 126,
+    "spe": 50
+   },
+   "height": 1.5,
+   "weight": 32,
+   "baseExp": 425,
+   "baseName": "Nanméouïe",
+   "learn": [
+    [
+     1,
+     "play-nice"
+    ],
+    [
+     1,
+     "pound"
+    ],
+    [
+     4,
+     "disarming-voice"
+    ],
+    [
+     9,
+     "baby-doll-eyes"
+    ],
+    [
+     9,
+     "leer"
+    ],
+    [
+     12,
+     "helping-hand"
+    ],
+    [
+     16,
+     "growl"
+    ],
+    [
+     17,
+     "tackle"
+    ],
+    [
+     20,
+     "zen-headbutt"
+    ],
+    [
+     21,
+     "attract"
+    ],
+    [
+     24,
+     "life-dew"
+    ],
+    [
+     28,
+     "after-you"
+    ],
+    [
+     32,
+     "take-down"
+    ],
+    [
+     36,
+     "simple-beam"
+    ],
+    [
+     40,
+     "hyper-voice"
+    ],
+    [
+     44,
+     "heal-pulse"
+    ],
+    [
+     48,
+     "double-edge"
+    ],
+    [
+     52,
+     "entrainment"
+    ],
+    [
+     56,
+     "charm"
+    ],
+    [
+     60,
+     "last-resort"
+    ]
+   ]
+  },
+  {
+   "id": 549001,
+   "base": 549,
+   "slug": "lilligant-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "grass",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 105,
+    "def": 75,
+    "spa": 50,
+    "spd": 75,
+    "spe": 105
+   },
+   "height": 1.2,
+   "weight": 19.2,
+   "baseExp": 168,
+   "baseName": "Fragilady",
+   "learn": [
+    [
+     1,
+     "absorb"
+    ],
+    [
+     1,
+     "after-you"
+    ],
+    [
+     1,
+     "aromatherapy"
+    ],
+    [
+     1,
+     "charm"
+    ],
+    [
+     1,
+     "energy-ball"
+    ],
+    [
+     1,
+     "entrainment"
+    ],
+    [
+     1,
+     "giga-drain"
+    ],
+    [
+     1,
+     "growth"
+    ],
+    [
+     1,
+     "helping-hand"
+    ],
+    [
+     1,
+     "leaf-storm"
+    ],
+    [
+     1,
+     "leech-seed"
+    ],
+    [
+     1,
+     "mega-drain"
+    ],
+    [
+     1,
+     "petal-blizzard"
+    ],
+    [
+     1,
+     "petal-dance"
+    ],
+    [
+     1,
+     "quiver-dance"
+    ],
+    [
+     1,
+     "sleep-powder"
+    ],
+    [
+     1,
+     "stun-spore"
+    ],
+    [
+     1,
+     "sunny-day"
+    ],
+    [
+     1,
+     "synthesis"
+    ],
+    [
+     1,
+     "teeter-dance"
+    ],
+    [
+     5,
+     "magical-leaf"
+    ]
+   ]
+  },
+  {
+   "id": 554001,
+   "base": 554,
+   "slug": "darumaka-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ice"
+   ],
+   "stats": {
+    "hp": 70,
+    "atk": 90,
+    "def": 45,
+    "spa": 15,
+    "spd": 45,
+    "spe": 50
+   },
+   "height": 0.7,
+   "weight": 40,
+   "baseExp": 63,
+   "baseName": "Darumarond",
+   "learn": [
+    [
+     1,
+     "ember"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     3,
+     "rollout"
+    ],
+    [
+     4,
+     "taunt"
+    ],
+    [
+     8,
+     "bite"
+    ],
+    [
+     12,
+     "incinerate"
+    ],
+    [
+     16,
+     "work-up"
+    ],
+    [
+     19,
+     "facade"
+    ],
+    [
+     20,
+     "fire-fang"
+    ],
+    [
+     24,
+     "headbutt"
+    ],
+    [
+     28,
+     "fire-punch"
+    ],
+    [
+     32,
+     "uproar"
+    ],
+    [
+     36,
+     "belly-drum"
+    ],
+    [
+     40,
+     "flare-blitz"
+    ],
+    [
+     42,
+     "overheat"
+    ],
+    [
+     44,
+     "thrash"
+    ],
+    [
+     48,
+     "superpower"
+    ]
+   ]
+  },
+  {
+   "id": 555001,
+   "base": 555,
+   "slug": "darmanitan-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ice"
+   ],
+   "stats": {
+    "hp": 105,
+    "atk": 140,
+    "def": 55,
+    "spa": 30,
+    "spd": 55,
+    "spe": 95
+   },
+   "height": 1.7,
+   "weight": 120,
+   "baseExp": 168,
+   "baseName": "Darumacho",
+   "learn": [
+    [
+     1,
+     "bite"
+    ],
+    [
+     1,
+     "ember"
+    ],
+    [
+     1,
+     "hammer-arm"
+    ],
+    [
+     1,
+     "rollout"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "taunt"
+    ],
+    [
+     12,
+     "incinerate"
+    ],
+    [
+     16,
+     "work-up"
+    ],
+    [
+     17,
+     "swagger"
+    ],
+    [
+     19,
+     "facade"
+    ],
+    [
+     20,
+     "fire-fang"
+    ],
+    [
+     24,
+     "headbutt"
+    ],
+    [
+     28,
+     "fire-punch"
+    ],
+    [
+     32,
+     "uproar"
+    ],
+    [
+     38,
+     "belly-drum"
+    ],
+    [
+     44,
+     "flare-blitz"
+    ],
+    [
+     50,
+     "thrash"
+    ],
+    [
+     54,
+     "overheat"
+    ],
+    [
+     56,
+     "superpower"
+    ]
+   ]
+  },
+  {
+   "id": 562001,
+   "base": 562,
+   "slug": "yamask-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ground",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 38,
+    "atk": 55,
+    "def": 85,
+    "spa": 30,
+    "spd": 65,
+    "spe": 30
+   },
+   "height": 0.5,
+   "weight": 1.5,
+   "baseExp": 61,
+   "baseName": "Tutafeh",
+   "learn": [
+    [
+     1,
+     "astonish"
+    ],
+    [
+     1,
+     "protect"
+    ],
+    [
+     4,
+     "haze"
+    ],
+    [
+     8,
+     "night-shade"
+    ],
+    [
+     12,
+     "disable"
+    ],
+    [
+     16,
+     "will-o-wisp"
+    ],
+    [
+     20,
+     "charm"
+    ],
+    [
+     24,
+     "hex"
+    ],
+    [
+     25,
+     "tackle"
+    ],
+    [
+     28,
+     "mean-look"
+    ],
+    [
+     32,
+     "curse"
+    ],
+    [
+     40,
+     "shadow-ball"
+    ],
+    [
+     44,
+     "dark-pulse"
+    ],
+    [
+     48,
+     "guard-split"
+    ],
+    [
+     48,
+     "power-split"
+    ],
+    [
+     52,
+     "destiny-bond"
+    ]
+   ]
+  },
+  {
+   "id": 570001,
+   "base": 570,
+   "slug": "zorua-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "normal",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 35,
+    "atk": 60,
+    "def": 40,
+    "spa": 85,
+    "spd": 40,
+    "spe": 70
+   },
+   "height": 0.7,
+   "weight": 12.5,
+   "baseExp": 66,
+   "baseName": "Zorua",
+   "learn": [
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "scratch"
+    ],
+    [
+     4,
+     "torment"
+    ],
+    [
+     5,
+     "tackle"
+    ],
+    [
+     8,
+     "hone-claws"
+    ],
+    [
+     12,
+     "fury-swipes"
+    ],
+    [
+     16,
+     "scary-face"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     24,
+     "knock-off"
+    ],
+    [
+     28,
+     "fake-tears"
+    ],
+    [
+     32,
+     "agility"
+    ],
+    [
+     36,
+     "imprison"
+    ],
+    [
+     41,
+     "nasty-plot"
+    ],
+    [
+     48,
+     "foul-play"
+    ]
+   ]
+  },
+  {
+   "id": 571001,
+   "base": 571,
+   "slug": "zoroark-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "normal",
+    "ghost"
+   ],
+   "stats": {
+    "hp": 55,
+    "atk": 100,
+    "def": 60,
+    "spa": 125,
+    "spd": 60,
+    "spe": 110
+   },
+   "height": 1.6,
+   "weight": 73,
+   "baseExp": 179,
+   "baseName": "Zoroark",
+   "learn": [
+    [
+     1,
+     "hone-claws"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "night-slash"
+    ],
+    [
+     1,
+     "scratch"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "torment"
+    ],
+    [
+     1,
+     "u-turn"
+    ],
+    [
+     12,
+     "fury-swipes"
+    ],
+    [
+     16,
+     "scary-face"
+    ],
+    [
+     20,
+     "taunt"
+    ],
+    [
+     24,
+     "knock-off"
+    ],
+    [
+     28,
+     "fake-tears"
+    ],
+    [
+     34,
+     "agility"
+    ],
+    [
+     40,
+     "imprison"
+    ],
+    [
+     44,
+     "nasty-plot"
+    ],
+    [
+     58,
+     "foul-play"
+    ]
+   ]
+  },
+  {
+   "id": 618001,
+   "base": 618,
+   "slug": "stunfisk-galar",
+   "label": "Forme de Galar",
+   "kind": "regional",
+   "types": [
+    "ground",
+    "steel"
+   ],
+   "stats": {
+    "hp": 109,
+    "atk": 81,
+    "def": 99,
+    "spa": 66,
+    "spd": 84,
+    "spe": 32
+   },
+   "height": 0.7,
+   "weight": 20.5,
+   "baseExp": 165,
+   "baseName": "Limonde",
+   "learn": [
+    [
+     1,
+     "mud-slap"
+    ],
+    [
+     1,
+     "sand-attack"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "thunder-shock"
+    ],
+    [
+     1,
+     "water-gun"
+    ],
+    [
+     5,
+     "endure"
+    ],
+    [
+     10,
+     "mud-shot"
+    ],
+    [
+     15,
+     "revenge"
+    ],
+    [
+     17,
+     "leer"
+    ],
+    [
+     20,
+     "charge"
+    ],
+    [
+     25,
+     "sucker-punch"
+    ],
+    [
+     30,
+     "electric-terrain"
+    ],
+    [
+     35,
+     "bounce"
+    ],
+    [
+     40,
+     "muddy-water"
+    ],
+    [
+     45,
+     "discharge"
+    ],
+    [
+     45,
+     "thunderbolt"
+    ],
+    [
+     50,
+     "flail"
+    ],
+    [
+     55,
+     "fissure"
+    ]
+   ]
+  },
+  {
+   "id": 628001,
+   "base": 628,
+   "slug": "braviary-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "psychic",
+    "flying"
+   ],
+   "stats": {
+    "hp": 110,
+    "atk": 83,
+    "def": 70,
+    "spa": 112,
+    "spd": 70,
+    "spe": 65
+   },
+   "height": 1.7,
+   "weight": 43.4,
+   "baseExp": 179,
+   "baseName": "Gueriaigle",
+   "learn": [
+    [
+     1,
+     "fury-attack"
+    ],
+    [
+     1,
+     "hone-claws"
+    ],
+    [
+     1,
+     "leer"
+    ],
+    [
+     1,
+     "peck"
+    ],
+    [
+     1,
+     "sky-attack"
+    ],
+    [
+     1,
+     "superpower"
+    ],
+    [
+     1,
+     "wing-attack"
+    ],
+    [
+     18,
+     "tailwind"
+    ],
+    [
+     24,
+     "scary-face"
+    ],
+    [
+     30,
+     "aerial-ace"
+    ],
+    [
+     36,
+     "slash"
+    ],
+    [
+     42,
+     "whirlwind"
+    ],
+    [
+     48,
+     "crush-claw"
+    ],
+    [
+     50,
+     "tackle"
+    ],
+    [
+     57,
+     "air-slash"
+    ],
+    [
+     64,
+     "defog"
+    ],
+    [
+     72,
+     "thrash"
+    ],
+    [
+     80,
+     "brave-bird"
+    ]
+   ]
+  },
+  {
+   "id": 705001,
+   "base": 705,
+   "slug": "sliggoo-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "steel",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 58,
+    "atk": 75,
+    "def": 83,
+    "spa": 83,
+    "spd": 113,
+    "spe": 40
+   },
+   "height": 0.7,
+   "weight": 68.5,
+   "baseExp": 158,
+   "baseName": "Colimucus",
+   "learn": [
+    [
+     1,
+     "absorb"
+    ],
+    [
+     1,
+     "acid-armor"
+    ],
+    [
+     1,
+     "acid-spray"
+    ],
+    [
+     1,
+     "dragon-breath"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "water-gun"
+    ],
+    [
+     15,
+     "protect"
+    ],
+    [
+     20,
+     "flail"
+    ],
+    [
+     25,
+     "water-pulse"
+    ],
+    [
+     30,
+     "rain-dance"
+    ],
+    [
+     35,
+     "dragon-pulse"
+    ],
+    [
+     43,
+     "curse"
+    ],
+    [
+     49,
+     "body-slam"
+    ],
+    [
+     56,
+     "muddy-water"
+    ]
+   ]
+  },
+  {
+   "id": 706001,
+   "base": 706,
+   "slug": "goodra-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "steel",
+    "dragon"
+   ],
+   "stats": {
+    "hp": 80,
+    "atk": 100,
+    "def": 100,
+    "spa": 110,
+    "spd": 150,
+    "spe": 60
+   },
+   "height": 1.7,
+   "weight": 334.1,
+   "baseExp": 270,
+   "baseName": "Muplodocus",
+   "learn": [
+    [
+     1,
+     "absorb"
+    ],
+    [
+     1,
+     "acid-spray"
+    ],
+    [
+     1,
+     "aqua-tail"
+    ],
+    [
+     1,
+     "dragon-breath"
+    ],
+    [
+     1,
+     "feint"
+    ],
+    [
+     1,
+     "outrage"
+    ],
+    [
+     1,
+     "poison-tail"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "tearful-look"
+    ],
+    [
+     1,
+     "water-gun"
+    ],
+    [
+     15,
+     "protect"
+    ],
+    [
+     20,
+     "flail"
+    ],
+    [
+     25,
+     "water-pulse"
+    ],
+    [
+     30,
+     "rain-dance"
+    ],
+    [
+     35,
+     "dragon-pulse"
+    ],
+    [
+     43,
+     "curse"
+    ],
+    [
+     49,
+     "body-slam"
+    ],
+    [
+     58,
+     "muddy-water"
+    ],
+    [
+     67,
+     "power-whip"
+    ]
+   ]
+  },
+  {
+   "id": 713001,
+   "base": 713,
+   "slug": "avalugg-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "ice",
+    "rock"
+   ],
+   "stats": {
+    "hp": 95,
+    "atk": 127,
+    "def": 184,
+    "spa": 34,
+    "spd": 36,
+    "spe": 38
+   },
+   "height": 1.4,
+   "weight": 262.4,
+   "baseExp": 180,
+   "baseName": "Séracrawl",
+   "learn": [
+    [
+     1,
+     "body-slam"
+    ],
+    [
+     1,
+     "harden"
+    ],
+    [
+     1,
+     "powder-snow"
+    ],
+    [
+     1,
+     "rapid-spin"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "wide-guard"
+    ],
+    [
+     9,
+     "curse"
+    ],
+    [
+     12,
+     "icy-wind"
+    ],
+    [
+     15,
+     "protect"
+    ],
+    [
+     20,
+     "leer"
+    ],
+    [
+     21,
+     "bite"
+    ],
+    [
+     24,
+     "ice-fang"
+    ],
+    [
+     27,
+     "iron-defense"
+    ],
+    [
+     30,
+     "recover"
+    ],
+    [
+     33,
+     "crunch"
+    ],
+    [
+     36,
+     "take-down"
+    ],
+    [
+     41,
+     "blizzard"
+    ],
+    [
+     46,
+     "double-edge"
+    ]
+   ]
+  },
+  {
+   "id": 719001,
+   "base": 719,
+   "slug": "diancie-mega",
+   "label": "Méga-Évolution",
+   "kind": "mega",
+   "types": [
+    "rock",
+    "fairy"
+   ],
+   "stats": {
+    "hp": 50,
+    "atk": 160,
+    "def": 110,
+    "spa": 160,
+    "spd": 110,
+    "spe": 110
+   },
+   "height": 1.1,
+   "weight": 27.8,
+   "baseExp": 315,
+   "baseName": "Diancie",
+   "learn": [
+    [
+     1,
+     "harden"
+    ],
+    [
+     1,
+     "rock-throw"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     5,
+     "leer"
+    ],
+    [
+     7,
+     "guard-split"
+    ],
+    [
+     12,
+     "reflect"
+    ],
+    [
+     14,
+     "smack-down"
+    ],
+    [
+     21,
+     "flail"
+    ],
+    [
+     28,
+     "ancient-power"
+    ],
+    [
+     35,
+     "rock-polish"
+    ],
+    [
+     42,
+     "light-screen"
+    ],
+    [
+     46,
+     "trick-room"
+    ],
+    [
+     49,
+     "rock-slide"
+    ],
+    [
+     56,
+     "skill-swap"
+    ],
+    [
+     63,
+     "power-gem"
+    ],
+    [
+     70,
+     "safeguard"
+    ],
+    [
+     70,
+     "stealth-rock"
+    ],
+    [
+     77,
+     "moonblast"
+    ],
+    [
+     84,
+     "stone-edge"
+    ]
+   ]
+  },
+  {
+   "id": 724001,
+   "base": 724,
+   "slug": "decidueye-hisui",
+   "label": "Forme de Hisui",
+   "kind": "regional",
+   "types": [
+    "grass",
+    "fighting"
+   ],
+   "stats": {
+    "hp": 88,
+    "atk": 112,
+    "def": 80,
+    "spa": 95,
+    "spd": 95,
+    "spe": 60
+   },
+   "height": 1.6,
+   "weight": 37,
+   "baseExp": 239,
+   "baseName": "Archéduc",
+   "learn": [
+    [
+     1,
+     "astonish"
+    ],
+    [
+     1,
+     "growl"
+    ],
+    [
+     1,
+     "leaf-storm"
+    ],
+    [
+     1,
+     "leafage"
+    ],
+    [
+     1,
+     "phantom-force"
+    ],
+    [
+     1,
+     "spite"
+    ],
+    [
+     1,
+     "tackle"
+    ],
+    [
+     1,
+     "u-turn"
+    ],
+    [
+     9,
+     "peck"
+    ],
+    [
+     12,
+     "shadow-sneak"
+    ],
+    [
+     15,
+     "razor-leaf"
+    ],
+    [
+     19,
+     "leer"
+    ],
+    [
+     20,
+     "synthesis"
+    ],
+    [
+     25,
+     "pluck"
+    ],
+    [
+     30,
+     "nasty-plot"
+    ],
+    [
+     33,
+     "fury-attack"
+    ],
+    [
+     37,
+     "sucker-punch"
+    ],
+    [
+     44,
+     "leaf-blade"
+    ],
+    [
+     51,
+     "feather-dance"
+    ],
+    [
+     58,
+     "brave-bird"
+    ]
+   ]
+  }
+ ],
+ "wild": {
+  "unova": [],
+  "kalos": [],
+  "alola": [
+   19001,
+   20001,
+   26001,
+   27001,
+   28001,
+   37001,
+   38001,
+   50001,
+   51001,
+   52001,
+   53001,
+   74001,
+   75001,
+   76001,
+   88001,
+   89001,
+   103001,
+   105001
+  ],
+  "galar": [
+   52002,
+   58001,
+   59001,
+   77001,
+   78001,
+   79001,
+   80001,
+   83001,
+   100001,
+   101001,
+   110001,
+   122001,
+   144001,
+   145001,
+   146001,
+   157001,
+   199001,
+   211001,
+   215001,
+   222001,
+   263001,
+   264001,
+   503001,
+   549001,
+   554001,
+   555001,
+   562001,
+   570001,
+   571001,
+   618001,
+   628001,
+   705001,
+   706001,
+   713001,
+   724001
+  ],
+  "paldea": []
+ },
+ "evolutions": {
+  "3": [
+   {
+    "to": 3001,
+    "item": "venusaurite"
+   }
+  ],
+  "6": [
+   {
+    "to": 6001,
+    "item": "charizardite-x"
+   },
+   {
+    "to": 6002,
+    "item": "charizardite-y"
+   }
+  ],
+  "9": [
+   {
+    "to": 9001,
+    "item": "blastoisinite"
+   }
+  ],
+  "15": [
+   {
+    "to": 15001,
+    "item": "beedrillite"
+   }
+  ],
+  "18": [
+   {
+    "to": 18001,
+    "item": "pidgeotite"
+   }
+  ],
+  "25": [
+   {
+    "to": 26001,
+    "item": "thunder-stone"
+   }
+  ],
+  "65": [
+   {
+    "to": 65001,
+    "item": "alakazite"
+   }
+  ],
+  "80": [
+   {
+    "to": 80002,
+    "item": "slowbronite"
+   }
+  ],
+  "94": [
+   {
+    "to": 94001,
+    "item": "gengarite"
+   }
+  ],
+  "102": [
+   {
+    "to": 103001,
+    "item": "leaf-stone"
+   }
+  ],
+  "104": [
+   {
+    "to": 105001,
+    "level": 28
+   }
+  ],
+  "115": [
+   {
+    "to": 115001,
+    "item": "kangaskhanite"
+   }
+  ],
+  "123": [
+   {
+    "to": 900,
+    "level": 40
+   }
+  ],
+  "127": [
+   {
+    "to": 127001,
+    "item": "pinsirite"
+   }
+  ],
+  "130": [
+   {
+    "to": 130001,
+    "item": "gyaradosite"
+   }
+  ],
+  "142": [
+   {
+    "to": 142001,
+    "item": "aerodactylite"
+   }
+  ],
+  "150": [
+   {
+    "to": 150001,
+    "item": "mewtwonite-x"
+   },
+   {
+    "to": 150002,
+    "item": "mewtwonite-y"
+   }
+  ],
+  "156": [
+   {
+    "to": 157001,
+    "level": 36
+   }
+  ],
+  "181": [
+   {
+    "to": 181001,
+    "item": "ampharosite"
+   }
+  ],
+  "208": [
+   {
+    "to": 208001,
+    "item": "steelixite"
+   }
+  ],
+  "212": [
+   {
+    "to": 212001,
+    "item": "scizorite"
+   }
+  ],
+  "214": [
+   {
+    "to": 214001,
+    "item": "heracronite"
+   }
+  ],
+  "217": [
+   {
+    "to": 901,
+    "level": 40
+   }
+  ],
+  "229": [
+   {
+    "to": 229001,
+    "item": "houndoominite"
+   }
+  ],
+  "234": [
+   {
+    "to": 899,
+    "level": 35
+   }
+  ],
+  "248": [
+   {
+    "to": 248001,
+    "item": "tyranitarite"
+   }
+  ],
+  "254": [
+   {
+    "to": 254001,
+    "item": "sceptilite"
+   }
+  ],
+  "257": [
+   {
+    "to": 257001,
+    "item": "blazikenite"
+   }
+  ],
+  "260": [
+   {
+    "to": 260001,
+    "item": "swampertite"
+   }
+  ],
+  "282": [
+   {
+    "to": 282001,
+    "item": "gardevoirite"
+   }
+  ],
+  "302": [
+   {
+    "to": 302001,
+    "item": "sablenite"
+   }
+  ],
+  "303": [
+   {
+    "to": 303001,
+    "item": "mawilite"
+   }
+  ],
+  "306": [
+   {
+    "to": 306001,
+    "item": "aggronite"
+   }
+  ],
+  "308": [
+   {
+    "to": 308001,
+    "item": "medichamite"
+   }
+  ],
+  "310": [
+   {
+    "to": 310001,
+    "item": "manectite"
+   }
+  ],
+  "319": [
+   {
+    "to": 319001,
+    "item": "sharpedonite"
+   }
+  ],
+  "323": [
+   {
+    "to": 323001,
+    "item": "cameruptite"
+   }
+  ],
+  "334": [
+   {
+    "to": 334001,
+    "item": "altarianite"
+   }
+  ],
+  "354": [
+   {
+    "to": 354001,
+    "item": "banettite"
+   }
+  ],
+  "359": [
+   {
+    "to": 359001,
+    "item": "absolite"
+   }
+  ],
+  "362": [
+   {
+    "to": 362001,
+    "item": "glalitite"
+   }
+  ],
+  "373": [
+   {
+    "to": 373001,
+    "item": "salamencite"
+   }
+  ],
+  "376": [
+   {
+    "to": 376001,
+    "item": "metagrossite"
+   }
+  ],
+  "380": [
+   {
+    "to": 380001,
+    "item": "latiasite"
+   }
+  ],
+  "381": [
+   {
+    "to": 381001,
+    "item": "latiosite"
+   }
+  ],
+  "382": [
+   {
+    "to": 382001,
+    "item": "blue-orb"
+   }
+  ],
+  "383": [
+   {
+    "to": 383001,
+    "item": "red-orb"
+   }
+  ],
+  "384": [
+   {
+    "to": 384001,
+    "level": 80
+   }
+  ],
+  "428": [
+   {
+    "to": 428001,
+    "item": "lopunnite"
+   }
+  ],
+  "445": [
+   {
+    "to": 445001,
+    "item": "garchompite"
+   }
+  ],
+  "448": [
+   {
+    "to": 448001,
+    "item": "lucarionite"
+   }
+  ],
+  "460": [
+   {
+    "to": 460001,
+    "item": "abomasnowite"
+   }
+  ],
+  "475": [
+   {
+    "to": 475001,
+    "item": "galladite"
+   }
+  ],
+  "502": [
+   {
+    "to": 503001,
+    "level": 36
+   }
+  ],
+  "531": [
+   {
+    "to": 531001,
+    "item": "audinite"
+   }
+  ],
+  "548": [
+   {
+    "to": 549001,
+    "item": "sun-stone"
+   }
+  ],
+  "627": [
+   {
+    "to": 628001,
+    "level": 40
+   }
+  ],
+  "712": [
+   {
+    "to": 713001,
+    "level": 37
+   }
+  ],
+  "719": [
+   {
+    "to": 719001,
+    "item": "diancite"
+   }
+  ],
+  "19001": [
+   {
+    "to": 20001,
+    "level": 20
+   }
+  ],
+  "27001": [
+   {
+    "to": 28001,
+    "level": 22
+   }
+  ],
+  "37001": [
+   {
+    "to": 38001,
+    "item": "ice-stone"
+   }
+  ],
+  "50001": [
+   {
+    "to": 51001,
+    "level": 26
+   }
+  ],
+  "52001": [
+   {
+    "to": 53001,
+    "level": 28
+   }
+  ],
+  "52002": [
+   {
+    "to": 863,
+    "level": 28
+   }
+  ],
+  "74001": [
+   {
+    "to": 75001,
+    "level": 25
+   }
+  ],
+  "75001": [
+   {
+    "to": 76001,
+    "item": "link-cable"
+   }
+  ],
+  "77001": [
+   {
+    "to": 78001,
+    "level": 40
+   }
+  ],
+  "79001": [
+   {
+    "to": 80001,
+    "level": 37
+   },
+   {
+    "to": 199001,
+    "level": 40
+   }
+  ],
+  "83001": [
+   {
+    "to": 865,
+    "level": 35
+   }
+  ],
+  "88001": [
+   {
+    "to": 89001,
+    "level": 38
+   }
+  ],
+  "122001": [
+   {
+    "to": 866,
+    "level": 42
+   }
+  ],
+  "211001": [
+   {
+    "to": 904,
+    "level": 35
+   }
+  ],
+  "215001": [
+   {
+    "to": 903,
+    "level": 40
+   }
+  ],
+  "222001": [
+   {
+    "to": 864,
+    "level": 38
+   }
+  ],
+  "263001": [
+   {
+    "to": 264001,
+    "level": 20
+   }
+  ],
+  "264001": [
+   {
+    "to": 862,
+    "level": 35
+   }
+  ],
+  "554001": [
+   {
+    "to": 555001,
+    "item": "ice-stone"
+   }
+  ],
+  "562001": [
+   {
+    "to": 867,
+    "level": 35
+   }
+  ],
+  "570001": [
+   {
+    "to": 571001,
+    "level": 30
+   }
+  ],
+  "705001": [
+   {
+    "to": 706001,
+    "level": 50
+   }
+  ]
+ },
+ "megaEvolutions": [
+  {
+   "base": 3,
+   "to": 3001,
+   "item": "venusaurite",
+   "level": null
+  },
+  {
+   "base": 6,
+   "to": 6001,
+   "item": "charizardite-x",
+   "level": null
+  },
+  {
+   "base": 6,
+   "to": 6002,
+   "item": "charizardite-y",
+   "level": null
+  },
+  {
+   "base": 9,
+   "to": 9001,
+   "item": "blastoisinite",
+   "level": null
+  },
+  {
+   "base": 15,
+   "to": 15001,
+   "item": "beedrillite",
+   "level": null
+  },
+  {
+   "base": 18,
+   "to": 18001,
+   "item": "pidgeotite",
+   "level": null
+  },
+  {
+   "base": 65,
+   "to": 65001,
+   "item": "alakazite",
+   "level": null
+  },
+  {
+   "base": 80,
+   "to": 80002,
+   "item": "slowbronite",
+   "level": null
+  },
+  {
+   "base": 94,
+   "to": 94001,
+   "item": "gengarite",
+   "level": null
+  },
+  {
+   "base": 115,
+   "to": 115001,
+   "item": "kangaskhanite",
+   "level": null
+  },
+  {
+   "base": 127,
+   "to": 127001,
+   "item": "pinsirite",
+   "level": null
+  },
+  {
+   "base": 130,
+   "to": 130001,
+   "item": "gyaradosite",
+   "level": null
+  },
+  {
+   "base": 142,
+   "to": 142001,
+   "item": "aerodactylite",
+   "level": null
+  },
+  {
+   "base": 150,
+   "to": 150001,
+   "item": "mewtwonite-x",
+   "level": null
+  },
+  {
+   "base": 150,
+   "to": 150002,
+   "item": "mewtwonite-y",
+   "level": null
+  },
+  {
+   "base": 181,
+   "to": 181001,
+   "item": "ampharosite",
+   "level": null
+  },
+  {
+   "base": 208,
+   "to": 208001,
+   "item": "steelixite",
+   "level": null
+  },
+  {
+   "base": 212,
+   "to": 212001,
+   "item": "scizorite",
+   "level": null
+  },
+  {
+   "base": 214,
+   "to": 214001,
+   "item": "heracronite",
+   "level": null
+  },
+  {
+   "base": 229,
+   "to": 229001,
+   "item": "houndoominite",
+   "level": null
+  },
+  {
+   "base": 248,
+   "to": 248001,
+   "item": "tyranitarite",
+   "level": null
+  },
+  {
+   "base": 254,
+   "to": 254001,
+   "item": "sceptilite",
+   "level": null
+  },
+  {
+   "base": 257,
+   "to": 257001,
+   "item": "blazikenite",
+   "level": null
+  },
+  {
+   "base": 260,
+   "to": 260001,
+   "item": "swampertite",
+   "level": null
+  },
+  {
+   "base": 282,
+   "to": 282001,
+   "item": "gardevoirite",
+   "level": null
+  },
+  {
+   "base": 302,
+   "to": 302001,
+   "item": "sablenite",
+   "level": null
+  },
+  {
+   "base": 303,
+   "to": 303001,
+   "item": "mawilite",
+   "level": null
+  },
+  {
+   "base": 306,
+   "to": 306001,
+   "item": "aggronite",
+   "level": null
+  },
+  {
+   "base": 308,
+   "to": 308001,
+   "item": "medichamite",
+   "level": null
+  },
+  {
+   "base": 310,
+   "to": 310001,
+   "item": "manectite",
+   "level": null
+  },
+  {
+   "base": 319,
+   "to": 319001,
+   "item": "sharpedonite",
+   "level": null
+  },
+  {
+   "base": 323,
+   "to": 323001,
+   "item": "cameruptite",
+   "level": null
+  },
+  {
+   "base": 334,
+   "to": 334001,
+   "item": "altarianite",
+   "level": null
+  },
+  {
+   "base": 354,
+   "to": 354001,
+   "item": "banettite",
+   "level": null
+  },
+  {
+   "base": 359,
+   "to": 359001,
+   "item": "absolite",
+   "level": null
+  },
+  {
+   "base": 362,
+   "to": 362001,
+   "item": "glalitite",
+   "level": null
+  },
+  {
+   "base": 373,
+   "to": 373001,
+   "item": "salamencite",
+   "level": null
+  },
+  {
+   "base": 376,
+   "to": 376001,
+   "item": "metagrossite",
+   "level": null
+  },
+  {
+   "base": 380,
+   "to": 380001,
+   "item": "latiasite",
+   "level": null
+  },
+  {
+   "base": 381,
+   "to": 381001,
+   "item": "latiosite",
+   "level": null
+  },
+  {
+   "base": 382,
+   "to": 382001,
+   "item": "blue-orb",
+   "level": null
+  },
+  {
+   "base": 383,
+   "to": 383001,
+   "item": "red-orb",
+   "level": null
+  },
+  {
+   "base": 384,
+   "to": 384001,
+   "item": null,
+   "level": 80
+  },
+  {
+   "base": 428,
+   "to": 428001,
+   "item": "lopunnite",
+   "level": null
+  },
+  {
+   "base": 445,
+   "to": 445001,
+   "item": "garchompite",
+   "level": null
+  },
+  {
+   "base": 448,
+   "to": 448001,
+   "item": "lucarionite",
+   "level": null
+  },
+  {
+   "base": 460,
+   "to": 460001,
+   "item": "abomasnowite",
+   "level": null
+  },
+  {
+   "base": 475,
+   "to": 475001,
+   "item": "galladite",
+   "level": null
+  },
+  {
+   "base": 531,
+   "to": 531001,
+   "item": "audinite",
+   "level": null
+  },
+  {
+   "base": 719,
+   "to": 719001,
+   "item": "diancite",
+   "level": null
+  }
+ ],
+ "items": {
+  "venusaurite": {
+   "id": "venusaurite",
+   "name": "Florizarrite",
+   "kind": "mega"
+  },
+  "charizardite-x": {
+   "id": "charizardite-x",
+   "name": "Dracaufite X",
+   "kind": "mega"
+  },
+  "charizardite-y": {
+   "id": "charizardite-y",
+   "name": "Dracaufite Y",
+   "kind": "mega"
+  },
+  "blastoisinite": {
+   "id": "blastoisinite",
+   "name": "Tortankite",
+   "kind": "mega"
+  },
+  "beedrillite": {
+   "id": "beedrillite",
+   "name": "Dardargnite",
+   "kind": "mega"
+  },
+  "pidgeotite": {
+   "id": "pidgeotite",
+   "name": "Roucarnagite",
+   "kind": "mega"
+  },
+  "alakazite": {
+   "id": "alakazite",
+   "name": "Alakazamite",
+   "kind": "mega"
+  },
+  "slowbronite": {
+   "id": "slowbronite",
+   "name": "Flagadossite",
+   "kind": "mega"
+  },
+  "gengarite": {
+   "id": "gengarite",
+   "name": "Ectoplasmite",
+   "kind": "mega"
+  },
+  "kangaskhanite": {
+   "id": "kangaskhanite",
+   "name": "Kangourexite",
+   "kind": "mega"
+  },
+  "pinsirite": {
+   "id": "pinsirite",
+   "name": "Scarabruite",
+   "kind": "mega"
+  },
+  "gyaradosite": {
+   "id": "gyaradosite",
+   "name": "Léviatorite",
+   "kind": "mega"
+  },
+  "aerodactylite": {
+   "id": "aerodactylite",
+   "name": "Ptéraïte",
+   "kind": "mega"
+  },
+  "mewtwonite-x": {
+   "id": "mewtwonite-x",
+   "name": "Mewtwoïte X",
+   "kind": "mega"
+  },
+  "mewtwonite-y": {
+   "id": "mewtwonite-y",
+   "name": "Mewtwoïte Y",
+   "kind": "mega"
+  },
+  "ampharosite": {
+   "id": "ampharosite",
+   "name": "Pharampite",
+   "kind": "mega"
+  },
+  "steelixite": {
+   "id": "steelixite",
+   "name": "Steelixite",
+   "kind": "mega"
+  },
+  "scizorite": {
+   "id": "scizorite",
+   "name": "Cizayoxite",
+   "kind": "mega"
+  },
+  "heracronite": {
+   "id": "heracronite",
+   "name": "Scarhinoïte",
+   "kind": "mega"
+  },
+  "houndoominite": {
+   "id": "houndoominite",
+   "name": "Démolossite",
+   "kind": "mega"
+  },
+  "tyranitarite": {
+   "id": "tyranitarite",
+   "name": "Tyranocivite",
+   "kind": "mega"
+  },
+  "sceptilite": {
+   "id": "sceptilite",
+   "name": "Jungkite",
+   "kind": "mega"
+  },
+  "blazikenite": {
+   "id": "blazikenite",
+   "name": "Braségalite",
+   "kind": "mega"
+  },
+  "swampertite": {
+   "id": "swampertite",
+   "name": "Laggronite",
+   "kind": "mega"
+  },
+  "gardevoirite": {
+   "id": "gardevoirite",
+   "name": "Gardevoirite",
+   "kind": "mega"
+  },
+  "sablenite": {
+   "id": "sablenite",
+   "name": "Ténéfixite",
+   "kind": "mega"
+  },
+  "mawilite": {
+   "id": "mawilite",
+   "name": "Mysdibulite",
+   "kind": "mega"
+  },
+  "aggronite": {
+   "id": "aggronite",
+   "name": "Galekingite",
+   "kind": "mega"
+  },
+  "medichamite": {
+   "id": "medichamite",
+   "name": "Charminite",
+   "kind": "mega"
+  },
+  "manectite": {
+   "id": "manectite",
+   "name": "Élecsprintite",
+   "kind": "mega"
+  },
+  "sharpedonite": {
+   "id": "sharpedonite",
+   "name": "Sharpedite",
+   "kind": "mega"
+  },
+  "cameruptite": {
+   "id": "cameruptite",
+   "name": "Caméruptite",
+   "kind": "mega"
+  },
+  "altarianite": {
+   "id": "altarianite",
+   "name": "Altarite",
+   "kind": "mega"
+  },
+  "banettite": {
+   "id": "banettite",
+   "name": "Branettite",
+   "kind": "mega"
+  },
+  "absolite": {
+   "id": "absolite",
+   "name": "Absolite",
+   "kind": "mega"
+  },
+  "glalitite": {
+   "id": "glalitite",
+   "name": "Oniglalite",
+   "kind": "mega"
+  },
+  "salamencite": {
+   "id": "salamencite",
+   "name": "Drattakite",
+   "kind": "mega"
+  },
+  "metagrossite": {
+   "id": "metagrossite",
+   "name": "Métalossite",
+   "kind": "mega"
+  },
+  "latiasite": {
+   "id": "latiasite",
+   "name": "Latiasite",
+   "kind": "mega"
+  },
+  "latiosite": {
+   "id": "latiosite",
+   "name": "Latiosite",
+   "kind": "mega"
+  },
+  "lopunnite": {
+   "id": "lopunnite",
+   "name": "Lockpinite",
+   "kind": "mega"
+  },
+  "garchompite": {
+   "id": "garchompite",
+   "name": "Carchacrokite",
+   "kind": "mega"
+  },
+  "lucarionite": {
+   "id": "lucarionite",
+   "name": "Lucarite",
+   "kind": "mega"
+  },
+  "abomasnowite": {
+   "id": "abomasnowite",
+   "name": "Abomasnowite",
+   "kind": "mega"
+  },
+  "galladite": {
+   "id": "galladite",
+   "name": "Gallamite",
+   "kind": "mega"
+  },
+  "audinite": {
+   "id": "audinite",
+   "name": "Nanméouïte",
+   "kind": "mega"
+  },
+  "diancite": {
+   "id": "diancite",
+   "name": "Diancite",
+   "kind": "mega"
+  },
+  "blue-orb": {
+   "id": "blue-orb",
+   "name": "Gemme Bleue",
+   "kind": "primal"
+  },
+  "red-orb": {
+   "id": "red-orb",
+   "name": "Gemme Rouge",
+   "kind": "primal"
+  }
+ }
+}

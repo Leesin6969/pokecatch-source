@@ -1,0 +1,806 @@
+{
+ "icons": 532,
+ "shinyIcons": 532,
+ "gifs": 524,
+ "shinyGifs": 524,
+ "missingIcons": [],
+ "missingGifs": [],
+ "fallbackGifs": [
+  {
+   "id": 655,
+   "slug": "delphox",
+   "src": "ani/delphox"
+  },
+  {
+   "id": 657,
+   "slug": "frogadier",
+   "src": "ani/frogadier"
+  },
+  {
+   "id": 659,
+   "slug": "bunnelby",
+   "src": "ani/bunnelby"
+  },
+  {
+   "id": 660,
+   "slug": "diggersby",
+   "src": "ani/diggersby"
+  },
+  {
+   "id": 650,
+   "slug": "chespin",
+   "src": "ani/chespin"
+  },
+  {
+   "id": 673,
+   "slug": "gogoat",
+   "src": "ani/gogoat"
+  },
+  {
+   "id": 676,
+   "slug": "furfrou",
+   "src": "ani/furfrou"
+  },
+  {
+   "id": 677,
+   "slug": "espurr",
+   "src": "ani/espurr"
+  },
+  {
+   "id": 678,
+   "slug": "meowstic",
+   "src": "ani/meowstic"
+  },
+  {
+   "id": 680,
+   "slug": "doublade",
+   "src": "ani/doublade"
+  },
+  {
+   "id": 683,
+   "slug": "aromatisse",
+   "src": "ani/aromatisse"
+  },
+  {
+   "id": 690,
+   "slug": "skrelp",
+   "src": "ani/skrelp"
+  },
+  {
+   "id": 689,
+   "slug": "barbaracle",
+   "src": "ani/barbaracle"
+  },
+  {
+   "id": 695,
+   "slug": "heliolisk",
+   "src": "ani/heliolisk"
+  },
+  {
+   "id": 699,
+   "slug": "aurorus",
+   "src": "ani/aurorus"
+  },
+  {
+   "id": 701,
+   "slug": "hawlucha",
+   "src": "ani/hawlucha"
+  },
+  {
+   "id": 710,
+   "slug": "pumpkaboo",
+   "src": "ani/pumpkaboo"
+  },
+  {
+   "id": 711,
+   "slug": "gourgeist",
+   "src": "ani/gourgeist"
+  },
+  {
+   "id": 723,
+   "slug": "dartrix",
+   "src": "ani/dartrix"
+  },
+  {
+   "id": 724,
+   "slug": "decidueye",
+   "src": "ani/decidueye"
+  },
+  {
+   "id": 726,
+   "slug": "torracat",
+   "src": "ani/torracat"
+  },
+  {
+   "id": 741,
+   "slug": "oricorio",
+   "src": "ani/oricorio"
+  },
+  {
+   "id": 747,
+   "slug": "mareanie",
+   "src": "ani/mareanie"
+  },
+  {
+   "id": 758,
+   "slug": "salazzle",
+   "src": "ani/salazzle"
+  },
+  {
+   "id": 757,
+   "slug": "salandit",
+   "src": "ani/salandit"
+  },
+  {
+   "id": 763,
+   "slug": "tsareena",
+   "src": "ani/tsareena"
+  },
+  {
+   "id": 765,
+   "slug": "oranguru",
+   "src": "ani/oranguru"
+  },
+  {
+   "id": 766,
+   "slug": "passimian",
+   "src": "ani/passimian"
+  },
+  {
+   "id": 768,
+   "slug": "golisopod",
+   "src": "ani/golisopod"
+  },
+  {
+   "id": 799,
+   "slug": "guzzlord",
+   "src": "ani/guzzlord"
+  },
+  {
+   "id": 803,
+   "slug": "poipole",
+   "src": "ani/poipole"
+  },
+  {
+   "id": 812,
+   "slug": "rillaboom",
+   "src": "ani/rillaboom"
+  },
+  {
+   "id": 788,
+   "slug": "tapu-fini",
+   "src": "ani/tapufini"
+  },
+  {
+   "id": 815,
+   "slug": "cinderace",
+   "src": "ani/cinderace"
+  },
+  {
+   "id": 819,
+   "slug": "skwovet",
+   "src": "ani/skwovet"
+  },
+  {
+   "id": 820,
+   "slug": "greedent",
+   "src": "ani/greedent"
+  },
+  {
+   "id": 824,
+   "slug": "blipbug",
+   "src": "ani/blipbug"
+  },
+  {
+   "id": 825,
+   "slug": "dottler",
+   "src": "ani/dottler"
+  },
+  {
+   "id": 826,
+   "slug": "orbeetle",
+   "src": "ani/orbeetle"
+  },
+  {
+   "id": 827,
+   "slug": "nickit",
+   "src": "ani/nickit"
+  },
+  {
+   "id": 828,
+   "slug": "thievul",
+   "src": "ani/thievul"
+  },
+  {
+   "id": 829,
+   "slug": "gossifleur",
+   "src": "ani/gossifleur"
+  },
+  {
+   "id": 836,
+   "slug": "boltund",
+   "src": "ani/boltund"
+  },
+  {
+   "id": 838,
+   "slug": "carkol",
+   "src": "ani/carkol"
+  },
+  {
+   "id": 841,
+   "slug": "flapple",
+   "src": "ani/flapple"
+  },
+  {
+   "id": 842,
+   "slug": "appletun",
+   "src": "ani/appletun"
+  },
+  {
+   "id": 850,
+   "slug": "sizzlipede",
+   "src": "ani/sizzlipede"
+  },
+  {
+   "id": 854,
+   "slug": "sinistea",
+   "src": "ani/sinistea"
+  },
+  {
+   "id": 853,
+   "slug": "grapploct",
+   "src": "ani/grapploct"
+  },
+  {
+   "id": 851,
+   "slug": "centiskorch",
+   "src": "ani/centiskorch"
+  },
+  {
+   "id": 857,
+   "slug": "hattrem",
+   "src": "ani/hattrem"
+  },
+  {
+   "id": 855,
+   "slug": "polteageist",
+   "src": "ani/polteageist"
+  },
+  {
+   "id": 860,
+   "slug": "morgrem",
+   "src": "ani/morgrem"
+  },
+  {
+   "id": 865,
+   "slug": "sirfetchd",
+   "src": "ani/sirfetchd"
+  },
+  {
+   "id": 881,
+   "slug": "arctozolt",
+   "src": "ani/arctozolt"
+  },
+  {
+   "id": 879,
+   "slug": "copperajah",
+   "src": "ani/copperajah"
+  },
+  {
+   "id": 891,
+   "slug": "kubfu",
+   "src": "ani/kubfu"
+  },
+  {
+   "id": 892,
+   "slug": "urshifu",
+   "src": "ani/urshifu"
+  },
+  {
+   "id": 893,
+   "slug": "zarude",
+   "src": "ani/zarude"
+  },
+  {
+   "id": 897,
+   "slug": "spectrier",
+   "src": "ani/spectrier"
+  },
+  {
+   "id": 894,
+   "slug": "regieleki",
+   "src": "ani/regieleki"
+  },
+  {
+   "id": 900,
+   "slug": "kleavor",
+   "src": "ani/kleavor"
+  },
+  {
+   "id": 903,
+   "slug": "sneasler",
+   "src": "ani/sneasler"
+  },
+  {
+   "id": 905,
+   "slug": "enamorus",
+   "src": "ani/enamorus"
+  },
+  {
+   "id": 906,
+   "slug": "sprigatito",
+   "src": "ani/sprigatito"
+  },
+  {
+   "id": 907,
+   "slug": "floragato",
+   "src": "ani/floragato"
+  },
+  {
+   "id": 909,
+   "slug": "fuecoco",
+   "src": "ani/fuecoco"
+  },
+  {
+   "id": 908,
+   "slug": "meowscarada",
+   "src": "ani/meowscarada"
+  },
+  {
+   "id": 910,
+   "slug": "crocalor",
+   "src": "ani/crocalor"
+  },
+  {
+   "id": 911,
+   "slug": "skeledirge",
+   "src": "ani/skeledirge"
+  },
+  {
+   "id": 912,
+   "slug": "quaxly",
+   "src": "ani/quaxly"
+  },
+  {
+   "id": 915,
+   "slug": "lechonk",
+   "src": "ani/lechonk"
+  },
+  {
+   "id": 913,
+   "slug": "quaxwell",
+   "src": "ani/quaxwell"
+  },
+  {
+   "id": 914,
+   "slug": "quaquaval",
+   "src": "ani/quaquaval"
+  },
+  {
+   "id": 916,
+   "slug": "oinkologne",
+   "src": "ani/oinkologne"
+  },
+  {
+   "id": 917,
+   "slug": "tarountula",
+   "src": "ani/tarountula"
+  },
+  {
+   "id": 918,
+   "slug": "spidops",
+   "src": "ani/spidops"
+  },
+  {
+   "id": 919,
+   "slug": "nymble",
+   "src": "ani/nymble"
+  },
+  {
+   "id": 920,
+   "slug": "lokix",
+   "src": "ani/lokix"
+  },
+  {
+   "id": 922,
+   "slug": "pawmo",
+   "src": "ani/pawmo"
+  },
+  {
+   "id": 921,
+   "slug": "pawmi",
+   "src": "ani/pawmi"
+  },
+  {
+   "id": 923,
+   "slug": "pawmot",
+   "src": "ani/pawmot"
+  },
+  {
+   "id": 926,
+   "slug": "fidough",
+   "src": "ani/fidough"
+  },
+  {
+   "id": 927,
+   "slug": "dachsbun",
+   "src": "ani/dachsbun"
+  },
+  {
+   "id": 928,
+   "slug": "smoliv",
+   "src": "ani/smoliv"
+  },
+  {
+   "id": 929,
+   "slug": "dolliv",
+   "src": "ani/dolliv"
+  },
+  {
+   "id": 930,
+   "slug": "arboliva",
+   "src": "ani/arboliva"
+  },
+  {
+   "id": 933,
+   "slug": "naclstack",
+   "src": "ani/naclstack"
+  },
+  {
+   "id": 935,
+   "slug": "charcadet",
+   "src": "ani/charcadet"
+  },
+  {
+   "id": 934,
+   "slug": "garganacl",
+   "src": "ani/garganacl"
+  },
+  {
+   "id": 936,
+   "slug": "armarouge",
+   "src": "ani/armarouge"
+  },
+  {
+   "id": 937,
+   "slug": "ceruledge",
+   "src": "ani/ceruledge"
+  },
+  {
+   "id": 940,
+   "slug": "wattrel",
+   "src": "ani/wattrel"
+  },
+  {
+   "id": 939,
+   "slug": "bellibolt",
+   "src": "ani/bellibolt"
+  },
+  {
+   "id": 943,
+   "slug": "mabosstiff",
+   "src": "ani/mabosstiff"
+  },
+  {
+   "id": 941,
+   "slug": "kilowattrel",
+   "src": "ani/kilowattrel"
+  },
+  {
+   "id": 942,
+   "slug": "maschiff",
+   "src": "ani/maschiff"
+  },
+  {
+   "id": 945,
+   "slug": "grafaiai",
+   "src": "ani/grafaiai"
+  },
+  {
+   "id": 944,
+   "slug": "shroodle",
+   "src": "ani/shroodle"
+  },
+  {
+   "id": 946,
+   "slug": "bramblin",
+   "src": "ani/bramblin"
+  },
+  {
+   "id": 947,
+   "slug": "brambleghast",
+   "src": "ani/brambleghast"
+  },
+  {
+   "id": 948,
+   "slug": "toedscool",
+   "src": "ani/toedscool"
+  },
+  {
+   "id": 950,
+   "slug": "klawf",
+   "src": "ani/klawf"
+  },
+  {
+   "id": 951,
+   "slug": "capsakid",
+   "src": "ani/capsakid"
+  },
+  {
+   "id": 952,
+   "slug": "scovillain",
+   "src": "ani/scovillain"
+  },
+  {
+   "id": 953,
+   "slug": "rellor",
+   "src": "ani/rellor"
+  },
+  {
+   "id": 955,
+   "slug": "flittle",
+   "src": "ani/flittle"
+  },
+  {
+   "id": 949,
+   "slug": "toedscruel",
+   "src": "ani/toedscruel"
+  },
+  {
+   "id": 956,
+   "slug": "espathra",
+   "src": "ani/espathra"
+  },
+  {
+   "id": 954,
+   "slug": "rabsca",
+   "src": "ani/rabsca"
+  },
+  {
+   "id": 957,
+   "slug": "tinkatink",
+   "src": "ani/tinkatink"
+  },
+  {
+   "id": 958,
+   "slug": "tinkatuff",
+   "src": "ani/tinkatuff"
+  },
+  {
+   "id": 959,
+   "slug": "tinkaton",
+   "src": "ani/tinkaton"
+  },
+  {
+   "id": 960,
+   "slug": "wiglett",
+   "src": "ani/wiglett"
+  },
+  {
+   "id": 961,
+   "slug": "wugtrio",
+   "src": "ani/wugtrio"
+  },
+  {
+   "id": 931,
+   "slug": "squawkabilly",
+   "src": "ani/squawkabilly"
+  },
+  {
+   "id": 962,
+   "slug": "bombirdier",
+   "src": "ani/bombirdier"
+  },
+  {
+   "id": 963,
+   "slug": "finizen",
+   "src": "ani/finizen"
+  },
+  {
+   "id": 964,
+   "slug": "palafin",
+   "src": "ani/palafin"
+  },
+  {
+   "id": 965,
+   "slug": "varoom",
+   "src": "ani/varoom"
+  },
+  {
+   "id": 966,
+   "slug": "revavroom",
+   "src": "ani/revavroom"
+  },
+  {
+   "id": 967,
+   "slug": "cyclizar",
+   "src": "ani/cyclizar"
+  },
+  {
+   "id": 968,
+   "slug": "orthworm",
+   "src": "ani/orthworm"
+  },
+  {
+   "id": 970,
+   "slug": "glimmora",
+   "src": "ani/glimmora"
+  },
+  {
+   "id": 971,
+   "slug": "greavard",
+   "src": "ani/greavard"
+  },
+  {
+   "id": 973,
+   "slug": "flamigo",
+   "src": "ani/flamigo"
+  },
+  {
+   "id": 972,
+   "slug": "houndstone",
+   "src": "ani/houndstone"
+  },
+  {
+   "id": 974,
+   "slug": "cetoddle",
+   "src": "ani/cetoddle"
+  },
+  {
+   "id": 976,
+   "slug": "veluza",
+   "src": "ani/veluza"
+  },
+  {
+   "id": 975,
+   "slug": "cetitan",
+   "src": "ani/cetitan"
+  },
+  {
+   "id": 977,
+   "slug": "dondozo",
+   "src": "ani/dondozo"
+  },
+  {
+   "id": 979,
+   "slug": "annihilape",
+   "src": "ani/annihilape"
+  },
+  {
+   "id": 981,
+   "slug": "farigiraf",
+   "src": "ani/farigiraf"
+  },
+  {
+   "id": 982,
+   "slug": "dudunsparce",
+   "src": "ani/dudunsparce"
+  },
+  {
+   "id": 983,
+   "slug": "kingambit",
+   "src": "ani/kingambit"
+  },
+  {
+   "id": 998,
+   "slug": "baxcalibur",
+   "src": "ani/baxcalibur"
+  },
+  {
+   "id": 985,
+   "slug": "scream-tail",
+   "src": "ani/screamtail"
+  },
+  {
+   "id": 986,
+   "slug": "brute-bonnet",
+   "src": "ani/brutebonnet"
+  },
+  {
+   "id": 989,
+   "slug": "sandy-shocks",
+   "src": "ani/sandyshocks"
+  },
+  {
+   "id": 988,
+   "slug": "slither-wing",
+   "src": "ani/slitherwing"
+  },
+  {
+   "id": 1007,
+   "slug": "koraidon",
+   "src": "ani/koraidon"
+  },
+  {
+   "id": 1005,
+   "slug": "roaring-moon",
+   "src": "ani/roaringmoon"
+  },
+  {
+   "id": 1011,
+   "slug": "dipplin",
+   "src": "ani/dipplin"
+  },
+  {
+   "id": 1012,
+   "slug": "poltchageist",
+   "src": "ani/poltchageist"
+  },
+  {
+   "id": 1013,
+   "slug": "sinistcha",
+   "src": "ani/sinistcha"
+  },
+  {
+   "id": 1014,
+   "slug": "okidogi",
+   "src": "ani/okidogi"
+  },
+  {
+   "id": 1015,
+   "slug": "munkidori",
+   "src": "ani/munkidori"
+  },
+  {
+   "id": 1016,
+   "slug": "fezandipiti",
+   "src": "ani/fezandipiti"
+  },
+  {
+   "id": 1009,
+   "slug": "walking-wake",
+   "src": "ani/walkingwake"
+  },
+  {
+   "id": 1018,
+   "slug": "archaludon",
+   "src": "ani/archaludon"
+  },
+  {
+   "id": 1021,
+   "slug": "raging-bolt",
+   "src": "ani/ragingbolt"
+  }
+ ],
+ "generated": [
+  {
+   "id": 990,
+   "slug": "iron-treads"
+  },
+  {
+   "id": 991,
+   "slug": "iron-bundle"
+  },
+  {
+   "id": 993,
+   "slug": "iron-jugulis"
+  },
+  {
+   "id": 1017,
+   "slug": "ogerpon"
+  },
+  {
+   "id": 1025,
+   "slug": "pecharunt"
+  },
+  {
+   "id": 1010,
+   "slug": "iron-leaves"
+  },
+  {
+   "id": 1023,
+   "slug": "iron-crown"
+  },
+  {
+   "id": 1022,
+   "slug": "iron-boulder"
+  }
+ ],
+ "iconFallbacks": [
+  {
+   "id": 931,
+   "slug": "squawkabilly",
+   "iconSlug": "squawkabilly-green-plumage"
+  }
+ ]
+}
