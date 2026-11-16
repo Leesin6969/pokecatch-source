@@ -1,0 +1,1112 @@
+/**
+ * legend zones
+ *
+ * Public API on the game namespace `t`: t.LegendZones
+ *
+ * Recovered from the shipped bundle — original chunk #39 at byte 865067 (21543 bytes, sha256:8359bc4a1442b679).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+(function () {
+  const a = () => t.Game,
+    b = () => t.POKEDEX,
+    f = (D) => !!a().S.dex[D],
+    ue = { electric: "Électrik", fire: "Feu", ice: "Glace" },
+    H = (D, Q) =>
+      b()
+        .filter((Y) => Y.id >= D[0] && Y.id <= D[1] && Y.types.includes(Q) && !Y.legendary && !Y.mythical)
+        .map((Y) => Y.id),
+    vt = {
+      type: (D, Q) => {
+        const Y = H(D.dex, Q.type);
+        return {
+          text: e("Capture tous les Pokémon {type}", { type: t.TYPES?.[Q.type]?.fr || ue[Q.type] }),
+          have: Y.filter(f).length,
+          need: Y.length,
+          ids: Y,
+        };
+      },
+      dex: (D, Q) => {
+        const Y = b()
+          .filter((ye) => ye.id >= D.dex[0] && ye.id <= D.dex[1] && !ye.mythical)
+          .map((ye) => ye.id);
+        return {
+          text: e("Complète le Pokédex de la région"),
+          have: Y.filter(f).length,
+          need: Y.length,
+          ids: Y,
+        };
+      },
+      league: (D, Q) => {
+        const Y = a().regionDone(Q.region);
+        return { text: e("Bats la Ligue Pokémon"), have: +Y, need: 1 };
+      },
+      types: (D, Q) => {
+        const Y = b()
+            .filter(
+              (Ot) =>
+                Ot.id >= Q.dex[0] &&
+                Ot.id <= Q.dex[1] &&
+                Ot.id !== D.id &&
+                !Ot.mythical &&
+                !(Ot.legendary && Ot.id >= D.dex[0]) &&
+                Ot.types.some((ee) => Q.types.includes(ee)),
+            )
+            .map((Ot) => Ot.id),
+          [ye, nt] = Q.types.map((Ot) => t.TYPES?.[Ot]?.fr || Ot);
+        return {
+          text: e("Capture tous les Pokémon {a} et {b}", { a: ye, b: nt }),
+          have: Y.filter(f).length,
+          need: Y.length,
+          ids: Y,
+        };
+      },
+      door: (D, Q) =>
+        oe()[Q.key] || a().S.adv?.badges?.includes(D.badge)
+          ? {
+              text: We(it[Q.key]),
+              braille: !0,
+              place: it[Q.key].place,
+              have: +!!oe()[Q.key],
+              need: 1,
+              seal: !oe()[Q.key],
+            }
+          : {
+              text: /^Maître /.test(D.badge)
+                ? e("Bats la Ligue Pokémon")
+                : e("Obtiens le Badge {badge}", { badge: e(D.badge) }),
+              have: 0,
+              need: 1,
+            },
+      owns: (D, Q) => {
+        const Y = (ye) => (a().owns ? a().owns(ye) : f(ye));
+        return { text: e(Q.text), have: Q.ids.filter(Y).length, need: Q.ids.length, ids: Q.ids };
+      },
+      item: (D, Q) => ({ text: e(Q.text), have: +(a().keyHeld(Q.item) > 0), need: 1, item: Q.item }),
+      count: (D, Q) => {
+        const Y = b()
+          .filter((ye) => ye.id >= D.dex[0] && ye.id <= D.dex[1] && !ye.legendary && !ye.mythical)
+          .map((ye) => ye.id);
+        return {
+          text: e("Capture {n} espèces du Pokédex de la région", { n: Q.need }),
+          have: Math.min(Q.need, Y.filter(f).length),
+          need: Q.need,
+          ids: Y,
+        };
+      },
+      tally: (D, Q) => ({
+        text: e(Q.text, { n: t.UI.fmt(Q.need) }),
+        have: Math.min(Q.need, a().S.stats?.byReg?.[D.region]?.[Q.field] || 0),
+        need: Q.need,
+      }),
+      all: (D, Q) => {
+        const Y = Q.list.map((nt) => vt[nt.kind](D, nt)),
+          ye = (nt) => nt.have >= nt.need;
+        return {
+          text: Y.map((nt) => nt.text).join(" · "),
+          lines: Y,
+          have: Y.filter(ye).length,
+          need: Y.length,
+          ids: Y[0].ids,
+        };
+      },
+    },
+    B = 8,
+    se = [0, 1],
+    Ge = [4, 5],
+    Je = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Paris",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+    Ze = (D = a().time()) => {
+      const Q = Object.fromEntries(Je.formatToParts(D - 144e5).map((Y) => [Y.type, Y.value]));
+      return (((Date.UTC(+Q.year, Q.month - 1, +Q.day) / 864e5) % B) + B) % B;
+    },
+    x = (D = a().time()) => {
+      const Q = Ze(D);
+      return se.includes(Q) ? "full" : Ge.includes(Q) ? "new" : Q < Ge[0] ? "wane" : "wax";
+    },
+    $ = { full: "🌕", new: "🌑", wane: "🌗", wax: "🌒" },
+    X = (D) => {
+      const Q = D === "full" ? se : Ge;
+      for (let Y = 0; Y < B; Y++) if (Q.includes((Ze() + Y) % B)) return Y;
+      return 0;
+    },
+    Tt = () => t.DAYTIME?.phase().key === "night",
+    le = (D) => (!D.when || (D.when === "night") === Tt()) && (!D.moon || (Tt() && x() === D.moon));
+  function P(D) {
+    if (D.moon) {
+      const Q = X(D.moon),
+        Y = $[D.moon];
+      return Q === 0
+        ? e("{icon} Revient cette nuit", { icon: Y })
+        : Q === 1
+          ? e("{icon} Revient demain soir", { icon: Y })
+          : e("{icon} Revient dans {n} nuits", { icon: Y, n: Q });
+    }
+    return D.when === "night" ? e("🌙 S'ouvre la nuit") : e("☀️ S'ouvre le jour");
+  }
+  const u = { kind: "owns", ids: [243, 244, 245], text: "Possède les 3 bêtes légendaires" },
+    ve = { kind: "owns", ids: [144, 145, 146], text: "Possède les 3 oiseaux légendaires" },
+    it = {
+      regirock: {
+        place: "Ruines du Désert",
+        scene: "hoenn-ruines-desert",
+        text: "Un Pokémon Combat",
+        en: "A Fighting Pokémon",
+        type: "fighting",
+        legend: 377,
+      },
+      registeel: {
+        place: "Tombeau Antique",
+        scene: "hoenn-tombeau-antique",
+        text: "Un Pokémon Vol",
+        en: "A Flying Pokémon",
+        type: "flying",
+        legend: 379,
+      },
+      regice: {
+        place: "Grotte de l'Île",
+        scene: "hoenn-grotte-island",
+        text: "Attends",
+        en: "Wait",
+        wait: !0,
+        legend: 378,
+      },
+      regigigas: {
+        place: "Temple de Frimapic",
+        scene: "sinnoh-temple-frimapic",
+        text: "Les trois géants",
+        en: "The three giants",
+        team: [377, 378, 379],
+        legend: 486,
+      },
+    },
+    De = (D) => ({ cond: { kind: "door", key: D } }),
+    je = "⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚⠅⠇⠍⠝⠕⠏⠟⠗⠎⠞⠥⠧⠺⠭⠽⠵",
+    pt = { "'": "⠄", "’": "⠄", ",": "⠂", ".": "⠲", "!": "⠖", "?": "⠦", "…": "⠲⠲⠲" },
+    re = (D) =>
+      [
+        ...D.replace(/ß/g, "ss")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase(),
+      ]
+        .map((Q) => (Q >= "a" && Q <= "z" ? je[Q.charCodeAt(0) - 97] : (pt[Q] ?? (Q === " " ? " " : ""))))
+        .join(""),
+    We = (D) => {
+      const Q = re(e(D.text));
+      return /[⠁-⠿]/.test(Q) ? Q : re(D.en);
+    },
+    oe = () => (a().S.zoneDoors ||= {}),
+    $e = (D) => ({ key: D, ...it[D] }),
+    Z = (D, Q) =>
+      D.wait
+        ? !Q
+        : !!Q &&
+          (D.team
+            ? D.team.includes(Q.id) &&
+              D.team.every((Y) =>
+                a()
+                  .teamMons()
+                  .some((ye) => ye.id === Y),
+              )
+            : D.id
+              ? Q.id === D.id
+              : a().DEX[Q.id].types.includes(D.type)),
+    A = [
+      {
+        id: 145,
+        weather: "storm",
+        hp: 23.43,
+        power: 0.6,
+        region: "kanto",
+        dex: [1, 151],
+        zone: "Centrale",
+        areas: ["kanto-power-plant-area"],
+        bg: "cave",
+        level: 100,
+        cond: { kind: "type", type: "electric" },
+      },
+      {
+        id: 144,
+        weather: "snow",
+        arena: "artikodin-mer-gelee",
+        hp: 3.74,
+        power: 1.08,
+        region: "kanto",
+        dex: [1, 151],
+        zone: "Îles Écume",
+        areas: [
+          "seafoam-islands-1f",
+          "seafoam-islands-b1f",
+          "seafoam-islands-b2f",
+          "seafoam-islands-b3f",
+          "seafoam-islands-b4f",
+        ],
+        bg: "cave",
+        level: 100,
+        cond: { kind: "type", type: "ice" },
+      },
+      {
+        id: 146,
+        weather: "ash",
+        arena: "sulfura-grotte-ardente",
+        hp: 34.18,
+        power: 0.24,
+        region: "kanto",
+        dex: [1, 151],
+        zone: "Grotte Ardente",
+        areas: ["kanto-victory-road-2-1f", "kanto-victory-road-2-2f", "kanto-victory-road-2-3f"],
+        near: "Route Victoire",
+        bg: "cave",
+        fallback: "mountain",
+        level: 100,
+        cond: { kind: "type", type: "fire" },
+      },
+      {
+        id: 150,
+        sky: "motes",
+        hp: 2.95,
+        power: 0.56,
+        region: "kanto",
+        dex: [1, 151],
+        zone: "Caverne Azurée",
+        areas: ["cerulean-cave-1f", "cerulean-cave-2f", "cerulean-cave-b1f"],
+        badge: "Cascade",
+        bg: "cave",
+        level: 100,
+        counter: "confusion",
+        burst: "psystrike",
+        cond: { kind: "league", region: "kanto" },
+      },
+      {
+        id: 151,
+        sky: "bubbles",
+        hp: 8.52,
+        power: 0.55,
+        region: "kanto",
+        dex: [1, 151],
+        zone: "Île Lointaine",
+        end: !0,
+        bg: "forest",
+        level: 100,
+        cond: { kind: "dex" },
+      },
+      {
+        id: 250,
+        sky: "leaves",
+        hp: 16.95,
+        power: 0.6,
+        region: "johto",
+        dex: [152, 251],
+        zone: "Tour Carillon",
+        areas: [
+          "gsc:bell-tower-2f",
+          "gsc:bell-tower-3f",
+          "gsc:bell-tower-4f",
+          "gsc:bell-tower-5f",
+          "gsc:bell-tower-6f",
+          "gsc:bell-tower-7f",
+          "gsc:bell-tower-8f",
+          "gsc:bell-tower-9f",
+        ],
+        badge: "Brume",
+        bg: "mountain",
+        level: 100,
+        burst: "sacred-fire",
+        cond: u,
+      },
+      {
+        id: 249,
+        hp: 12.5,
+        power: 0.4,
+        region: "johto",
+        dex: [152, 251],
+        zone: "Îles Tourbillon",
+        areas: [
+          "gsc:whirl-islands-1f",
+          "gsc:whirl-islands-b1f",
+          "gsc:whirl-islands-b2f",
+          "gsc:whirl-islands-b3f",
+        ],
+        bg: "cave",
+        level: 100,
+        burst: "aeroblast",
+        cond: ve,
+      },
+      {
+        id: 251,
+        sky: "fireflies",
+        hp: 5.61,
+        power: 0.8,
+        region: "johto",
+        dex: [152, 251],
+        zone: "Bois aux Chênes",
+        areas: ["gsc:ilex-forest-area"],
+        end: !0,
+        bg: "forest",
+        level: 100,
+        cond: { kind: "dex" },
+      },
+      {
+        id: 377,
+        hp: 3.6,
+        power: 1.5,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Ruines du Désert",
+        areas: ["rse:hoenn-route-111-area"],
+        habitat: "Désert de la Route 111|rse:hoenn-route-111-area",
+        badge: "Balance",
+        bg: "cave",
+        level: 100,
+        burst: "rock-slide",
+        ...De("regirock"),
+      },
+      {
+        id: 378,
+        hp: 9.11,
+        power: 0.78,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Grotte de l'Île",
+        areas: ["rse:hoenn-route-105-area", "rse:hoenn-route-106-area"],
+        habitat: "Routes 105-106|rse:hoenn-route-105-area+rse:hoenn-route-106-area",
+        badge: "Poing",
+        bg: "cave",
+        level: 100,
+        burst: "blizzard",
+        ...De("regice"),
+      },
+      {
+        id: 379,
+        hp: 7.3,
+        power: 1,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Tombeau Antique",
+        areas: ["rse:hoenn-route-120-area"],
+        habitat: "Route 120|rse:hoenn-route-120-area",
+        badge: "Plume",
+        bg: "cave",
+        level: 100,
+        burst: "iron-head",
+        ...De("registeel"),
+      },
+      {
+        id: 383,
+        weather: "sun",
+        arena: "groudon-chambre-magmatique",
+        hp: 30,
+        power: 0.62,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Grotte Terra",
+        badge: "Pluie",
+        bg: "cave",
+        level: 100,
+        burst: "precipice-blades",
+        cond: { kind: "types", types: ["ground", "fire"], dex: [1, 386] },
+      },
+      {
+        id: 382,
+        weather: "storm",
+        arena: "kyogre-arene-tempete",
+        hp: 18.38,
+        power: 0.31,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Grotte Marine",
+        badge: "Pluie",
+        bg: "cave",
+        level: 100,
+        burst: "origin-pulse",
+        cond: { kind: "types", types: ["water", "ice"], dex: [1, 386] },
+      },
+      {
+        id: 385,
+        hp: 3.12,
+        power: 1.36,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Sommet des Vœux",
+        areas: ["rse:meteor-falls-area", "rse:meteor-falls-b1f"],
+        end: !0,
+        bg: "cave",
+        sky: "stars",
+        weather: null,
+        level: 100,
+        burst: "doom-desire",
+        cond: { kind: "dex" },
+      },
+      {
+        id: 386,
+        hp: 14.41,
+        power: 0.95,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Île Aurore",
+        bg: "forest",
+        level: 100,
+        burst: "psycho-boost",
+        forms: [386, 38601, 38602, 38603],
+        formKnobs: {
+          38601: { hp: 24.73, power: 0.82 },
+          38602: { hp: 6.8, power: 1.02 },
+          38603: { hp: 14.41, power: 0.64 },
+        },
+        cond: { kind: "item", item: "auroraticket", text: "Obtiens un ticket pour l'Île Aurore" },
+      },
+      {
+        id: 480,
+        at: "Badge Glaçon",
+        arena: "sinnoh-caverne-savoir",
+        weather: "snow",
+        hp: 5,
+        power: 2.6,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Caverne Savoir",
+        areas: ["dppt:lake-acuity-area"],
+        habitat: "Lac Savoir|dppt:lake-acuity-area",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "mystical-power",
+        cond: { kind: "count", need: 75 },
+      },
+      {
+        id: 482,
+        at: "Badge Palustre",
+        arena: "sinnoh-caverne-courage",
+        hp: 5,
+        power: 1.773,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Caverne Courage",
+        areas: ["dppt:lake-valor-area"],
+        habitat: "Lac Courage asséché|dppt:lake-valor-area",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "mystical-power",
+        cond: { kind: "tally", field: "trainers", need: 1e3, text: "Bats {n} dresseurs dans la région" },
+      },
+      {
+        id: 483,
+        title: "Faille Temporelle",
+        at: "Monde Distorsion",
+        arena: "sinnoh-colonnes-lances-portail",
+        hp: 5.03,
+        power: 0.3,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Colonnes Lances",
+        areas: ["dppt:mt-coronet-exterior-snowfall"],
+        habitat: "Mont Couronné enneigé|dppt:mt-coronet-exterior-snowfall+dppt:mt-coronet-exterior-blizzard",
+        badge: "Maître Sinnoh",
+        bg: "mountain",
+        level: 100,
+        burst: "roar-of-time",
+        when: "day",
+        cond: {
+          kind: "all",
+          list: [
+            { kind: "owns", ids: [480, 481, 482], text: "Possède Créhelf, Créfollet et Créfadet" },
+            { kind: "item", item: "adamant-orb", text: "Trouve l'Orbe Adamant au Mont Couronné" },
+          ],
+        },
+      },
+      {
+        id: 484,
+        title: "Faille Spatiale",
+        at: "Monde Distorsion",
+        arena: "sinnoh-colonnes-lances-portail",
+        hp: 7,
+        power: 0.49,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Colonnes Lances",
+        areas: ["dppt:mt-coronet-exterior-snowfall"],
+        habitat: "Mont Couronné enneigé|dppt:mt-coronet-exterior-snowfall+dppt:mt-coronet-exterior-blizzard",
+        badge: "Maître Sinnoh",
+        bg: "mountain",
+        level: 100,
+        burst: "spacial-rend",
+        when: "night",
+        cond: {
+          kind: "all",
+          list: [
+            { kind: "owns", ids: [480, 481, 482], text: "Possède Créhelf, Créfollet et Créfadet" },
+            { kind: "item", item: "lustrous-orb", text: "Trouve l'Orbe Perlé au Mont Couronné" },
+          ],
+        },
+      },
+      {
+        id: 487,
+        at: "Badge Palustre",
+        arena: "sinnoh-grotte-retour",
+        hp: 10,
+        power: 0.55,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Grotte Retour",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "shadow-force",
+        cond: { kind: "owns", ids: [483, 484], text: "Possède Dialga et Palkia" },
+      },
+      {
+        id: 48701,
+        title: "Cœur de la Distorsion",
+        at: "Monde Distorsion",
+        arena: "sinnoh-monde-distorsion",
+        sky: "distortion",
+        hp: 9,
+        power: 0.52,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Monde Distorsion",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "shadow-force",
+        cond: {
+          kind: "all",
+          list: [
+            { kind: "owns", ids: [487], text: "Possède Giratina (Forme Alternative)" },
+            { kind: "item", item: "griseous-orb", text: "Trouve l'Orbe Platiné au Mont Couronné enneigé" },
+          ],
+        },
+      },
+      {
+        id: 485,
+        arena: "sinnoh-mont-abrupt",
+        weather: "ash",
+        hp: 23,
+        power: 0.29,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Cœur du Mont Abrupt",
+        areas: ["dppt:stark-mountain-inside"],
+        habitat:
+          "Mont Abrupt|dppt:stark-mountain-entrance+dppt:stark-mountain-area+dppt:stark-mountain-inside",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "magma-storm",
+        cond: { kind: "types", types: ["fire", "steel"], dex: [1, 493] },
+      },
+      {
+        id: 486,
+        at: "Badge Glaçon",
+        arena: "sinnoh-temple-frimapic",
+        hp: 10,
+        power: 0.58,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Temple de Frimapic",
+        badge: "Maître Sinnoh",
+        bg: "cave",
+        level: 100,
+        burst: "giga-impact",
+        weather: null,
+        ...De("regigigas"),
+      },
+      {
+        id: 488,
+        at: "Badge Mine",
+        arena: "sinnoh-ile-pleine-lune",
+        hp: 11.4,
+        power: 0.979,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Île Pleine Lune",
+        badge: "Maître Sinnoh",
+        bg: "forest",
+        sky: "stars",
+        weather: null,
+        level: 100,
+        burst: "moonblast",
+        moon: "full",
+        cond: { kind: "league", region: "sinnoh" },
+      },
+      {
+        id: 491,
+        at: "Badge Mine",
+        arena: "sinnoh-ile-nouvellelune",
+        hp: 31,
+        power: 0.52,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Île Nouvellune",
+        badge: "Maître Sinnoh",
+        bg: "forest",
+        weather: null,
+        level: 100,
+        burst: "dark-pulse",
+        moon: "new",
+        cond: { kind: "owns", ids: [488], text: "Possède Cresselia" },
+      },
+      {
+        id: 492,
+        arena: "sinnoh-paradis-fleuri",
+        hp: 9.45,
+        power: 2.05,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Paradis Fleuri",
+        areas: ["dppt:floaroma-meadow-area"],
+        habitat: "Pré de Floraville|dppt:floaroma-meadow-area",
+        end: !0,
+        bg: "forest",
+        sky: "leaves",
+        level: 100,
+        burst: "seed-flare",
+        when: "night",
+        cond: { kind: "dex" },
+      },
+      {
+        id: 49201,
+        title: "Ciel du Paradis Fleuri",
+        arena: "sinnoh-paradis-fleuri",
+        hp: 17.18,
+        power: 1.54,
+        region: "sinnoh",
+        dex: [387, 493],
+        zone: "Paradis Fleuri",
+        areas: ["dppt:floaroma-meadow-area"],
+        habitat: "Pré de Floraville|dppt:floaroma-meadow-area",
+        end: !0,
+        bg: "forest",
+        sky: "wind",
+        level: 100,
+        burst: "seed-flare",
+        when: "day",
+        cond: {
+          kind: "all",
+          list: [
+            { kind: "owns", ids: [492], text: "Possède Shaymin (Forme Terrestre)" },
+            { kind: "item", item: "gracidea", text: "Trouve la Gracidée au Pré de Floraville" },
+          ],
+        },
+      },
+      {
+        id: 384,
+        sky: "wind",
+        arena: "rayquaza-pilier-celeste",
+        hp: 5.35,
+        power: 0.65,
+        region: "hoenn",
+        dex: [252, 386],
+        zone: "Pilier Céleste",
+        areas: ["rse:sky-pillar-1f", "rse:sky-pillar-3f", "rse:sky-pillar-5f"],
+        badge: "Pluie",
+        bg: "mountain",
+        fallback: "cave",
+        level: 100,
+        burst: "dragon-ascent",
+        cond: { kind: "owns", ids: [383, 382], text: "Possède Groudon et Kyogre" },
+      },
+    ],
+    J = {
+      id: 493,
+      wb: !0,
+      arena: "sinnoh-arceus-sommet",
+      hp: 3.9,
+      power: 0.8,
+      region: "sinnoh",
+      dex: [387, 493],
+      zone: "Salle Originelle",
+      bg: "mountain",
+      weather: null,
+      level: 100,
+      burst: "judgment",
+    },
+    de = () => {
+      const D = t.WorldBoss,
+        Q = D?.state();
+      return D?.open() ? (D.caught(Q) ? "done" : D.catchable(Q) ? "open" : "locked") : "locked";
+    },
+    _e = (D) => vt[D.cond.kind](D, D.cond);
+  function Re(D) {
+    if (!D.forms) return D.id;
+    const Q = D.forms.filter((nt) => !f(nt)),
+      Y = a().S,
+      ye = t.Tower.weekKey();
+    return Y.aurora?.week === ye
+      ? Y.aurora.id
+      : Q.length
+        ? ((Y.aurora = {
+            week: ye,
+            id: Q.includes(D.forms[0]) ? D.forms[0] : Q[Math.floor(Math.random() * Q.length)],
+          }),
+          Y.aurora.id)
+        : null;
+  }
+  const dt = (D) => Re(D) ?? D.id,
+    qe = (D, Q = dt(D)) => (D.wb ? t.WorldBoss?.tries() || 0 : a().S.legTries?.[Q] || 0),
+    ce = (D) => (a().owns ? a().owns(D) : f(D)),
+    tt = (D) => {
+      if (D.wb) return de();
+      if (D.roam) return f(D.id) && ce(D.id) ? "done" : "locked";
+      if (!D.forms)
+        return f(D.id) && ce(D.id)
+          ? "done"
+          : ((Y) => (Y.have >= Y.need ? (le(D) ? "open" : "closed") : Y.seal ? "sealed" : "locked"))(_e(D));
+      if (_e(D).have < 1) return "locked";
+      const Q = Re(D);
+      return Q == null || D.forms.every(f) ? "done" : f(Q) ? "wait" : "open";
+    },
+    mt = [
+      {
+        roam: !0,
+        zone: "Tour Cendrée",
+        id: 243,
+        region: "johto",
+        dex: [152, 251],
+        scene: "johto-tour-cendree",
+        bg: "cave",
+        weather: "storm",
+        level: 100,
+        hp: 10,
+        power: 0.6,
+        cond: { kind: "owns", ids: [243], text: "" },
+      },
+      {
+        roam: !0,
+        zone: "Tour Cendrée",
+        id: 244,
+        region: "johto",
+        dex: [152, 251],
+        scene: "johto-tour-cendree",
+        bg: "cave",
+        weather: "sun",
+        level: 100,
+        hp: 10,
+        power: 0.6,
+        cond: { kind: "owns", ids: [244], text: "" },
+      },
+      {
+        roam: !0,
+        zone: "Tour Cendrée",
+        id: 245,
+        region: "johto",
+        dex: [152, 251],
+        scene: "johto-tour-cendree",
+        bg: "cave",
+        weather: "rain",
+        level: 100,
+        hp: 10,
+        power: 0.6,
+        cond: { kind: "owns", ids: [245], text: "" },
+      },
+      {
+        roam: !0,
+        zone: "Île du Sud",
+        id: 380,
+        region: "hoenn",
+        dex: [252, 386],
+        scene: "hoenn-ile-du-sud",
+        bg: "forest",
+        weather: "breeze",
+        level: 100,
+        hp: 10,
+        power: 0.6,
+        cond: { kind: "owns", ids: [380], text: "" },
+      },
+      {
+        roam: !0,
+        zone: "Île du Sud",
+        id: 381,
+        region: "hoenn",
+        dex: [252, 386],
+        scene: "hoenn-ile-du-sud",
+        bg: "forest",
+        weather: "breeze",
+        level: 100,
+        hp: 10,
+        power: 0.6,
+        cond: { kind: "owns", ids: [381], text: "" },
+      },
+      {
+        roam: !0,
+        zone: "Caverne Vérité",
+        id: 481,
+        region: "sinnoh",
+        dex: [387, 493],
+        scene: "sinnoh-caverne-verite",
+        bg: "cave",
+        level: 100,
+        hp: 5,
+        power: 2.2,
+        cond: { kind: "owns", ids: [481], text: "" },
+      },
+    ],
+    Te = (D) => A.find((Q) => Q.id === D) || mt.find((Q) => Q.id === D) || (D === J.id ? J : void 0),
+    At = (D) => !!Te(D)?.wb && tt(Te(D)) === "locked",
+    yt = (D) =>
+      D.at ? t.STORY.CHAPTERS.findIndex((Q) => (Q.reg || "kanto") === D.region && Q.name === D.at) : null,
+    he = (D, Q) => {
+      const Y = Te(D) || {};
+      return { hp: Y.hp, power: Y.power, ...Y.formKnobs?.[Q] };
+    },
+    fe = (D) => a().S.elite?.[D]?.t || 0,
+    Oe = () =>
+      !!t.CONFIG.ELITE.ON || (typeof location < "u" && /^(localhost|127\.0\.0\.1)$/.test(location.hostname)),
+    Ee = (D) => !!D && Oe() && !D.wb && !!t.Underground?.unlocked() && tt(D) === "done",
+    et = (D) => Ee(D) && le(D),
+    _ = (D) => {
+      const Q = Te(D);
+      return !!Q && !!(Q.when || Q.moon) && !le(Q);
+    },
+    we = (D, Q) => t.CONFIG.ELITE.TIERS.includes(Q) && Q === fe(D) + 1,
+    ie = (D) => t.CONFIG.ELITE.TIERS.find((Q) => we(D, Q)) || 0,
+    U = (D) => t.CONFIG.ELITE.REWARDS[D],
+    Ne = (D) => a().DEX[D].types[0] + ":3",
+    T = (D) =>
+      D.forms ? D.forms[Math.floor(Date.parse(t.Tower.weekKey()) / (7 * 864e5)) % D.forms.length] : D.id,
+    L = (D) => A.find((Q) => Q.id === D || Q.forms?.includes(D)),
+    R = {
+      144: { 1: [2.21, 1.14], 2: [1.84, 1.35], 3: [1.53, 1.57], 4: [1.29, 1.75], 5: [1.07, 2.06] },
+      145: { 1: [1, 1.91], 2: [1, 1.97], 3: [0.66, 2.39], 4: [0.54, 2.68], 5: [0.46, 2.98] },
+      146: { 1: [1, 1.81], 2: [1, 1.85], 3: [1, 1.97], 4: [0.69, 2.37], 5: [0.6, 2.66] },
+      150: { 1: [1.34, 3.91], 2: [1.12, 4.54], 3: [1, 5.04], 4: [1, 4.36], 5: [1, 4.48] },
+      151: { 1: [1, 1.64], 2: [1, 1.71], 3: [1, 1.78], 4: [0.8, 1.97], 5: [0.83, 1.97] },
+      243: { 1: [1, 1.83], 2: [1, 1.54], 3: [1, 1.51], 4: [1, 1.68], 5: [1, 1.67] },
+      244: { 1: [1, 1.34], 2: [1, 1.38], 3: [1, 1.39], 4: [0.84, 1.62], 5: [0.7, 1.82] },
+      245: { 1: [1, 1.35], 2: [1, 1.37], 3: [0.77, 1.57], 4: [0.49, 1.39], 5: [0.41, 1.45] },
+      249: { 1: [1, 1.56], 2: [1, 1.59], 3: [0.73, 1.84], 4: [0.55, 2.15], 5: [0.47, 2.39] },
+      250: { 1: [1, 1.34], 2: [1, 1.36], 3: [1, 1.37], 4: [1, 1.38], 5: [0.82, 1.59] },
+      251: { 1: [1.2, 1.75], 2: [1, 1.99], 3: [1, 1.99], 4: [1, 2.05], 5: [1, 2.1] },
+      377: { 1: [1.44, 1.01], 2: [1.21, 1.17], 3: [1.07, 1.29], 4: [1, 1.35], 5: [1, 1.37] },
+      378: { 1: [1, 1.17], 2: [1, 1.18], 3: [1, 1.22], 4: [1, 1.25], 5: [1, 1.31] },
+      379: { 1: [1, 1.4], 2: [1, 1.39], 3: [1, 1.42], 4: [1, 1.46], 5: [1, 1.44] },
+      380: { 1: [1, 1.42], 2: [1, 1.42], 3: [1, 1.51], 4: [1, 1.49], 5: [1, 1.57] },
+      381: { 1: [1, 1.33], 2: [1, 1.36], 3: [1, 1.38], 4: [1, 1.38], 5: [1, 1.39] },
+      382: { 1: [1, 1.17], 2: [0.85, 1.28], 3: [0.65, 1.46], 4: [0.49, 1.68], 5: [0.4, 1.93] },
+      383: { 1: [0.88, 1.59], 2: [0.61, 1.84], 3: [0.48, 2.06], 4: [0.4, 2.31], 5: [0.32, 2.6] },
+      384: { 1: [1.38, 1.07], 2: [1.23, 1.18], 3: [1, 1.32], 4: [1, 1.33], 5: [1, 1.39] },
+      385: { 1: [2.02, 1.01], 2: [1.72, 1.13], 3: [1.5, 1.25], 4: [1.25, 1.51], 5: [1.15, 1.65] },
+      386: { 1: [1, 1.64], 2: [1, 1.72], 3: [1, 1.73], 4: [1, 1.76], 5: [1, 1.81] },
+      480: { 1: [1, 1.93], 2: [1, 1.99], 3: [1, 2], 4: [1, 2.08], 5: [1, 2.15] },
+      481: { 1: [1.05, 1], 2: [0.95, 1.02], 3: [0.98, 1.02], 4: [1, 1.02], 5: [0.87, 1.15] },
+      482: { 1: [1.48, 1.41], 2: [1.27, 1.44], 3: [1.16, 1.46], 4: [1, 1.62], 5: [1, 1.66] },
+      483: { 1: [1, 1.62], 2: [1, 1.67], 3: [1, 1.71], 4: [1, 1.75], 5: [1, 1.78] },
+      484: { 1: [1, 1.15], 2: [1, 1.14], 3: [1, 1.09], 4: [1, 1.14], 5: [1, 1.24] },
+      485: { 1: [0.67, 1.49], 2: [0.53, 1.85], 3: [0.47, 2.11], 4: [0.43, 2.3], 5: [0.36, 2.72] },
+      486: { 1: [1, 1.12], 2: [1, 1.12], 3: [1, 1.18], 4: [0.76, 1.37], 5: [0.65, 1.54] },
+      487: { 1: [1, 1.47], 2: [0.75, 1.65], 3: [0.58, 1.83], 4: [0.46, 2.06], 5: [0.37, 2.31] },
+      488: { 1: [1, 1.28], 2: [1, 1.29], 3: [0.75, 1.5], 4: [0.57, 1.72], 5: [0.47, 1.93] },
+      491: { 1: [0.88, 1.23], 2: [0.61, 1.45], 3: [0.47, 1.59], 4: [0.39, 1.82], 5: [0.32, 2.05] },
+      492: { 1: [1, 1.21], 2: [1, 1.25], 3: [1, 1.24], 4: [1, 1.3], 5: [1, 1.32] },
+      48701: { 1: [1, 1.47], 2: [1, 1.45], 3: [0.85, 1.63], 4: [0.52, 2], 5: [0.47, 2.11] },
+      49201: { 1: [1, 1.12], 2: [1, 1.14], 3: [1, 1.19], 4: [1, 1.25], 5: [0.88, 1.39] },
+    },
+    te = (D, Q, Y) => {
+      const ye = Te(D) || {},
+        nt = he(D, Q),
+        Ot = ye.elite?.[Q]?.[Y] || ye.elite?.[Y] || {},
+        ee = t.CONFIG.ELITE,
+        rt = t.CONFIG.LEGEND_ZONE,
+        [Qe, Ft] = R[D]?.[Y] || [1, 1];
+      return {
+        hp: Ot.hp ?? (nt.hp ?? rt.HP) * ee.HP[Y] * Qe,
+        power: Ot.power ?? (nt.power ?? rt.POWER) * ee.POWER[Y] * Ft,
+      };
+    },
+    K = () => t.STORY,
+    He = (D) => a().S.eliteLeague?.[D]?.t || 0,
+    m = (D) =>
+      Oe() &&
+      !!t.Underground?.unlocked() &&
+      !!a().regionDone?.(D) &&
+      K()
+        .chaptersOf(D)
+        .some((Q) => K().CHAPTERS[Q].league),
+    z = (D, Q) => t.CONFIG.ELITE.TIERS.includes(Q) && Q === He(D) + 1,
+    pe = (D) => t.CONFIG.ELITE.TIERS.find((Q) => z(D, Q)) || 0,
+    V = (D) =>
+      K()
+        .chaptersOf(D)
+        .filter((Q) => K().CHAPTERS[Q].league)
+        .map((Q) => K().CHAPTERS[Q].steps.find((Y) => Y.kind === "gym"))
+        .filter(Boolean)
+        .map((Q) => ({ leader: Q.leader, sprite: Q.sprite, type: Q.type, champion: !!Q.champion })),
+    lt = (D) => [...new Set(V(D).map((Q) => Q.type))],
+    kt = (D) => t.CONFIG.ELITE.LEAGUE.FRAMES.includes(D),
+    ra = () =>
+      Object.entries(a().S.eliteLeague || {}).flatMap(([D, Q]) =>
+        Object.entries(Q.gems || {})
+          .filter(([, Y]) => Y === null)
+          .map(([Y]) => ({ reg: D, tier: +Y })),
+      );
+  function Vt(D, Q, Y) {
+    const ye = a().S.eliteLeague?.[D];
+    if (!ye?.gems || ye.gems[Q] !== null || Q > ye.t || !lt(D).includes(Y)) return null;
+    ye.gems[Q] = Y;
+    const nt = Y + ":3",
+      Ot = (a().S.under ||= { day: null, sent: 0, used: {}, slots: [] });
+    return (
+      ((Ot.gems ||= {})[nt] = (Ot.gems[nt] || 0) + 1),
+      (Ot.eliteGems = (Ot.eliteGems || 0) + 1),
+      a().save?.(),
+      nt
+    );
+  }
+  const Xt = 6 * 36e5,
+    Ht = "pokecatch-zone-boards",
+    ct = 10;
+  function wt(D, Q) {
+    const Y = a().S,
+      ye = Te(D);
+    if (ye?.wb) {
+      t.WorldBoss?.markCaught();
+      return;
+    }
+    const nt = Q.map((Ot) => a().getMon(Ot))
+      .filter(Boolean)
+      .map((Ot) => ({
+        id: Ot.id,
+        level: Math.min(Ot.level, ye.level),
+        shiny: !!Ot.shiny,
+        ...(Ot.rank ? { rank: Ot.rank } : {}),
+      }));
+    !ye ||
+      !nt.length ||
+      (((Y.zoneWins ||= {})[D] = { at: Date.now(), mons: nt }),
+      (Y.zoneQueue = [...(Y.zoneQueue || []).filter((Ot) => Ot !== D), D]));
+  }
+  let ge = !1;
+  async function Fe() {
+    const D = a().S,
+      Q = (D.zoneQueue || []).filter((ye) => D.zoneWins?.[ye]).slice(0, ct);
+    if (!Q.length || ge || !t.Cloud?.user) return;
+    ge = !0;
+    const Y = await t.Cloud.raids.zoneSubmit(Q.map((ye) => ({ zone: ye, mons: D.zoneWins[ye].mons })));
+    ((ge = !1),
+      !(Y.error || !Y.data?.ok) &&
+        ((D.zoneQueue = (D.zoneQueue || []).filter((ye) => !Q.includes(ye))), a().save({ idle: !0 })));
+  }
+  const gt = () => {
+      try {
+        return JSON.parse(localStorage.getItem(Ht)) || {};
+      } catch {
+        return {};
+      }
+    },
+    Dt = (D) => {
+      if (ha) return !0;
+      const Q = gt()[D];
+      return !!Q && Date.now() - Q.at < Xt;
+    };
+  let ha = null,
+    _t = null;
+  const Ea = (D) => {
+    ((ha = D ? {} : null), (_t = D || null));
+  };
+  let ut = null;
+  function jt(D) {
+    return ha || Dt(D) || ut === D || !t.Cloud?.user
+      ? Promise.resolve()
+      : ((ut = D),
+        t.Cloud.raids.zoneBoard(D).then(
+          (Q) => {
+            if (((ut = null), !Q || Q.error || !Q.data)) return { error: Q?.error || "empty" };
+            const Y = gt();
+            Y[D] = {
+              at: Date.now(),
+              teams: Q.data.teams || [],
+              popular: Q.data.popular || [],
+              total: Q.data.total || 0,
+              mine: Q.data.mine || null,
+            };
+            try {
+              localStorage.setItem(Ht, JSON.stringify(Y));
+            } catch {}
+            return { ok: !0 };
+          },
+          () => ((ut = null), { error: "network" }),
+        ));
+  }
+  function xt(D) {
+    if (ha) return (ha[D] ||= _t(D));
+    const Q = gt()[D];
+    if (!Q) return null;
+    const Y = t.Cloud?.user?.id,
+      ye = a().S.trainer || {},
+      nt = a().S.zoneWins?.[D],
+      Ot = nt
+        ? {
+            at: new Date(nt.at).toISOString(),
+            team: {
+              uid: Y,
+              name: ye.name || "",
+              tag: ye.tag,
+              sprite: ye.sprite || "red",
+              frame: t.Frames?.mine(),
+              mons: nt.mons,
+            },
+          }
+        : Q.mine,
+      ee = Q.teams.filter((rt) => !Y || rt.team?.uid !== Y);
+    return {
+      teams: Ot ? [{ ...Ot, me: !0 }, ...ee] : ee,
+      popular: Q.popular,
+      total: Q.total + (nt && !Q.mine ? 1 : 0),
+    };
+  }
+  t.LegendZones = {
+    ZONES: A,
+    knobs: he,
+    ELITE_K: R,
+    eliteBest: fe,
+    eliteShown: Ee,
+    eliteOpen: et,
+    shut: _,
+    eliteCan: we,
+    eliteNext: ie,
+    eliteReward: U,
+    eliteGem: Ne,
+    eliteFoe: T,
+    eliteKnobs: te,
+    zoneOf: L,
+    leagueBest: He,
+    leagueOpen: m,
+    leagueCan: z,
+    leagueNext: pe,
+    leagueMembers: V,
+    leagueTypes: lt,
+    leagueFrame: kt,
+    leaguePending: ra,
+    leaguePick: Vt,
+    of: (D) => [...A.filter((Q) => Q.region === D), ...mt.filter((Q) => Q.region === D && Ee(Q))],
+    ROAM_ZONES: mt,
+    get: Te,
+    atChapter: yt,
+    progress: _e,
+    state: tt,
+    over: At,
+    foe: dt,
+    tries: qe,
+    record: wt,
+    flush: Fe,
+    loadBoard: jt,
+    boardFresh: Dt,
+    board: xt,
+    testBoard: Ea,
+    hasTestBoard: () => !!ha,
+    whenText: P,
+    moon: x,
+    MOON_ICON: $,
+    RIDDLES: it,
+    riddle: $e,
+    answers: Z,
+    braille: re,
+    inscription: We,
+    doors: oe,
+  };
+})();

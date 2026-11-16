@@ -1,0 +1,3350 @@
+/**
+ * worldboss view
+ *
+ * Public API on the game namespace `t`: t.WorldBossView
+ *
+ * Recovered from the shipped bundle — original chunk #66 at byte 1762558 (79053 bytes, sha256:3272a7c33edc2586).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+t.WorldBossView = (function () {
+  const {
+      esc: a,
+      fmt: b,
+      toast: f,
+      helpTip: ue,
+      artSrc: H,
+      monSrc: vt,
+      sprBox: B,
+      typeBadge: se,
+      trainerFace: Ge,
+    } = t.UI,
+    Je = t.Game,
+    Ze = () => t.WorldBoss,
+    x = () => t.CONFIG.WORLDBOSS,
+    $ = "wb",
+    X = () => t.LegendZones,
+    Tt = () => t.CONFIG.TEAM_SIZE,
+    le = "zone:493",
+    P = () => Je.S.adv?.zone?.id === u,
+    u = 493,
+    ve = 864e5,
+    it = matchMedia("(prefers-reduced-motion: reduce)"),
+    De = () => !!Je.S.reducedAnim || it.matches,
+    je = (C, g) => C + Math.random() * (g - C),
+    pt = (C) => C[Math.floor(Math.random() * C.length)],
+    re = (C) => new Promise((g) => Wa(g, C)),
+    We = (C) => C.finished.catch(() => null),
+    oe = (C) => () => (C = (C * 16807) % 2147483647) / 2147483647,
+    $e = () => t.I18n?.lang || "fr",
+    Z = (C) => Je.DEX[C],
+    A = (C, g) => vt(C, g),
+    J = (C) => Z(C)?.types?.[0] || "normal",
+    de = (C) =>
+      new Date(C).toLocaleString(
+        $e(),
+        C - Ze().now() > 6 * ve
+          ? { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }
+          : { weekday: "long", hour: "2-digit", minute: "2-digit" },
+      );
+  function _e(C) {
+    const g = Math.max(0, Math.floor(C / 1e3)),
+      E = Math.floor(g / 86400),
+      q = Math.floor((g % 86400) / 3600),
+      Pe = Math.floor((g % 3600) / 60);
+    return E
+      ? e("{d} j {h} h", { d: E, h: q })
+      : q
+        ? e("{h} h {m} min", { h: q, m: String(Pe).padStart(2, "0") })
+        : e("{m} min {s} s", { m: Pe, s: String(g % 60).padStart(2, "0") });
+  }
+  function Re(C) {
+    const g = Math.max(0, Math.floor((C - Ze().now()) / 6e4));
+    return (
+      "⏱ " +
+      (g >= 60
+        ? e("{h} h {m}", { h: Math.floor(g / 60), m: String(g % 60).padStart(2, "0") })
+        : e("{n} min", { n: g }))
+    );
+  }
+  const dt = (C) => `<b class="wb-cd" data-wb-cd="${C}">${_e(C - Ze().now())}</b>`,
+    qe = (C) => e("{n} %", { n: C }),
+    ce = (C, g = 1) => C.toLocaleString($e(), { minimumFractionDigits: g, maximumFractionDigits: g }),
+    tt = [
+      ["#ff8ac0", "#b0186a", "#5a0a3a"],
+      ["#ffa090", "#e8402a", "#9a2016"],
+      ["#ffd0a0", "#ff9a2e", "#c0601a"],
+      ["#fff3a0", "#ffd84a", "#c99a12"],
+    ],
+    mt = (C) => (C <= 0 ? 0 : Math.ceil(C / 25 - 1e-6)),
+    Te = (C) => {
+      const g = mt(C);
+      return g ? (C - (g - 1) * 25) / 25 : 0;
+    },
+    At = (C = !1) =>
+      `<span class="wb-fbrow"><span class="wb-fb"><i class="under"></i><i class="ghost"></i><i class="fill"></i><i class="shine"></i><i class="sheen"></i>${C ? '<b class="wb-pct"></b>' : ""}</span><b class="wb-mult"></b></span>`;
+  function yt(C, g, E = g) {
+    const q = C.querySelector(".wb-fb"),
+      Pe = mt(g),
+      at = Te(g),
+      Mt = tt[Math.max(0, Pe - 1)],
+      Pa = Pe > 1 ? tt[Pe - 2][1] : null;
+    (q.style.setProperty("--hi", Mt[0]),
+      q.style.setProperty("--mid", Mt[1]),
+      q.style.setProperty("--lo", Mt[2]),
+      Pa && q.style.setProperty("--under", Pa),
+      q.querySelector(".under").classList.toggle("none", !Pa));
+    const Ta = mt(E),
+      La = Ta > Pe ? 1 : Te(E);
+    ((q.querySelector(".fill").style.width = at * 100 + "%"),
+      (q.querySelector(".shine").style.width = at * 100 + "%"),
+      (q.querySelector(".ghost").style.width = Math.max(at, La) * 100 + "%"));
+    const xa = C.querySelector(".wb-mult");
+    (xa.style.setProperty("--mid", Mt[1]), (xa.textContent = `×${Pe}`));
+  }
+  const he = (C) => (C <= 75) + (C <= 50) + (C <= 25),
+    fe = "assets/bg/scenes/sinnoh-arceus-sommet-sombre-710x400.webp",
+    Oe = 0.18,
+    Ee = 0.1;
+  function et(C) {
+    const g = fe,
+      E = a(Z(u).name);
+    return C.phase === "calm"
+      ? {
+          kind: "tease",
+          title: e("Bientôt…"),
+          sub: e("Un boss pour toute la communauté."),
+          art: `<span class="wb-tcd"><small>${e("Dès {when}", { when: a(de(C.next)) })}</small>${dt(C.next)}</span>`,
+          scene: "assets/bg/scenes/sinnoh-arceus-ciel-sombre-710x400.webp",
+        }
+      : C.phase === "shield"
+        ? {
+            kind: "live",
+            go: !0,
+            scene: g,
+            eyebrow: `${e("World boss")} · ${qe(Math.ceil(C.pct * 100))}`,
+            title: E,
+            art: `<span class="wb-mini" aria-hidden="true"><img src="${H(u)}" alt="" style="visibility:hidden" onload="pcArtFit(this, 1, 0)"></span>`,
+            bars: `<span class="wb-mbars" data-pct="${C.pct * 100}">${At()}</span>`,
+            sub: `${e("Le bouclier tient jusqu'à {when}", { when: a(de(C.shieldEnd)) })} · ${dt(C.shieldEnd)}`,
+            chips: `<span class="chip-cur">▶ <b>${e("En cours")}</b></span>${Ze().open() ? `<span>${e("Attaques <b>{n} / {max}</b>", { n: Ze().left(C), max: x().PER_DAY })}</span>` : ""}${C.boost > 1 ? `<span class="chip-gold">⚡ <b>×${ce(C.boost)}</b></span>` : ""}`,
+          }
+        : C.phase === "capture"
+          ? {
+              kind: "cap",
+              go: !0,
+              scene: g,
+              eyebrow: e("World boss"),
+              title: E,
+              art: `<img class="wb-big" src="${H(u)}" alt="" aria-hidden="true" style="visibility:hidden" onload="pcArtFit(this, 2, 0)">`,
+              ...(Ze().caught(C)
+                ? {
+                    sub: `${e("Prochaine édition {when}", { when: a(de(C.next)) })} · ${dt(C.next)}`,
+                    chips: `<span class="chip-ok">✓ ${e("Capturé")}</span>`,
+                  }
+                : {
+                    sub: e("Le bouclier est tombé · encore {time}", { time: dt(C.captureEnd) }),
+                    chips: `${P() ? `<span class="chip-cur">▶ <b>${e("En cours")}</b></span>` : ""}<span class="chip-gold">${e("Capturable")}</span>`,
+                  }),
+            }
+          : C.phase === "gone"
+            ? {
+                kind: "gone",
+                scene: g,
+                eyebrow: e("World boss"),
+                title: e("Arceus a disparu"),
+                sub: `${e("Le bouclier a tenu. Retour {when}", { when: a(de(C.next)) })} · ${dt(C.next)}`,
+                chips: `<span>${e("Barres brisées <b>{n} / {max}</b>", { n: C.bars - C.barsLeft, max: C.bars })}</span>`,
+              }
+            : {
+                kind: "gone",
+                scene: g,
+                eyebrow: e("World boss"),
+                title: E,
+                sub: `${e("Prochaine édition {when}", { when: a(de(C.next)) })} · ${dt(C.next)}`,
+              };
+  }
+  function _(C) {
+    for (const g of C.querySelectorAll(".wb-mbars")) yt(g, +g.dataset.pct);
+  }
+  const we = () => Je.eventTeam($),
+    ie = () => Je.teamMons(we());
+  function U(C) {
+    const g = we();
+    (g.splice(0, g.length, ...C.map((E) => E.uid)), Je.save());
+  }
+  function Ne(C) {
+    if (!Ze().left(C)) return;
+    const g = Ze().mine(C),
+      E = `${C.n}:${C.day}`,
+      q = ie();
+    (g.pick !== E || !q.length || q.length !== we().length || q.some((Pe) => Ze().resting(Pe.uid, C))) &&
+      ((g.pick = E), U(Ze().autoTeam(C)));
+  }
+  function T() {
+    if (m?.salvo || m?.swapping || m?.wave) return;
+    const C = Ze().state();
+    t.EventTeam.open($, {
+      key: $,
+      size: x().TEAM,
+      cap: 100,
+      noBoss: !0,
+      head: () =>
+        `<span class="evt-leg wb-leg"><img src="assets/ui/shiny-charm.png" alt=""></span><h2>${e("Équipe de l'attaque")}</h2>`,
+      legend: e("Choisis {n} Pokémon. Ceux qui ont déjà attaqué aujourd'hui se reposent jusqu'à demain.", {
+        n: x().TEAM,
+      }),
+      lock: (g) => (Ze().resting(g.uid, C) ? Re(C.dayEnd) : null),
+      lockToast: e("A déjà attaqué aujourd'hui."),
+    });
+  }
+  const L = [
+      "lucas-dp",
+      "dawn-dp",
+      "cynthia",
+      "lass",
+      "acetrainer",
+      "acetrainer-f",
+      "hiker",
+      "youngster",
+      "barry",
+      "ethan",
+      "lyra",
+      "may-rse",
+      "brendan-rse",
+      "leaf",
+      "camper",
+      "picnicker",
+      "beauty",
+      "blackbelt-dp",
+      "battlegirl",
+      "aromalady",
+      "collector",
+      "cyclist",
+    ],
+    R = (C) => (/^[\w-]+$/.test(C || "") ? C : "red");
+  let te = null;
+  const K = () => (te ||= t.POKEDEX.filter((C) => C.id <= u && !C.legendary && !C.mythical).map((C) => C.id));
+  function He() {
+    const C = [],
+      g = (q) =>
+        (q || [])
+          .filter((Pe) => Z(Pe?.id))
+          .slice(0, 2)
+          .map((Pe) => ({ id: Pe.id, shiny: !!Pe.shiny }));
+    for (const q of t.Cloud?.friends?.list || []) {
+      if (C.length >= 2) break;
+      if (q.status !== "accepted") continue;
+      const Pe = Object.values(q.raidBy || {})
+        .map(g)
+        .find((at) => at.length === 2);
+      Pe && C.push({ name: q.name || e("Ami"), look: R(q.sprite), mons: Pe, friend: !0 });
+    }
+    const E =
+      Je.S.raids?.bots && !Array.isArray(Je.S.raids.bots) ? Object.values(Je.S.raids.bots).flat() : [];
+    for (const q of E) {
+      if (C.length >= 2) break;
+      const Pe = g(q?.mons);
+      Pe.length === 2 && C.push({ name: q.name, look: R(q.sprite), mons: Pe, bot: !0 });
+    }
+    for (; C.length < 2;) C.push({ look: pt(L), mons: [{ id: pt(K()) }, { id: pt(K()) }] });
+    return C;
+  }
+  let m = null,
+    z = null,
+    pe = null,
+    V = null;
+  const lt = (C, g) =>
+      g.head(
+        e("World boss"),
+        ue(
+          e("World boss"),
+          e(
+            "Tous les dresseurs frappent le bouclier d'Arceus. Chaque coup remplit sa jauge de riposte : pleine, son onde de choc met ton équipe K.O. {n} attaques par jour, chacune avec une autre équipe. Le bouclier tombé, Arceus est capturable {h} h.",
+            { n: x().PER_DAY, h: x().CAPTURE_H },
+          ),
+        ),
+        `<span class="wb-sum">${kt(C)}</span>`,
+        !0,
+      ),
+    kt = (C) =>
+      C.phase === "capture"
+        ? e("Capturable encore {time}", { time: dt(C.captureEnd) })
+        : `${e("Le bouclier tient jusqu'à {when}", { when: `<b>${a(de(C.shieldEnd))}</b>` })} · ${dt(C.shieldEnd)}`;
+  function ra(C, g) {
+    return `<div class="map-region wb-view" style="--c:var(--raid)">${lt(C, g)}
+      <div class="map-body rh-body wb-body">
+        <div class="wb-st" style="--grade:${Oe};--gstep:${Ee}"><div class="wb-cam"><div class="wb-bg" style="background-image:url(${fe})"></div><div class="wb-grade"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div><canvas class="wb-warp"></canvas><canvas class="wb-sky"></canvas><div class="wb-lit"></div>
+          <span class="wb-arc"><img class="sil" src="${H(u)}" alt="" data-k="2" style="visibility:hidden"><img class="glo" src="${H(u)}" alt="" data-k="2" style="visibility:hidden"><img class="col" src="${H(u)}" alt="" data-k="2" style="visibility:hidden"></span>
+          <canvas class="wb-fx"></canvas><div class="wb-rage">${e("Riposte")}<span class="tr"><i></i></span></div><div class="wb-crowd"></div><canvas class="wb-wave"></canvas></div>
+          <div class="wb-hud"><div class="wb-bars">${At(!0)}</div></div>
+          <div class="wb-flash"></div><div class="wb-nflash"></div><div class="wb-white"><canvas></canvas></div><div class="wb-recap-wrap" hidden></div><div class="wb-moment"><span class="t"></span><span class="s"></span></div>
+          <div class="wb-spill" hidden>${e("Attaque")} <span class="sp-t">0:00</span><b class="sp-d">+0</b></div>
+          <button class="wb-skip" hidden>${e("Passer")} ⏭</button></div>
+        <div class="wb-ctl"><div class="wb-left"></div><div class="wb-res"></div></div>
+      </div></div>`;
+  }
+  function Vt(C) {
+    for (const g of C.querySelectorAll("img[data-k]")) {
+      const E = () => {
+        ((g.style.width = g.naturalWidth * +g.dataset.k + "px"),
+          (g.style.height = g.naturalHeight * +g.dataset.k + "px"),
+          (g.style.visibility = ""));
+      };
+      g.complete && g.naturalWidth ? E() : g.addEventListener("load", E, { once: !0 });
+    }
+  }
+  function Xt(C, g) {
+    const E = Ze().state();
+    return E.phase !== "shield" && E.phase !== "capture"
+      ? (wt(), !1)
+      : E.phase === "capture" && !(m?.broken && z?.el.isConnected && z.root === C && z.n === E.n)
+        ? (ha(C, E, g), !0)
+        : z?.el.isConnected &&
+            z.root === C &&
+            z.n === E.n &&
+            (z.phase === E.phase || m?.broken) &&
+            (z.day === E.day || Ht())
+          ? (ct(E), !0)
+          : (wt(),
+            Ne(E),
+            (C.innerHTML = ra(E, g)),
+            (z = { el: C.firstElementChild, root: C, opt: g, n: E.n, phase: E.phase, day: E.day }),
+            z.el.querySelector('[data-raid-page="home"]')?.addEventListener("click", () => {
+              (wt(), g.back());
+            }),
+            ut(E),
+            !0);
+  }
+  const Ht = () => !!(m && (m.salvo || m.wave || m.swapping || V || m.falling || !m.recapEl.hidden));
+  function ct(C) {
+    if (!m) return;
+    const g = z.el.querySelector(".wb-sum");
+    if ((g && !Ht() && (g.innerHTML = kt(C)), !Ht() && !m.broken)) {
+      (Ne(C),
+        ie()
+          .map((Pe) => Pe.uid)
+          .join() !== m.shownTeam
+          ? Xe()
+          : Ea());
+      const q = C.pct * 100;
+      q < m.pct - 0.05 && Yn(q);
+    } else Ea();
+  }
+  function wt() {
+    (m &&
+      (Rt(m),
+      m.ro?.disconnect(),
+      m.io?.disconnect(),
+      document.removeEventListener("visibilitychange", m.vis),
+      (m.dead = !0)),
+      (m = null),
+      (z = null),
+      (V = null));
+  }
+  function ge() {
+    const C = Ze().now();
+    for (const q of document.querySelectorAll("#raid-root [data-wb-cd]"))
+      q.textContent = _e(+q.dataset.wbCd - C);
+    const g = document.querySelector("#raid-root .rh-hb.wb.tease [data-wb-cd]");
+    if (g && C >= +g.dataset.wbCd) {
+      t.Screens.raid.render();
+      return;
+    }
+    if (!z?.el.isConnected || Ht()) return;
+    m?.recrowd && ((m.recrowd = !1), xt(), D());
+    const E = Ze().state();
+    ((E.phase !== z.phase && !(m?.broken && E.phase === "capture")) || E.n !== z.n || E.day !== z.day) &&
+      t.Screens.raid.render();
+  }
+  function Fe(C) {
+    const g = X().get(u),
+      E = Je.teamMons(Je.zoneTeam(u)),
+      q = (Mt) => (Mt.level > g.level ? `<s>${Mt.level}</s>${g.level}` : e("Nv. {n}", { n: Mt.level })),
+      Pe = Array.from({ length: Tt() }, (Mt, Pa) => {
+        const Ta = E[Pa];
+        return Ta
+          ? `<span class="dc-hero lz-mon" title="${a(Z(Ta.id).name)}">${t.UI.rankTag(Ta)}${B(Ta.id, Ta.shiny, 2, 92)}<span class="evt-lv">${q(Ta)}</span></span>`
+          : '<span class="lz-mon free">＋</span>';
+      }).join(""),
+      at = C ? "div" : "button";
+    return `<div class="dc-sec lz-team wb-capteam"><h4>${e("Équipe")}<span class="rt-n">${E.length ? `${E.length}/${Tt()}` : e("Vide : ton équipe d'aventure part")}</span>${C ? "" : `<button class="btn outline" data-wbz-team>${e("Changer")}</button>`}</h4>
+      <${at} class="lz-mons" ${C ? "" : `data-wbz-team title="${a(e("Composer l'équipe"))}"`}>${Pe}</${at}></div>`;
+  }
+  function gt(C, g) {
+    const E = Ze().caught(C),
+      q = P(),
+      Pe = Ze().tries(C),
+      at = Math.round(x().CATCH * 100),
+      Mt = Ze().open()
+        ? t.Cloud?.hold
+          ? e("Raids désactivés : activité anormale détectée.")
+          : null
+        : Ze().why([], C),
+      Pa = E
+        ? e("Capturé · prochaine édition {when}", { when: `<b>${a(de(C.next))}</b>` })
+        : e("Capturable encore {time}", { time: dt(C.captureEnd) }),
+      Ta = `${E ? `<span class="chip-ok">✓ <b>${e("Capturé")}</b></span>` : `<span class="chip-gold">${e("Capturable")}&nbsp;·&nbsp;${dt(C.captureEnd)}</span>`}${q && !E ? `<span class="chip-cur">▶ <b>${e("En cours")}</b></span>` : ""}
+      <span>${e("Niv. {n}", { n: `<b>${X().get(u).level}</b>` })}</span><span>${e("Capture <b>{n} %</b>", { n: at })}</span>${Z(
+        u,
+      )
+        .types.map((xa) => se(xa, !0))
+        .join(
+          "",
+        )}${E ? "" : `<button class="mp-chip-btn" data-wbz-moves>${e("Voir les capacités")} <i aria-hidden="true">›</i></button>`}`,
+      La = E
+        ? `<button class="mp-go" disabled>${e("Reviens {when}", { when: a(de(C.next)) })}</button>`
+        : Mt
+          ? `<button class="mp-go" disabled>${t.UI.lockIc}${a(Mt)}</button>`
+          : q
+            ? `<button class="mp-go" data-wbz-go>${e("Reprendre le combat")}</button>`
+            : `<button class="mp-go" data-wbz-go>${e(Pe ? "Réessayer" : "Affronter Arceus")}</button>`;
+    return `<div class="map-region wb-view wb-capv" style="--c:var(--raid)">${g.head(e("World boss"), ue(e("World boss"), e("Le bouclier est tombé : affronte Arceus avec ton équipe, autant de fois que tu veux pendant {h} h. Une capture par édition.", { h: x().CAPTURE_H })), `<span class="wb-sum">${Pa}</span>`, !0)}
+      <div class="map-body rh-body"><div class="mp-det raid-solo wb-capdet" style="--c:${t.TYPES.normal.color}">
+        <div class="mp-hero raid-hero wb-caphero" style="--grade:${Oe};background-image:url(${fe})">
+          <span class="wb-capsky"></span><span class="faces"><img src="${H(u)}" alt="" data-k="2" style="visibility:hidden"></span>
+          <div class="raid-hero-in"><h3>${a(Z(u).name)}</h3><div class="mp-chips">${Ta}</div></div>
+        </div>
+        <div class="mp-in">${Fe(E)}
+          <p class="wb-note">${e("Balls à {n} %, sans baie ni jauge Master Ball. Une capture par édition.", { n: at })}${Pe && !E ? ` ${e("Essais : <b>{n}</b>.", { n: b(Pe) })}` : ""}</p>
+          <div class="mp-act">${La}</div></div>
+      </div></div></div>`;
+  }
+  const Dt = () =>
+    t.EventTeam.open(u, {
+      key: le,
+      size: Tt(),
+      label: e("Équipe"),
+      cap: X().get(u).level,
+      moves: () => t.UI.zoneMoves(X().get(u)),
+    });
+  function ha(C, g, E) {
+    (wt(),
+      (C.innerHTML = gt(g, E)),
+      (z = { el: C.firstElementChild, root: C, opt: E, n: g.n, phase: g.phase, cap: !0 }),
+      Vt(z.el));
+    const q = z.el;
+    (q.querySelector('[data-raid-page="home"]')?.addEventListener("click", () => {
+      (wt(), E.back());
+    }),
+      q.querySelectorAll("[data-wbz-team]").forEach((Pe) => (Pe.onclick = Dt)),
+      q.querySelector("[data-wbz-moves]")?.addEventListener("click", () => t.UI.zoneMoves(X().get(u))),
+      q.querySelector("[data-wbz-go]")?.addEventListener("click", () => {
+        (t.Sfx?.click?.(), P() ? t.App.show("adventure") : t.Screens.adventure.goZone(u));
+      }));
+  }
+  const _t = (C) => z.el.querySelector(C);
+  function Ea() {
+    if (!m || !z) return;
+    const C = Ze().state(),
+      g = _t(".wb-left"),
+      E = _t(".wb-res"),
+      q = !!(m.salvo || V),
+      Pe = m.broken,
+      at = x().PER_DAY,
+      Mt = Ze().left(C),
+      Pa = Ze().open() ? null : Ze().why([], C);
+    let Ta,
+      La = "",
+      xa;
+    if (Pe && !Pa)
+      ((Ta = `<button class="mp-go" data-wb-cap>${e("Affronter Arceus")}</button>`),
+        (xa = `<span class="wb-atk">${C.captureEnd ? e("Capturable encore {time}", { time: dt(C.captureEnd) }) : e("Arceus est capturable pendant {n} h", { n: x().CAPTURE_H })}</span>`));
+    else if (Pa) ((Ta = `<p class="wb-lock">${t.UI.lockIc}${a(Pa)}</p>`), (xa = ""));
+    else {
+      if (
+        ((Ta = q
+          ? `<button class="mp-go" disabled>${e("Attaque en cours…")}</button>`
+          : m.swapping
+            ? `<button class="mp-go" disabled>${e("Équipe suivante…")}</button>`
+            : Mt <= 0
+              ? `<button class="mp-go" disabled>${e("Reviens demain !")}</button>`
+              : `<button class="mp-go" data-wb-atk>${e("Attaquer")}</button>`),
+        Mt > 0 || q)
+      ) {
+        const hn = ie(),
+          Fn = q || m.swapping ? "disabled" : "",
+          Ln = Array.from({ length: x().TEAM }, (Pn, jn) => {
+            const h = hn[jn];
+            return h
+              ? `<span class="dc-hero lz-mon" title="${a(Z(h.id).name)}">${t.UI.rankTag(h)}${B(h.id, h.shiny, 2, 92)}<span class="evt-lv">${e("Nv. {n}", { n: h.level })}</span></span>`
+              : '<span class="lz-mon free">＋</span>';
+          }).join("");
+        La = `<div class="dc-sec lz-team wb-capteam wb-atkteam"><h4>${e("Équipe de l'attaque <b>{n} / {max}</b>", { n: at - Mt + (q ? 0 : 1), max: at })}<span class="rt-n">${hn.length}/${x().TEAM}</span><button class="btn outline" data-wb-pick ${Fn}>${e("Changer")}</button></h4>
+          <button class="lz-mons" data-wb-pick ${Fn} title="${a(e("Composer l'équipe"))}">${Ln}</button></div>`;
+      }
+      ((xa = `<span class="wb-atk">${e("Attaques")}${ue(e("Attaques"), e("{n} attaques par jour, chacune avec une autre équipe. Ton équipe et les Pokémon de tes amis tirent jusqu'à la riposte d'Arceus : son onde de choc les met K.O., ils se reposent jusqu'au lendemain. Une équipe forte tient plus longtemps et frappe plus fort.", { n: at }))} <span class="pips">${Array.from({ length: at }, (hn, Fn) => `<i class="${Fn < Mt ? "on" : ""}"></i>`).join("")}</span>
+        ${Mt ? e("<b>{n} / {max}</b> restantes", { n: Mt, max: at }) : e("<b>{n} / {max}</b> · demain dans {time}", { n: Mt, max: at, time: dt(C.dayEnd) })}</span>`),
+        C.boost > 1 &&
+          (xa += `<span class="wb-boost">⚡ ${e("Les dresseurs gagnent en force : dégâts ×{n} aujourd'hui.", { n: ce(C.boost) })}</span>`));
+    }
+    ((g.innerHTML = `${La}${Ta}${xa}`),
+      g.querySelector("[data-wb-atk]")?.addEventListener("click", Ka),
+      g.querySelector("[data-wb-cap]")?.addEventListener("click", () => {
+        (t.Sfx?.click?.(), wt(), t.Screens.raid.render());
+      }));
+    for (const hn of g.querySelectorAll("[data-wb-pick]")) hn.addEventListener("click", T);
+    const en = m.salvo?.plan || V?.plan;
+    (q && en?.rows?.length
+      ? ((E.innerHTML = Ra(en)), m.salvo && Ca(m.salvo))
+      : q
+        ? (E.innerHTML = `<span>${e("Attaque en cours…")}</span><small>${e("Chaque coup remplit la jauge de riposte d'Arceus.")}</small>`)
+        : (E.innerHTML = pe
+            ? `<span>${e("Tu as infligé {n} dégâts au bouclier.", { n: `<b>${b(pe.dmg)}</b>` })}</span><small>${pe.fell ? e("Ton attaque a fait tomber le bouclier !") : e("Arceus a riposté au bout de {n} s.", { n: Math.round(pe.dur) })}</small>`
+            : ""),
+      (E.hidden = !q && !pe),
+      E.classList.toggle("new", !!pe && !q));
+    const rn = !!q && !!en?.rows?.length;
+    (E.classList.toggle("live", rn), (g.hidden = rn));
+  }
+  function ut(C) {
+    const g = z.el,
+      E = g.querySelector(".wb-st"),
+      q = C.phase === "capture" ? 0 : C.pct * 100;
+    ((m = {
+      el: g,
+      st: E,
+      cam: E.querySelector(".wb-cam"),
+      cv: E.querySelector(".wb-fx"),
+      arc: E.querySelector(".wb-arc"),
+      rage: E.querySelector(".wb-rage"),
+      recapEl: E.querySelector(".wb-recap-wrap"),
+      clock: 0,
+      last: zn.now(),
+      freeze: 0,
+      f: 0,
+      pct: q,
+      shown: -1,
+      stage: he(q),
+      broken: q <= 0,
+      ep: {},
+      wave: null,
+      glints: [],
+      abeams: [],
+      beams: [],
+      nextSwap: je(10, 16),
+      nextCluster: je(4, 8),
+      nextTurn: je(1.5, 3),
+      projs: [],
+      parts: [],
+      rips: [],
+      waves: [],
+      grow: null,
+      trem: 0,
+      white: 0,
+      salvo: null,
+      amb: 0,
+      shooters: [],
+      allies: He(),
+    }),
+      (m.ctx = m.cv.getContext("2d")),
+      (m.sky = E.querySelector(".wb-sky").getContext("2d")),
+      (m.bgImg = new Image()),
+      (m.bgImg.src = fe),
+      (m.tens = m.stage),
+      (m.calm = m.broken ? 1 : 0),
+      (m.rocks = []),
+      (m.flying = []),
+      (m.bolt = null),
+      (m.nextBolt = je(2, 5)),
+      (m.nextRock = 0),
+      (m.nextRumble = je(4, 7)),
+      (m.spin = 0),
+      Vt(m.arc),
+      (m.ph = jt()),
+      g.classList.toggle("ph", m.ph),
+      rt(!0),
+      xt(),
+      (m.ro = new ResizeObserver(() => {
+        if (!m) return;
+        const Pe = jt();
+        (Pe !== m.ph && ((m.ph = Pe), g.classList.toggle("ph", Pe), Ht() ? (m.recrowd = !0) : xt()), D());
+      })),
+      m.ro.observe(E),
+      (m.seen = !0),
+      (m.io = new IntersectionObserver(([Pe]) => {
+        m && (m.seen = Pe.isIntersecting);
+      })),
+      m.io.observe(E),
+      (m.vis = () => {
+        m && (Rt(m), document.hidden || ((m.last = zn.now()), (m.raf = es(Ve))));
+      }),
+      document.addEventListener("visibilitychange", m.vis),
+      D(),
+      Zn(!0),
+      Ea(),
+      m.broken && (m.arc.classList.add("free"), m.rage.classList.add("off")),
+      (E.querySelector(".wb-skip").onclick = _a),
+      (m.raf = es(Ve)));
+  }
+  const jt = () => (z?.el.querySelector(".rh-body")?.clientWidth || innerWidth) < 560;
+  function xt() {
+    const C = m.ph,
+      g = oe(C ? 77 : 1337),
+      E = [],
+      q = [],
+      Pe = [],
+      at = K(),
+      Mt = ie(),
+      Pa = Ze().state(),
+      Ta = Je.S.trainer || {},
+      La = `${Ta.name || ""}${Ta.tag ? "#" + Ta.tag : ""}`,
+      xa = R(Ta.sprite),
+      en = (k, ne, Ie, Le, Pt = 3, Nt = 97, Qt = 0) => {
+        const ma = E.length;
+        for (let $a = 0; $a < k; $a++)
+          E.push({
+            id: at[Math.floor(g() * at.length)],
+            shiny: g() < 0.08,
+            x: Pt + ((Nt - Pt) * ($a + 0.5)) / k + (((g() - 0.5) * (Nt - Pt)) / k) * 0.5,
+            y: ne + (g() - 0.5) * 1.2,
+            k: Ie,
+            row: Le,
+          });
+        if (Qt)
+          for (let $a = 1; $a < k; $a += Qt)
+            Pe.push({
+              look: L[Math.floor(g() * L.length)],
+              x: E[ma + $a].x + (g() - 0.5) * 2,
+              y: ne + 2.4,
+              k: 1,
+              row: Le,
+              own: Array.from({ length: Qt }, (Fa, fa) => ma + $a - 1 + fa).filter((Fa) => Fa < ma + k),
+            });
+      },
+      rn = (k, ne, Ie, Le) => {
+        (Ie.forEach((Pt, Nt) =>
+          E.push({
+            id: k.mons[Nt].id,
+            shiny: k.mons[Nt].shiny,
+            x: Pt,
+            y: Le,
+            k: ne,
+            row: "near",
+            ally: !0,
+            who: k.name,
+          }),
+        ),
+          C ||
+            (Pe.push({ look: k.look, x: (Ie[0] + Ie[1]) / 2, y: Le + 3, k: 1, row: "near", friend: !0 }),
+            k.name && q.push({ name: k.name, x: (Ie[0] + Ie[1]) / 2, y: Le + 3, h: 76, bot: !k.friend })));
+      },
+      hn = m.allies;
+    C
+      ? (en(9, 36, 1, "far", 3, 97, 4),
+        en(8, 31, 1, "far", 3, 97, 4),
+        en(7, 26, 1, "mid"),
+        rn(hn[0], 1, [8, 19], 21),
+        en(3, 21, 1, "near", 30, 70),
+        rn(hn[1], 1, [81, 92], 21),
+        [10, 26, 42, 58, 74, 90].forEach((k, ne) =>
+          E.push({
+            mon: Mt[ne],
+            id: Mt[ne]?.id,
+            shiny: Mt[ne]?.shiny,
+            x: k,
+            y: ne % 2 ? 13 : 8,
+            k: 2,
+            row: "me",
+          }),
+        ),
+        Pe.push({ look: xa, x: 50, y: 17, k: 1, row: "near", me: !0 }),
+        q.push({ name: La, x: 50, y: 17, h: 76, me: !0 }))
+      : (en(17, 36, 1, "far", 3, 97, 4),
+        en(16, 31, 1, "far", 3, 97, 4),
+        en(15, 26, 1, "mid", 3, 97, 4),
+        rn(hn[0], 2, [8, 17], 21),
+        en(2, 21, 2, "near", 24, 42),
+        en(2, 21, 2, "near", 58, 70),
+        rn(hn[1], 2, [78, 88], 21),
+        [9, 22, 35, 65, 78, 91].forEach((k, ne) =>
+          E.push({ mon: Mt[ne], id: Mt[ne]?.id, shiny: Mt[ne]?.shiny, x: k, y: 12, k: 2, row: "me" }),
+        ),
+        Pe.push({ look: xa, x: 50, y: 15, k: 1, row: "me", me: !0 }),
+        q.push({ name: La, x: 50, y: 15, h: 76, me: !0 }));
+    const Fn = { far: 1, mid: 2, near: 3, me: 4 },
+      Ln = m.st.querySelector(".wb-crowd"),
+      Pn = (k, ne) =>
+        `<span class="wb-tr${k.me ? " me" : ""}" data-t="${ne}" style="--k:${k.k};left:${k.x.toFixed(1)}%;bottom:${k.y.toFixed(1)}%;z-index:${Fn[k.row] * 10 + Math.round(40 - k.y) - (k.me ? 12 : 1)}"><span class="fl ${k.x < 50 ? "flip" : ""}"><img src="assets/trainers/still/${k.look}.png" alt="" data-k="${k.k}" style="visibility:hidden;animation-delay:${(-g() * 2.4).toFixed(2)}s"></span></span>`,
+      jn = (k) => k.row === "me" && k.mon && Ze().resting(k.mon.uid, Pa);
+    ((Ln.innerHTML =
+      Pe.map(Pn).join("") +
+      E.map(
+        (k, ne) =>
+          `<span class="wb-mon ${k.row}${jn(k) ? " ko rest" : ""}${k.row === "me" && !k.mon ? " off" : ""}" data-i="${ne}" style="--k:${k.k};left:${k.x.toFixed(1)}%;bottom:${k.y.toFixed(1)}%;z-index:${Fn[k.row] * 10 + Math.round(40 - k.y)}"><span class="fl ${k.x < 50 ? "flip" : ""}"><img ${k.id ? `src="${A(k.id, k.shiny)}"` : ""} alt="" style="animation-delay:${(-g() * 2.4).toFixed(2)}s"></span></span>`,
+      ).join("") +
+      q
+        .map(
+          (k) =>
+            `<span class="wb-tag ${k.me ? "me" : k.bot ? "bot" : ""}" style="left:${k.x}%;bottom:calc(${k.y}% + ${k.h}px)">${a(k.name)}</span>`,
+        )
+        .join("")),
+      Vt(Ln));
+    const h = E.map((k, ne) => ({
+      ...k,
+      el: Ln.querySelector(`.wb-mon[data-i="${ne}"]`),
+      img: Ln.querySelector(`.wb-mon[data-i="${ne}"] img`),
+      type: k.id ? J(k.id) : "normal",
+      next: 0,
+    }));
+    m.trainers = Pe.map((k, ne) => ({
+      ...k,
+      el: Ln.querySelector(`.wb-tr[data-t="${ne}"]`),
+      img: Ln.querySelector(`.wb-tr[data-t="${ne}"] img`),
+    }));
+    for (const k of m.trainers)
+      k.own && ((k.mons = k.own.map((ne) => h[ne])), k.mons.forEach((ne) => (ne.owner = k)));
+    ((m.mine = h.filter((k) => k.row === "me")),
+      (m.shooters = h.filter((k) => (k.row === "me" && k.mon) || k.ally)),
+      (m.crowd = h.filter((k) => !(k.row === "me" || k.ally))),
+      (m.shownTeam = Mt.map((k) => k.uid).join()));
+  }
+  function D() {
+    if (!m) return;
+    const C = m.st.getBoundingClientRect(),
+      g = m.ph || C.width < 600 ? 2 : 3;
+    if (!C.width) return;
+    ((m.P = g),
+      (m.W = C.width),
+      (m.H = C.height),
+      (m.w = Math.ceil(C.width / g)),
+      (m.h = Math.ceil(C.height / g)));
+    const E = (Mt) => {
+      ((Mt.width = m.w),
+        (Mt.height = m.h),
+        (Mt.style.width = m.w * g + "px"),
+        (Mt.style.height = m.h * g + "px"));
+    };
+    E(m.cv);
+    const q = m.st.querySelector(".wb-warp");
+    (E(q), (m.warpCtx = q.getContext("2d")), (m.warpCtx.imageSmoothingEnabled = !1));
+    const Pe = m.st.querySelector(".wb-wave");
+    (E(Pe),
+      (m.wctx = Pe.getContext("2d")),
+      m.dpat || (m.dpat = sa(m.wctx)),
+      E(m.st.querySelector(".wb-sky")),
+      (m.cx = Math.round(m.w / 2)),
+      (m.cy = Math.round(m.h * (g === 2 ? 0.39 : 0.4))),
+      (m.R = Math.round(Math.min(m.w * (g === 2 ? 0.36 : 0.17), m.h * (g === 2 ? 0.25 : 0.27)))));
+    const at = m.arc;
+    ((at.style.left = m.cx * g - 70 + "px"),
+      (at.style.top = m.cy * g - 75 + "px"),
+      (m.rage.style.left = m.cx * g + "px"),
+      (m.rage.style.top = m.cy * g - 75 - 30 + "px"),
+      ze(),
+      Lt(),
+      Qe());
+  }
+  const Q = [
+      ["..#..", ".###.", "#.#.#", "..#..", "..#.."],
+      ["#...#", ".#.#.", "..#..", ".#.#.", "#...#"],
+      ["###..", "#....", "###..", "..#..", "###.."],
+      [".###.", "#...#", "#.#.#", "#...#", ".###."],
+      ["#.#.#", "#.#.#", "#####", "..#..", "..#.."],
+      ["..#..", ".#.#.", "#...#", ".#.#.", "..#.."],
+      ["#####", "..#..", ".###.", "..#..", "#####"],
+      ["#....", "##...", "#.#..", "#..#.", "#####"],
+      [".##..", "#..#.", ".##..", "#..#.", ".##.."],
+      ["#..#.", "#.#..", "##...", "#.#..", "#..#."],
+      ["#.#..", ".#...", "#.#..", "..#.#", "...#."],
+      [".#.#.", "#####", ".#.#.", "#####", ".#.#."],
+    ].map((C) =>
+      C.flatMap((g, E) => [...g].map((q, Pe) => (q === "#" ? [Pe - 2, E - 2] : null)).filter(Boolean)),
+    ),
+    Y = { core: "#fffbe0", edge: "#ffd84a", glow: "rgba(255,216,74,.18)" },
+    ye = { core: "#ffd9b0", edge: "#ff7a30", glow: "rgba(255,110,40,.2)" },
+    nt = ["#fffbe0", "#ffe866", "#ffd84a", "#ffb02e"],
+    Ot = {
+      fire: ["#fffbe0", "#ffe14d", "#ffa21f", "#f0541c", "#a8202a", "#4a1c2c"],
+      electric: ["#ffffff", "#fff7a8", "#ffdc2e", "#f5a70f", "#8a5a12", "#2a2440"],
+      psychic: ["#ffffff", "#ffd9f6", "#ff8fdc", "#d94fd0", "#7a34b8", "#2a1a4a"],
+      water: ["#ffffff", "#cdf5ff", "#74d6ff", "#3394ea", "#1f54ad", "#14295c"],
+      flying: ["#ffffff", "#eefcff", "#c8f0ff", "#9fd8f0", "#6aa9cf", "#3d6a8f"],
+      ice: ["#ffffff", "#effcff", "#bff4ff", "#7fe6ff", "#3fc4ff", "#1f8fe8"],
+      ghost: ["#ffffff", "#f3dcff", "#c88cff", "#8b4fe0", "#4a2385", "#1a0b2e"],
+      dark: ["#ffffff", "#ff9aa8", "#e0284a", "#7a1030", "#2a0d1a", "#0a0508"],
+      poison: ["#f4ffd6", "#c8ff5a", "#8fe03a", "#b45cff", "#7a2fc4", "#3a1460"],
+      dragon: ["#ffffff", "#9ff5ff", "#4fc8ff", "#5a5cff", "#3a1fb0", "#170a4a"],
+      grass: ["#f2ffd0", "#b8f060", "#6fcf3a", "#3d9a2a", "#22612a", "#123a1e"],
+      rock: ["#f0e2c4", "#c9ad80", "#9c7f55", "#6e5636", "#45341f", "#241a0f"],
+      ground: ["#f2d7a0", "#d9a85e", "#b07a38", "#7d5226", "#523418", "#2e1d0d"],
+      fairy: ["#ffffff", "#fff0fa", "#ffc4ec", "#ff8fd6", "#d86bc4", "#9a4aa8"],
+      normal: ["#ffffff", "#fff3c4", "#ffd36a", "#ff9b3a", "#9a6a3a", "#2a2230"],
+      fighting: ["#ffffff", "#ffe4c2", "#ffb15a", "#f2602a", "#b8281a", "#4a0e08"],
+      bug: ["#ffffff", "#f4ffb0", "#c8f03a", "#8cc21e", "#4f7d12", "#22380a"],
+      steel: ["#ffffff", "#e6eef7", "#b8c6d6", "#8796a8", "#55606e", "#272d36"],
+    },
+    ee = ["#fffbe0", "#ffe866", "#ffd84a", "#ffb02e", "#c97a12", "#5a3a06"];
+  function rt(C) {
+    const g = m.broken ? 3 : m.stage,
+      E = m.st;
+    (E.classList.remove("t0", "t1", "t2", "t3"),
+      E.classList.add("t" + g),
+      E.classList.toggle("clear", !!m.broken),
+      C &&
+        E.querySelectorAll(".wb-grade i").forEach((q) => {
+          ((q.style.transition = "none"), q.offsetWidth, (q.style.transition = ""));
+        }));
+  }
+  function Qe() {
+    if (!m.w) return;
+    const C = oe(4931),
+      g = m.ph,
+      E = m.rings;
+    ((m.rings = [
+      [1.3, 0.3, -0.22, 0.42, 9],
+      [1.5, 0.4, 0.18, -0.34, 11],
+      [1.72, 0.26, 0.05, 0.27, 13],
+      [1.95, 0.46, -0.1, -0.22, 15],
+    ].map(([q, Pe, at, Mt, Pa], Ta) => ({
+      r: g ? 1 + (q - 1) * 0.55 : q,
+      t: Pe,
+      rot: at,
+      v: Mt,
+      a: C() * 6.283,
+      runes: Array.from({ length: Pa - (g ? 2 : 0) }, () => ({
+        g: Math.floor(C() * Q.length),
+        ph: C() * 6.283,
+        fl: 2 + C() * 3,
+      })),
+      gone: E ? E[Ta].gone : Ta >= 4 - m.stage || m.broken,
+      brk: null,
+    }))),
+      (m.motes = Array.from({ length: g ? 24 : 40 }, () => ({
+        x: C() * m.w,
+        y: m.h * (0.3 + C() * 0.7),
+        v: 3 + C() * 7,
+        ph: C() * 6.283,
+        c: Math.floor(C() * 4),
+      }))));
+  }
+  function Ft(C) {
+    const g = m.broken ? 0 : m.stage;
+    ((m.tens += (g - m.tens) * Math.min(1, C * 0.9)),
+      (m.calm += ((m.broken ? 1 : 0) - m.calm) * Math.min(1, C * 0.8)),
+      (m.spin = (0.07 + 0.07 * m.tens) * (1 - m.calm * 0.7)));
+    const E = (1 + 0.55 * m.tens) * (1 - m.calm * 0.5);
+    for (const q of m.rings) ((q.a += q.v * E * C), q.brk && (q.brk.t += C) >= 0.75 && !q.gone && Yt(q));
+    m.flying = m.flying.filter(
+      (q) => ((q.t += C), (q.x += q.vx * C), (q.y += q.vy * C), (q.vy += 20 * C), q.t < q.life),
+    );
+    for (const q of m.motes)
+      ((q.y -= q.v * C * (1 + m.calm)),
+        (q.ph += C * 2),
+        q.y < -2 && ((q.y = m.h + 2), (q.x = Math.random() * m.w)));
+    if (m.broken || C === 0) {
+      m.bolt = null;
+      return;
+    }
+    if (m.tens > 0.6 && (m.nextBolt -= C) <= 0) {
+      m.nextBolt = je(5, 9) / m.tens;
+      const q = Math.random() < 0.5,
+        Pe = q ? je(4, m.cx - m.R * 1.9) : je(m.cx + m.R * 1.9, m.w - 4),
+        at = je(m.h * 0.08, m.h * 0.3),
+        Mt = [[Pe, at]];
+      for (let Pa = 0; Pa < 6; Pa++) {
+        const Ta = Mt[Mt.length - 1];
+        Mt.push([Ta[0] + je(-6, 6), Ta[1] + je(3, 7)]);
+      }
+      ((m.bolt = { pts: Mt, t: 0.14 }),
+        m.st
+          .querySelector(".wb-lit")
+          .animate(
+            [
+              { opacity: 0 },
+              { opacity: 0.32, offset: 0.1 },
+              { opacity: 0.05, offset: 0.35 },
+              { opacity: 0.2, offset: 0.5 },
+              { opacity: 0 },
+            ],
+            { duration: 520, easing: "ease-out" },
+          ));
+    }
+    if ((m.bolt && (m.bolt.t -= C) <= 0 && (m.bolt = null), m.tens > 1.5 && (m.nextRock -= C) <= 0)) {
+      m.nextRock = je(0.6, 1.4) / (m.tens - 1.3);
+      const q = Math.random() < 0.5;
+      m.rocks.push({
+        x: q ? je(2, m.w * 0.2) : je(m.w * 0.8, m.w - 2),
+        y: m.h * je(0.62, 0.78),
+        v: je(4, 9),
+        t: 0,
+        life: je(4, 7),
+        s: 2 + Math.floor(Math.random() * 3),
+        tone: Math.floor(Math.random() * 3),
+        ph: Math.random() * 6,
+      });
+    }
+    ((m.rocks = m.rocks.filter((q) => ((q.t += C), (q.y -= q.v * C), q.t < q.life))),
+      m.tens > 2.6 && !m.salvo && (m.nextRumble -= C) <= 0 && ((m.nextRumble = je(4, 8)), On(2, 700)));
+  }
+  function Ye(C) {
+    const g = m.rings?.[4 - C];
+    g && !g.gone && !g.brk && (g.brk = { t: 0 });
+  }
+  function bt(C, g, E) {
+    const q = C.a + (g / E) * 6.283,
+      Pe = Math.cos(q) * C.r * m.R,
+      at = Math.sin(q) * C.r * m.R * C.t,
+      Mt = Math.cos(C.rot),
+      Pa = Math.sin(C.rot);
+    return [m.cx + Pe * Mt - at * Pa, m.cy + Pe * Pa + at * Mt, Math.sin(q)];
+  }
+  function Yt(C) {
+    ((C.gone = !0),
+      C.runes.forEach((g, E) => {
+        const [q, Pe] = bt(C, E, C.runes.length);
+        for (let at = 0; at < 4; at++) {
+          const Mt = je(0, 6.283),
+            Pa = je(15, 55);
+          m.parts.push({
+            x: q,
+            y: Pe,
+            vx: Math.cos(Mt) * Pa,
+            vy: Math.sin(Mt) * Pa - 10,
+            g: 30,
+            t: 0,
+            life: je(0.6, 1.2),
+            pal: ee,
+            s: 1,
+          });
+        }
+      }));
+  }
+  function wa() {
+    for (const C of m.rings)
+      C.gone ||
+        ((C.gone = !0),
+        C.runes.forEach((g, E) => {
+          const [q, Pe] = bt(C, E, C.runes.length),
+            at = q - m.cx,
+            Mt = Pe - m.cy,
+            Pa = Math.hypot(at, Mt) || 1,
+            Ta = je(60, 140);
+          m.flying.push({
+            x: q,
+            y: Pe,
+            vx: (at / Pa) * Ta,
+            vy: (Mt / Pa) * Ta - 20,
+            g: g.g,
+            t: 0,
+            life: je(1, 1.8),
+          });
+        }));
+  }
+  function pa(C, g, E, q, Pe, at, Mt) {
+    const Pa = Q[q],
+      Ta = Math.round(g),
+      La = Math.round(E),
+      xa = Mt > 0.5 ? ye : Y;
+    ((C.globalAlpha = Pe * (at ? 1 : 0.55)),
+      (C.fillStyle = xa.glow),
+      C.fillRect(Ta - 4, La - 4, 9, 9),
+      (C.fillStyle = xa.edge));
+    for (const [en, rn] of Pa) C.fillRect(Ta + en, La + rn + 1, 1, 1);
+    C.fillStyle = at ? xa.core : xa.edge;
+    for (const [en, rn] of Pa) C.fillRect(Ta + en, La + rn, 1, 1);
+  }
+  function Gt(C, g) {
+    const E = Math.max(0, Math.min(1, m.tens - 2)),
+      q = m.white;
+    for (const Pe of m.rings) {
+      if (Pe.gone) continue;
+      const at = Pe.runes.length,
+        Mt = Pe.brk ? Pe.brk.t / 0.75 : 0;
+      ((C.globalAlpha = (g ? 0.28 : 0.14) * (1 - Mt * 0.5)), (C.fillStyle = E > 0.5 ? "#ff9a50" : "#ffe9a8"));
+      const Pa = Math.ceil(Pe.r * m.R * 6.3);
+      for (let Ta = 0; Ta < Pa; Ta += 3) {
+        const La = (Ta / Pa) * 6.283 + Pe.a * 0.2,
+          xa = Math.sin(La);
+        if (xa > 0 !== g) continue;
+        const en = Math.cos(La) * Pe.r * m.R,
+          rn = xa * Pe.r * m.R * Pe.t;
+        C.fillRect(
+          Math.round(m.cx + en * Math.cos(Pe.rot) - rn * Math.sin(Pe.rot)),
+          Math.round(m.cy + en * Math.sin(Pe.rot) + rn * Math.cos(Pe.rot)),
+          1,
+          1,
+        );
+      }
+      Pe.runes.forEach((Ta, La) => {
+        const [xa, en, rn] = bt(Pe, La, at);
+        if (rn > 0 !== g) return;
+        let hn = 0.75 + 0.25 * Math.sin(m.clock * Ta.fl + Ta.ph);
+        if ((Math.sin(m.clock * 9 + Ta.ph * 7) > 0.97 && (hn *= 0.35), Mt)) {
+          if ((m.f + La) % 3 === 0) return;
+          hn *= 1 - Mt * 0.3;
+        }
+        ((hn = Math.min(1, hn + q)),
+          pa(C, xa + (Mt ? je(-1, 1) : 0), en + (Mt ? je(-1, 1) : 0), Ta.g, hn, g, E));
+      });
+    }
+    C.globalAlpha = 1;
+  }
+  function N() {
+    const C = m.sky,
+      g = m.w,
+      E = m.h,
+      q = m.cx,
+      Pe = m.cy,
+      at = m.R,
+      Mt = m.f;
+    C.clearRect(0, 0, g, E);
+    const Pa = 0.5 + 0.5 * Math.sin((m.clock * 2 * Math.PI) / 2.4);
+    C.fillStyle = "#ffd84a";
+    const Ta = 0.05 + 0.035 * Pa + m.calm * 0.12;
+    for (let La = 0; La < 7; La++) {
+      const xa = Math.PI / 2 + (La - 3) * 0.24 + Math.sin(m.clock * 0.3 + La) * 0.03,
+        en = 0.045 + (La % 3) * 0.02,
+        rn = E * 1.2;
+      ((C.globalAlpha = Ta * (La % 2 ? 0.7 : 1)),
+        C.beginPath(),
+        C.moveTo(q + Math.cos(xa - en) * at * 0.9, Pe + Math.sin(xa - en) * at * 0.9),
+        C.lineTo(q + Math.cos(xa - en * 2.2) * rn, Pe + Math.sin(xa - en * 2.2) * rn),
+        C.lineTo(q + Math.cos(xa + en * 2.2) * rn, Pe + Math.sin(xa + en * 2.2) * rn),
+        C.lineTo(q + Math.cos(xa + en) * at * 0.9, Pe + Math.sin(xa + en) * at * 0.9),
+        C.fill());
+    }
+    if ((Gt(C, !1), (C.globalAlpha = 1), m.bolt)) {
+      const La = m.bolt.pts;
+      for (let xa = 0; xa < La.length - 1; xa++)
+        ((C.fillStyle = "#8a70e0"),
+          qt(C, La[xa][0] + 1, La[xa][1], La[xa + 1][0] + 1, La[xa + 1][1]),
+          (C.fillStyle = "#ffffff"),
+          qt(C, La[xa][0], La[xa][1], La[xa + 1][0], La[xa + 1][1]));
+    }
+    for (const La of m.rocks) {
+      const xa = La.t / La.life,
+        en = Math.round(La.x + Math.sin(La.t * 1.5 + La.ph) * 1.5),
+        rn = Math.round(La.y);
+      (xa > 0.75 && (en + rn + Mt) & 1) ||
+        ((C.fillStyle = "#241a0f"),
+        C.fillRect(en - 1, rn - 1, La.s + 2, La.s + 1),
+        (C.fillStyle = Ot.rock[2 + La.tone]),
+        C.fillRect(en, rn, La.s, La.s - 1),
+        (C.fillStyle = Ot.rock[1]),
+        C.fillRect(en, rn, La.s - 1, 1));
+    }
+    for (let La = 0; La < m.motes.length; La++) {
+      const xa = m.motes[La];
+      ((Mt >> 3) + La) % 4 !== 0 &&
+        ((C.fillStyle = nt[xa.c]),
+        C.fillRect(Math.round(xa.x + Math.sin(xa.ph) * 2), Math.round(xa.y), 1, 1));
+    }
+  }
+  function W(C, g) {
+    const E = document.createElement("canvas");
+    return ((E.width = C), (E.height = g), E);
+  }
+  function ze() {
+    const { w: C, h: g, cx: E, cy: q, R: Pe } = m,
+      at = W(C, g),
+      Mt = at.getContext("2d"),
+      Pa = Mt.createImageData(C, g),
+      Ta = Pa.data,
+      La = W(C, g),
+      xa = La.getContext("2d"),
+      en = xa.createImageData(C, g);
+    for (let hn = q - Pe - 2; hn <= q + Pe + 2; hn++)
+      for (let Fn = E - Pe - 2; Fn <= E + Pe + 2; Fn++) {
+        if (Fn < 0 || hn < 0 || Fn >= C || hn >= g) continue;
+        const Ln = Math.hypot(Fn - E, hn - q),
+          Pn = (hn * C + Fn) * 4,
+          jn = (Math.atan2(hn - q, Fn - E) * 180) / Math.PI;
+        let h = null;
+        (Ln <= Pe - 2
+          ? ((h = [255, 228, 140, (0.07 + 0.32 * (Ln / Pe) ** 5) * 255]),
+            Ln > Pe - 5 && jn > -160 && jn < -105 && (Fn + hn) % 2 === 0 && (h = [255, 255, 240, 200]))
+          : Ln <= Pe - 1
+            ? (h = [255, 232, 102, 210])
+            : Ln <= Pe
+              ? (h = [255, 251, 224, 240])
+              : Ln <= Pe + 1 && (h = [255, 157, 31, 150]),
+          h && (Ta.set(h, Pn), Ln <= Pe + 1 && en.data.set([255, 255, 255, 255], Pn)));
+      }
+    (Mt.putImageData(Pa, 0, 0), xa.putImageData(en, 0, 0));
+    const rn = (hn) => {
+      const Fn = W(C, g),
+        Ln = Fn.getContext("2d");
+      Ln.fillStyle = hn;
+      const Pn = 6,
+        jn = Math.sqrt(3) * Pn;
+      for (let h = -1, k = q - Pe - Pn; k < q + Pe + Pn; h++, k += Pn * 1.5)
+        for (let ne = E - Pe - jn + (h % 2 ? jn / 2 : 0); ne < E + Pe + jn; ne += jn) {
+          const Ie = Array.from({ length: 6 }, (Le, Pt) => [
+            ne + Pn * Math.cos(Math.PI / 6 + (Pt * Math.PI) / 3),
+            k + Pn * Math.sin(Math.PI / 6 + (Pt * Math.PI) / 3),
+          ]);
+          for (let Le = 0; Le < 6; Le++)
+            qt(Ln, Ie[Le][0], Ie[Le][1], Ie[(Le + 1) % 6][0], Ie[(Le + 1) % 6][1]);
+        }
+      ((Ln.globalCompositeOperation = "destination-in"), (Ln.fillStyle = "#000"));
+      for (let h = -Pe + 2; h <= Pe - 2; h++) {
+        const k = Math.floor(Math.sqrt((Pe - 2) ** 2 - h * h));
+        Ln.fillRect(E - k, q + h, k * 2 + 1, 1);
+      }
+      return Fn;
+    };
+    ((m.base = at), (m.whiteC = La), (m.hex = rn("#ffd84a")), (m.hexB = rn("#fffbe0")));
+  }
+  function qt(C, g, E, q, Pe) {
+    ((g = Math.round(g)), (E = Math.round(E)), (q = Math.round(q)), (Pe = Math.round(Pe)));
+    const at = Math.abs(q - g),
+      Mt = -Math.abs(Pe - E),
+      Pa = g < q ? 1 : -1,
+      Ta = E < Pe ? 1 : -1;
+    let La = at + Mt;
+    for (let xa = 0; xa < 400 && (C.fillRect(g, E, 1, 1), !(g === q && E === Pe)); xa++) {
+      const en = 2 * La;
+      (en >= Mt && ((La += Mt), (g += Pa)), en <= at && ((La += at), (E += Ta)));
+    }
+  }
+  function Lt() {
+    const C = oe(493),
+      g = [];
+    for (const E of [-0.35, -2.7, -1.45]) {
+      const q = [],
+        Pe = (Mt, Pa, Ta, La, xa) => {
+          const en = [[Mt, Pa]];
+          for (
+            let rn = 0;
+            rn < La &&
+            ((Ta += (C() - 0.5) * 1.1),
+            (Mt += Math.cos(Ta) * xa * (0.7 + C() * 0.6)),
+            (Pa += Math.sin(Ta) * xa * (0.7 + C() * 0.6)),
+            !(Math.hypot(Mt, Pa) > 0.97));
+            rn++
+          )
+            en.push([Mt, Pa]);
+          return en;
+        },
+        at = Pe(Math.cos(E) * 0.97, Math.sin(E) * 0.97, E + Math.PI, 8, 0.13);
+      q.push(at);
+      for (const Mt of [2, 4, 6])
+        at[Mt] &&
+          q.push(Pe(at[Mt][0], at[Mt][1], E + Math.PI + (C() < 0.5 ? -1 : 1) * (0.9 + C() * 0.5), 4, 0.1));
+      g.push(q);
+    }
+    m.cracks = g;
+  }
+  const zt = () => m.ctx;
+  function ca(C, g, E, q) {
+    const Pe = zt();
+    if (((Pe.fillStyle = q), (C = Math.round(C)), (g = Math.round(g)), E <= 0)) {
+      Pe.fillRect(C, g, 1, 1);
+      return;
+    }
+    for (let at = -E; at <= E; at++) {
+      const Mt = Math.floor(Math.sqrt(E * E - at * at + E * 0.6));
+      Pe.fillRect(C - Mt, g + at, Mt * 2 + 1, 1);
+    }
+  }
+  function Ma(C, g, E, q, Pe) {
+    ((zt().fillStyle = Pe), qt(zt(), C, g, E, q));
+  }
+  function Na(C, g, E, q, Pe, at) {
+    const Mt = zt();
+    Mt.fillStyle = q;
+    const Pa = Math.max(12, Math.ceil(2 * Math.PI * E));
+    for (let Ta = 0; Ta < Pa; Ta++) {
+      const La = Math.round(C + Math.cos((Ta / Pa) * 6.2832) * E),
+        xa = Math.round(g + Math.sin((Ta / Pa) * 6.2832) * E);
+      (Pe && (La + xa + m.f) & 1) ||
+        (at && (La - m.cx) ** 2 + (xa - m.cy) ** 2 > m.R * m.R) ||
+        Mt.fillRect(La, xa, 1, 1);
+    }
+  }
+  const Va = (C) =>
+    C === "electric" ? "bolt" : ["ice", "dragon", "steel", "psychic"].includes(C) ? "beam" : "orb";
+  function Ba() {
+    const C = Math.random() < 0.75,
+      g = C ? je(0.12, 0.88) * Math.PI : je(0, 6.283),
+      E = je(0.5, 0.95) * m.R;
+    return [m.cx + Math.cos(g) * E, m.cy + Math.sin(g) * E * 0.92];
+  }
+  const za = (C) => [((C.x / 100) * m.W) / m.P, (m.H * (1 - C.y / 100) - 24 * C.k) / m.P];
+  function vn(C, g = 1) {
+    C.img.animate(
+      [
+        { scale: "1 1" },
+        { scale: "1.14 .86", offset: 0.35 },
+        { scale: ".9 1.12", translate: `0 ${-3 * C.k}px`, offset: 0.6 },
+        { scale: "1 1", translate: "0 0" },
+      ],
+      { duration: 420, easing: "ease-out" },
+    );
+    const E = m;
+    Wa(() => {
+      m === E && !m.broken && An(za(C), Ba(), C.type, g, !0, C);
+    }, 240);
+  }
+  function An(C, g, E, q, Pe, at) {
+    const Mt = Va(E),
+      Pa = Ot[E] || Ot.normal,
+      Ta = m.clock;
+    if (Mt === "orb") {
+      const La = (C[0] + g[0]) / 2 + je(-30, 30),
+        xa = Math.min(C[1], g[1]) - je(4, 26);
+      m.projs.push({
+        fam: Mt,
+        from: C,
+        to: g,
+        ctrl: [La, xa],
+        t0: Ta,
+        dur: je(0.5, 0.75) * (Pe ? 1 : 1.3),
+        pal: Pa,
+        r: Pe ? (q > 1 ? 3 : 2) : 1,
+        trail: [],
+        mine: Pe,
+        power: q,
+        type: E,
+        src: at,
+      });
+    } else
+      m.projs.push({
+        fam: Mt,
+        from: C,
+        to: g,
+        t0: Ta,
+        dur: Mt === "beam" ? 0.55 : 0.32,
+        pal: Pa,
+        mine: Pe,
+        power: q,
+        type: E,
+        src: at,
+        hit: !1,
+        w: Pe ? 2 : 1,
+        zig: [],
+        zt: -1,
+      });
+  }
+  function on(C, g, E, q, Pe) {
+    const at = Pe ? Math.round(9 * q) : 4;
+    for (let Mt = 0; Mt < at; Mt++) {
+      const Pa = je(0, 6.283),
+        Ta = je(25, 80) * (Pe ? 1 : 0.6);
+      m.parts.push({
+        x: C,
+        y: g,
+        vx: Math.cos(Pa) * Ta,
+        vy: Math.sin(Pa) * Ta + 10,
+        g: 60,
+        t: 0,
+        life: je(0.22, 0.45),
+        pal: E,
+        s: Math.random() < 0.25 ? 2 : 1,
+      });
+    }
+    (m.rips.push({ x: C, y: g, t: 0, life: Pe ? 0.45 : 0.3, max: Pe ? je(8, 14) * q : 5 }),
+      Pe && m.salvo && xn());
+  }
+  const qn = (C) => Math.min(1, (m.clock - C.t0) / C.dur);
+  function xn() {
+    const C = m.salvo;
+    if (!C || C.stop) return;
+    const g = qn(C);
+    ((C.dmg = Math.round(C.plan.dmg * g)), Yn(C.pct0 - (C.pct0 - C.pct1) * g), fn(g));
+  }
+  function fn(C) {
+    ((m.rage.querySelector("i").style.transform = `scaleX(${C.toFixed(3)})`),
+      m.rage.classList.toggle("hot", C >= 0.8 && C < 1),
+      m.rage.classList.toggle("full", C >= 1));
+  }
+  function Yn(C) {
+    ((m.pct = Math.max(0, C)), (m.lastHit = m.clock), Zn());
+    const g = he(m.pct);
+    if (g > m.stage && m.pct > 0) {
+      for (let E = m.stage + 1; E < g; E++) Ye(E);
+      ((m.stage = g), It(g));
+    }
+    m.pct <= 0 && !m.broken && Aa();
+  }
+  function Zn(C) {
+    const g = Math.round(m.pct * 10) / 10;
+    if (!C && g === m.shown && Math.abs((m.ghost ?? m.pct) - m.pct) < 0.05) return;
+    ((m.shown = g), yt(m.st.querySelector(".wb-bars"), m.pct, m.ghost ?? m.pct));
+    const E = mt(m.pct);
+    if (m.layers != null && E !== m.layers) {
+      const q = m.st.querySelector(".wb-bars .wb-mult");
+      (q.classList.remove("pop"), q.offsetWidth, q.classList.add("pop"));
+    }
+    ((m.layers = E),
+      (m.st.querySelector(".wb-pct").textContent = m.pct <= 0 ? e("Bouclier brisé") : qe(Math.ceil(m.pct))));
+  }
+  function is(C) {
+    (m.ghost == null && (m.ghost = m.pct),
+      m.ghost < m.pct && (m.ghost = m.pct),
+      m.ghost > m.pct &&
+        m.clock - (m.lastHit || 0) > 0.35 &&
+        ((m.ghost += (m.pct - m.ghost) * Math.min(1, C * 5)),
+        m.ghost - m.pct < 0.05 && (m.ghost = m.pct),
+        Zn(!0)));
+  }
+  function ts(C, g, E = 1800) {
+    const q = m.st.querySelector(".wb-moment");
+    ((q.querySelector(".t").textContent = C),
+      (q.querySelector(".s").textContent = g || ""),
+      q.getAnimations().forEach((Pe) => Pe.cancel()),
+      q.animate(
+        [
+          { opacity: 0, scale: 0.55 },
+          { opacity: 1, scale: 1.08, offset: 0.1 },
+          { opacity: 1, scale: 1, offset: 0.18 },
+          { opacity: 1, scale: 1, offset: 0.82 },
+          { opacity: 0, scale: 1.04 },
+        ],
+        { duration: E, easing: "ease-out", fill: "both" },
+      ));
+  }
+  function Jn(C, g = 260) {
+    m.st
+      .querySelector(".wb-flash")
+      .animate([{ opacity: C }, { opacity: 0 }], { duration: g, easing: "ease-out" });
+  }
+  function On(C, g = 320) {
+    if (De()) return;
+    const E = [];
+    for (let q = 0; q <= 8; q++) {
+      const Pe = C * (1 - q / 8);
+      E.push({ translate: `${Math.round(je(-Pe, Pe))}px ${Math.round(je(-Pe, Pe))}px` });
+    }
+    (E.push({ translate: "0 0" }), m.cam.animate(E, { duration: g, easing: "steps(9)" }));
+  }
+  function Me(C, g, E) {
+    for (let q = 0; q < C; q++) {
+      let Pe, at, Mt, Pa;
+      if (g) {
+        const Ta = pt(g);
+        ((Pe = Ta[0]), (at = Ta[1]), (Mt = je(-25, 25)), (Pa = je(-35, 5)));
+      } else {
+        const Ta = je(0, 6.283),
+          La = Math.sqrt(Math.random()) * m.R;
+        ((Pe = m.cx + Math.cos(Ta) * La), (at = m.cy + Math.sin(Ta) * La));
+        const xa = je(30, 120) * (E || 1);
+        ((Mt = Math.cos(Ta) * xa), (Pa = Math.sin(Ta) * xa - 25));
+      }
+      m.parts.push({
+        x: Pe,
+        y: at,
+        vx: Mt,
+        vy: Pa,
+        g: 150,
+        t: 0,
+        life: je(1.1, 2.4),
+        pal: ee,
+        s: Math.random() < 0.4 ? 3 : 2,
+        shard: !0,
+        ph: Math.random() * 10,
+      });
+    }
+  }
+  function It(C) {
+    ((m.freeze = 0.08), Jn(0.5), On(6), rt(), Ye(C), (m.grow = { k: C - 1, t: 0, dur: 0.4 }));
+    const g = [];
+    for (const q of m.cracks[C - 1]) for (const Pe of q) g.push([m.cx + Pe[0] * m.R, m.cy + Pe[1] * m.R]);
+    Me(36, g);
+    const E = m.st.querySelector(".wb-fb");
+    (E.classList.remove("hit"),
+      E.offsetWidth,
+      E.classList.add("hit"),
+      ts(e("Le bouclier se fissure !"), e("Plus que ×{n}", { n: 4 - C })));
+  }
+  function Kt() {
+    const C = m.arc,
+      g = C.querySelector(".sil"),
+      E = C.querySelector(".glo"),
+      q = C.querySelector(".col"),
+      Pe = { duration: 1400, delay: 150, easing: "ease-in-out", fill: "forwards" };
+    (E.getAnimations().forEach((at) => {
+      at instanceof CSSAnimation || at.cancel();
+    }),
+      E.animate([{ opacity: 1 }, { opacity: 1, offset: 0.3 }, { opacity: 0 }], {
+        duration: 1700,
+        easing: "ease-out",
+        fill: "forwards",
+      }),
+      g.animate([{ opacity: 1 }, { opacity: 0 }], Pe),
+      We(q.animate([{ opacity: 0 }, { opacity: 1 }], Pe)).then(() => {
+        m?.arc === C && C.classList.add("free");
+      }));
+  }
+  async function Aa() {
+    const C = m;
+    ((m.broken = !0), (m.falling = !0), z && (z.phase = "capture"));
+    const g = m.salvo;
+    (g && (g.stop = !0), m.rage.classList.add("off"), (m.projs.length = 0), (m.trem = 1));
+    for (let q = 0; q < 18; q++) if (((m.white = (q / 18) * 0.8), await re(50 - q * 1.5), m !== C)) return;
+    ((m.trem = 0),
+      (m.white = 0),
+      (m.gone = !0),
+      (m.freeze = 0.08),
+      rt(),
+      wa(),
+      Jn(0.55, 420),
+      On(7, 420),
+      Me(110, null, 1));
+    for (let q = 0; q < 3; q++)
+      Wa(
+        () =>
+          m === C && m.rips.push({ x: m.cx, y: m.cy, t: 0, life: 0.7, max: m.R * (1.4 + q * 0.4), free: !0 }),
+        q * 110,
+      );
+    if (
+      (Kt(),
+      ts(e("Le bouclier est tombé !"), e("Arceus est capturable pendant {n} h", { n: x().CAPTURE_H }), 2600),
+      await re(900),
+      m !== C)
+    )
+      return;
+    ((m.falling = !1), g ? Ce() : Ea());
+    const E = z?.el.querySelector(".wb-sum");
+    E && (E.innerHTML = kt(Ze().state()));
+  }
+  async function Ka() {
+    if (!m || m.salvo || V || m.broken || m.swapping || m.wave) return;
+    const C = ie(),
+      g = Ze().state(),
+      E = Ze().why(C, g);
+    if (E) {
+      f(a(E));
+      return;
+    }
+    ((V = !0), Ea());
+    const q = m,
+      Pe = await Ze().attack(C);
+    if (m !== q) {
+      ((V = null), Pe.error || f(e("Tu as infligé {n} dégâts au bouclier.", { n: b(Pe.plan.dmg) })));
+      return;
+    }
+    if (((V = null), Pe.error)) {
+      (f(a(Pe.error)), Ea());
+      return;
+    }
+    const at = Pe.state.phase === "capture" || Pe.state.phase === "over",
+      Mt = at ? 0 : Math.min(m.pct, Pe.state.pct * 100);
+    ((m.salvo = {
+      t0: m.clock,
+      dur: Pe.plan.dur,
+      plan: Pe.plan,
+      hp: g.hp,
+      pct0: m.pct,
+      pct1: Mt,
+      fell: at,
+      dmg: 0,
+      done: !1,
+      stop: !1,
+      nextVolley: je(13, 16),
+    }),
+      fn(0),
+      m.shooters.forEach((Pa, Ta) => (Pa.next = m.clock + 0.5 + Ta * 0.09 + je(0, 0.4))),
+      Ea(),
+      (m.st.querySelector(".wb-spill").hidden = !1),
+      (m.st.querySelector(".wb-skip").hidden = !1),
+      ts(e("À l'attaque !"), "", 1100),
+      De() && _a());
+  }
+  function _a() {
+    const C = m?.salvo;
+    !C || C.stop || ((m.projs = m.projs.filter((g) => !g.mine)), (C.t0 = m.clock - C.dur), Ha(C));
+  }
+  function Ha(C) {
+    ((C.dmg = C.plan.dmg), fn(1), Yn(C.pct1), m.broken || Ua());
+  }
+  function Ua() {
+    const C = m.salvo;
+    if (!C || C.stop) return;
+    ((C.stop = !0), (m.st.querySelector(".wb-skip").hidden = !0));
+    const g = m.arc,
+      E = g.querySelector(".glo"),
+      q = 1.6,
+      Pe = 0.2,
+      at = 0.35,
+      Mt = q + Pe + at;
+    (E.animate([{ opacity: 0.5 }, { opacity: 1 }], {
+      duration: (q + Pe) * 1e3,
+      easing: "ease-in",
+      fill: "forwards",
+    }),
+      g.animate([{ scale: "1" }, { scale: "1.12", offset: q / (q + Pe) }, { scale: "1.04" }], {
+        duration: (q + Pe) * 1e3,
+        easing: "ease-in",
+        fill: "forwards",
+      }),
+      (g.style.zIndex = 9),
+      (m.cam.style.zIndex = 7),
+      In(),
+      (m.warp = { t: 0, dur: 1.1 }),
+      Et(q * 1e3));
+    const Pa = Math.hypot(Math.max(m.cx, m.w - m.cx), Math.max(m.cy, m.h - m.cy)) + 10,
+      Ta = q + Pe,
+      La = (m.wave = {
+        t: 0,
+        maxR: Pa,
+        r0: m.R * 0.8,
+        gg: q,
+        col: Pe,
+        bl: at,
+        grow: Mt,
+        hold: 1e6,
+        fade: 0.8,
+        seed: Math.random() * 100,
+        d0: Ta,
+        ev: [],
+        done: new Set(),
+      }),
+      xa = (rn) => {
+        const hn = za(rn),
+          Fn = Math.hypot(hn[0] - m.cx, hn[1] - m.cy);
+        for (let Ln = 0; Ln <= q; Ln += 0.01) if (Ga(La, Ln) >= Fn) return Ln;
+        return null;
+      },
+      en = (rn, hn) => La.ev.push({ t: rn, f: hn });
+    for (const rn of m.shooters) {
+      const hn = xa(rn);
+      en(hn ?? Ta + Ut(rn, Pa), () => F(rn));
+    }
+    for (const rn of [...m.crowd, ...m.trainers]) {
+      const hn = xa(rn);
+      hn != null &&
+        rn.img &&
+        en(hn, () =>
+          rn.img.animate([{ filter: nn }, { filter: nn, offset: 0.5 }, { filter: "none" }], {
+            duration: 260,
+          }),
+        );
+    }
+    en(Ta, () => ae());
+    for (const rn of [...m.shooters, ...m.crowd, ...m.trainers]) rn.img && en(Ta + Ut(rn, Pa), () => aa(rn));
+    (en(Mt, () => {
+      (g.getAnimations().forEach((rn) => {
+        rn instanceof CSSAnimation || rn.cancel();
+      }),
+        (g.style.opacity = ""),
+        (g.style.zIndex = ""),
+        E.animate([{ opacity: 1 }, { opacity: 0.55 }], {
+          duration: 1600,
+          easing: "ease-out",
+          fill: "forwards",
+        }),
+        Ce(!0),
+        mn());
+    }),
+      en(Ta + 0.95, () => gn()),
+      La.ev.sort((rn, hn) => rn.t - hn.t));
+  }
+  const sn = 0.25,
+    Be = (C, g) => (g < 0 ? 0 : C.maxR * 1.15 * (1 - (1 - Math.min(1, g / sn)) ** 2));
+  function Ut(C, g) {
+    const E = za(C),
+      q = Math.min(1, Math.hypot(E[0] - m.cx, E[1] - m.cy) / (g * 1.15));
+    return sn * (1 - Math.sqrt(1 - q));
+  }
+  function aa(C) {
+    if (C.empty || C.el?.classList.contains("off")) return;
+    const g = za(C),
+      E = Math.hypot(g[0] - m.cx, g[1] - m.cy),
+      q = (40 + 60 * (1 - Math.min(1, E / m.wave.maxR))) * (C.k || 1),
+      Pe = -q * 0.5,
+      at = (Math.random() < 0.5 ? -1 : 1) * je(200, 420);
+    C.img.animate(
+      [
+        { translate: "0 0", rotate: "0deg" },
+        { translate: `${q * 0.6}px ${Pe}px`, rotate: `${at * 0.4}deg`, offset: 0.35 },
+        { translate: `${q}px ${-Pe * 0.4}px`, rotate: `${at}deg` },
+      ],
+      { duration: 520, easing: "cubic-bezier(.15,.8,.4,1)", fill: "forwards" },
+    );
+  }
+  function ae() {
+    m.freeze = 0.05;
+    const C = m.st.getAnimations({ subtree: !0 }).filter((at) => at.playState === "running"),
+      g = m;
+    (C.forEach((at) => at.pause()),
+      Wa(
+        () =>
+          C.forEach((at) => {
+            try {
+              m === g && at.play();
+            } catch {}
+          }),
+        50,
+      ));
+    const E = m.wave,
+      q = oe(Math.floor(E.seed * 1e3)),
+      Pe = m.ph ? 70 : 130;
+    E.debris = Array.from({ length: Pe }, (at, Mt) => {
+      const Pa = q() * m.w,
+        Ta = m.h * (0.58 + q() * 0.38),
+        La = Pa - m.cx,
+        xa = Ta - m.cy,
+        en = Math.hypot(La, xa) || 1,
+        rn = 140 + q() * 220;
+      return {
+        x0: Pa,
+        y0: Ta,
+        vx: (La / en) * rn,
+        vy: (xa / en) * rn * 0.55 - (40 + q() * 90),
+        g: 260,
+        life: 0.5 + q() * 0.6,
+        s: 1 + Math.floor(q() * 3),
+        cam: q() < 0.12,
+        stone: Mt % 3 !== 0,
+        tone: Math.floor(q() * 3),
+        ph: q() * 6,
+      };
+    });
+  }
+  function ft() {
+    const C = m.wave;
+    if (!C) return;
+    for (const Mt of C.ev) {
+      if (Mt.t > C.t) break;
+      if (!C.done.has(Mt) && (C.done.add(Mt), Mt.f(), !m || m.wave !== C)) return;
+    }
+    const g = C.t - C.d0,
+      E = m.cam;
+    if (g >= 0 && g < 0.5 && !De()) {
+      const Mt = g < 0.03 ? g / 0.03 : Math.exp(-(g - 0.03) / 0.09),
+        Pa = 1 + 0.08 * Mt,
+        Ta = g < 0.42 ? 14 * (1 - g / 0.42) ** 2 : 0,
+        La = Math.floor(C.t * 60),
+        xa = Math.sin(La * 12.9898) * 43758.5453,
+        en = Math.sin(La * 78.233) * 43758.5453;
+      ((E.style.transformOrigin = `${m.cx * m.P}px ${m.cy * m.P}px`),
+        (E.style.transform = `translate(${Math.round((xa - Math.floor(xa) - 0.5) * 2 * Ta)}px, ${Math.round((en - Math.floor(en) - 0.5) * 2 * Ta)}px) scale(${Pa.toFixed(3)})`));
+    } else E.style.transform && (E.style.transform = "");
+    m.arc.style.opacity = g >= 0 && C.t < C.grow ? (g < 0.08 ? 1 - g / 0.08 : 0) : "";
+    const q =
+      g < 0
+        ? 0
+        : g < 0.015
+          ? (0.9 * g) / 0.015
+          : g < 0.05
+            ? 0.9
+            : 0.9 * Math.max(0, 1 - (g - 0.05) / 0.25) ** 2;
+    m.st.querySelector(".wb-nflash").style.opacity = q.toFixed(3);
+    const Pe = g < 0.2 ? 0 : Math.min(1, (g - 0.2) / 0.6),
+      at = Pe * Pe * (3 - 2 * Pe);
+    ((m.st.querySelector(".wb-white").style.opacity = at.toFixed(3)), (C.white = at));
+  }
+  function ht(C) {
+    const g = m.st.querySelector(".wb-white"),
+      E = +g.style.opacity || 0;
+    if (m.wOut != null) {
+      m.wOut = Math.max(0, m.wOut - C / 0.8);
+      const at = m.wOut;
+      ((g.style.opacity = (at * at * (3 - 2 * at)).toFixed(3)),
+        m.wOut || ((m.wOut = null), (g.style.opacity = 0)));
+    }
+    const q = g.querySelector("canvas");
+    if (E <= 0) {
+      m.motesOn && (q.getContext("2d").clearRect(0, 0, q.width, q.height), (m.motesOn = !1));
+      return;
+    }
+    if (
+      (q.width !== m.w &&
+        ((q.width = m.w),
+        (q.height = m.h),
+        (q.style.width = m.w * m.P + "px"),
+        (q.style.height = m.h * m.P + "px")),
+      !m.wm)
+    ) {
+      const at = oe(808);
+      m.wm = Array.from({ length: m.ph ? 26 : 44 }, () => ({
+        x: at() * m.w,
+        y: at() * m.h,
+        v: 2 + at() * 6,
+        ph: at() * 6.283,
+        c: Math.floor(at() * 3),
+      }));
+    }
+    const Pe = q.getContext("2d");
+    (Pe.clearRect(0, 0, q.width, q.height), (m.motesOn = !0));
+    for (const at of m.wm)
+      ((at.y -= at.v * C),
+        (at.ph += C * 1.5),
+        at.y < -2 && ((at.y = m.h + 2), (at.x = Math.random() * m.w)),
+        !(Math.sin(at.ph * 3) > 0.85) &&
+          ((Pe.fillStyle = ["#ffd98a", "#f0c060", "#ffe9b8"][at.c]),
+          Pe.fillRect(Math.round(at.x + Math.sin(at.ph) * 2), Math.round(at.y), 1, 1)));
+  }
+  function ea(C, g, E) {
+    const q = Je.getMon(C.uid);
+    return `<div class="wb-dps-row">${t.UI.teamTile(q || { id: C.id })}<span class="nm"><span>${a(Z(C.id).name)}</span>${q ? `<small>${e("Nv. {n}", { n: q.level })}</small>` : ""}</span>
+      <span class="wb-dps-bar" style="--tc:${t.TYPES[J(C.id)]?.color || "#A8A77A"}"><i data-s="${(C.dmg / g).toFixed(3)}"></i></span><span class="num"><b data-n="${C.dmg}">0</b><small>${qe(Math.round((C.dmg / E) * 100))}</small></span></div>`;
+  }
+  function Ra(C) {
+    const g = C.rows.slice().sort((q, Pe) => Pe.dmg - q.dmg),
+      E = (q) => {
+        const Pe = Je.getMon(q.uid);
+        return `<div class="wb-lv">${t.UI.teamTile(Pe || { id: q.id })}<span class="nm"><span>${a(Z(q.id).name)}</span>${Pe ? `<small>${e("Nv. {n}", { n: Pe.level })}</small>` : ""}</span><b data-n="${q.dmg}">0</b></div>`;
+      };
+    return `<div class="wb-live-h"><span>${e("Attaque en cours…")}</span><b class="wb-live-t">+0</b></div><div class="wb-live">${g.map(E).join("")}</div>`;
+  }
+  function Ca(C) {
+    const g = z?.el.querySelector(".wb-res .wb-live");
+    if (!g) return;
+    const E = C.plan.dmg ? C.dmg / C.plan.dmg : 0;
+    z.el.querySelector(".wb-live-t").textContent = "+" + b(C.dmg);
+    for (const q of g.querySelectorAll("b[data-n]")) q.textContent = b(Math.round(+q.dataset.n * E));
+  }
+  function gn() {
+    const C = m.recap;
+    if (!C) return;
+    const g = m.recapEl,
+      E = C.total || 1,
+      q = x().PER_DAY,
+      Pe = Ze().left(),
+      at = C.rows.slice().sort((La, xa) => xa.dmg - La.dmg),
+      Mt = Math.max(1, ...at.map((La) => La.dmg)),
+      Pa = (La) => ea(La, Mt, E);
+    ((g.innerHTML = `<div class="map-region wb-recap" role="dialog"><div class="map-head"><img src="assets/ui/shiny-charm.png" alt=""><h2>${e("Riposte d'Arceus !")}</h2></div>
+      <div class="wb-rc-body"><div class="wb-rc-total"><span>${e("{n} dégâts au bouclier", { n: `<b data-n="${C.total}">0</b>` })}</span><span class="wb-rc-tags"><em>${e("−{n} % du bouclier", { n: ce(C.pct) })}</em>${C.boost > 1 ? `<em class="boost">⚡ ×${ce(C.boost)}</em>` : ""}</span></div>
+        <div class="wb-dps">${at.map(Pa).join("")}</div></div>
+      <div class="wb-rc-foot"><span class="wb-rc-next">${Pe > 0 ? e("Ta prochaine équipe est prête · Attaques <b>{n} / {max}</b>", { n: Pe, max: q }) : e("<b>Reviens demain !</b> Tes {n} attaques sont faites.", { n: q })}</span><button class="mp-go" data-wb-go>${e("Continuer")}</button></div></div>`),
+      (g.hidden = !1),
+      g.querySelector(".wb-recap").animate(
+        [
+          { opacity: 0, scale: 0.92 },
+          { opacity: 1, scale: 1 },
+        ],
+        { duration: 300, easing: "cubic-bezier(.2,1.4,.4,1)", fill: "backwards" },
+      ));
+    const Ta = (La, xa, en) => {
+      const rn = +La.dataset.n,
+        hn = zn.now() + en,
+        Fn = (Ln) => {
+          const Pn = Math.max(0, Math.min(1, (Ln - hn) / xa));
+          ((La.textContent = b(rn * (1 - (1 - Pn) ** 3))), Pn < 1 && La.isConnected && es(Fn));
+        };
+      es(Fn);
+    };
+    (Ta(g.querySelector(".wb-rc-total b"), 700, 150),
+      g.querySelectorAll(".wb-dps-row").forEach((La, xa) => {
+        const en = 350 + xa * 110,
+          rn = La.querySelector(".wb-dps-bar i");
+        (rn.animate([{ transform: "scaleX(0)" }, { transform: `scaleX(${rn.dataset.s})` }], {
+          duration: 420,
+          delay: en,
+          easing: "cubic-bezier(.2,.8,.3,1)",
+          fill: "both",
+        }),
+          Ta(La.querySelector(".num b"), 420, en));
+      }),
+      (g.querySelector("[data-wb-go]").onclick = yn));
+  }
+  function yn() {
+    const C = m?.recapEl;
+    if (!C || C.hidden) return;
+    const g = C.querySelector(".wb-recap");
+    (We(
+      g.animate(
+        [
+          { opacity: 1, scale: 1 },
+          { opacity: 0, scale: 0.96 },
+        ],
+        { duration: 200, easing: "ease-in", fill: "forwards" },
+      ),
+    ).then(() => {
+      ((C.hidden = !0), (C.innerHTML = ""), m && Ea());
+    }),
+      (m.wave = null),
+      ss(),
+      (m.cam.style.zIndex = ""),
+      (m.cam.style.transform = ""),
+      (m.st.querySelector(".wb-nflash").style.opacity = 0),
+      (m.wOut = 1));
+  }
+  function mn() {
+    ((m.warp = null),
+      m.warpCtx?.clearRect(0, 0, m.w, m.h),
+      (m.ep = {}),
+      m.st.querySelectorAll(".wb-tball").forEach((q) => q.remove()),
+      (m.projs.length = 0),
+      (m.beams.length = 0),
+      (m.abeams.length = 0),
+      (m.glints.length = 0));
+    const C = (q) => !(q instanceof CSSAnimation),
+      g = Ze().left();
+    g > 0 && ln(ie());
+    for (const q of [...m.mine, ...m.shooters.filter((Pe) => Pe.ally)]) {
+      const Pe = q.img.closest(".wb-mon");
+      if (q.row === "me" && g <= 0) {
+        Pe.classList.add("ko", "rest");
+        continue;
+      }
+      (q.img
+        .getAnimations()
+        .filter(C)
+        .forEach((at) => at.cancel()),
+        Pe.classList.remove("ko", "rest"));
+    }
+    for (const q of m.trainers)
+      q.mons &&
+        (q.img
+          .getAnimations()
+          .filter(C)
+          .forEach((Pe) => Pe.cancel()),
+        (q.gone = !1),
+        (q.busy = !1),
+        (q.look = pt(L)),
+        (q.img.onload = () => {
+          ((q.img.style.width = q.img.naturalWidth * q.k + "px"),
+            (q.img.style.height = q.img.naturalHeight * q.k + "px"));
+        }),
+        (q.img.src = `assets/trainers/still/${q.look}.png`));
+    const E = K();
+    for (const q of m.crowd)
+      (q.img
+        .getAnimations()
+        .filter(C)
+        .forEach((Pe) => Pe.cancel()),
+        (q.busy = q.reserved = q.empty = !1),
+        q.el.classList.remove("gone", "ko"),
+        (q.img.style.opacity = ""),
+        (q.id = pt(E)),
+        (q.type = J(q.id)),
+        (q.img.src = A(q.id, Math.random() < 0.08)));
+    (fn(0), (m.nextTurn = je(3, 5)), (m.nextSwap = je(10, 16)));
+  }
+  function ln(C) {
+    (m.mine.forEach((g, E) => {
+      const q = C[E];
+      ((g.mon = q),
+        (g.id = q?.id),
+        (g.type = q ? J(q.id) : "normal"),
+        g.el.classList.toggle("off", !q),
+        q && (g.img.src = A(q.id, q.shiny)));
+    }),
+      (m.shooters = [...m.mine.filter((g) => g.mon), ...m.shooters.filter((g) => g.ally)]),
+      (m.shownTeam = C.map((g) => g.uid).join()));
+  }
+  function In() {
+    const { w: C, h: g, W: E, H: q, P: Pe } = m,
+      at = W(C, g),
+      Mt = at.getContext("2d"),
+      Pa = m.bgImg;
+    if (((Mt.imageSmoothingEnabled = !1), Pa?.naturalWidth)) {
+      const La = Math.max(E / Pa.naturalWidth, q / Pa.naturalHeight),
+        xa = (Pa.naturalWidth * La) / Pe,
+        en = (Pa.naturalHeight * La) / Pe;
+      Mt.drawImage(Pa, (C - xa) / 2, (g - en) / 2, xa, en);
+    }
+    const Ta = (La) => {
+      const xa = Mt.createLinearGradient(0, 0, 0, g);
+      return (La.forEach(([en, rn]) => xa.addColorStop(en, rn)), xa);
+    };
+    ((Mt.globalCompositeOperation = "multiply"),
+      (Mt.globalAlpha = Math.min(1, Oe + Ee * m.stage)),
+      (Mt.fillStyle = Ta([
+        [0, "#1a1238"],
+        [0.28, "#33235e"],
+        [0.52, "#614a8c"],
+        [0.76, "#9d8cb8"],
+        [1, "#cfc6dc"],
+      ])),
+      Mt.fillRect(0, 0, C, g),
+      m.stage >= 3 &&
+        ((Mt.globalCompositeOperation = "color"),
+        (Mt.globalAlpha = 0.42),
+        (Mt.fillStyle = Ta([
+          [0, "#8a1a0c"],
+          [0.45, "#c0502a"],
+          [1, "#e0a050"],
+        ])),
+        Mt.fillRect(0, 0, C, g)),
+      (Mt.globalCompositeOperation = "source-over"),
+      (Mt.globalAlpha = 1),
+      (m.snap = at));
+  }
+  function xe() {
+    const C = m.warp,
+      g = m.warpCtx,
+      { w: E, h: q, cx: Pe, cy: at, R: Mt } = m;
+    if (!g || !m.snap) return;
+    g.clearRect(0, 0, E, q);
+    const Pa = Math.min(1, C.t / C.dur),
+      Ta = Pa * Pa * (3 - 2 * Pa),
+      La = Math.hypot(Math.max(Pe, E - Pe), Math.max(at, q - at)) + 2,
+      xa = m.wave,
+      en =
+        xa && xa.t >= xa.gg && xa.t < xa.gg + xa.col
+          ? (xa.t - xa.gg) / xa.col
+          : xa && xa.t >= xa.gg + xa.col
+            ? 1
+            : 0,
+      rn = Mt * 1.1 + (La - Mt * 1.1) * Ta,
+      hn = (0.6 + 3.4 * Ta) * (1 + 1.2 * en),
+      Fn = C.t;
+    for (let Ln = 0; Ln < q; Ln++) {
+      const Pn = Ln - at;
+      if (Math.abs(Pn) > rn) continue;
+      const jn = 1 - Math.abs(Pn) / rn,
+        h = Math.sqrt(rn * rn - Pn * Pn),
+        k = hn * (0.35 + 0.65 * jn),
+        ne = Math.round(k * Math.sin(Ln * 0.35 + Fn * 14) + k * 0.5 * Math.sin(Ln * 0.11 - Fn * 7)),
+        Ie = 0.14 * Ta * jn,
+        Le = Math.round(at + Pn * (1 + Ie));
+      if (Le < 0 || Le >= q) continue;
+      const Pt = Math.max(0, Math.floor(Pe - h)),
+        Nt = Math.min(E, Math.ceil(Pe + h)),
+        Qt = Nt - Pt;
+      g.drawImage(m.snap, Pe + (Pt - Pe) * (1 + Ie), Le, Qt * (1 + Ie), 1, Pt + ne, Ln, Qt, 1);
+    }
+    if (xa && xa.t >= xa.d0)
+      for (const Ln of [0, 0.08]) {
+        const Pn = xa.t - xa.d0 - Ln;
+        if (Pn < 0 || Pn > sn) continue;
+        const jn = Be(xa, Pn),
+          h = Math.round(6 * (1 - Pn / sn) + 2);
+        for (let k = Math.max(0, Math.floor(at - jn)); k <= Math.min(q - 1, at + jn); k++) {
+          const ne = Math.sqrt(Math.max(0, jn * jn - (k - at) ** 2));
+          for (const Ie of [-1, 1]) {
+            const Le = Math.round(Pe + Ie * ne);
+            g.drawImage(m.snap, Le - 8, k, 16, 1, Le - 8 + Ie * h, k, 16, 1);
+          }
+        }
+      }
+    for (let Ln = 0; Ln < 3; Ln++) {
+      const Pn = Math.max(4, rn - Mt),
+        jn = rn - ((Fn * 70 + (Ln * Pn) / 3) % Pn);
+      if (jn < Mt) continue;
+      const h = Math.ceil(jn * 6.3);
+      ((g.fillStyle = Ln === 1 ? "#ffd84a" : "#c8b8ff"), (g.globalAlpha = 0.35 + 0.35 * Ta));
+      for (let k = 0; k < h; k += 2) {
+        const ne = (k / h) * 6.283,
+          Ie = Math.round(Pe + Math.cos(ne) * jn),
+          Le = Math.round(at + Math.sin(ne) * jn * 0.85);
+        (Ie + Le + m.f) & 1 || g.fillRect(Ie, Le, 1, 1);
+      }
+    }
+    g.globalAlpha = 1;
+  }
+  function Et(C) {
+    if (De()) return;
+    const g = Math.round(C / 70),
+      E = [];
+    for (let q = 0; q <= g; q++) {
+      const Pe = 0.5 + 2 * (q / g);
+      E.push({ translate: `${Math.round(je(-Pe, Pe))}px ${Math.round(je(-Pe, Pe) * 0.6)}px` });
+    }
+    (E.push({ translate: "0 0" }), m.cam.animate(E, { duration: C, easing: `steps(${g + 1})` }));
+  }
+  const oa = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  function sa(C) {
+    return Array.from({ length: 17 }, (g, E) => {
+      const q = W(4, 4),
+        Pe = q.getContext("2d");
+      Pe.fillStyle = "#000";
+      for (let at = 0; at < 16; at++) oa[at] < E && Pe.fillRect(at % 4, at >> 2, 1, 1);
+      return C.createPattern(q, "repeat");
+    });
+  }
+  function Ga(C, g) {
+    const E = C.r0 + (C.maxR * 0.7 - C.r0);
+    if (g < C.gg) {
+      const q = g / C.gg,
+        Pe = q * q * (3 - 2 * q),
+        at = g % 0.8,
+        Mt = Math.exp(-((at - 0.06) ** 2) / 0.0016) + 0.6 * Math.exp(-((at - 0.26) ** 2) / 0.0016);
+      return C.r0 + (E - C.r0) * Pe + m.R * 0.14 * (1 - q) * Mt;
+    }
+    if (g < C.gg + C.col) {
+      const q = (g - C.gg) / C.col;
+      return E * (1 - 0.5 * q * q);
+    }
+    if (g < C.grow) {
+      const q = (g - C.gg - C.col) / C.bl,
+        Pe = E * 0.5;
+      return Pe + (C.maxR - Pe) * (1 - (1 - q) ** 3);
+    }
+    return C.maxR;
+  }
+  const cn = [
+      [0, "#8a440a"],
+      [0.15, "#a8560f"],
+      [0.3, "#bd6a18"],
+      [0.45, "#d08224"],
+      [0.6, "#e09a34"],
+      [0.72, "#f0b24a"],
+      [0.84, "#ffd98a"],
+      [0.93, "#fff0c8"],
+      [1, "#ffffff"],
+    ],
+    Tn = (C) => {
+      let g = cn[0][1];
+      for (const [E, q] of cn) C >= E - 1e-6 && (g = q);
+      return g;
+    };
+  function Mn(C, g) {
+    const E = C.t,
+      q = 0.15 + 0.6 * (1 - g);
+    if (E < C.gg) return q;
+    if (E < C.gg + C.col) {
+      const Mt = (E - C.gg) / C.col;
+      return q + 0.45 * Mt * (1 - g) ** 2;
+    }
+    if (E < C.grow) {
+      const Mt = E - C.gg - C.col;
+      return 0.3 + 0.7 * Math.min(1, Mt / 0.05) * (1 - 0.72 * g);
+    }
+    const Pe = E - C.grow,
+      at = Math.exp(-Pe / 0.3);
+    return q + 0.3 * at * (1 - 0.5 * g) + 0.03 * Math.sin(Pe * 3.5);
+  }
+  function ks(C, g) {
+    const E = g.t - g.d0;
+    if (E < 0) return;
+    const { w: q, h: Pe, cx: at, cy: Mt, R: Pa } = m,
+      Ta = m.f;
+    for (const [La, xa] of [
+      [0, 1],
+      [0.08, 0.6],
+    ]) {
+      const en = E - La;
+      if (en < 0 || en > sn + 0.08) continue;
+      const rn = Be(g, en),
+        hn = en > sn ? (en - sn) / 0.08 : 0,
+        Fn = Math.ceil(rn * 6.3);
+      for (let Ln = 0; Ln < Fn; Ln++) {
+        const Pn = (Ln / Fn) * 6.283,
+          jn = Math.cos(Pn),
+          h = Math.sin(Pn);
+        if (hn && oa[Ln & 15] < hn * 16) continue;
+        const k = (ne, Ie) => {
+          ((C.fillStyle = Ie),
+            C.fillRect(Math.round(at + jn * (rn + ne)), Math.round(Mt + h * (rn + ne)), 1, 1));
+        };
+        (k(0, "#fff6dc"),
+          k(-1, "#ffe9a8"),
+          xa > 0.8 && (k(-2, "#ffd98a"), k(1, "#fff0c8")),
+          (Ln + Ta) & 1 && k(xa > 0.8 ? 2 : 1, "#5a2c06"));
+      }
+    }
+    if (E > 0.05 && E < 1.3) {
+      const La = Math.min(1, (E - 0.05) / 0.25),
+        xa = Math.round(Mt - (Mt + 30) * La),
+        en = Pa * (0.22 + 0.3 * Math.min(1, E / 0.35)),
+        rn = E > 1 ? (E - 1) / 0.3 : 0;
+      for (let hn = Math.max(0, xa); hn < Mt; hn++) {
+        const Fn = Math.round(Math.sin(hn * 0.12 + E * 9) * 1.5),
+          Ln = Math.round(en * (0.85 + 0.15 * Math.sin(hn * 0.3 + E * 14)));
+        for (let Pn = at - Ln; Pn <= at + Ln; Pn++) {
+          if (Pn < 0 || Pn >= q) continue;
+          const jn = Math.abs(Pn - at) / Ln;
+          (rn && oa[(Pn & 3) + ((hn & 3) << 2)] < rn * 16) ||
+            (jn > 0.8 && oa[(Pn & 3) + ((hn & 3) << 2)] >= (1 - jn) * 5 * 16) ||
+            ((C.fillStyle = jn < 0.3 ? (E < 0.25 ? "#ffffff" : "#fff6dc") : jn < 0.6 ? "#ffe9a8" : "#ffd98a"),
+            C.fillRect(Pn + Fn, hn, 1, 1));
+        }
+      }
+      if (E > 0.15) {
+        const hn = Math.min(1, (E - 0.15) / 0.6),
+          Fn = Pa * (0.6 + 1.7 * hn),
+          Ln = Math.max(16, xa + 16);
+        for (let Pn = 0; Pn < 16; Pn++) {
+          const jn = Pn % 2 ? 1 : -1,
+            h = (Pn >> 1) / 8,
+            k = at + jn * Fn * h * (0.9 + 0.1 * Math.sin(E * 3 + Pn)),
+            ne = Ln + Math.sin(h * 3.1 + E * 4 + Pn) * 4 + h * h * 10,
+            Ie = Math.round((4 + 6 * (1 - h)) * (0.6 + 0.4 * hn)),
+            Le = Pn % 3 === 0 ? "#fff0c8" : Pn % 3 === 1 ? "#ffd98a" : "#f0b24a";
+          for (let Pt = -Ie; Pt <= Ie; Pt++) {
+            const Nt = Math.floor(Math.sqrt(Ie * Ie - Pt * Pt) * 1.3);
+            for (let Qt = Math.round(k - Nt); Qt <= k + Nt; Qt++) {
+              const ma = Math.round(ne + Pt * 0.7);
+              if (Qt < 0 || Qt >= q || ma < 0 || ma >= Pe) continue;
+              const $a = Math.hypot((Qt - k) / 1.3, Pt) / Ie;
+              ($a > 0.75 && oa[(Qt & 3) + ((ma & 3) << 2)] >= (1 - $a) * 4 * 16) ||
+                (rn && oa[(Qt & 3) + ((ma & 3) << 2)] < rn * 16) ||
+                ((C.fillStyle = Le), C.fillRect(Qt, ma, 1, 1));
+            }
+          }
+        }
+      }
+    }
+    for (const La of g.debris || []) {
+      if (E > La.life) continue;
+      const xa = E / La.life,
+        en = Math.round(La.x0 + La.vx * E),
+        rn = Math.round(La.y0 + La.vy * E + 0.5 * La.g * E * E);
+      if (en < -10 || en > q + 10 || rn > Pe + 10 || (xa > 0.7 && (en + rn + Ta) & 1)) continue;
+      const hn = Math.round(La.s * (La.cam ? 1 + 5 * xa : 1));
+      La.stone
+        ? ((C.fillStyle = "#241a0f"),
+          C.fillRect(en - 1, rn - 1, hn + 2, hn + 2),
+          (C.fillStyle = Ot.rock[1 + La.tone]),
+          C.fillRect(en, rn, hn, hn),
+          (C.fillStyle = Ot.rock[0]),
+          C.fillRect(en, rn, Math.max(1, hn - 1), 1))
+        : ((C.fillStyle = Math.floor(E * 20 + La.ph) & 1 ? "#ffffff" : "#ffd84a"),
+          C.fillRect(en, rn, hn, hn));
+    }
+  }
+  function ss() {
+    const C = m.wave,
+      g = m.wctx;
+    if (!g || (g.clearRect(0, 0, m.w, m.h), !C)) return;
+    const { w: E, h: q, cx: Pe, cy: at } = m,
+      Mt = C.t,
+      Pa = Ga(C, Mt),
+      Ta = Mt >= C.gg + C.col && Mt < C.grow,
+      La = Mt < C.gg + C.col,
+      xa = La ? 7 : 0;
+    g.globalCompositeOperation = "source-over";
+    const en = Math.max(0, Pa - xa);
+    for (const Pn of [1, 0.82, 0.64, 0.47, 0.32, 0.19, 0.09]) {
+      const jn = en * Pn;
+      for (let h = Math.max(0, Math.floor(at - jn)); h <= Math.min(q - 1, at + jn); h++) {
+        const k = h - at,
+          ne = Math.floor(Math.sqrt(Math.max(0, jn * jn - k * k)));
+        ((g.fillStyle = Tn(Mn(C, Pn))),
+          g.fillRect(Math.max(0, Pe - ne), h, Math.min(E, Pe + ne + 1) - Math.max(0, Pe - ne), 1));
+      }
+    }
+    if (La)
+      for (let Pn = Math.max(0, Math.floor(at - Pa)); Pn <= Math.min(q - 1, Math.ceil(at + Pa)); Pn++) {
+        const jn = Pn - at,
+          h = Math.floor(Math.sqrt(Math.max(0, Pa * Pa - jn * jn))),
+          k = Math.floor(Math.sqrt(Math.max(0, en * en - jn * jn)));
+        for (const [ne, Ie] of [
+          [Pe - h, Pe - k],
+          [Pe + k, Pe + h],
+        ])
+          for (let Le = Math.max(0, ne); Le <= Math.min(E - 1, Ie); Le++) {
+            const Pt = Math.hypot(Le - Pe, jn),
+              Nt = 1 - (Pt - en) / xa;
+            Nt <= 0 ||
+              oa[(Le & 3) + ((Pn & 3) << 2)] >= Nt * 16 ||
+              ((g.fillStyle = Nt > 0.75 ? "#ffd98a" : "#c06c1a"), g.fillRect(Le, Pn, 1, 1));
+          }
+      }
+    if (Ta) {
+      const Pn = (Mt - C.gg - C.col) / C.bl;
+      for (let k = 0; k < 28; k++) {
+        const ne = k * 2.39996 + C.seed,
+          Ie = Pa * (0.3 + (0.4 * ((k * 37) % 10)) / 10);
+        if ((k + m.f) % 5 !== 0) {
+          g.fillStyle = k % 2 ? "#fff0c8" : "#ffffff";
+          for (let Le = 2; Le < Ie; Le++)
+            g.fillRect(Math.round(Pe + Math.cos(ne) * Le), Math.round(at + Math.sin(ne) * Le), 1, 1);
+        }
+      }
+      const jn = Pa + 4 + 6 * (1 - Pn),
+        h = Math.ceil(jn * 6.3);
+      for (let k = 0; k < h; k++) {
+        const ne = (k / h) * 6.283,
+          Ie = Math.cos(ne),
+          Le = Math.sin(ne);
+        ((g.fillStyle = "#fff6dc"),
+          g.fillRect(Math.round(Pe + Ie * jn), Math.round(at + Le * jn), 1, 1),
+          (k + m.f) & 1 &&
+            ((g.fillStyle = "#ffd98a"),
+            g.fillRect(Math.round(Pe + Ie * (jn + 1)), Math.round(at + Le * (jn + 1)), 1, 1)));
+      }
+    }
+    const rn = C.t,
+      hn = m.f;
+    g.fillStyle = "#f0b850";
+    for (let Pn = 0; Pn < 6; Pn++) {
+      const jn = (rn * 90 + Pn * 34) % (C.maxR + 20);
+      if (jn > Pa - 2) continue;
+      const h = Math.ceil(jn * 6.3);
+      for (let k = 0; k < h; k += 2) {
+        const ne = (k / h) * 6.283,
+          Ie = Math.round(Pe + Math.cos(ne) * jn),
+          Le = Math.round(at + Math.sin(ne) * jn * 0.9);
+        (Ie + Le + hn) & 1 || g.fillRect(Ie, Le, 1, 1);
+      }
+    }
+    for (let Pn = 0; Pn < 80; Pn++) {
+      const jn = Pn * 2.39996 + C.seed,
+        h = 140 + (Pn % 7) * 30,
+        k = (rn * h + Pn * 37) % (C.maxR + 30),
+        ne = 8 + (Pn % 5) * 4;
+      if (!(k > Pa)) {
+        g.fillStyle = Pn % 4 === 0 ? "#7a3c0a" : Pn % 4 === 1 ? "#ffd84a" : "#f5c868";
+        for (let Ie = 0; Ie < ne; Ie++) {
+          const Le = k - Ie;
+          if (Le < 0) break;
+          g.fillRect(Math.round(Pe + Math.cos(jn) * Le), Math.round(at + Math.sin(jn) * Le), 1, 1);
+        }
+      }
+    }
+    if (Mt < C.gg) {
+      const Pn = Mt / C.gg,
+        jn = Math.round((1 - (0.4 + 0.6 * Math.min(1, Pn * 1.15))) * 16);
+      jn > 0 &&
+        ((g.globalCompositeOperation = "destination-out"),
+        (g.fillStyle = m.dpat[Math.min(16, jn)]),
+        g.fillRect(0, 0, E, q),
+        (g.globalCompositeOperation = "source-over"));
+    }
+    ks(g, C);
+    const Fn = C.grow + C.hold,
+      Ln = (C.t - Fn) / C.fade;
+    if (Ln > 0) {
+      const Pn = Math.min(16, Math.round(Ln * Ln * (3 - 2 * Ln) * 16));
+      ((g.globalCompositeOperation = "destination-out"),
+        (g.fillStyle = m.dpat[Pn]),
+        g.fillRect(0, 0, E, q),
+        (g.globalCompositeOperation = "source-over"));
+    }
+  }
+  function us(C) {
+    const g = m.salvo;
+    if (
+      !g ||
+      g.stop ||
+      m.broken ||
+      C === 0 ||
+      (g.nextBeam == null && (g.nextBeam = je(2.5, 4)), (g.nextBeam -= C) > 0)
+    )
+      return;
+    const E = qn(g);
+    g.nextBeam = je(3, 5) * (1 - E) + je(1, 2) * E;
+    const q = Math.random() < 0.4,
+      Pe = q
+        ? m.shooters.filter((at) => !at.el.classList.contains("ko"))
+        : m.crowd.filter((at) => !at.empty && !at.busy && !at.reserved);
+    Pe.length && Xn(pt(Pe), q);
+  }
+  function Xn(C, g) {
+    const E = m.ep,
+      q = za(C),
+      Pe = Math.atan2(q[1] - m.cy, q[0] - m.cx),
+      at = [m.cx + Math.cos(Pe) * m.R * 0.92, m.cy + Math.sin(Pe) * m.R * 0.92];
+    (m.glints.push({ x: at[0], y: at[1], t: 0, life: 0.4 }),
+      Wa(() => {
+        if (m?.ep !== E || !m.salvo || m.salvo.stop) return;
+        (m.abeams.push({ a: at, b: q, t: 0, life: 0.32 }),
+          m.rips.push({ x: q[0], y: q[1], t: 0, life: 0.35, max: 10 * C.k, free: !0 }));
+        for (let Pa = 0; Pa < 10; Pa++) {
+          const Ta = je(0, 6.283),
+            La = je(25, 70);
+          m.parts.push({
+            x: q[0],
+            y: q[1],
+            vx: Math.cos(Ta) * La,
+            vy: Math.sin(Ta) * La - 10,
+            g: 60,
+            t: 0,
+            life: je(0.2, 0.4),
+            pal: ee,
+            s: 1,
+          });
+        }
+        const Mt = !g && Math.random() < 0.25;
+        (C.img.animate([{ filter: nn }, { filter: nn }], { duration: 90 }),
+          g
+            ? (On(2, 200),
+              C.img.animate(
+                [
+                  { translate: "0 0" },
+                  { translate: `${4 * C.k}px ${2 * C.k}px`, scale: "1.15 .85", offset: 0.25 },
+                  { translate: "0 0", scale: "1 1" },
+                ],
+                { duration: 300, easing: "ease-out" },
+              ))
+            : Mt
+              ? Wa(() => {
+                  m?.ep !== E ||
+                    C.empty ||
+                    (C.el.classList.add("ko"),
+                    C.img.animate(
+                      [
+                        { translate: "0 0", scale: "1 1" },
+                        { translate: `0 ${-3 * C.k}px`, scale: ".9 1.1", offset: 0.3 },
+                        { translate: `0 ${2 * C.k}px`, scale: "1.2 .7" },
+                      ],
+                      { duration: 360, easing: "ease-in", fill: "forwards" },
+                    ),
+                    (C.reserved = !0),
+                    Wa(() => {
+                      m?.ep === E && ((C.reserved = !1), Zt(C));
+                    }, 700));
+                }, 90)
+              : C.img.animate(
+                  [
+                    { translate: "0 0" },
+                    { translate: `0 ${2 * C.k}px`, scale: "1.15 .85", offset: 0.3 },
+                    { translate: "0 0", scale: "1 1" },
+                  ],
+                  { duration: 280, easing: "ease-out" },
+                ));
+      }, 380));
+  }
+  function Dn() {
+    (Jn(0.12, 300), On(2, 300));
+    const C = m.salvo;
+    (m.shooters.forEach((g, E) =>
+      Wa(() => {
+        if (!(m?.salvo !== C || C.stop)) {
+          vn(g, 1.5);
+          for (const q of [180, 360])
+            Wa(() => {
+              m?.salvo === C && !C.stop && An(za(g), Ba(), g.type, 1.5, !0, g);
+            }, 240 + q);
+        }
+      }, E * 40),
+    ),
+      Xa(22, 900));
+  }
+  const ls = (C) => ({ x: (C.x / 100) * m.W, y: m.H * (1 - C.y / 100) - 22 * C.k }),
+    Hn = (C) => {
+      const g = C.img.getBoundingClientRect(),
+        E = m.st.getBoundingClientRect(),
+        q = C.x < 50 ? 1 : -1;
+      return { x: g.left - E.left + g.width / 2 + q * g.width * 0.3, y: g.top - E.top + g.height * 0.42 };
+    },
+    Kn = (C) =>
+      C.owner && !C.owner.gone && C.owner.img?.naturalWidth
+        ? Hn(C.owner)
+        : { x: Math.max(10, Math.min(m.W - 10, (C.x / 100) * m.W + je(-70, 70))), y: m.H + 24 },
+    Sn = (C) =>
+      C &&
+      !C.gone &&
+      C.img.animate(
+        [
+          { rotate: "0deg" },
+          { rotate: "8deg", translate: "6% 0", offset: 0.35 },
+          { rotate: "-10deg", translate: "-8% 0", offset: 0.7 },
+          { rotate: "0deg" },
+        ],
+        { duration: 420, easing: "ease-out" },
+      ),
+    ns = (C) => [C.x / m.P, C.y / m.P],
+    Ue = ["#ffffff", "#ffd0d0", "#ff5050", "#e3353b", "#8a1a20", "#1b1b22"];
+  function Bt(C) {
+    const g = document.createElement("img");
+    return (
+      (g.src = "assets/items/poke-ball.png"),
+      (g.alt = ""),
+      (g.className = "wb-tball"),
+      (g.style.width = g.style.height = (C > 1 ? 42 : 32) + "px"),
+      m.st.querySelector(".wb-crowd").appendChild(g),
+      g
+    );
+  }
+  const st = (C, g, E = 0, q = 1, Pe = 1, at = 32) =>
+    `translate(${C - at / 2}px, ${g - at / 2}px) rotate(${E}deg) scale(${q}, ${Pe})`;
+  async function Zt(C) {
+    if (!m || C.empty || C.busy) return;
+    C.busy = !0;
+    const g = m.ep,
+      E = C.k > 1 ? 42 : 32,
+      q = ls(C),
+      Pe = Kn(C),
+      at = Pe.x < q.x ? 1 : -1,
+      Mt = Bt(C.k),
+      Pa = (k, ne, Ie, Le, Pt) => st(k, ne, Ie, Le, Pt, E),
+      Ta = { x: (Pe.x + q.x) / 2, y: Math.min(Pe.y, q.y) - 60 },
+      La = 16;
+    if (
+      (Sn(C.owner),
+      await We(
+        Mt.animate(
+          Array.from({ length: La + 1 }, (k, ne) => {
+            const Ie = ne / La,
+              Le = 1 - Ie;
+            return {
+              transform: Pa(
+                Le * Le * Pe.x + 2 * Le * Ie * Ta.x + Ie * Ie * q.x,
+                Le * Le * Pe.y + 2 * Le * Ie * Ta.y + Ie * Ie * q.y,
+                at * 720 * Ie,
+              ),
+            };
+          }),
+          { duration: 380, easing: "linear", fill: "forwards" },
+        ),
+      ),
+      m?.ep !== g)
+    )
+      return Mt.remove();
+    const [xa, en] = ns(q);
+    m.rips.push({ x: xa, y: en, t: 0, life: 0.3, max: 9 * C.k, free: !0 });
+    for (let k = 0; k < 8; k++) {
+      const ne = je(0, 6.283),
+        Ie = je(20, 50);
+      m.parts.push({
+        x: xa,
+        y: en,
+        vx: Math.cos(ne) * Ie,
+        vy: Math.sin(ne) * Ie,
+        g: 30,
+        t: 0,
+        life: je(0.2, 0.35),
+        pal: ee,
+        s: 1,
+      });
+    }
+    if (
+      (await Promise.all([
+        We(
+          Mt.animate(
+            [
+              { transform: Pa(q.x, q.y) },
+              { transform: Pa(q.x, q.y, 0, 1.35, 0.65) },
+              { transform: Pa(q.x, q.y) },
+            ],
+            { duration: 140, easing: "ease-out", fill: "forwards" },
+          ),
+        ),
+        We(
+          C.img.animate([{ scale: "1 1" }, { scale: "1.3 .7" }, { scale: ".9 1.1" }], {
+            duration: 140,
+            easing: "ease-out",
+            fill: "forwards",
+          }),
+        ),
+      ]),
+      m?.ep !== g)
+    )
+      return Mt.remove();
+    const rn = q.x - at * 14 * C.k,
+      hn = q.y - 34 * C.k;
+    if (
+      (Mt.animate(
+        [
+          { transform: Pa(q.x, q.y) },
+          { transform: Pa(rn, hn, -at * 40), easing: "cubic-bezier(.2,.9,.3,1)" },
+        ],
+        { duration: 320, fill: "forwards" },
+      ),
+      await re(200),
+      m?.ep !== g)
+    )
+      return Mt.remove();
+    Mt.classList.add("open");
+    const Fn = m.H * (1 - C.y / 100),
+      Ln = (rn - q.x) * (C.x < 50 ? -1 : 1),
+      Pn = hn - Fn,
+      jn = "brightness(0) invert(1)";
+    if (
+      (m.beams.push({ a: ns({ x: rn, y: hn }), b: ns(q), t: 0, life: 0.56 }),
+      Wa(() => {
+        if (m?.ep !== g) return;
+        const [k, ne] = ns(q),
+          [Ie, Le] = ns({ x: rn, y: hn });
+        for (let Pt = 0; Pt < 10; Pt++) {
+          const Nt = k + je(-6, 6) * C.k,
+            Qt = ne + je(-6, 6) * C.k;
+          m.parts.push({
+            x: Nt,
+            y: Qt,
+            vx: (Ie - Nt) / 0.35,
+            vy: (Le - Qt) / 0.35,
+            g: 0,
+            t: 0,
+            life: 0.35,
+            pal: ["#ffffff", "#ffffff", "#fff6c8", "#ffe866", "#ffd84a", "#ffb02e"],
+            s: 1,
+          });
+        }
+      }, 160),
+      await We(
+        C.img.animate(
+          [
+            { scale: ".9 1.1", filter: "brightness(1)", translate: "0 0" },
+            { scale: "1.15 .9", filter: jn, translate: "0 0", offset: 0.3 },
+            {
+              scale: ".6 1.5",
+              filter: jn,
+              translate: `${Ln * 0.3}px ${Pn * 0.3}px`,
+              offset: 0.6,
+              easing: "cubic-bezier(.6,0,.9,.4)",
+            },
+            { scale: "0 0", filter: jn, translate: `${Ln}px ${Pn}px` },
+          ],
+          { duration: 560, fill: "forwards" },
+        ),
+      ),
+      m?.ep !== g)
+    )
+      return Mt.remove();
+    ((C.img.style.opacity = 0),
+      (C.empty = !0),
+      C.el.classList.add("gone"),
+      C.el.classList.remove("ko"),
+      C.img
+        .getAnimations()
+        .filter((k) => !(k instanceof CSSAnimation))
+        .forEach((k) => k.cancel()),
+      Mt.classList.remove("open"),
+      await We(
+        Mt.animate(
+          [
+            { transform: Pa(rn, hn, -at * 40) },
+            { transform: Pa(rn, hn, -at * 20, 1.3, 1.3) },
+            { transform: Pa(rn, hn) },
+          ],
+          { duration: 160, easing: "ease-out", fill: "forwards" },
+        ),
+      ));
+    const h = { x: (rn + Pe.x) / 2, y: Math.min(hn, Pe.y) - 40 };
+    (await We(
+      Mt.animate(
+        Array.from({ length: La + 1 }, (k, ne) => {
+          const Ie = ne / La,
+            Le = 1 - Ie;
+          return {
+            transform: Pa(
+              Le * Le * rn + 2 * Le * Ie * h.x + Ie * Ie * Pe.x,
+              Le * Le * hn + 2 * Le * Ie * h.y + Ie * Ie * Pe.y,
+              -at * 540 * Ie,
+              1 - Ie * 0.5,
+              1 - Ie * 0.5,
+            ),
+          };
+        }),
+        { duration: 340, easing: "linear", fill: "forwards" },
+      ),
+    ),
+      Mt.remove(),
+      (C.busy = !1));
+  }
+  async function va(C) {
+    if (!m || !C.empty || C.busy) return;
+    C.busy = !0;
+    const g = m.ep,
+      E = pt(K()),
+      q = Math.random() < 0.1,
+      Pe = A(E, q);
+    if (
+      (await new Promise((hn) => {
+        const Fn = new Image();
+        ((Fn.onload = Fn.onerror = hn), (Fn.src = Pe));
+      }),
+      m?.ep !== g)
+    )
+      return;
+    ((C.id = E), (C.type = J(E)), (C.img.src = Pe));
+    const at = C.k > 1 ? 42 : 32,
+      Mt = ls(C),
+      Pa = Kn(C),
+      Ta = Bt(C.k),
+      La = Mt.x - Pa.x,
+      xa = Mt.y - Pa.y;
+    if (
+      ((Ta.style.transform = st(Pa.x, Pa.y, 0, 1, 1, at)),
+      Sn(C.owner),
+      await We(
+        Ta.animate(
+          [
+            { transform: st(Pa.x, Pa.y, 0, 0.8, 1.2, at) },
+            { transform: st(Pa.x + La * 0.5, Pa.y + xa * 0.5 - 60, -360, 1.1, 0.9, at) },
+            { transform: st(Mt.x, Mt.y, -720, 0.85, 1.15, at) },
+          ],
+          { duration: 420, easing: "ease-in", fill: "forwards" },
+        ),
+      ),
+      m?.ep !== g)
+    )
+      return Ta.remove();
+    if (
+      (await We(
+        Ta.animate(
+          [
+            { transform: st(Mt.x, Mt.y, 0, 1.35, 0.7, at) },
+            { transform: st(Mt.x, Mt.y, 0, 1.5, 1.5, at), filter: "brightness(2)" },
+          ],
+          { duration: 90, fill: "forwards" },
+        ),
+      ),
+      Ta.remove(),
+      m?.ep !== g)
+    )
+      return;
+    const [en, rn] = ns(Mt);
+    m.rips.push(
+      { x: en, y: rn, t: 0, life: 0.38, max: 16 * C.k, free: !0 },
+      { x: en, y: rn, t: 0, life: 0.3, max: 10 * C.k, free: !0 },
+    );
+    for (let hn = 0; hn < 12; hn++) {
+      const Fn = je(0, 6.283),
+        Ln = je(25, 60);
+      m.parts.push({
+        x: en,
+        y: rn,
+        vx: Math.cos(Fn) * Ln,
+        vy: Math.sin(Fn) * Ln,
+        g: 25,
+        t: 0,
+        life: je(0.25, 0.45),
+        pal: hn % 2 ? Ue : ee,
+        s: 1,
+      });
+    }
+    for (let hn = 0; hn < 10; hn++) {
+      const Fn = je(0, 6.283),
+        Ln = je(8, 14) * C.k;
+      m.parts.push({
+        x: en + Math.cos(Fn) * Ln,
+        y: rn + Math.sin(Fn) * Ln,
+        vx: (-Math.cos(Fn) * Ln) / 0.18,
+        vy: (-Math.sin(Fn) * Ln) / 0.18,
+        g: 0,
+        t: 0,
+        life: 0.18,
+        pal: ["#ffffff", "#ffffff", "#fff6c8", "#ffe866", "#ffd84a", "#ffb02e"],
+        s: 1,
+      });
+    }
+    if ((await re(175), m?.ep === g)) {
+      if (
+        (C.el.classList.remove("gone"),
+        (C.img.style.opacity = ""),
+        await We(
+          C.img.animate(
+            [
+              { transform: "scale(.6, 1.3)", filter: "brightness(0) invert(1)" },
+              { transform: "scale(1.25, .8)", filter: "brightness(0) invert(1)", offset: 0.4 },
+              { transform: "scale(.94, 1.06)", filter: "brightness(0) invert(1)", offset: 0.65 },
+              { transform: "scale(1)", filter: "none" },
+            ],
+            { duration: 380, easing: "ease-out" },
+          ),
+        ),
+        q && m?.ep === g)
+      )
+        for (let hn = 0; hn < 6; hn++)
+          Wa(() => {
+            if (m?.ep !== g) return;
+            const Fn = ls(C);
+            m.parts.push({
+              x: (Fn.x + je(-12, 12) * C.k) / m.P,
+              y: (Fn.y + je(-10, 10) * C.k) / m.P,
+              vx: 0,
+              vy: -6,
+              g: 0,
+              t: 0,
+              life: 0.4,
+              pal: ee,
+              s: 1,
+            });
+          }, hn * 70);
+      ((C.empty = !1), (C.busy = !1));
+    }
+  }
+  function Da(C) {
+    if (
+      m.broken ||
+      C === 0 ||
+      ((m.nextSwap -= C) <= 0 && ((m.nextSwap = m.ph ? je(22, 32) : je(12, 20)), la()), (m.nextTurn -= C) > 0)
+    )
+      return;
+    m.nextTurn = m.ph ? je(4, 7) : je(2.4, 4.2);
+    const g = m.crowd.filter((q) => q.empty && !q.busy && !q.reserved),
+      E = m.crowd.filter((q) => !q.empty && !q.busy && !q.reserved);
+    g.length >= (m.ph ? 2 : 3) || (g.length && Math.random() < 0.5) ? va(pt(g)) : E.length && Zt(pt(E));
+  }
+  async function la() {
+    const C = m.ep,
+      g = m.trainers.filter((at) => at.mons && !at.gone && !at.busy && at.mons.every((Mt) => !Mt.busy));
+    if (!g.length) return;
+    const E = pt(g);
+    ((E.busy = !0), E.mons.forEach((at) => (at.reserved = !0)));
+    for (const at of E.mons) if (!at.empty && (await Zt(at), m?.ep !== C)) return;
+    const [q, Pe] = ns({ x: (E.x / 100) * m.W, y: m.H * (1 - E.y / 100) - 30 });
+    if (
+      (await We(
+        E.img.animate(
+          [
+            { scale: "1 1", opacity: 1 },
+            { scale: "1.3 .6", opacity: 1, offset: 0.5 },
+            { scale: "0 0", opacity: 0 },
+          ],
+          { duration: 320, easing: "ease-in", fill: "forwards" },
+        ),
+      ),
+      m?.ep === C)
+    ) {
+      for (let at = 0; at < 10; at++) {
+        const Mt = je(0, 6.283),
+          Pa = je(10, 30);
+        m.parts.push({
+          x: q + je(-4, 4),
+          y: Pe + 8,
+          vx: Math.cos(Mt) * Pa,
+          vy: Math.sin(Mt) * Pa * 0.5 - 6,
+          g: -10,
+          t: 0,
+          life: je(0.4, 0.7),
+          pal: ["#e8e4f0", "#c8c0dc", "#a89cc4", "#8a7cac", "#6a5c8c", "#4a3c6c"],
+          s: 2,
+        });
+      }
+      if (
+        ((E.gone = !0),
+        await re(je(1200, 2600)),
+        m?.ep === C &&
+          ((E.look = pt(L.filter((at) => at !== E.look))),
+          await new Promise((at) => {
+            ((E.img.onload = at), (E.img.onerror = at), (E.img.src = `assets/trainers/still/${E.look}.png`));
+          }),
+          m?.ep === C &&
+            (E.img
+              .getAnimations()
+              .filter((at) => !(at instanceof CSSAnimation))
+              .forEach((at) => at.cancel()),
+            (E.img.style.width = E.img.naturalWidth * E.k + "px"),
+            (E.img.style.height = E.img.naturalHeight * E.k + "px"),
+            await We(
+              E.img.animate(
+                [
+                  { translate: "0 -160px", scale: ".9 1.1", opacity: 0 },
+                  { opacity: 1, offset: 0.1 },
+                  { translate: "0 0", scale: "1.25 .75", offset: 0.55, easing: "ease-out" },
+                  { translate: "0 -8px", scale: ".94 1.06", offset: 0.75, easing: "ease-in" },
+                  { translate: "0 0", scale: "1.08 .92", offset: 0.88 },
+                  { translate: "0 0", scale: "1 1" },
+                ],
+                { duration: 680, easing: "ease-in", fill: "backwards" },
+              ),
+            ),
+            m?.ep === C)))
+      ) {
+        for (let at = 0; at < 6; at++)
+          m.parts.push({
+            x: q + je(-6, 6),
+            y: Pe + 10,
+            vx: je(-14, 14),
+            vy: je(-8, -2),
+            g: 0,
+            t: 0,
+            life: 0.4,
+            pal: ["#c8c0dc", "#a89cc4", "#8a7cac", "#6a5c8c", "#4a3c6c", "#2a1c4c"],
+            s: 1,
+          });
+        E.gone = !1;
+        for (const at of E.mons)
+          if (((at.reserved = !1), at.empty && (va(at), await re(450), m?.ep !== C))) return;
+        E.busy = !1;
+      }
+    }
+  }
+  function Xa(C, g, E) {
+    const q = m.crowd.filter((Mt) => !Mt.empty && !Mt.busy),
+      Pe = E ? q.filter((Mt) => Math.abs(Mt.x - E) < 18) : q,
+      at = m;
+    for (let Mt = 0; Mt < C; Mt++)
+      Wa(
+        () => {
+          if (m !== at || m.broken) return;
+          const Pa = pt(Pe.length ? Pe : q);
+          Pa && !Pa.empty && An(za(Pa), Ba(), Pa.type, 1, !1);
+        },
+        je(0, g),
+      );
+  }
+  const nn = "brightness(0) invert(1) sepia(1) saturate(6) hue-rotate(-12deg) brightness(.95)";
+  function F(C) {
+    const g = C.el,
+      E = m;
+    C.img.animate([{ filter: nn }, { filter: nn }], { duration: 130 });
+    const q = za(C);
+    for (let Pe = 0; Pe < 6; Pe++)
+      m.parts.push({
+        x: q[0],
+        y: q[1],
+        vx: je(-40, 40),
+        vy: je(-50, -10),
+        g: 120,
+        t: 0,
+        life: je(0.3, 0.5),
+        pal: ee,
+        s: 1,
+      });
+    Wa(() => {
+      m === E &&
+        (g.classList.add("ko"),
+        C.img.animate(
+          [
+            { translate: "0 0", scale: "1 1" },
+            { translate: `0 ${-4 * C.k}px`, scale: ".9 1.1", offset: 0.3 },
+            { translate: `0 ${2 * C.k}px`, scale: "1.2 .7" },
+          ],
+          { duration: 380, easing: "ease-in", fill: "forwards" },
+        ));
+    }, 110);
+  }
+  function Ce(C) {
+    const g = m?.salvo;
+    if (!g || g.done) return;
+    if (
+      ((g.done = !0),
+      (pe = { dmg: g.plan.dmg, dur: g.plan.dur, fell: m.broken }),
+      (m.recap = {
+        total: g.plan.dmg,
+        pct: g.hp ? (g.plan.dmg / g.hp) * 100 : 0,
+        boost: g.plan.boost,
+        rows: g.plan.rows,
+      }),
+      (m.salvo = null),
+      (m.st.querySelector(".wb-spill").hidden = !0),
+      (m.st.querySelector(".wb-skip").hidden = !0),
+      m.broken)
+    ) {
+      Ea();
+      return;
+    }
+    m.mine.forEach((q) => q.mon && q.el.classList.add("rest"));
+    const E = Ze().state();
+    (Ze().left(E) > 0 && U(Ze().autoTeam(E)), C || Ea());
+  }
+  async function Xe() {
+    if (!m || m.broken || m.salvo) return;
+    ((m.swapping = !0), Ea());
+    const C = m,
+      g = ie(),
+      E = (q) => !(q instanceof CSSAnimation);
+    (g.forEach((q) => {
+      new Image().src = A(q.id, q.shiny);
+    }),
+      await Promise.all(
+        m.mine.map((q, Pe) =>
+          We(
+            q.img.animate([{ opacity: 1 }, { scale: "1.3 .3", opacity: 0 }], {
+              duration: 240,
+              delay: Pe * 40,
+              easing: "ease-in",
+              fill: "forwards",
+            }),
+          ),
+        ),
+      ),
+      m === C &&
+        (ln(g),
+        m.mine.forEach((q, Pe) => {
+          (q.el.classList.remove("ko", "rest"),
+            q.img
+              .getAnimations()
+              .filter(E)
+              .forEach((at) => at.cancel()),
+            q.mon &&
+              q.img.animate(
+                [
+                  { translate: "0 -150px", scale: ".9 1.1", opacity: 0 },
+                  { opacity: 1, offset: 0.1 },
+                  { translate: "0 0", scale: "1.25 .75", offset: 0.55, easing: "ease-out" },
+                  { translate: `0 ${-6 * q.k}px`, scale: ".94 1.06", offset: 0.75, easing: "ease-in" },
+                  { translate: "0 0", scale: "1.08 .92", offset: 0.88 },
+                  { translate: "0 0", scale: "1 1" },
+                ],
+                { duration: 680, delay: 60 + Pe * 90, easing: "ease-in", fill: "backwards" },
+              ));
+        }),
+        await re(60 + 6 * 90 + 680),
+        m === C && ((m.swapping = !1), fn(0), Ea())));
+  }
+  function Ve(C) {
+    if (!m || m.dead) return;
+    if (!m.st.isConnected) {
+      wt();
+      return;
+    }
+    let g = Math.max(0, Math.min(0.05, (C - m.last) / 1e3));
+    ((m.last = C), m.f++, m.freeze > 0 && ((m.freeze -= g), (g = 0)), (m.clock += g));
+    const E = m.salvo;
+    if (E && !E.stop) {
+      const q = m.clock - E.t0,
+        Pe = 1 + 0.35 * Math.sin((q * 6.283) / 7);
+      q >= E.nextVolley && ((E.nextVolley += je(13, 17)), Dn());
+      for (const at of m.shooters)
+        if (m.clock >= at.next) {
+          if ((vn(at, 1), Math.random() < 0.15))
+            for (const Mt of [170, 340])
+              Wa(() => {
+                m && m.salvo === E && !E.stop && An(za(at), Ba(), at.type, 0.8, !0, at);
+              }, 240 + Mt);
+          at.next = m.clock + je(0.75, 1.5) / Pe;
+        }
+      qn(E) >= 1 && Ha(E);
+    }
+    if (E && !E.done) {
+      const q = Math.floor(Math.min(E.dur, m.clock - E.t0)),
+        Pe = `${Math.floor(q / 60)}:${String(q % 60).padStart(2, "0")}`,
+        at = "+" + b(E.dmg);
+      (Pe !== E.tt && (m.st.querySelector(".sp-t").textContent = E.tt = Pe),
+        at !== E.dd && ((m.st.querySelector(".sp-d").textContent = E.dd = at), Ca(E)));
+    }
+    if (
+      (!m.broken &&
+        g > 0 &&
+        (m.nextCluster -= g) <= 0 &&
+        ((m.nextCluster = je(6, 12)), Xa(m.ph ? 8 : 14, 700, je(10, 90))),
+      !m.broken && g > 0)
+    )
+      for (
+        m.amb -= g;
+        m.amb <= 0;
+        m.amb += (je(0.03, 0.08) * (m.ph ? 1.6 : 1)) / (1 + 0.4 * Math.sin((m.clock * 6.283) / 9 + 1))
+      ) {
+        const q = pt(m.crowd);
+        !q ||
+          q.empty ||
+          q.busy ||
+          (Math.random() < (m.ph ? 0.15 : 0.3) &&
+            q.img.animate([{ translate: "0 0" }, { translate: `0 ${-2 * q.k}px` }, { translate: "0 0" }], {
+              duration: 240,
+            }),
+          An(za(q), Ba(), q.type, 1, !1));
+      }
+    m &&
+      (is(g),
+      Da(g),
+      us(g),
+      Ja(g),
+      m &&
+        (Ft(g),
+        m.seen && (ka(), N()),
+        m.warp && !(m.wave?.white >= 1) && ((m.warp.t += g), m.seen && xe()),
+        m.wave && !(m.wave.white >= 1) && m.seen && ss(),
+        ht(g),
+        da()));
+  }
+  const Rt = (C) => {
+    (cancelAnimationFrame(C.raf), clearTimeout(C.to), (C.raf = C.to = 0));
+  };
+  function da() {
+    if (Ht() || m.warp || m.grow || m.white > 0 || m.freeze > 0 || m.trem) {
+      m.raf = es(Ve);
+      return;
+    }
+    const C = m;
+    C.to = Wa(
+      () => {
+        ((C.to = 0), m === C && !C.dead && (C.raf = es(Ve)));
+      },
+      Math.max(0, C.last + 1e3 / 30 - 12 - zn.now()),
+    );
+  }
+  const ia = (C, g) => {
+    const E = 1 - g;
+    return [
+      E * E * C.from[0] + 2 * E * g * C.ctrl[0] + g * g * C.to[0],
+      E * E * C.from[1] + 2 * E * g * C.ctrl[1] + g * g * C.to[1],
+    ];
+  };
+  function Ja(C) {
+    ((m.projs = m.projs.filter((g) => {
+      const E = (m.clock - g.t0) / g.dur;
+      if (g.fam === "orb") {
+        const q = ia(g, Math.min(1, E ** 1.35));
+        return (
+          g.trail.unshift(q),
+          (g.trail.length = Math.min(g.trail.length, 7)),
+          (g.pos = q),
+          E >= 1 ? (on(g.to[0], g.to[1], g.pal, g.power, g.mine), !1) : !0
+        );
+      }
+      return (
+        !g.hit &&
+          E >= (g.fam === "beam" ? 0.25 : 0.2) &&
+          ((g.hit = !0), on(g.to[0], g.to[1], g.pal, g.power, g.mine)),
+        g.hit &&
+          g.fam === "beam" &&
+          m.f % 4 === 0 &&
+          m.parts.push({
+            x: g.to[0],
+            y: g.to[1],
+            vx: je(-40, 40),
+            vy: je(-40, 30),
+            g: 40,
+            t: 0,
+            life: 0.25,
+            pal: g.pal,
+            s: 1,
+          }),
+        E < 1
+      );
+    })),
+      (m.parts = m.parts.filter(
+        (g) => (
+          (g.t += C),
+          (g.vy += g.g * C),
+          (g.x += g.vx * C),
+          (g.y += g.vy * C),
+          g.t < g.life && g.y < m.h + 4
+        ),
+      )),
+      (m.rips = m.rips.filter((g) => (g.t += C) < g.life)),
+      (m.waves = m.waves.filter((g) => (g.t += C) < g.life)),
+      (m.beams = m.beams.filter((g) => (g.t += C) < g.life)),
+      (m.abeams = m.abeams.filter((g) => (g.t += C) < g.life)),
+      (m.glints = m.glints.filter((g) => (g.t += C) < g.life)),
+      m.wave && ((m.wave.t += C), ft()),
+      m?.grow && (m.grow.t += C) >= m.grow.dur && (m.grow = null));
+  }
+  function Ia() {
+    const C = m.gone ? 0 : m.stage;
+    for (let g = 0; g < C; g++) {
+      const E = m.grow && m.grow.k === g ? m.grow.t / m.grow.dur : 1;
+      for (const q of m.cracks[g]) {
+        const Pe = q.length - 1,
+          at = Pe * E;
+        for (let Mt = 0; Mt < Pe && Mt < at; Mt++) {
+          const Pa = Math.min(1, at - Mt),
+            Ta = q[Mt],
+            La = q[Mt + 1],
+            xa = m.cx + Ta[0] * m.R,
+            en = m.cy + Ta[1] * m.R,
+            rn = xa + (La[0] - Ta[0]) * m.R * Pa,
+            hn = en + (La[1] - Ta[1]) * m.R * Pa,
+            Fn = Mt < 4 ? 1 : 0;
+          (Ma(xa, en + 1, rn, hn + 1, "#5a3a06"),
+            Fn && Ma(xa + 1, en + 1, rn + 1, hn + 1, "#5a3a06"),
+            Ma(xa, en, rn, hn, "#ffffff"),
+            Fn && Ma(xa + 1, en, rn + 1, hn, "#ffe866"));
+        }
+      }
+    }
+  }
+  function ka() {
+    const C = zt();
+    if (!m.base) return;
+    C.clearRect(0, 0, m.w, m.h);
+    const g = 0.5 + 0.5 * Math.sin((m.clock * 2 * Math.PI) / 2.4);
+    if (!m.gone && !(m.broken && !m.falling)) {
+      const E = m.trem ? Math.round(je(-1, 1) * (1 + m.white * 3)) : 0,
+        q = m.trem ? Math.round(je(-1, 1) * (1 + m.white * 3)) : 0;
+      (C.save(),
+        C.translate(E, q),
+        (C.globalAlpha = 0.82 + 0.18 * g),
+        C.drawImage(m.base, 0, 0),
+        (C.globalAlpha = 0.16 + 0.1 * g + m.stage * 0.03),
+        C.drawImage(m.hex, 0, 0));
+      for (const Pe of m.rips)
+        !Pe.free &&
+          Pe.max > 6 &&
+          (C.save(),
+          C.beginPath(),
+          C.arc(Pe.x, Pe.y, 4 + Pe.max * (Pe.t / Pe.life), 0, 7),
+          C.clip(),
+          (C.globalAlpha = (1 - Pe.t / Pe.life) * 0.9),
+          C.drawImage(m.hexB, 0, 0),
+          C.restore());
+      ((C.globalAlpha = 1),
+        Ia(),
+        m.white && ((C.globalAlpha = m.white), C.drawImage(m.whiteC, 0, 0), (C.globalAlpha = 1)),
+        C.restore());
+    }
+    for (const E of m.beams) {
+      if (m.f % 4 === 3) continue;
+      const q = E.t < 0.1 ? E.t / 0.1 : 1;
+      (Ma(E.a[0] + 1, E.a[1], E.b[0] + 1, E.b[1], "#8a1a20"),
+        Ma(
+          E.a[0],
+          E.a[1],
+          E.a[0] + (E.b[0] - E.a[0]) * q,
+          E.a[1] + (E.b[1] - E.a[1]) * q,
+          m.f % 2 ? "#ff5050" : "#ffd0d0",
+        ));
+    }
+    for (const E of m.glints) {
+      const q = E.t / E.life,
+        Pe = Math.round(1 + q * 4),
+        at = Math.round(E.x),
+        Mt = Math.round(E.y);
+      (q > 0.8 && m.f & 1) ||
+        ((C.fillStyle = "#ffd84a"),
+        C.fillRect(at - Pe, Mt, Pe * 2 + 1, 1),
+        C.fillRect(at, Mt - Pe, 1, Pe * 2 + 1),
+        (C.fillStyle = "#ffffff"),
+        C.fillRect(at - 1, Mt, 3, 1),
+        C.fillRect(at, Mt - 1, 1, 3));
+    }
+    for (const E of m.abeams) {
+      const q = E.t / E.life,
+        Pe = q < 0.15 ? 2 : q < 0.6 ? 3 : 1;
+      for (let at = -Pe; at <= Pe; at++)
+        (Math.abs(at) === Pe && m.f & 1) ||
+          Ma(
+            E.a[0] + at,
+            E.a[1],
+            E.b[0] + at,
+            E.b[1],
+            Math.abs(at) >= 2 ? "#ffb02e" : Math.abs(at) === 1 ? "#ffe866" : "#ffffff",
+          );
+      ca(E.b[0], E.b[1], Math.round(3 + (1 - q) * 3), "#fff6c8");
+    }
+    Gt(C, !0);
+    for (const E of m.flying) {
+      const q = E.t / E.life;
+      (q > 0.6 && (Math.round(E.x) + Math.round(E.y) + m.f) & 1) || pa(C, E.x, E.y, E.g, 1 - q * 0.5, !0, 0);
+    }
+    C.globalAlpha = 1;
+    for (const E of m.rips) {
+      const q = E.t / E.life;
+      Na(
+        E.x,
+        E.y,
+        1 + E.max * Math.sqrt(q),
+        q < 0.3 ? "#ffffff" : q < 0.6 ? "#ffe866" : "#ffb02e",
+        q > 0.55,
+        !E.free && !m.gone && !m.broken,
+      );
+    }
+    for (const E of m.projs)
+      if (E.fam === "orb" && E.pos)
+        (E.trail.forEach((q, Pe) => {
+          (Pe && (Math.round(q[0]) + Math.round(q[1]) + m.f + Pe) & 1 && Pe > 3) ||
+            ca(q[0], q[1], Math.max(0, E.r - 1 - (Pe > 2)), E.pal[Math.min(5, 2 + (Pe >> 1))]);
+        }),
+          ca(E.pos[0], E.pos[1], E.r, E.pal[3]),
+          ca(E.pos[0], E.pos[1], Math.max(0, E.r - 1), E.pal[1]),
+          (C.fillStyle = E.pal[0]),
+          C.fillRect(Math.round(E.pos[0]), Math.round(E.pos[1]), 1, 1));
+      else if (E.fam === "beam") {
+        const q = (m.clock - E.t0) / E.dur,
+          Pe = Math.min(1, q / 0.25),
+          at = q > 0.75 ? (q - 0.75) / 0.25 : 0,
+          Mt = [E.from[0] + (E.to[0] - E.from[0]) * at, E.from[1] + (E.to[1] - E.from[1]) * at],
+          Pa = [E.from[0] + (E.to[0] - E.from[0]) * Pe, E.from[1] + (E.to[1] - E.from[1]) * Pe],
+          Ta = E.w + (m.f % 6 < 3 ? 0 : -1),
+          La = Math.hypot(Pa[0] - Mt[0], Pa[1] - Mt[1]),
+          xa = Math.max(1, Math.ceil(La));
+        for (let en = 0; en <= xa; en++)
+          ca(
+            Mt[0] + ((Pa[0] - Mt[0]) * en) / xa,
+            Mt[1] + ((Pa[1] - Mt[1]) * en) / xa,
+            Math.max(0, Ta),
+            E.pal[3],
+          );
+        for (let en = 0; en <= xa; en++)
+          ca(
+            Mt[0] + ((Pa[0] - Mt[0]) * en) / xa,
+            Mt[1] + ((Pa[1] - Mt[1]) * en) / xa,
+            Math.max(0, Ta - 1),
+            E.pal[1],
+          );
+        (Ma(Mt[0], Mt[1], Pa[0], Pa[1], E.pal[0]), Pe >= 1 && ca(Pa[0], Pa[1], Ta + 2, E.pal[1]));
+      } else if (E.fam === "bolt") {
+        if ((m.f !== E.zt && m.f % 3 === 0) || !E.zig.length) {
+          ((E.zt = m.f), (E.zig = []));
+          const q = 7;
+          for (let Pe = 0; Pe <= q; Pe++) {
+            const at = Pe / q;
+            E.zig.push([
+              E.from[0] + (E.to[0] - E.from[0]) * at + (Pe && Pe < q ? je(-5, 5) : 0),
+              E.from[1] + (E.to[1] - E.from[1]) * at + (Pe && Pe < q ? je(-3, 3) : 0),
+            ]);
+          }
+        }
+        for (let q = 0; q < E.zig.length - 1; q++)
+          (Ma(E.zig[q][0] + 1, E.zig[q][1], E.zig[q + 1][0] + 1, E.zig[q + 1][1], E.pal[3]),
+            Ma(E.zig[q][0], E.zig[q][1], E.zig[q + 1][0], E.zig[q + 1][1], E.pal[q % 2 ? 0 : 1]));
+      }
+    for (const E of m.parts) {
+      const q = E.t / E.life,
+        Pe = Math.round(E.x),
+        at = Math.round(E.y);
+      if (!(q > 0.6 && (Pe + at + m.f) & 1))
+        if (E.shard) {
+          const Mt = Math.floor(E.t * 14 + E.ph) % 3;
+          ((C.fillStyle = E.pal[Mt === 0 ? 0 : Mt === 1 ? 2 : 4]),
+            C.fillRect(Pe, at, E.s - (Mt === 2 ? 1 : 0), Mt === 1 ? 1 : E.s),
+            (C.fillStyle = E.pal[5]),
+            C.fillRect(Pe, at + E.s, E.s, 1));
+        } else ((C.fillStyle = E.pal[Math.min(5, Math.floor(q * 4))]), C.fillRect(Pe, at, E.s, E.s));
+    }
+  }
+  const Za = {
+    cv: null,
+    x: null,
+    raf: 0,
+    seen: !0,
+    kind: "",
+    motes: [],
+    runes: [],
+    t: 0,
+    last: 0,
+    w: 0,
+    h: 0,
+    at: null,
+  };
+  function En(C) {
+    if (C !== "live" && C !== "cap" && C !== "tease") return null;
+    if (!Za.cv) {
+      ((Za.cv = Object.assign(document.createElement("canvas"), { className: "rh-fx" })),
+        (Za.x = Za.cv.getContext("2d")),
+        new IntersectionObserver(([E]) => {
+          ((Za.seen = E.isIntersecting), an());
+        }).observe(Za.cv),
+        document.addEventListener("visibilitychange", () => an()),
+        addEventListener("calm", () => an()));
+      const g = oe(493);
+      ((Za.motes = Array.from({ length: 22 }, () => ({
+        x: g(),
+        y: g(),
+        v: 0.06 + g() * 0.12,
+        ph: g() * 6.283,
+        c: Math.floor(g() * 4),
+      }))),
+        (Za.runes = Array.from({ length: 9 }, () => ({
+          g: Math.floor(g() * Q.length),
+          ph: g() * 6.283,
+          fl: 2 + g() * 3,
+        }))),
+        (Za.drift = Array.from({ length: 11 }, () => ({
+          g: Math.floor(g() * Q.length),
+          x: g(),
+          y: g(),
+          vx: (g() - 0.5) * 0.03,
+          vy: -(0.025 + g() * 0.03),
+          ph: g() * 6.283,
+          life: 7 + g() * 6,
+        }))));
+    }
+    return ((Za.kind = C), Za.cv);
+  }
+  const bn = () =>
+    !!Za.cv?.isConnected && Za.seen && !document.hidden && !!document.querySelector("#screen-raid.active");
+  function an() {
+    const C = Za.cv;
+    if (!C?.isConnected) {
+      (cancelAnimationFrame(Za.raf), (Za.raf = 0));
+      return;
+    }
+    const g = C.parentElement,
+      E = g.getBoundingClientRect(),
+      q = Math.max(1, Math.round(E.width / 3)),
+      Pe = Math.max(1, Math.round(E.height / 3));
+    (C.width !== q || C.height !== Pe) && ((C.width = q), (C.height = Pe));
+    const at = g.querySelector(".wb-mini, .wb-big, .wb-tcd")?.getBoundingClientRect();
+    if (
+      ((Za.at =
+        at && at.width
+          ? {
+              x: (at.left + at.width / 2 - E.left) / 3,
+              y: (at.top + at.height * 0.5 - E.top) / 3,
+              r: at.width / 6,
+            }
+          : { x: q / 2, y: Pe * 0.35, r: 18 }),
+      (Za.w = q),
+      (Za.h = Pe),
+      De())
+    ) {
+      (cancelAnimationFrame(Za.raf), (Za.raf = 0), wn());
+      return;
+    }
+    !Za.raf && bn() && ((Za.last = zn.now()), (Za.raf = es(Wn)));
+  }
+  function Wn(C) {
+    if (!bn() || De()) {
+      Za.raf = 0;
+      return;
+    }
+    const g = Math.min(0.05, (C - Za.last) / 1e3);
+    ((Za.last = C), (Za.t += g));
+    for (const E of Za.motes)
+      ((E.y -= E.v * g), (E.ph += g * 2), E.y < -0.02 && ((E.y = 1.02), (E.x = Math.random())));
+    if (Za.kind === "tease" || Za.kind === "cap")
+      for (const E of Za.drift)
+        ((E.x += E.vx * g),
+          (E.y += E.vy * g),
+          (E.ph += (g / E.life) * 6.283),
+          (E.y < -0.15 || E.x < -0.05 || E.x > 1.05) &&
+            ((E.y = 1.1), (E.x = Math.random()), (E.g = Math.floor(Math.random() * Q.length))));
+    (wn(), (Za.raf = es(Wn)));
+  }
+  function wn() {
+    const C = Za.x,
+      g = Za.w,
+      E = Za.h,
+      q = Za.at,
+      Pe = Za.t;
+    if (!(!C || !q)) {
+      if ((C.clearRect(0, 0, g, E), Za.kind === "tease")) {
+        const at = 0.55 + 0.3 * Math.sin(Pe * 1.3),
+          Mt = Math.max(q.r * 2.2, E * 1.1),
+          Pa = C.createRadialGradient(q.x, q.y, 0, q.x, q.y, Mt);
+        (Pa.addColorStop(0, `rgba(255,236,160,${(0.5 * at).toFixed(3)})`),
+          Pa.addColorStop(0.4, `rgba(255,216,74,${(0.22 * at).toFixed(3)})`),
+          Pa.addColorStop(1, "rgba(255,216,74,0)"),
+          (C.fillStyle = Pa),
+          C.fillRect(0, 0, g, E));
+      }
+      if (Za.kind === "cap") {
+        const at = 0.6 + 0.25 * Math.sin(Pe * 1.8),
+          Mt = Math.max(q.r * 2.6, E * 0.9),
+          Pa = C.createRadialGradient(q.x, q.y, 0, q.x, q.y, Mt);
+        (Pa.addColorStop(0, `rgba(255,240,170,${(0.7 * at).toFixed(3)})`),
+          Pa.addColorStop(0.35, `rgba(255,216,74,${(0.3 * at).toFixed(3)})`),
+          Pa.addColorStop(1, "rgba(255,216,74,0)"),
+          (C.fillStyle = Pa),
+          C.fillRect(0, 0, g, E));
+      }
+      if (Za.kind === "tease" || Za.kind === "cap") {
+        const at = (Pe % 7) / 1.6;
+        if (at < 1) {
+          const Mt = -E + at * (g + 2 * E),
+            Pa = C.createLinearGradient(Mt - E * 0.6, 0, Mt + E * 0.6, 0),
+            Ta = (Math.sin(at * Math.PI) * 0.22).toFixed(3);
+          (Pa.addColorStop(0, "rgba(255,240,190,0)"),
+            Pa.addColorStop(0.5, `rgba(255,240,190,${Ta})`),
+            Pa.addColorStop(1, "rgba(255,240,190,0)"),
+            C.save(),
+            C.setTransform(1, 0, -0.6, 1, E * 0.3, 0),
+            (C.fillStyle = Pa),
+            C.fillRect(Mt - E, 0, E * 2, E),
+            C.restore());
+        }
+        for (const Mt of Za.drift)
+          pa(C, Mt.x * g, Mt.y * E, Mt.g, Math.max(0, Math.sin(Mt.ph)) * 0.8, Math.sin(Mt.ph * 0.5) > 0, 0);
+        C.globalAlpha = 1;
+      }
+      for (const at of Za.motes)
+        ((C.globalAlpha = 0.45 + 0.4 * Math.sin(at.ph)),
+          (C.fillStyle = nt[at.c]),
+          C.fillRect(Math.round(at.x * g + Math.sin(at.ph * 0.7) * 2), Math.round(at.y * E), 1, 1));
+      if (((C.globalAlpha = 1), Za.kind === "live")) {
+        const at = Za.runes.length,
+          Mt = q.r * 1.25,
+          Pa = 0.34;
+        (Za.runes.forEach((Ta, La) => {
+          const xa = (La / at) * 6.283 + Pe * 0.35,
+            en = q.x + Math.cos(xa) * Mt,
+            rn = q.y + Math.sin(xa) * Mt * Pa,
+            hn = Math.sin(xa) > 0;
+          pa(C, en, rn, Ta.g, (0.65 + 0.3 * Math.sin(Pe * Ta.fl + Ta.ph)) * (hn ? 1 : 0.7), hn, 0);
+        }),
+          (C.globalAlpha = 1));
+      }
+    }
+  }
+  function Bn(C) {
+    const g = Ze().state();
+    C();
+    const E = (Je.S.wb ||= {}),
+      q = g.phase !== "shield" ? null : E.intro !== g.n ? "full" : E.introDay !== g.day ? "short" : null;
+    if (!q || De() || !t.Screens.adventure?.overlayIntro) return;
+    ((E.intro = g.n), (E.introDay = g.day), Je.save());
+    const Pe = Je.S.trainer || {},
+      at = m;
+    (at && Rt(at),
+      t.Screens.adventure
+        .overlayIntro(
+          {
+            player: 1,
+            mon: "arceus-shield",
+            ver: q,
+            team: ie()
+              .map((Mt) => Mt.id)
+              .join(","),
+            me: `${Pe.name || ""}${Pe.tag ? "#" + Pe.tag : ""}`,
+            look: R(Pe.sprite),
+            pct: Math.ceil(g.pct * 100),
+            allies: (at?.allies || He())
+              .map(
+                (Mt) =>
+                  `${(Mt.name || "").replace(/[~|]/g, "")}~${Mt.look}~${Mt.mons.map((Pa) => Pa.id).join(".")}`,
+              )
+              .join("|"),
+          },
+          !0,
+        )
+        .then(() => {
+          m && m === at && !m.dead && (Rt(m), (m.last = zn.now()), (m.raf = es(Ve)));
+        }));
+  }
+  return { banner: et, paint: _, render: Xt, stop: wt, tick: ge, enter: Bn, bannerFx: En, fxWake: an };
+})();

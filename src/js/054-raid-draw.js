@@ -1,0 +1,454 @@
+/**
+ * raid draw
+ *
+ * Public API on the game namespace `t`: t.RaidDraw
+ *
+ * Recovered from the shipped bundle — original chunk #53 at byte 1441344 (9966 bytes, sha256:f63a25393bc55baa).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+t.RaidDraw = (function () {
+  const a = () => t.UI,
+    b = () =>
+      !!(t.CHEAT?.noAnim || t.Game?.S?.reducedAnim || matchMedia("(prefers-reduced-motion: reduce)").matches),
+    ue = ["#ffffff", "#fff6c2", "#ffe066", "#ffb02e", "#d9701c"],
+    H = ["#ffffff", "#d4f4ff", "#8fdcff", "#c9b6ff"],
+    vt = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5],
+    B = (ve, it, De) => De >= 1 || (De > 0 && vt[(it & 3) * 4 + (ve & 3)] < De * 16),
+    se = "#ffe066",
+    Ge = "#ffffff",
+    Je = "#9fd8ff",
+    Ze = (ve) => {
+      const it = [[0, 0, Ge]];
+      for (let De = 1; De <= ve; De++) it.push([De, 0, se], [-De, 0, se], [0, De, se], [0, -De, se]);
+      return it;
+    },
+    x = [
+      [0, -3, se],
+      [0, -2, se],
+      [-1, -1, se],
+      [0, -1, Ge],
+      [1, -1, se],
+      [-3, 0, se],
+      [-2, 0, se],
+      [-1, 0, Ge],
+      [0, 0, Ge],
+      [1, 0, Ge],
+      [2, 0, se],
+      [3, 0, se],
+      [-1, 1, se],
+      [0, 1, Ge],
+      [1, 1, se],
+      [0, 2, se],
+      [0, 3, se],
+    ],
+    $ = [
+      ...x,
+      [2, 2, Je],
+      [-2, 2, Je],
+      [2, -2, Je],
+      [-2, -2, Je],
+      [3, 0, Ge],
+      [-3, 0, Ge],
+      [0, 3, Ge],
+      [0, -3, Ge],
+    ],
+    X = [[[0, 0, Ge]], Ze(1), Ze(2), x, $, x, Ze(2), Ze(1), [[0, 0, Ge]]],
+    Tt = (ve, it, De, je) => {
+      const pt = X[Math.max(0, Math.min(X.length - 1, Math.floor(je * X.length)))];
+      ((it = Math.round(it)), (De = Math.round(De)));
+      for (const [re, We, oe] of pt) ((ve.fillStyle = oe), ve.fillRect(it + re, De + We, 1, 1));
+    },
+    le = {
+      hit: { over: 0.06, hold: 0, back: 0.25 },
+      past: { over: 0.42, hold: 0.2, back: 0.6 },
+      before: { over: -0.56, hold: 0.45, back: 0.75 },
+    };
+  function P(ve, it, De, je) {
+    const { over: $e, hold: Z, back: A } = le[je],
+      J = (10 * 0.35) / 2 + 10 * 0.9 + (10 * 2.2) / 3 - $e,
+      de = (tt, mt) => ((tt % mt) + mt) % mt,
+      _e = ve + Math.ceil(J) + de(it - ve - Math.ceil(J), De),
+      Re = _e + $e - ve - (10 * 0.35) / 2 - 10 * 0.9,
+      dt = (3 * Re) / 10,
+      qe = (tt) => tt * tt * (3 - 2 * tt);
+    return {
+      end: _e,
+      at: (tt) => {
+        if (tt < 0.35) return ve + (10 * tt * tt) / (2 * 0.35);
+        if (tt < 0.35 + 0.9) return ve + (10 * 0.35) / 2 + 10 * (tt - 0.35);
+        const mt = tt - 0.35 - 0.9,
+          Te = ve + (10 * 0.35) / 2 + 10 * 0.9;
+        if (mt < dt) {
+          const yt = mt / dt;
+          return Te + Re * (1 - (1 - yt) ** 3);
+        }
+        const At = mt - dt - Z;
+        return At <= 0 ? _e + $e : _e + $e * (1 - qe(Math.min(1, At / A)));
+      },
+      total: (0.35 + 0.9 + dt + Z + A) * 1e3,
+    };
+  }
+  function u({ lane: ve, win: it, ending: De }) {
+    return new Promise((je) => {
+      const pt = ve.length,
+        re = ve.findIndex((wt) => wt.key === it);
+      if (re < 0 || !pt) {
+        je();
+        return;
+      }
+      const We = innerWidth < 640,
+        oe = Object.keys(le),
+        $e = 3,
+        Z = P($e, re, pt, le[De] ? De : oe[Math.floor(Math.random() * oe.length)]),
+        A = Z.end,
+        J = We ? 190 : 280,
+        de = We ? 2 : 3,
+        _e = Array.from({ length: A + 6 }, (wt, ge) => {
+          const Fe = ve[ge % pt];
+          return `<div class="rd-card${Fe.won ? "" : " lock"}${ge === A ? " win" : ""}" style="--bt:${t.TYPES[t.Game.DEX[Fe.boss].types[0]].color}"><div class="rd-in">
+          <span class="rd-pad"></span>${ge === A ? '<span class="rd-beam"></span>' : ""}<span class="rd-bob unknown">${a().artImg(Fe.boss, !0, { k: de, fit: J })}</span>
+          <span class="nm" style="--c:${Fe.color}">${Fe.won ? "" : a().lockIc}${a().esc(e(Fe.name))}</span></div></div>`;
+        }).join(""),
+        Re = a()
+          .h(`<div class="rc-fx lk-fx rd-fx${We ? " ph" : ""}" role="dialog" aria-label="${a().esc(e("Raid du jour"))}">
+        <div class="rd-top"><img src="assets/ui/shiny-charm.png" alt="">${e("Raid du jour")}</div>
+        <div class="rd-lane"><span class="rd-mark t"></span>${_e}<span class="rd-mark b"></span></div><i class="rd-edge l"></i><i class="rd-edge r"></i>
+        <div class="rd-res"><span class="tt"></span><span class="rc-tap">${e("Touche pour continuer")}</span></div>
+        <div class="rd-flash"></div></div>`);
+      document.body.appendChild(Re);
+      const dt = [...Re.querySelectorAll(".rd-card")],
+        qe = dt.map((wt) => wt.querySelector(".rd-bob")),
+        ce = Re.querySelectorAll(".rd-mark"),
+        tt = a().skippable(Re),
+        mt = parseFloat(getComputedStyle(Re).getPropertyValue("--W")),
+        Te = We ? 18 : 28,
+        At = (wt) => (wt < 1 ? 1 - 0.28 * wt : 0.72 - 0.1 * (wt - 1)),
+        yt = [0];
+      for (let wt = 1; wt <= 5; wt++) yt[wt] = yt[wt - 1] + (At(wt - 1) * mt) / 2 + Te + (At(wt) * mt) / 2;
+      const he = (wt) => {
+          const ge = Math.floor(wt),
+            Fe = wt - ge;
+          return yt[ge] + (yt[ge + 1] - yt[ge]) * Fe;
+        },
+        fe = (wt) => {
+          for (let ge = 0; ge < dt.length; ge++) {
+            const Fe = ge - wt,
+              gt = Math.abs(Fe),
+              Dt = dt[ge];
+            if (gt > 3.6) {
+              Dt.style.visibility !== "hidden" && (Dt.style.visibility = "hidden");
+              continue;
+            }
+            ((Dt.style.visibility = ""),
+              (Dt.style.transform = `translateX(${(Math.sign(Fe) * he(gt)).toFixed(1)}px) scale(${At(gt).toFixed(3)})`),
+              (Dt.style.zIndex = 100 - Math.round(gt * 10)),
+              (Dt.style.opacity = gt > 2.4 ? Math.max(0, 1 - (gt - 2.4)).toFixed(2) : ""));
+          }
+        },
+        Oe = (wt) => {
+          const ge = document.createElement("canvas");
+          return (
+            (ge.className = `rd-cv ${wt}`),
+            (ge.width = Math.ceil(innerWidth / 3)),
+            (ge.height = Math.ceil(innerHeight / 3)),
+            (ge.style.width = ge.width * 3 + "px"),
+            (ge.style.height = ge.height * 3 + "px"),
+            Re.appendChild(ge),
+            ge.getContext("2d")
+          );
+        },
+        Ee = Oe("back"),
+        et = Oe("front");
+      let _ = [],
+        we = [],
+        ie = 0,
+        U = null,
+        Ne = null,
+        T = 0,
+        L = !0;
+      const R = (wt, ge, Fe, gt, Dt = 1) => {
+          ((ge = Math.round(ge)),
+            (Fe = Math.round(Fe)),
+            B(ge, Fe, Dt) && ((wt.fillStyle = gt), wt.fillRect(ge, Fe, 1, 1)));
+        },
+        te = (wt) =>
+          _.push({ vx: 0, vy: 0, life: 0, max: 600, grav: 0, drag: 1, size: 1, kind: "sq", ...wt }),
+        K = Array.from({ length: We ? 34 : 60 }, () => ({
+          x: Math.random() * Ee.canvas.width,
+          y: Math.random() * Ee.canvas.height,
+          vx: (Math.random() - 0.5) * 0.05,
+          vy: -0.015 - Math.random() * 0.04,
+          a: 0.25 + Math.random() * 0.45,
+          tw: 1400 + Math.random() * 2200,
+          ph: Math.random() * 6.3,
+          c: H[(Math.random() * H.length) | 0],
+        })),
+        He = b();
+      let m = zn.now();
+      (function wt(ge) {
+        if (!L) return;
+        const Fe = Math.min(50, ge - m),
+          gt = Fe / 16;
+        ((m = ge), (T += Fe));
+        const Dt = Ee.canvas.width,
+          ha = Ee.canvas.height;
+        (Ee.clearRect(0, 0, Dt, ha),
+          et.clearRect(0, 0, Dt, ha),
+          He ||
+            qe.forEach((_t, Ea) => {
+              dt[Ea].style.visibility !== "hidden" &&
+                (_t.style.transform = `translateY(${(-4 - 4 * Math.sin(T / 414 + (Ea % 4) * 1.57)).toFixed(1)}px)`);
+            }));
+        for (const _t of K)
+          (He ||
+            ((_t.x += _t.vx * gt),
+            (_t.y += _t.vy * gt),
+            _t.y < -2 && ((_t.y = ha + 2), (_t.x = Math.random() * Dt)),
+            _t.x < -2 && (_t.x += Dt + 4),
+            _t.x > Dt + 2 && (_t.x -= Dt + 4)),
+            (Ee.globalAlpha = _t.a * (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(T / _t.tw + _t.ph)))),
+            (Ee.fillStyle = _t.c),
+            Ee.fillRect(Math.round(_t.x), Math.round(_t.y), 1, 1));
+        ((Ee.globalAlpha = 1),
+          !He &&
+            Math.random() < 0.025 * gt &&
+            te({
+              x: Math.random() * Dt,
+              y: Math.random() * ha * 0.9,
+              kind: "star",
+              back: !0,
+              max: 500 + Math.random() * 300,
+            }));
+        for (const _t of we) {
+          if (((_t.t += Fe), _t.t < 0)) continue;
+          const Ea = Math.min(1, _t.t / _t.dur),
+            ut = _t.r0 + (_t.r1 - _t.r0) * (1 - (1 - Ea) ** 3),
+            jt = 1 - Ea * Ea,
+            xt = Math.ceil(ut * 6.283 * 1.4),
+            D = _t.front ? et : Ee;
+          for (const Q of Ea < 0.5 ? [0, 1] : [0])
+            for (let Y = 0; Y < xt; Y++) {
+              const ye = (Y / xt) * 6.283,
+                nt = ut - Q;
+              R(
+                D,
+                _t.x + Math.cos(ye) * nt,
+                _t.y + Math.sin(ye) * nt * _t.flat,
+                ue[Q ? 3 : Ea < 0.35 ? 1 : 2],
+                jt,
+              );
+            }
+        }
+        ((we = we.filter((_t) => _t.t < _t.dur)),
+          ie &&
+            U &&
+            Math.random() < ie * gt &&
+            te({ x: U.x + (Math.random() - 0.5) * U.w, y: U.y, vy: -0.35 - Math.random() * 0.3, max: 900 }),
+          (_ = _.filter((_t) => {
+            if (((_t.life += Fe), _t.life < 0)) return !0;
+            if (
+              _t.life > _t.max ||
+              (_t.to &&
+                ((_t.vx += (_t.to.x - _t.x) * 0.012 * gt),
+                (_t.vy += (_t.to.y - _t.y) * 0.012 * gt),
+                (_t.vx *= 0.9),
+                (_t.vy *= 0.9),
+                Math.abs(_t.to.x - _t.x) + Math.abs(_t.to.y - _t.y) < 2))
+            )
+              return !1;
+            ((_t.vx *= _t.drag ** gt),
+              (_t.vy = _t.vy * _t.drag ** gt + _t.grav * gt),
+              (_t.x += _t.vx * gt),
+              (_t.y += _t.vy * gt));
+            const Ea = _t.life / _t.max,
+              ut = Ea > 0.6 ? (1 - Ea) / 0.4 : 1;
+            return _t.kind === "star"
+              ? (Tt(_t.back ? Ee : et, _t.x, _t.y - _t.life / 160, Ea), !0)
+              : ((et.fillStyle = ue[Math.min(4, Math.floor(Ea * 4))]),
+                B(Math.round(_t.x), Math.round(_t.y), ut) &&
+                  et.fillRect(Math.round(_t.x), Math.round(_t.y), _t.size, _t.size),
+                !0);
+          })),
+          es(wt));
+      })(m);
+      let z = $e,
+        pe = Math.round(z),
+        V = 0,
+        lt = "run";
+      fe(z);
+      const kt = 180,
+        ra = zn.now(),
+        Vt = () =>
+          ce.forEach((wt) => {
+            (wt.classList.remove("tick"), wt.offsetWidth, wt.classList.add("tick"));
+          });
+      function Xt(wt) {
+        if (lt !== "run") return;
+        const ge = wt - ra;
+        ((z =
+          ge < kt
+            ? $e - 0.25 * Math.sin(((ge / kt) * Math.PI) / 2)
+            : Z.at((ge - kt) / 1e3) - 0.25 * Math.max(0, 1 - (ge - kt) / 200)),
+          fe(z));
+        const Fe = Math.round(z);
+        (Fe !== pe && ((pe = Fe), Vt()), ge < kt + Z.total ? (V = es(Xt)) : Ht());
+      }
+      function Ht() {
+        if (lt !== "run") return;
+        ((lt = "bam"), cancelAnimationFrame(V), (z = A), fe(z));
+        const wt = dt[A],
+          ge = wt.querySelector(".rd-in"),
+          Fe = wt.querySelector("img"),
+          gt = ve[re],
+          Dt = He || tt.skipped,
+          ha = Re.querySelector(".rd-res .tt"),
+          _t = Re.querySelector(".rd-res .rc-tap");
+        ha.innerHTML = `${a().esc(t.Game.DEX[gt.boss].name)} ${a().shinyIc()}`;
+        const Ea = () => {
+            (wt.classList.remove("white"),
+              wt.classList.add("gold"),
+              wt.querySelector(".rd-bob").classList.remove("unknown"),
+              dt.forEach((D) => D !== wt && D.classList.add("rd-off")));
+          },
+          ut = () => {
+            ((lt = "done"), tt.hide(), tt.tap(Re).then(ct));
+          };
+        if (He) {
+          (Ea(), (ha.style.opacity = 1), (_t.style.opacity = 1), ut());
+          return;
+        }
+        const jt = wt.querySelector(".rd-pad").getBoundingClientRect();
+        U = { x: (jt.left + jt.width / 2) / 3, y: (jt.top + jt.height / 2) / 3, w: jt.width / 3 };
+        const xt = Dt ? 0 : 640;
+        if (Dt) wt.classList.add("white");
+        else {
+          for (let D = 0; D < 46; D++) {
+            const Q = Math.random() * 6.283,
+              Y = 60 + Math.random() * 70;
+            te({
+              x: U.x + Math.cos(Q) * Y,
+              y: U.y - 20 + Math.sin(Q) * Y * 0.6,
+              to: { x: U.x, y: U.y - 4 },
+              life: -Math.random() * 380,
+              max: 700,
+              size: 1 + (Math.random() < 0.3),
+            });
+          }
+          ([
+            [0, 110],
+            [230, 90],
+            [390, 70],
+            [500, 0],
+          ].forEach(([D, Q]) => {
+            (Wa(() => wt.classList.add("white"), D), Q && Wa(() => wt.classList.remove("white"), D + Q));
+          }),
+            ge.animate(
+              [
+                { transform: "scale(1)" },
+                { transform: "scale(1.03, 1.05)", offset: 0.55 },
+                { transform: "scale(.93, .88)" },
+              ],
+              { duration: 240, delay: xt - 240, easing: "ease-in", fill: "forwards" },
+            ));
+        }
+        Wa(() => {
+          Ea();
+          const D = Fe.getBoundingClientRect();
+          Ne = { x: D.left / 3, y: D.top / 3, w: D.width / 3, h: D.height / 3 };
+          const Q = Ne.x + Ne.w / 2,
+            Y = Ne.y + Ne.h / 2;
+          (Re.querySelector(".rd-flash").animate([{ opacity: 0.85 }, { opacity: 0 }], {
+            duration: 380,
+            easing: "ease-out",
+          }),
+            wt.querySelector(".rd-beam").animate(
+              [
+                { opacity: 0, transform: "translateX(-50%) scaleY(0)" },
+                { opacity: 1, transform: "translateX(-50%) scaleY(1)", offset: 0.25 },
+                { opacity: 0, transform: "translateX(-50%) scaleY(1.1)" },
+              ],
+              { duration: 1100, easing: "ease-out" },
+            ),
+            [0, 110, 220].forEach((ye, nt) =>
+              we.push({
+                x: U.x,
+                y: U.y,
+                r0: U.w * 0.4,
+                r1: U.w * (0.85 + nt * 0.3),
+                flat: 0.3,
+                dur: 560,
+                t: -ye,
+              }),
+            ),
+            we.push({ x: Q, y: Y, r0: Ne.w * 0.25, r1: Ne.w * 0.7, flat: 1, dur: 460, t: 0, front: !0 }));
+          for (let ye = 0; ye < 34; ye++) {
+            const nt = Math.random() * 6.283,
+              Ot = 1.6 + Math.random() * 2.6;
+            te({
+              x: Q,
+              y: Y,
+              vx: Math.cos(nt) * Ot,
+              vy: Math.sin(nt) * Ot - 1,
+              grav: 0.07,
+              drag: 0.97,
+              max: 520 + Math.random() * 380,
+              size: 1 + (Math.random() < 0.4),
+            });
+          }
+          for (let ye = 0; ye < 12; ye++)
+            te({
+              x: Ne.x + Math.random() * Ne.w,
+              y: Ne.y + Math.random() * Ne.h * 0.9,
+              kind: "star",
+              max: 460,
+              life: -ye * 45,
+            });
+          ((ie = 0.22),
+            ge
+              .animate(
+                [{ transform: "scale(.93, .88)" }, { transform: "scale(1.22)" }, { transform: "scale(1.1)" }],
+                { duration: 460, easing: "cubic-bezier(.2, 1.4, .4, 1)", fill: "forwards" },
+              )
+              .finished.then((ye) => {
+                (ye.commitStyles(), ge.getAnimations().forEach((nt) => nt.cancel()));
+              })
+              .catch(() => {}),
+            Fe.animate(
+              [
+                { transform: "translateY(0)" },
+                { transform: "translateY(-30px)", offset: 0.35 },
+                { transform: "translateY(0) scale(1.08, .9)", offset: 0.62 },
+                { transform: "translateY(-6px) scale(.98, 1.03)", offset: 0.8 },
+                { transform: "none" },
+              ],
+              { duration: 640, easing: "ease-out" },
+            ),
+            ha.animate(
+              [
+                { opacity: 0, transform: "translateY(10px) scale(.8)" },
+                { opacity: 1, transform: "none" },
+              ],
+              { duration: 300, delay: 220, easing: "cubic-bezier(.2, 1.4, .4, 1)", fill: "both" },
+            ),
+            _t.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 800, fill: "both" }),
+            Wa(ut, Dt ? 0 : 500));
+        }, xt || 60);
+      }
+      function ct() {
+        lt !== "out" &&
+          ((lt = "out"),
+          tt.end(),
+          Re.classList.add("out"),
+          Wa(() => {
+            ((L = !1), Re.remove());
+          }, 250),
+          je());
+      }
+      (tt.waiters.push(() => {
+        lt === "run" && Ht();
+      }),
+        He ? Ht() : (V = es(Xt)));
+    });
+  }
+  return { play: u, ENDS: Object.keys(le) };
+})();

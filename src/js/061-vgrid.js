@@ -1,0 +1,290 @@
+/**
+ * vgrid
+ *
+ * Public API on the game namespace `t`: t.VGrid, t.VGrid.stats
+ *
+ * Recovered from the shipped bundle — original chunk #60 at byte 1514979 (5913 bytes, sha256:a7999f20ec2f381e).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+(function () {
+  ((t.VGrid = function (a) {
+    let b = [],
+      f = null,
+      ue = !1,
+      H = 0,
+      vt = -1,
+      B = "",
+      se = !1,
+      Ge = null;
+    const Je = (Z) => (Z.getAttribute("class") || "") + "|" + (Z.getAttribute("style") || ""),
+      Ze = (Z) => {
+        const A = Ge?.get(Z);
+        return A?.length ? A.pop() : null;
+      };
+    let x = null;
+    const $ = new Map();
+    let X = [];
+    const Tt = { onadd: null, count: 0 },
+      le = document.createElement("template"),
+      P = (Z) => Math.round((parseFloat(Z) || 0) * 64) / 64;
+    function u() {
+      if (!a.isConnected || !a.clientWidth) return !1;
+      const Z = getComputedStyle(a),
+        A = (B = Z.gridTemplateColumns).split(" ").map(P);
+      if (!A.length || A.some((Re) => !(Re > 0))) return !1;
+      const J = P(Z.columnGap),
+        de = A.map((Re, dt) => A.slice(0, dt).reduce((qe, ce) => qe + ce + J, 0)),
+        _e = {
+          cols: A.length,
+          colW: A,
+          colX: de,
+          gapY: P(Z.rowGap),
+          padL: P(Z.paddingLeft) + P(Z.borderLeftWidth),
+          padT: P(Z.paddingTop) + P(Z.borderTopWidth),
+          ratio: x?.ratio || 1,
+          sepH: 0,
+        };
+      if (b.some((Re) => Re.sep)) {
+        let Re = a.querySelector(":scope > .pc-sep"),
+          dt = null;
+        Re ||
+          ((dt = Re = document.createElement("div")),
+          (Re.className = "pc-sep"),
+          (Re.style.visibility = "hidden"),
+          (Re.innerHTML = "<span>A</span><i></i><b>0</b>"),
+          a.append(Re));
+        const qe = getComputedStyle(Re);
+        ((_e.sepH = P(qe.height) + P(qe.marginTop) + P(qe.marginBottom)), dt?.remove());
+      }
+      return ((x = _e), ve(), !0);
+    }
+    function ve() {
+      const Z = [],
+        A = b.length,
+        J = new Int32Array(A),
+        de = [],
+        _e = new Int32Array(A);
+      let Re = null;
+      b.forEach((qe, ce) => {
+        (qe.sep
+          ? (Z.push({ a: ce, b: ce + 1, h: x.sepH, sep: !0 }), (Re = null), (_e[ce] = -1))
+          : ((!Re || Re.b - Re.a === x.cols) && Z.push((Re = { a: ce, b: ce, h: 0 })),
+            (Re.h = Math.max(Re.h, Math.round(x.colW[Re.b - Re.a] * x.ratio * 64) / 64)),
+            Re.b++,
+            (_e[ce] = de.length),
+            de.push(ce)),
+          (J[ce] = Z.length - 1));
+      });
+      const dt = new Float64Array(Z.length + 1);
+      (Z.forEach((qe, ce) => {
+        dt[ce + 1] = dt[ce] + qe.h + x.gapY;
+      }),
+        Object.assign(x, { rows: Z, tops: dt, rowOf: J, cellItem: de, itemCell: _e }));
+    }
+    let it = 0;
+    function De(Z) {
+      const A = a.getBoundingClientRect(),
+        J = a.scrollTop - (A.top + x.padT),
+        de = innerHeight,
+        { rows: _e, tops: Re } = x,
+        dt = Math.sign(J - it);
+      it = J;
+      const qe = Z ? J - de / 4 : J - (dt < 0 ? 3 : dt > 0 ? 1.5 : 2) * de,
+        ce = Z ? J + 1.25 * de : J + (dt > 0 ? 4 : dt < 0 ? 2.5 : 3) * de,
+        tt = _e.length;
+      let mt = 0,
+        Te = tt;
+      for (; mt < Te;) {
+        const Oe = (mt + Te) >> 1;
+        Re[Oe] + _e[Oe].h > qe ? (Te = Oe) : (mt = Oe + 1);
+      }
+      const At = mt;
+      for (Te = tt; mt < Te;) {
+        const Oe = (mt + Te) >> 1;
+        Re[Oe] >= ce ? (Te = Oe) : (mt = Oe + 1);
+      }
+      const yt = mt,
+        he = [],
+        fe = vt >= 0 && vt < x.cellItem.length ? x.rowOf[x.cellItem[vt]] : -1;
+      fe >= 0 && fe < At && he.push(fe);
+      for (let Oe = At; Oe < yt; Oe++) he.push(Oe);
+      return (fe >= yt && he.push(fe), he);
+    }
+    const je = (Z) => {
+        const A = document.createElement("div");
+        return (
+          (A.className = "vg-pad"),
+          A.setAttribute("aria-hidden", "true"),
+          (A.style.cssText = `grid-column:1/-1;height:${Z}px`),
+          A
+        );
+      },
+      pt = (Z, A) => x.tops[A] - x.tops[Z] - x.gapY;
+    function re() {
+      if (!ue || !a.clientWidth) return;
+      const Z = zn.now(),
+        A = se,
+        J = De(A),
+        de = x.rows,
+        _e = new Set();
+      if (se) {
+        Ge ||= new Map();
+        for (const he of $.values())
+          if (he.__h && Je(he) === he.__c) {
+            const fe = Ge.get(he.__h);
+            fe ? fe.push(he) : Ge.set(he.__h, [he]);
+          }
+        (a.replaceChildren(), $.clear(), (X = []), (se = !1));
+      }
+      for (const he of J) for (let fe = de[he].a; fe < de[he].b; fe++) _e.add(fe);
+      for (const [he, fe] of $) _e.has(he) || (fe.remove(), $.delete(he));
+      (X.forEach((he) => he.remove()), (X = []));
+      const Re = [];
+      for (const he of J) for (let fe = de[he].a; fe < de[he].b; fe++) $.has(fe) || Re.push(fe);
+      if (Re.length) {
+        const he = Re.map((Oe) => f(b[Oe])),
+          fe = [];
+        if (
+          (Re.forEach((Oe, Ee) => {
+            const et = Ze(he[Ee]);
+            et ? $.set(Oe, et) : fe.push(Ee);
+          }),
+          fe.length)
+        ) {
+          le.innerHTML = fe.map((Ee) => he[Ee]).join("");
+          const Oe = [...le.content.children];
+          fe.forEach((Ee, et) => {
+            const _ = Oe[et];
+            ((_.__h = he[Ee]), (_.__c = Je(_)), $.set(Re[Ee], _));
+          });
+        }
+      }
+      const dt = new Set(Re);
+      let qe = null,
+        ce = -1,
+        tt = [];
+      const mt = () => {
+          tt.length && (qe ? qe.after(...tt) : a.prepend(...tt), (qe = tt[tt.length - 1]), (tt = []));
+        },
+        Te = (he, fe) => {
+          const Oe = je(pt(he, fe));
+          (X.push(Oe), tt.push(Oe));
+        };
+      for (const he of J) {
+        he > ce + 1 && Te(ce + 1, he);
+        for (let fe = de[he].a; fe < de[he].b; fe++) {
+          const Oe = $.get(fe);
+          dt.has(fe) ? tt.push(Oe) : (mt(), (qe = Oe));
+        }
+        ce = he;
+      }
+      if ((ce < de.length - 1 && Te(ce + 1, de.length), mt(), Tt.onadd))
+        for (const he of Re) b[he].sep || Tt.onadd($.get(he), x.itemCell[he]);
+      const At = t.VGrid.stats,
+        yt = zn.now() - Z;
+      (At.renders++,
+        (At.added += Re.length),
+        (At.ms += yt),
+        (At.max = Math.max(At.max, yt)),
+        (At.live = $.size),
+        A ? $e() : (Ge = null));
+    }
+    function We() {
+      for (const [Z, A] of $) {
+        if (b[Z].sep || A.classList.contains("dragging")) continue;
+        const J = parseFloat(getComputedStyle(A).height) / x.colW[Z - x.rows[x.rowOf[Z]].a];
+        J > 0 && Math.abs(J - x.ratio) > 0.001 && ((x.ratio = J), ve(), re());
+        return;
+      }
+    }
+    function oe() {
+      ((ue = u()), ue && (re(), We()));
+    }
+    const $e = () => {
+      !H &&
+        ue &&
+        (H = es(() => {
+          ((H = 0), re());
+        }));
+    };
+    return (
+      addEventListener("scroll", $e, { passive: !0, capture: !0 }),
+      addEventListener("resize", $e),
+      new ResizeObserver(() => {
+        !a.clientWidth || !b.length || (!ue || getComputedStyle(a).gridTemplateColumns !== B ? oe() : $e());
+      }).observe(a),
+      (Tt.set = (Z, A, J = "") => {
+        const de = ue && !se && Z.length === b.length && Z.every((_e, Re) => !_e.sep == !b[Re].sep);
+        if (((b = Z), (f = A), (Tt.count = Z.filter((_e) => !_e.sep).length), !Z.length)) {
+          ((a.innerHTML = J), $.clear(), (X = []), (ue = se = !1));
+          return;
+        }
+        if (de) {
+          for (const [_e, Re] of $) {
+            const dt = A(Z[_e]);
+            if (Re.__h === dt) continue;
+            le.innerHTML = dt;
+            const qe = le.content.firstElementChild;
+            ((qe.__h = dt),
+              (qe.__c = Je(qe)),
+              Re.replaceWith(qe),
+              $.set(_e, qe),
+              Tt.onadd && !Z[_e].sep && Tt.onadd(qe, x.itemCell[_e]));
+          }
+          $e();
+          return;
+        }
+        ((se = !0), oe());
+      }),
+      (Tt.rect = (Z) => {
+        const A = a.getBoundingClientRect(),
+          J = x.cellItem[Z],
+          de = x.rowOf[J],
+          _e = J - x.rows[de].a,
+          Re = A.left + x.padL + x.colX[_e],
+          dt = A.top + x.padT + x.tops[de] - a.scrollTop,
+          qe = x.colW[_e],
+          ce = Math.round(qe * x.ratio * 64) / 64;
+        return { left: Re, top: dt, width: qe, height: ce, right: Re + qe, bottom: dt + ce };
+      }),
+      (Tt.offset = (Z, A) => {
+        const J = Tt.rect(Z),
+          de = Tt.rect(A);
+        return { dx: de.left - J.left, dy: de.top - J.top };
+      }),
+      (Tt.nearest = (Z, A) => {
+        if (!ue || !Tt.count) return -1;
+        const J = a.getBoundingClientRect(),
+          de = Z - J.left - x.padL,
+          _e = A - J.top - x.padT + a.scrollTop,
+          { rows: Re, tops: dt } = x;
+        let qe = 0,
+          ce = Re.length - 1;
+        for (; qe < ce;) {
+          const At = (qe + ce + 1) >> 1;
+          dt[At] <= _e ? (qe = At) : (ce = At - 1);
+        }
+        const tt = [];
+        for (let At = qe, yt = 0; At >= 0 && yt < 3; At--) Re[At].sep || (tt.push(At), yt++);
+        for (let At = qe + 1, yt = 0; At < Re.length && yt < 2; At++) Re[At].sep || (tt.push(At), yt++);
+        let mt = -1,
+          Te = 1 / 0;
+        for (const At of tt)
+          for (let yt = Re[At].a; yt < Re[At].b; yt++) {
+            const he = yt - Re[At].a,
+              fe = Math.hypot(x.colX[he] + x.colW[he] / 2 - de, dt[At] + (x.colW[he] * x.ratio) / 2 - _e);
+            x.itemCell[yt] >= 0 && fe < Te && ((Te = fe), (mt = x.itemCell[yt]));
+          }
+        return mt;
+      }),
+      (Tt.cells = (Z) => {
+        for (const [A, J] of $) b[A].sep || Z(J, x.itemCell[A]);
+      }),
+      (Tt.pin = (Z) => {
+        ((vt = Z ?? -1), ue && re());
+      }),
+      Tt
+    );
+  }),
+    (t.VGrid.stats = { renders: 0, added: 0, ms: 0, max: 0, live: 0 }));
+})();

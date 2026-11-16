@@ -1,0 +1,1056 @@
+{
+ "build": null,
+ "bundle": {
+  "bytes": 2678266,
+  "sha256": "0e84ded8d8485f2e"
+ },
+ "prelude": {
+  "file": "000-prelude.js",
+  "bytes": 10721,
+  "sha256": "6951204376d4cbf3"
+ },
+ "modules": [
+  {
+   "index": 0,
+   "file": "001-tab-lock.js",
+   "name": "tab-lock",
+   "apis": [
+    "t.TabLock"
+   ],
+   "start": 10733,
+   "bytes": 633,
+   "sha256": "9387991d9d4e6ead"
+  },
+  {
+   "index": 1,
+   "file": "002-clock.js",
+   "name": "clock",
+   "apis": [
+    "t.Clock"
+   ],
+   "start": 11367,
+   "bytes": 2330,
+   "sha256": "b4029bdefadc0738"
+  },
+  {
+   "index": 2,
+   "file": "003-pokedex.js",
+   "name": "data/pokedex",
+   "apis": [
+    "t.POKEDEX"
+   ],
+   "start": 13698,
+   "bytes": 263228,
+   "sha256": "49926297b8061062"
+  },
+  {
+   "index": 3,
+   "file": "004-evolutions.js",
+   "name": "data/evolutions",
+   "apis": [
+    "t.EVOLUTIONS"
+   ],
+   "start": 276927,
+   "bytes": 6302,
+   "sha256": "fe6cb33bd033ae54"
+  },
+  {
+   "index": 4,
+   "file": "005-moves.js",
+   "name": "data/moves",
+   "apis": [
+    "t.MOVES"
+   ],
+   "start": 283230,
+   "bytes": 36700,
+   "sha256": "c73bce19a85f75b6"
+  },
+  {
+   "index": 5,
+   "file": "006-item-names.js",
+   "name": "data/item-names",
+   "apis": [
+    "t.ITEM_NAMES"
+   ],
+   "start": 319931,
+   "bytes": 895,
+   "sha256": "c3853c484ebf0e53"
+  },
+  {
+   "index": 6,
+   "file": "007-encounters-kanto.js",
+   "name": "data/encounters-kanto",
+   "apis": [
+    "t.ENCOUNTERS"
+   ],
+   "start": 320827,
+   "bytes": 14368,
+   "sha256": "96bb6ad1d8c1e936"
+  },
+  {
+   "index": 7,
+   "file": "008-base-exp-kanto.js",
+   "name": "data/base-exp-kanto",
+   "apis": [
+    "t.BASE_EXP"
+   ],
+   "start": 335196,
+   "bytes": 1054,
+   "sha256": "3f68a4f98f058a83"
+  },
+  {
+   "index": 8,
+   "file": "009-encounters-johto-headbutt.js",
+   "name": "data/encounters-johto-headbutt",
+   "apis": [],
+   "start": 336251,
+   "bytes": 37660,
+   "sha256": "aa7e7360b818a38c"
+  },
+  {
+   "index": 9,
+   "file": "010-base-exp-johto.js",
+   "name": "data/base-exp-johto",
+   "apis": [],
+   "start": 373912,
+   "bytes": 788,
+   "sha256": "b385c6c207f9fbd8"
+  },
+  {
+   "index": 10,
+   "file": "011-encounters-hoenn.js",
+   "name": "data/encounters-hoenn",
+   "apis": [],
+   "start": 374701,
+   "bytes": 18961,
+   "sha256": "e0c828f9f95aafff"
+  },
+  {
+   "index": 11,
+   "file": "012-base-exp-hoenn.js",
+   "name": "data/base-exp-hoenn",
+   "apis": [],
+   "start": 393663,
+   "bytes": 1058,
+   "sha256": "40a4a1ac19a979e0"
+  },
+  {
+   "index": 12,
+   "file": "013-encounters-sinnoh.js",
+   "name": "data/encounters-sinnoh",
+   "apis": [],
+   "start": 394722,
+   "bytes": 42353,
+   "sha256": "c10b76d8a9b77db9"
+  },
+  {
+   "index": 13,
+   "file": "014-base-exp-sinnoh.js",
+   "name": "data/base-exp-sinnoh",
+   "apis": [],
+   "start": 437076,
+   "bytes": 851,
+   "sha256": "91dc738fd612656e"
+  },
+  {
+   "index": 14,
+   "file": "015-unown.js",
+   "name": "data/unown",
+   "apis": [
+    "t.UNOWN"
+   ],
+   "start": 437928,
+   "bytes": 589,
+   "sha256": "085996940f6673a6"
+  },
+  {
+   "index": 15,
+   "file": "016-specials.js",
+   "name": "data/specials",
+   "apis": [
+    "t.SPECIALS"
+   ],
+   "start": 438518,
+   "bytes": 321,
+   "sha256": "7cbf19ea422b43f0"
+  },
+  {
+   "index": 16,
+   "file": "017-forms.js",
+   "name": "data/forms",
+   "apis": [
+    "t.FORMS"
+   ],
+   "start": 438840,
+   "bytes": 4102,
+   "sha256": "1b9fcc82e2de1f35"
+  },
+  {
+   "index": 17,
+   "file": "018-config.js",
+   "name": "data/config",
+   "apis": [
+    "t.CONFIG"
+   ],
+   "start": 442943,
+   "bytes": 21823,
+   "sha256": "b63ea88e77f42bf3"
+  },
+  {
+   "index": 18,
+   "file": "019-item-names-2.js",
+   "name": "data/item-names-2",
+   "apis": [
+    "t.ITEM_NAMES"
+   ],
+   "start": 464767,
+   "bytes": 1113,
+   "sha256": "6f4f27f4163c0a5f"
+  },
+  {
+   "index": 19,
+   "file": "020-types.js",
+   "name": "data/types",
+   "apis": [
+    "t.TYPES"
+   ],
+   "start": 465881,
+   "bytes": 648,
+   "sha256": "ea2f4ced055ddf19"
+  },
+  {
+   "index": 20,
+   "file": "021-type-chart.js",
+   "name": "data/type-chart",
+   "apis": [
+    "t.TYPE_CHART"
+   ],
+   "start": 466530,
+   "bytes": 1208,
+   "sha256": "249c6c8891a20181"
+  },
+  {
+   "index": 21,
+   "file": "022-i18n.js",
+   "name": "i18n",
+   "apis": [
+    "t.I18n"
+   ],
+   "start": 467739,
+   "bytes": 2053,
+   "sha256": "756d7cbc52210f01"
+  },
+  {
+   "index": 22,
+   "file": "023-i18n-t.js",
+   "name": "i18n-t",
+   "apis": [
+    "t._t"
+   ],
+   "start": 469793,
+   "bytes": 13,
+   "sha256": "2aa236b111a22b61"
+  },
+  {
+   "index": 23,
+   "file": "024-daytime.js",
+   "name": "data/daytime",
+   "apis": [
+    "t.DAYTIME"
+   ],
+   "start": 469807,
+   "bytes": 2033,
+   "sha256": "359fe941d61e443f"
+  },
+  {
+   "index": 24,
+   "file": "025-weather.js",
+   "name": "data/weather",
+   "apis": [
+    "t.WEATHER"
+   ],
+   "start": 471841,
+   "bytes": 4343,
+   "sha256": "93d123fbf3ef091a"
+  },
+  {
+   "index": 25,
+   "file": "026-habitats.js",
+   "name": "data/habitats",
+   "apis": [
+    "t.HABITATS"
+   ],
+   "start": 476185,
+   "bytes": 33685,
+   "sha256": "5a07ac92cd844c25"
+  },
+  {
+   "index": 26,
+   "file": "027-status.js",
+   "name": "data/status",
+   "apis": [
+    "t.STATUS"
+   ],
+   "start": 509871,
+   "bytes": 3248,
+   "sha256": "cb07f32ddf7e65cd"
+  },
+  {
+   "index": 27,
+   "file": "028-story.js",
+   "name": "data/story",
+   "apis": [
+    "t.STORY"
+   ],
+   "start": 513120,
+   "bytes": 89480,
+   "sha256": "a7541bc5f0a6a396"
+  },
+  {
+   "index": 28,
+   "file": "029-scenes.js",
+   "name": "data/scenes",
+   "apis": [
+    "t.SCENES"
+   ],
+   "start": 602601,
+   "bytes": 56910,
+   "sha256": "f6fb4d9b802096b9"
+  },
+  {
+   "index": 29,
+   "file": "030-game.js",
+   "name": "game",
+   "apis": [
+    "t.Game"
+   ],
+   "start": 659512,
+   "bytes": 45344,
+   "sha256": "ec5987d10137af82"
+  },
+  {
+   "index": 30,
+   "file": "031-league-teams.js",
+   "name": "data/league-teams",
+   "apis": [
+    "t.LEAGUE_TEAMS"
+   ],
+   "start": 704857,
+   "bytes": 4963,
+   "sha256": "fcc93eea7b21d767"
+  },
+  {
+   "index": 31,
+   "file": "032-adventure.js",
+   "name": "adventure",
+   "apis": [
+    "t.Adventure"
+   ],
+   "start": 709821,
+   "bytes": 75463,
+   "sha256": "40b1e78bce37865c"
+  },
+  {
+   "index": 32,
+   "file": "033-underground.js",
+   "name": "data/underground",
+   "apis": [
+    "t.Underground"
+   ],
+   "start": 785285,
+   "bytes": 20118,
+   "sha256": "20c434a8008bf6ea"
+  },
+  {
+   "index": 33,
+   "file": "034-events.js",
+   "name": "events",
+   "apis": [
+    "t.Events"
+   ],
+   "start": 805404,
+   "bytes": 11847,
+   "sha256": "1ad259a25d53d79c"
+  },
+  {
+   "index": 34,
+   "file": "035-raid-swaps.js",
+   "name": "data/raid-swaps",
+   "apis": [
+    "t.RAID_SWAPS"
+   ],
+   "start": 817252,
+   "bytes": 57,
+   "sha256": "2c390977c1c3d249"
+  },
+  {
+   "index": 35,
+   "file": "036-raids.js",
+   "name": "raids",
+   "apis": [
+    "t.RAID_SWAPS",
+    "t.Raids"
+   ],
+   "start": 817310,
+   "bytes": 21487,
+   "sha256": "f825e69b6aee8c0f"
+  },
+  {
+   "index": 36,
+   "file": "037-worldboss.js",
+   "name": "worldboss",
+   "apis": [
+    "t.WorldBoss"
+   ],
+   "start": 838798,
+   "bytes": 7474,
+   "sha256": "d5d4d507ce2798ae"
+  },
+  {
+   "index": 37,
+   "file": "038-tower.js",
+   "name": "tower",
+   "apis": [
+    "t.Tower"
+   ],
+   "start": 846273,
+   "bytes": 12062,
+   "sha256": "9fbd2e819ca47740"
+  },
+  {
+   "index": 38,
+   "file": "039-candy-run.js",
+   "name": "candy-run",
+   "apis": [
+    "t.CandyRun"
+   ],
+   "start": 858336,
+   "bytes": 6730,
+   "sha256": "3281e8a31f78bbf9"
+  },
+  {
+   "index": 39,
+   "file": "040-legend-zones.js",
+   "name": "legend-zones",
+   "apis": [
+    "t.LegendZones"
+   ],
+   "start": 865067,
+   "bytes": 21543,
+   "sha256": "8359bc4a1442b679"
+  },
+  {
+   "index": 40,
+   "file": "041-roaming.js",
+   "name": "roaming",
+   "apis": [
+    "t.Roaming"
+   ],
+   "start": 886611,
+   "bytes": 2002,
+   "sha256": "8c0998ef3bba457e"
+  },
+  {
+   "index": 41,
+   "file": "042-sfx.js",
+   "name": "sfx",
+   "apis": [
+    "t.Sfx"
+   ],
+   "start": 888614,
+   "bytes": 62,
+   "sha256": "cf191bad7ec949c2"
+  },
+  {
+   "index": 42,
+   "file": "043-music.js",
+   "name": "music",
+   "apis": [
+    "t.Music"
+   ],
+   "start": 888677,
+   "bytes": 66,
+   "sha256": "8f0edd1d4ee49648"
+  },
+  {
+   "index": 43,
+   "file": "044-sprite-bounds.js",
+   "name": "data/sprite-bounds",
+   "apis": [
+    "t.SPRITE_BOUNDS"
+   ],
+   "start": 888744,
+   "bytes": 100043,
+   "sha256": "8206de0cff0d4d7e"
+  },
+  {
+   "index": 44,
+   "file": "045-ui-core.js",
+   "name": "ui-core",
+   "apis": [
+    "t.Screens",
+    "t.UI"
+   ],
+   "start": 988788,
+   "bytes": 81297,
+   "sha256": "02d66d32786ff05a"
+  },
+  {
+   "index": 45,
+   "file": "046-perf.js",
+   "name": "perf",
+   "apis": [
+    "t.Game.S.reducedAnim",
+    "t.Perf"
+   ],
+   "start": 1070086,
+   "bytes": 1473,
+   "sha256": "65d9fc8224a505ec"
+  },
+  {
+   "index": 46,
+   "file": "047-elite-frames.js",
+   "name": "elite-frames",
+   "apis": [
+    "t.EliteFrames"
+   ],
+   "start": 1071560,
+   "bytes": 59158,
+   "sha256": "2de147966fda6fed"
+  },
+  {
+   "index": 47,
+   "file": "048-frames.js",
+   "name": "frames",
+   "apis": [
+    "t.Frames"
+   ],
+   "start": 1130719,
+   "bytes": 34175,
+   "sha256": "b8f7340067668f43"
+  },
+  {
+   "index": 48,
+   "file": "049-badge-shine.js",
+   "name": "badge-shine",
+   "apis": [
+    "t.BadgeShine"
+   ],
+   "start": 1164895,
+   "bytes": 11237,
+   "sha256": "a1b3702a516416bf"
+  },
+  {
+   "index": 49,
+   "file": "050-battle-fx.js",
+   "name": "battle-fx",
+   "apis": [
+    "t.BattleFX",
+    "t.FX_MOVES"
+   ],
+   "start": 1176133,
+   "bytes": 179651,
+   "sha256": "c84247d7ddabd415"
+  },
+  {
+   "index": 50,
+   "file": "051-capture-fx.js",
+   "name": "capture-fx",
+   "apis": [
+    "t.CaptureFX"
+   ],
+   "start": 1355785,
+   "bytes": 27162,
+   "sha256": "92faa55f2a618a4d"
+  },
+  {
+   "index": 51,
+   "file": "052-item-fx.js",
+   "name": "item-fx",
+   "apis": [
+    "t.BerryFX",
+    "t.ItemFX"
+   ],
+   "start": 1382948,
+   "bytes": 15978,
+   "sha256": "8b98adc573ff6096"
+  },
+  {
+   "index": 52,
+   "file": "053-link-fx.js",
+   "name": "link-fx",
+   "apis": [
+    "t.LinkFx"
+   ],
+   "start": 1398927,
+   "bytes": 42416,
+   "sha256": "f7ccad8696e59769"
+  },
+  {
+   "index": 53,
+   "file": "054-raid-draw.js",
+   "name": "raid-draw",
+   "apis": [
+    "t.RaidDraw"
+   ],
+   "start": 1441344,
+   "bytes": 9966,
+   "sha256": "f63a25393bc55baa"
+  },
+  {
+   "index": 54,
+   "file": "055-heal-fx.js",
+   "name": "heal-fx",
+   "apis": [
+    "t.HealFX"
+   ],
+   "start": 1451311,
+   "bytes": 7744,
+   "sha256": "f80756ca00e8a8e3"
+  },
+  {
+   "index": 55,
+   "file": "056-shiny-glint.js",
+   "name": "shiny-glint",
+   "apis": [
+    "t.ShinyGlint"
+   ],
+   "start": 1459056,
+   "bytes": 5714,
+   "sha256": "c91cd27f01831c5c"
+  },
+  {
+   "index": 56,
+   "file": "057-gift-fx.js",
+   "name": "gift-fx",
+   "apis": [
+    "t.GiftFx"
+   ],
+   "start": 1464771,
+   "bytes": 855,
+   "sha256": "7468375dd742d246"
+  },
+  {
+   "index": 57,
+   "file": "058-geode-fx.js",
+   "name": "geode-fx",
+   "apis": [
+    "t.GeodeFx"
+   ],
+   "start": 1465627,
+   "bytes": 12977,
+   "sha256": "788ac47551e46be4"
+  },
+  {
+   "index": 58,
+   "file": "059-rank-fx.js",
+   "name": "rank-fx",
+   "apis": [
+    "t.RankFx"
+   ],
+   "start": 1478605,
+   "bytes": 11198,
+   "sha256": "9dfc6ddd4d71a4a6"
+  },
+  {
+   "index": 59,
+   "file": "060-weather-fx.js",
+   "name": "weather-fx",
+   "apis": [
+    "t.WeatherFx"
+   ],
+   "start": 1489804,
+   "bytes": 25174,
+   "sha256": "a29a4caed0bea0d2"
+  },
+  {
+   "index": 60,
+   "file": "061-vgrid.js",
+   "name": "vgrid",
+   "apis": [
+    "t.VGrid",
+    "t.VGrid.stats"
+   ],
+   "start": 1514979,
+   "bytes": 5913,
+   "sha256": "a7999f20ec2f381e"
+  },
+  {
+   "index": 61,
+   "file": "062-event-ui.js",
+   "name": "event-ui",
+   "apis": [
+    "t.EventUI"
+   ],
+   "start": 1520893,
+   "bytes": 5379,
+   "sha256": "3f7deaefe4edd242"
+  },
+  {
+   "index": 62,
+   "file": "063-event-team.js",
+   "name": "event-team",
+   "apis": [
+    "t.EventTeam"
+   ],
+   "start": 1526273,
+   "bytes": 16329,
+   "sha256": "96ccf8372247cee3"
+  },
+  {
+   "index": 63,
+   "file": "064-screen-adventure.js",
+   "name": "screen-adventure",
+   "apis": [
+    "t.Screens.adventure"
+   ],
+   "start": 1542603,
+   "bytes": 145854,
+   "sha256": "037e4c1d149d6e0b"
+  },
+  {
+   "index": 64,
+   "file": "065-screen-map-event.js",
+   "name": "screen-map-event",
+   "apis": [
+    "t.Screens.event",
+    "t.Screens.map",
+    "t.TravelFx"
+   ],
+   "start": 1688458,
+   "bytes": 54669,
+   "sha256": "043131a1651e4da4"
+  },
+  {
+   "index": 65,
+   "file": "066-screen-raid.js",
+   "name": "screen-raid",
+   "apis": [
+    "t.Screens.raid"
+   ],
+   "start": 1743128,
+   "bytes": 19429,
+   "sha256": "1e52d9771808056a"
+  },
+  {
+   "index": 66,
+   "file": "067-worldboss-view.js",
+   "name": "worldboss-view",
+   "apis": [
+    "t.WorldBossView"
+   ],
+   "start": 1762558,
+   "bytes": 79053,
+   "sha256": "3272a7c33edc2586"
+  },
+  {
+   "index": 67,
+   "file": "068-screen-tower.js",
+   "name": "screen-tower",
+   "apis": [
+    "t.Screens.tower"
+   ],
+   "start": 1841612,
+   "bytes": 14285,
+   "sha256": "be190af1d53f9c56"
+  },
+  {
+   "index": 68,
+   "file": "069-screen-candy.js",
+   "name": "screen-candy",
+   "apis": [
+    "t.Screens.candy"
+   ],
+   "start": 1855898,
+   "bytes": 12776,
+   "sha256": "a4a3a2302069214c"
+  },
+  {
+   "index": 69,
+   "file": "070-screen-underground.js",
+   "name": "screen-underground",
+   "apis": [
+    "t.Screens.underground"
+   ],
+   "start": 1868675,
+   "bytes": 53019,
+   "sha256": "215ba61ca6708145"
+  },
+  {
+   "index": 70,
+   "file": "071-screen-achievements.js",
+   "name": "screen-achievements",
+   "apis": [
+    "t.Screens.achievements"
+   ],
+   "start": 1921695,
+   "bytes": 6174,
+   "sha256": "32c824088627688d"
+  },
+  {
+   "index": 71,
+   "file": "072-screen-team.js",
+   "name": "screen-team",
+   "apis": [
+    "t.Screens.team"
+   ],
+   "start": 1927870,
+   "bytes": 26620,
+   "sha256": "2bed0abdc7baca67"
+  },
+  {
+   "index": 72,
+   "file": "073-screen-pension.js",
+   "name": "screen-pension",
+   "apis": [
+    "t.Screens.pension"
+   ],
+   "start": 1954491,
+   "bytes": 27985,
+   "sha256": "d4f60a0bb05a483c"
+  },
+  {
+   "index": 73,
+   "file": "074-pension-berry-fx.js",
+   "name": "pension-berry-fx",
+   "apis": [
+    "t.PensionBerryFX"
+   ],
+   "start": 1982477,
+   "bytes": 5828,
+   "sha256": "3b7f5a791bf3dc4d"
+  },
+  {
+   "index": 74,
+   "file": "075-berry-bites.js",
+   "name": "berry-bites",
+   "apis": [
+    "t.BerryBites"
+   ],
+   "start": 1988306,
+   "bytes": 728,
+   "sha256": "c605081f3986c805"
+  },
+  {
+   "index": 75,
+   "file": "076-screen-pokedex.js",
+   "name": "screen-pokedex",
+   "apis": [
+    "t.Screens.pokedex"
+   ],
+   "start": 1989035,
+   "bytes": 25060,
+   "sha256": "447c66aab04e0284"
+  },
+  {
+   "index": 76,
+   "file": "077-screen-shop.js",
+   "name": "screen-shop",
+   "apis": [
+    "t.Screens.shop"
+   ],
+   "start": 2014096,
+   "bytes": 10083,
+   "sha256": "eb2ae2b5c6d7e81d"
+  },
+  {
+   "index": 77,
+   "file": "078-screen-casino.js",
+   "name": "screen-casino",
+   "apis": [
+    "t.Screens.casino"
+   ],
+   "start": 2024180,
+   "bytes": 67082,
+   "sha256": "e7177edb75da09de"
+  },
+  {
+   "index": 78,
+   "file": "079-screen-trade.js",
+   "name": "screen-trade",
+   "apis": [
+    "t.Screens.trade"
+   ],
+   "start": 2091263,
+   "bytes": 43420,
+   "sha256": "fded2a6cb5549e15"
+  },
+  {
+   "index": 79,
+   "file": "080-screen-market.js",
+   "name": "screen-market",
+   "apis": [
+    "t.Screens.market"
+   ],
+   "start": 2134684,
+   "bytes": 40040,
+   "sha256": "ca5f10a23c0d5edc"
+  },
+  {
+   "index": 80,
+   "file": "081-screen-friends.js",
+   "name": "screen-friends",
+   "apis": [
+    "t.Screens.friends"
+   ],
+   "start": 2174725,
+   "bytes": 8196,
+   "sha256": "8efbb1cb40c0f0bf"
+  },
+  {
+   "index": 81,
+   "file": "082-trainer-card.js",
+   "name": "trainer-card",
+   "apis": [
+    "t.TrainerCard"
+   ],
+   "start": 2182922,
+   "bytes": 26104,
+   "sha256": "5de6f449d23404bf"
+  },
+  {
+   "index": 82,
+   "file": "083-names.js",
+   "name": "names",
+   "apis": [
+    "t.Names"
+   ],
+   "start": 2209027,
+   "bytes": 1465,
+   "sha256": "9ba6bf11b69d1785"
+  },
+  {
+   "index": 83,
+   "file": "084-cloud.js",
+   "name": "cloud",
+   "apis": [
+    "t.Cloud"
+   ],
+   "start": 2210493,
+   "bytes": 31745,
+   "sha256": "7a1fedab76af0991"
+  },
+  {
+   "index": 84,
+   "file": "085-gifts.js",
+   "name": "gifts",
+   "apis": [
+    "t.Gifts"
+   ],
+   "start": 2242239,
+   "bytes": 6195,
+   "sha256": "fd19f46c1be2e636"
+  },
+  {
+   "index": 85,
+   "file": "086-screen-admin-loader.js",
+   "name": "screen-admin-loader",
+   "apis": [
+    "t.Screens.admin"
+   ],
+   "start": 2248435,
+   "bytes": 749,
+   "sha256": "b18351a1d26a2780"
+  },
+  {
+   "index": 86,
+   "file": "087-options.js",
+   "name": "options",
+   "apis": [
+    "t.Options"
+   ],
+   "start": 2249185,
+   "bytes": 14390,
+   "sha256": "0a4e551de1a458bd"
+  },
+  {
+   "index": 87,
+   "file": "088-changelog.js",
+   "name": "data/changelog",
+   "apis": [
+    "t.CHANGELOG"
+   ],
+   "start": 2263576,
+   "bytes": 324332,
+   "sha256": "853bd29f450a2912"
+  },
+  {
+   "index": 88,
+   "file": "089-changelog.js",
+   "name": "changelog",
+   "apis": [
+    "t.Changelog"
+   ],
+   "start": 2587909,
+   "bytes": 1784,
+   "sha256": "3d34b8d00d414f45"
+  },
+  {
+   "index": 89,
+   "file": "090-guide.js",
+   "name": "guide",
+   "apis": [
+    "t.Guide"
+   ],
+   "start": 2589694,
+   "bytes": 19823,
+   "sha256": "19d32ffeb53e8d16"
+  },
+  {
+   "index": 90,
+   "file": "091-news.js",
+   "name": "news",
+   "apis": [
+    "t.News"
+   ],
+   "start": 2609518,
+   "bytes": 7228,
+   "sha256": "85fd6c8b33f18156"
+  },
+  {
+   "index": 91,
+   "file": "092-title.js",
+   "name": "title",
+   "apis": [
+    "t.Title"
+   ],
+   "start": 2616747,
+   "bytes": 16721,
+   "sha256": "b1130279ba71f5ff"
+  },
+  {
+   "index": 92,
+   "file": "093-update.js",
+   "name": "update",
+   "apis": [
+    "t.Update"
+   ],
+   "start": 2633469,
+   "bytes": 2517,
+   "sha256": "25dd2fb0deff8ec2"
+  },
+  {
+   "index": 93,
+   "file": "094-sleep.js",
+   "name": "sleep",
+   "apis": [
+    "t.Sleep"
+   ],
+   "start": 2635987,
+   "bytes": 4942,
+   "sha256": "b31be778a610aac6"
+  },
+  {
+   "index": 94,
+   "file": "095-app-boot.js",
+   "name": "app-boot",
+   "apis": [
+    "t.App",
+    "t.CatchUp"
+   ],
+   "start": 2640930,
+   "bytes": 37330,
+   "sha256": "a5712782aa14f132"
+  }
+ ]
+}

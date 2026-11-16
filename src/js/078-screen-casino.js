@@ -1,0 +1,2867 @@
+/**
+ * screen casino
+ *
+ * Public API on the game namespace `t`: t.Screens.casino
+ *
+ * Recovered from the shipped bundle — original chunk #77 at byte 2024180 (67082 bytes, sha256:e7177edb75da09de).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+(function () {
+  const { h: a, esc: b, fmt: f, toast: ue, itemSrc: H, itemName: vt } = t.UI,
+    B = t.Game,
+    se = t.CONFIG,
+    Ge = t.Sfx,
+    Je = (O, Ke) => O + Math.random() * (Ke - O),
+    Ze = (O) => O[Math.floor(Math.random() * O.length)],
+    x = (O) => new Promise((Ke) => Wa(Ke, O)),
+    $ = (O, Ke) => ((O % Ke) + Ke) % Ke,
+    X = matchMedia("(prefers-reduced-motion: reduce)"),
+    Tt = () => document.body.classList.contains("calm") || X.matches,
+    le = (O) => {
+      try {
+        navigator.userActivation?.hasBeenActive && navigator.vibrate?.(O);
+      } catch {}
+    },
+    P = matchMedia("(max-width: 640px)");
+  function u() {
+    const O = B.S.adv || {},
+      Ke = (Ct) => t.STORY.regionOf(Ct || 0)?.key;
+    return O.zone
+      ? t.LegendZones?.get(O.zone.id)?.region || Ke(O.zone.back)
+      : O.event?.raid && O.event.reg
+        ? O.event.reg
+        : Ke(O.chapter);
+  }
+  const ve = !0,
+    it = () => se.CASINOS.find((O) => O.regions.includes(u())) || (ve ? se.CASINOS[0] : void 0),
+    De = (O) => !!O && (ve || (B.S.adv?.badges || []).includes(O.after)),
+    je = () => B.regionDone("kanto");
+  function pt() {
+    const O = it();
+    return O
+      ? De(O)
+        ? ""
+        : e("Obtiens le Badge {b} pour l'ouvrir", { b: e(O.after) })
+      : e("Pas de Casino dans cette région");
+  }
+  const re = () => (B.S.casino ||= { bonus: 0, balls: 0, free: 0 }),
+    We = () => (re().n ||= { spins: 0, spent: 0, won: 0, balls: 0, paid: 0, items: {} });
+  let oe = 0;
+  const $e = () => {
+      (clearTimeout(oe), (oe = 0), B.save());
+    },
+    Z = () => {
+      oe || (oe = Wa($e, 3e3));
+    },
+    A = () => B.itemCount("coin"),
+    J = () => Math.max(0, Math.floor(A() - kt + 1e-6));
+  function de(O, Ke, Ct = "cs-mon") {
+    const ta = `assets/pokemon/${O}.png`,
+      [ba, na, ua, Ya] = t.SPRITE_BOUNDS?.[ta] || [0, 0, 67, 55];
+    return `<span class="${Ct}" style="width:${(ua - ba + 1) * Ke}px;height:${(Ya - na + 1) * Ke}px;background-image:url(${ta});background-size:${68 * Ke}px ${56 * Ke}px;background-position:${-ba * Ke}px ${-na * Ke}px"></span>`;
+  }
+  const _e = {
+      seven: { pay: 220, html: '<span class="cs-sym7">7</span>', gain: '<span class="cs-mini7">7</span>' },
+      bar: {
+        pay: 66,
+        html: '<span class="cs-symbar">BAR</span>',
+        gain: '<span class="cs-minibar">BAR</span>',
+      },
+      pika: { pay: 15, mon: 25 },
+      magneti: { pay: 12, mon: 81 },
+      psy: { pay: 10, mon: 54 },
+      koki: { pay: 8, mon: 90 },
+      berry: { pay: 6, item: "razz-berry" },
+    },
+    Re = 2,
+    dt = 1,
+    qe = [
+      "seven berry psy koki pika bar magneti berry psy koki seven pika magneti berry koki psy bar pika magneti berry",
+      "bar psy seven koki berry magneti pika koki psy bar berry magneti seven pika koki psy berry magneti pika koki",
+      "koki seven psy berry magneti pika bar koki psy berry magneti psy pika koki bar berry magneti psy pika koki",
+    ].map((O) => O.split(" ")),
+    ce = qe[0].length,
+    tt = 120,
+    mt = [
+      { id: 1, rows: [1, 1, 1] },
+      { id: 2, rows: [0, 0, 0] },
+      { id: 3, rows: [2, 2, 2] },
+      { id: 4, rows: [0, 1, 2] },
+      { id: 5, rows: [2, 1, 0] },
+    ],
+    Te = { 1: 1, 2: 3, 3: 5 },
+    At = () => (se.CASINOS.find((O) => O.regions.includes(B.shopRegion().key)) || it())?.bet || 2500,
+    yt = [1, 5, 10, 50, 100, 250],
+    he = { 1: 1, 5: 1.5, 10: 2, 50: 3, 100: 4, 250: 5 },
+    fe = () => he[V] || 1,
+    Oe = { 1: 5, 5: 25, 10: 50, 50: 250, 100: 500 },
+    Ee = [
+      [
+        ["exp-candy-s", 25],
+        ["berry-oran", 20],
+        ["berry-pecha", 10],
+        ["razz-berry", 9],
+      ],
+      [
+        ["exp-candy-m", 10],
+        ["pinap-berry", 5],
+        ["lansat-berry", 5],
+        ["berry-sitrus", 5],
+      ],
+      [
+        ["stone", 4],
+        ["golden-razz-berry", 2],
+        ["nanab-berry", 1.5],
+        ["enigma-berry", 1.5],
+      ],
+      [
+        ["rare-candy", 1],
+        ["exp-candy-xl", 0.5],
+        ["starf-berry", 0.5],
+      ],
+    ],
+    et = [
+      { at: 25e3, id: 137 },
+      { at: 5e4, id: 233 },
+      { at: 1e5, id: 474 },
+    ],
+    _ = (O) => (O.zFrom != null ? 3 : 2),
+    we = () => (B.S.adv?.unlocked ?? 0) >= t.STORY.firstChapterOf("sinnoh");
+  function ie() {
+    let O = Math.random() * 100;
+    for (const Ke of Ee) for (const [Ct, ta] of Ke) if ((O -= ta) < 0) return Ct;
+    return "exp-candy-s";
+  }
+  const U = Object.keys(se.EXP_CANDIES),
+    Ne = (O) => {
+      let Ke = U.indexOf(O);
+      if (Ke < 0) return O;
+      for (; Ke > 0 && !B.shopUnlocked({ id: U[Ke] });) Ke--;
+      return U[Ke];
+    },
+    T = () => B.shopStones();
+  let L = null,
+    R = null,
+    te = !1,
+    K = !1;
+  const He = (O) => L.querySelector(O),
+    m = (O) => [...L.querySelectorAll(O)];
+  let z = "slots",
+    pe = 3,
+    V = 1,
+    lt = !1,
+    kt = 0,
+    ra = null,
+    Vt = 0,
+    Xt = 0;
+  function Ht() {
+    return `<div class="cs-scene">
+      <div class="cs-bg"></div><canvas class="cs-rays"></canvas>
+      <div class="cs-stage"><div class="cs-fit px-grid">
+        <div class="cs-machine cs-slots">
+          <canvas class="cs-chrome"></canvas><canvas class="cs-bulbs"></canvas>
+          <div class="cs-mouth cs-topslot"></div>
+          <div class="cs-marquee cs-mrow"><div class="cs-wallet cs-mwallet"><label>${e("ARGENT")}</label><b class="cs-money">0 ₽</b></div>
+            <div class="cs-mtitle"><h3 class="cs-logo"></h3><p class="cs-sub"></p></div>
+            <div class="cs-wallet cs-jwallet"><label>${e("JETONS")}</label><b><img class="cs-koban" alt=""><span class="cs-jetons">0</span></b></div></div>
+          <div class="cs-glass"><div class="cs-lamps" data-side="L"></div><div class="cs-window cs-reels"></div><div class="cs-lamps" data-side="R"></div></div>
+          <div class="cs-controls cs-sctl">
+            <button class="btn ghost cs-auto" aria-pressed="false" aria-label="${e("Parties automatiques")}" title="${e("Parties automatiques")}">${yn}</button>
+            <button class="btn gold big cs-start"><small class="cs-betv">0 ₽</small>${e("LANCER")}</button><button class="btn primary cs-mult" aria-label="${e("Multiplicateur")}">×1</button></div>
+          <div class="cs-tray"></div>
+        </div>
+        <div class="cs-lever" role="button" aria-label="${e("Tirer le levier")}"><canvas></canvas></div>
+        <div class="cs-machine cs-pachi">
+          <canvas class="cs-chrome"></canvas><canvas class="cs-bulbs"></canvas>
+          <div class="cs-mouth cs-topslot"></div>
+          <div class="cs-marquee cs-mrow"><div class="cs-wallet cs-jwallet"><label>${e("JETONS")}</label><b><img class="cs-koban" alt=""><span class="cs-jetons">0</span></b></div>
+            <div class="cs-mtitle"><h3 class="cs-logo cs-plogo"></h3><p class="cs-sub">${e("LOTS DU CASINO")}</p></div>
+            <div class="cs-wallet cs-pballs"><label>${e("BILLES")}</label><b class="cs-ballsv">0</b></div></div>
+          <div class="cs-pgauge"><div class="cs-gauge"><i></i><b class="cs-gaugev">0</b></div><span class="cs-gstep"></span></div>
+          <div class="cs-glass"><div class="cs-lamps" data-side="L"></div><div class="cs-window cs-board"><canvas></canvas><div class="cs-pockets"></div></div><div class="cs-lamps" data-side="R"></div></div>
+          <div class="cs-controls cs-sctl cs-pctl">
+            <button class="btn ghost cs-auto cs-pauto" aria-pressed="false" aria-label="${e("Parties automatiques")}" title="${e("Parties automatiques")}">${yn}</button>
+            <button class="btn gold big cs-start cs-launch"><small class="cs-betv cs-pcost">0</small>${e("LANCER")}</button><button class="btn primary cs-mult cs-pqty" aria-label="${e("Billes par lancer")}">×10</button></div>
+          <div class="cs-tray"></div>
+        </div>
+      </div></div>
+      <canvas class="cs-fx"></canvas><div class="cs-flash"></div><div class="cs-banner"></div>
+      <!-- motion smear in hard copies (no gaussian blur): the strip plus two fainter copies 12 / 24 px above -->
+      <svg width="0" height="0" style="position:absolute"><filter id="cs-vsmear" x="0" y="-20%" width="100%" height="140%">
+        <feOffset in="SourceGraphic" dy="-12" result="a"/><feComponentTransfer in="a" result="a2"><feFuncA type="linear" slope=".45"/></feComponentTransfer>
+        <feOffset in="SourceGraphic" dy="-24" result="b"/><feComponentTransfer in="b" result="b2"><feFuncA type="linear" slope=".2"/></feComponentTransfer>
+        <feMerge><feMergeNode in="b2"/><feMergeNode in="a2"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter></svg>
+    </div>`;
+  }
+  const ct = 4,
+    wt = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((O) => (O + 0.5) / 16),
+    ge = (O, Ke, Ct) => Ct > wt[(O & 3) + (Ke & 3) * 4],
+    Fe = { 0: [], 1: [1], 2: [2, 1], 3: [3, 1, 1], 5: [5, 3, 2, 1, 1] };
+  function gt(O, Ke, Ct, ta, ba) {
+    const na = { x: O, y: Ke, w: Ct, h: ta, a: new Uint8Array(Ct * ta) },
+      ua = Fe[ba];
+    for (let Ya = 0; Ya < ta; Ya++) {
+      const ya = Math.min(Ya, ta - 1 - Ya),
+        tn = ya < ua.length ? ua[ya] : 0;
+      for (let Cn = tn; Cn < Ct - tn; Cn++) na.a[Ya * Ct + Cn] = 1;
+    }
+    return na;
+  }
+  const Dt = (O, Ke, Ct) => Ke >= 0 && Ct >= 0 && Ke < O.w && Ct < O.h && O.a[Ct * O.w + Ke];
+  function ha(O) {
+    const Ke = { ...O, a: new Uint8Array(O.w * O.h) };
+    for (let Ct = 0; Ct < O.h; Ct++)
+      for (let ta = 0; ta < O.w; ta++)
+        Ke.a[Ct * O.w + ta] =
+          Dt(O, ta, Ct) && Dt(O, ta - 1, Ct) && Dt(O, ta + 1, Ct) && Dt(O, ta, Ct - 1) && Dt(O, ta, Ct + 1)
+            ? 1
+            : 0;
+    return Ke;
+  }
+  function _t(O, Ke, Ct) {
+    for (let ta = 0; ta < Ke.h; ta++)
+      for (let ba = 0; ba < Ke.w; ba++) {
+        if (!Ke.a[ta * Ke.w + ba]) continue;
+        const na = !Dt(Ke, ba - 1, ta) || !Dt(Ke, ba, ta - 1),
+          ua = !Dt(Ke, ba + 1, ta) || !Dt(Ke, ba, ta + 1),
+          Ya = typeof Ct == "function" ? Ct(ba, ta, na ? "tl" : ua ? "br" : "") : Ct;
+        Ya && ((O.fillStyle = Ya), O.fillRect(Ke.x + ba, Ke.y + ta, 1, 1));
+      }
+  }
+  const Ea = (O, Ke) => {
+    for (let Ct = 0; Ct < Ke; Ct++) O = ha(O);
+    return O;
+  };
+  function ut(O, Ke) {
+    const Ct = O.getBoundingClientRect(),
+      ta = Ke.getBoundingClientRect(),
+      ba = Ct.width / O.offsetWidth;
+    return {
+      x: Math.round((ta.left - Ct.left) / ba / ct),
+      y: Math.round((ta.top - Ct.top) / ba / ct),
+      w: Math.round(ta.width / ba / ct),
+      h: Math.round(ta.height / ba / ct),
+    };
+  }
+  function jt(
+    O,
+    Ke,
+    { pad: Ct = 2, r: ta = 2, frame: ba = ["#ffd34d", "#b8861b"], sunk: na = !1, fill: ua, shade: Ya },
+  ) {
+    const ya = gt(Ke.x - Ct, Ke.y - Ct, Ke.w + 2 * Ct, Ke.h + 2 * Ct, ta);
+    _t(O, ya, "#1a0d14");
+    const tn = ha(ya),
+      [Cn, Rn] = na ? [ba[1], ba[0]] : ba;
+    _t(O, tn, (cs, gs, xs) => (xs === "tl" ? Cn : Rn));
+    const Nn = Ea(tn, Ct - 1 || 1);
+    _t(O, Nn, (cs, gs, xs) => (Ya && xs === "tl" ? Ya : typeof ua == "function" ? ua(cs, gs) : ua));
+  }
+  const xt = {
+      hi: "#ff8a98",
+      lo: "#5c0d1d",
+      top: "#ec4a5e",
+      fill: "#d8344a",
+      gloss: "#f0566a",
+      dither: "#a8243a",
+      tray: "#3b0814",
+      trayDark: "#1a0308",
+      ledge: "#ff6b7d",
+      payFrame: ["#ff8a98", "#5c0d1d"],
+      payFill: "#a8243a",
+      bulbOff: "#6e1a2a",
+      bulbOffCore: "#9a3040",
+      marquee: ["#12061f", "#2b1040", "#1d0832"],
+    },
+    D = {
+      hi: "#8ad0ff",
+      lo: "#0d2a5c",
+      top: "#4a9cec",
+      fill: "#2f7fd8",
+      gloss: "#5ab0f0",
+      dither: "#2460b0",
+      tray: "#08203b",
+      trayDark: "#03101a",
+      ledge: "#6bbcff",
+      payFrame: ["#8ad0ff", "#0d2a5c"],
+      payFill: "#2460b0",
+      bulbOff: "#1a3a6e",
+      bulbOffCore: "#30589a",
+      marquee: ["#1e0b45", "#3a1880", "#2a1262"],
+    };
+  let Q = 0;
+  function Y(O, Ke, Ct) {
+    return O === "spin"
+      ? { lit: (Ke + Math.floor(Q / 2)) % 4 === 0 }
+      : O === "win"
+        ? { lit: Q % 2 === 0 || (Ke + Q) % 4 === 0, c: Q % 4 < 2 ? "#fff6b0" : "#ffd34d" }
+        : O === "jackpot"
+          ? {
+              lit: (Ke + Q) % 2 === 0,
+              c: ["#ff5a5a", "#ffd34d", "#7dff9c", "#5ac8ff", "#c77dff"][
+                Math.floor((Ke * 5) / Ct + Q / 2) % 5
+              ],
+            }
+          : { lit: Ke % 2 === 0 };
+  }
+  function ye(O, Ke, Ct) {
+    const ta = O.querySelector(".cs-chrome"),
+      ba = ta.getContext("2d"),
+      na = O.querySelector(".cs-bulbs"),
+      ua = na.getContext("2d"),
+      Ya = (Nn) => ut(O, Nn);
+    let ya = [],
+      tn = null;
+    function Cn() {
+      if (!O.offsetWidth) return;
+      const Nn = Math.ceil(O.offsetWidth / ct),
+        cs = Math.ceil(O.offsetHeight / ct);
+      for (const Ns of [ta, na])
+        ((Ns.width = Nn),
+          (Ns.height = cs),
+          (Ns.style.width = Nn * ct + "px"),
+          (Ns.style.height = cs * ct + "px"));
+      ba.clearRect(0, 0, Nn, cs);
+      const gs = Ya(O.querySelector(".cs-tray")).y,
+        xs = gt(0, 0, Nn, cs, 5);
+      (_t(ba, xs, "#1a0d14"),
+        _t(ba, ha(xs), (Ns, Hs, ho) =>
+          Hs >= gs
+            ? ho === "tl" && Hs === gs
+              ? Ke.ledge
+              : Hs < gs + 3 || ho === "br"
+                ? Ke.trayDark
+                : Ke.tray
+            : ho === "tl"
+              ? Ke.hi
+              : ho === "br"
+                ? Ke.lo
+                : ge(Ns, Hs, (Hs - cs * 0.5) / (cs * 0.3))
+                  ? Ke.dither
+                  : Ns >= 3 && Ns <= 4 && Hs > 6 && Hs < gs - 6
+                    ? Ke.gloss
+                    : Hs < 4
+                      ? Ke.top
+                      : Ke.fill,
+        ));
+      const _s = gt(5, 5, Nn - 10, gs - 8, 3);
+      (_t(ba, _s, (Ns, Hs, ho) => (ho ? "#ffd34d" : null)),
+        _t(ba, ha(_s), (Ns, Hs, ho) => (ho ? "#b8861b" : null)));
+      for (let Ns = 2; Ns < Nn - 2; Ns++)
+        ((ba.fillStyle = "#ffd34d"),
+          ba.fillRect(Ns, gs - 2, 1, 1),
+          (ba.fillStyle = "#b8861b"),
+          ba.fillRect(Ns, gs - 1, 1, 1));
+      for (const [Ns, Hs] of [
+        [8, 8],
+        [Nn - 10, 8],
+        [8, gs - 7],
+        [Nn - 10, gs - 7],
+      ])
+        ((ba.fillStyle = "#1a0d14"),
+          ba.fillRect(Ns - 1, Hs, 4, 2),
+          ba.fillRect(Ns, Hs - 1, 2, 4),
+          (ba.fillStyle = "#b8861b"),
+          ba.fillRect(Ns, Hs, 2, 2),
+          (ba.fillStyle = "#fff3b0"),
+          ba.fillRect(Ns, Hs, 1, 1));
+      const [no, mo, ro] = Ke.marquee;
+      (jt(ba, Ya(O.querySelector(".cs-marquee")), {
+        pad: 3,
+        r: 3,
+        fill: (Ns, Hs) => (Hs < 4 ? no : ge(Ns, Hs, (Hs - 6) / 30) ? mo : ro),
+      }),
+        jt(ba, Ya(O.querySelector(".cs-window")), { pad: 3, r: 2, sunk: !0, fill: "#1a0d14" }));
+      for (const Ns of O.querySelectorAll(".cs-lcd")) {
+        const Hs = Ns.classList.contains("hot");
+        jt(ba, Ya(Ns), {
+          pad: 2,
+          r: 1,
+          sunk: !0,
+          frame: Hs ? ["#fff3b0", "#ffd34d"] : ["#ffd34d", "#b8861b"],
+          fill: "#240707",
+          shade: "#000",
+        });
+      }
+      ya = [];
+      const so = 2.5,
+        go = gs - 4.5,
+        fo = 2.5,
+        bo = Nn - 3.5,
+        Eo = (Ns, Hs, ho, oi) => {
+          const qo = Math.max(1, Math.round(Math.hypot(ho - Ns, oi - Hs) / 9));
+          for (let Po = 0; Po < qo; Po++)
+            ya.push([Math.round(Ns + ((ho - Ns) * Po) / qo), Math.round(Hs + ((oi - Hs) * Po) / qo)]);
+        };
+      (Eo(fo + 4, so, bo - 4, so),
+        Eo(bo, so + 4, bo, go - 4),
+        Eo(bo - 4, go, fo + 4, go),
+        Eo(fo, go - 4, fo, so + 4),
+        (tn = null),
+        Rn());
+    }
+    function Rn() {
+      if (!ya.length) return;
+      const Nn = ya.length,
+        cs = Ct(),
+        gs = cs === "idle" ? cs : cs + Q;
+      gs !== tn &&
+        ((tn = gs),
+        ua.clearRect(0, 0, na.width, na.height),
+        ya.forEach(([xs, _s], no) => {
+          let mo,
+            ro = "#fff6b0";
+          if (
+            (cs === "tension"
+              ? ((mo = $(no - Q * 2, 6) < 3), (ro = "#ff6b7d"))
+              : ({ lit: mo, c: ro = ro } = Y(cs, no, Nn)),
+            (ua.fillStyle = mo ? ro : Ke.bulbOff),
+            ua.fillRect(xs - 1, _s, 3, 1),
+            ua.fillRect(xs, _s - 1, 1, 3),
+            (ua.fillStyle = mo ? "#fff" : Ke.bulbOffCore),
+            ua.fillRect(xs, _s, 1, 1),
+            mo)
+          ) {
+            ((ua.globalAlpha = 0.5), (ua.fillStyle = ro));
+            for (const [so, go] of [
+              [0, -2],
+              [0, 2],
+              [-2, 0],
+              [2, 0],
+            ])
+              ua.fillRect(xs + so, _s + go, 1, 1);
+            ua.globalAlpha = 1;
+          }
+        }));
+    }
+    return { draw: Cn, drawBulbs: Rn };
+  }
+  let nt,
+    Ot,
+    ee,
+    rt,
+    Qe,
+    Ft,
+    Ye,
+    bt,
+    Yt,
+    wa,
+    pa,
+    Gt,
+    N,
+    W,
+    ze,
+    qt = "idle",
+    Lt = "idle",
+    zt = null;
+  const ca = () => ee.draw(),
+    Ma = 18,
+    Na = 92,
+    Va = 46,
+    Ba = 38;
+  let za = 0,
+    vn = -1,
+    An = null,
+    on = null,
+    qn = 0;
+  const xn = [];
+  for (let O = -5; O <= 5; O++) for (let Ke = -5; Ke <= 5; Ke++) Ke * Ke + O * O <= 30 && xn.push([Ke, O]);
+  const fn = (O, Ke) => O * O + Ke * Ke <= 30;
+  function Yn(O) {
+    if (O === vn) return;
+    ((vn = O), bt.clearRect(0, 0, Ma, Na));
+    const Ke = Math.round(Va - Ba * Math.cos(Math.PI * Math.min(1, Math.max(-0.1, O)))),
+      Ct = 9,
+      ta = Math.min(Ke, Va),
+      ba = Math.max(Ke, Va);
+    for (let ua = ta; ua <= ba; ua++)
+      ((bt.fillStyle = "#1a0d14"),
+        bt.fillRect(Ct - 2, ua, 5, 1),
+        (bt.fillStyle = "#8a909c"),
+        bt.fillRect(Ct - 1, ua, 1, 1),
+        (bt.fillStyle = "#f2f4f8"),
+        bt.fillRect(Ct, ua, 1, 1),
+        (bt.fillStyle = "#aab0bc"),
+        bt.fillRect(Ct + 1, ua, 1, 1));
+    const na = gt(0, Va - 9, 13, 18, 2);
+    (_t(bt, na, "#1a0d14"),
+      _t(bt, ha(na), (ua, Ya, ya) =>
+        ya === "tl" ? "#e6e8ee" : ya === "br" ? "#5b5f6b" : ge(ua, Ya, (Ya - 10) / 8) ? "#8a909c" : "#aab0bc",
+      ),
+      (bt.fillStyle = "#1a0d14"),
+      bt.fillRect(Ct - 1, Va - 5, 3, 10),
+      (bt.fillStyle = "#3a3d46"),
+      bt.fillRect(Ct, Va - 4, 1, 8));
+    for (const ua of [Va - 6, Va + 5])
+      ((bt.fillStyle = "#5b5f6b"),
+        bt.fillRect(3, ua, 2, 2),
+        (bt.fillStyle = "#f2f4f8"),
+        bt.fillRect(3, ua, 1, 1));
+    for (const [ua, Ya] of xn) {
+      const ya = !fn(ua - 1, Ya) || !fn(ua + 1, Ya) || !fn(ua, Ya - 1) || !fn(ua, Ya + 1);
+      ((bt.fillStyle = ya ? "#1a0d14" : ua + Ya > 3 ? "#8e1730" : ua + Ya > 0 ? "#d8344a" : "#ec4a5e"),
+        bt.fillRect(Ct + ua, Ke + Ya, 1, 1));
+    }
+    ((bt.fillStyle = "#ffb3c0"),
+      bt.fillRect(Ct - 3, Ke - 2, 2, 1),
+      bt.fillRect(Ct - 2, Ke - 3, 1, 1),
+      (bt.fillStyle = "#fff"),
+      bt.fillRect(Ct - 2, Ke - 2, 1, 1));
+  }
+  const Zn = [
+    [0, 0],
+    [130, 1],
+    [210, 1],
+    [430, -0.1],
+    [520, 0.03],
+    [580, 0],
+  ];
+  function is(O) {
+    for (let Ke = 1; Ke < Zn.length; Ke++) {
+      const [Ct, ta] = Zn[Ke - 1],
+        [ba, na] = Zn[Ke];
+      if (O <= ba) {
+        const ua = (O - Ct) / (ba - Ct);
+        return ta + (na - ta) * (Ke === 1 ? ua * ua : 1 - (1 - ua) * (1 - ua));
+      }
+    }
+    return null;
+  }
+  function ts(O) {
+    if (on) {
+      Yn(Math.round(za * 24) / 24);
+      return;
+    }
+    if (An) {
+      const Ke = is(O - An);
+      Ke === null ? ((An = null), (za = 0)) : (za = Ke);
+    } else if (!lt && !Tt() && O > qn) {
+      const Ke = (O - qn) / 360;
+      ((za = Ke < 1 ? Math.sin(Ke * Math.PI) * 0.07 : 0), Ke >= 1 && (qn = O + 3500 + Math.random() * 2e3));
+    } else za = 0;
+    Yn(Math.round(za * 24) / 24);
+  }
+  const Jn = () => {
+    An = zn.now() - (za > 0.8 ? 130 : 0);
+  };
+  let On = 0,
+    Me = 0,
+    It = 1;
+  const Kt = (O) => {
+      const Ke = R.getBoundingClientRect(),
+        Ct = O.getBoundingClientRect();
+      return {
+        left: Ct.left - Ke.left,
+        top: Ct.top - Ke.top,
+        width: Ct.width,
+        height: Ct.height,
+        right: Ct.right - Ke.left,
+        bottom: Ct.bottom - Ke.top,
+      };
+    },
+    Aa = 6;
+  let Ka,
+    _a,
+    Ha,
+    Ua = "off",
+    sn = 0,
+    Be = 0,
+    Ut = null,
+    aa = 0;
+  function ae(O = Ut || He(".cs-reels")) {
+    Ut = O;
+    const Ke = Math.max(1, Math.ceil(On / Aa)),
+      Ct = Math.max(1, Math.ceil(Me / Aa));
+    ((Yt.width = Ke), (Yt.height = Ct), (Ka = wa.createImageData(Ke, Ct)));
+    const ta = Kt(O),
+      ba = (ta.left + ta.width / 2) / Aa,
+      na = (ta.top + ta.height / 2) / Aa;
+    ((_a = new Float32Array(Ke * Ct)), (Ha = new Float32Array(Ke * Ct)));
+    const ua = Math.hypot(Math.max(ba, Ke - ba), Math.max(na, Ct - na));
+    for (let Ya = 0; Ya < Ct; Ya++)
+      for (let ya = 0; ya < Ke; ya++) {
+        const tn = ya + 0.5 - ba,
+          Cn = Ya + 0.5 - na,
+          Rn = Ya * Ke + ya;
+        ((_a[Rn] = (Math.atan2(Cn, tn) / (2 * Math.PI) + 1) % 1), (Ha[Rn] = Math.hypot(tn, Cn) / ua));
+      }
+  }
+  const ft = {
+    on: [[255, 211, 77]],
+    rainbow: [
+      [255, 90, 90],
+      [255, 211, 77],
+      [125, 255, 156],
+      [90, 200, 255],
+    ],
+  };
+  function ht(O, Ke) {
+    (Rt(), O !== "off" && !Tt() && ((Ua = O), ae(Ke || He(".cs-reels"))), (aa = O === "off" || Tt() ? 0 : 1));
+  }
+  function ea(O) {
+    if (((sn += Math.sign(aa - sn) * Math.min(Math.abs(aa - sn), O * 2.2)), sn <= 0)) {
+      Yt.dataset.on && (wa.clearRect(0, 0, Yt.width, Yt.height), delete Yt.dataset.on);
+      return;
+    }
+    ((Yt.dataset.on = 1), (Be = (Be + O / (Ua === "rainbow" ? 5 : 14)) % 1));
+    const Ke = Yt.width,
+      Ct = Ka.data,
+      ta = ft[Ua],
+      ba = 36;
+    for (let na = 0, ua = Ke * Yt.height; na < ua; na++) {
+      const Ya = Math.floor(((_a[na] + Be) % 1) * ba),
+        ya = (Ya & 1) === 0 && ge(na % Ke, (na / Ke) | 0, sn * (1.05 - Ha[na] * 0.75)),
+        tn = ta[(Ya >> 1) % ta.length],
+        Cn = na * 4;
+      ya
+        ? ((Ct[Cn] = tn[0]), (Ct[Cn + 1] = tn[1]), (Ct[Cn + 2] = tn[2]), (Ct[Cn + 3] = 96))
+        : (Ct[Cn + 3] = 0);
+    }
+    wa.putImageData(Ka, 0, 0);
+  }
+  function Ra() {
+    const O = He(".cs-fit"),
+      Ke = He(".cs-stage"),
+      Ct = !P.matches;
+    O.style.transform = "none";
+    const ta = R.clientWidth - 16,
+      ba = Ct ? R.clientHeight - 16 : Math.max(320, innerHeight - 150);
+    (O.style.removeProperty("--cs-tap"),
+      Ct ||
+        O.style.setProperty(
+          "--cs-tap",
+          Math.max(56, Math.ceil(44 / Math.min(1, ta / O.offsetWidth))) + "px",
+        ));
+    const na = L.dataset.tab,
+      ua = ["slots", "pachi"].map((tn) => ((L.dataset.tab = tn), [O.offsetWidth, O.offsetHeight]));
+    L.dataset.tab = na;
+    const Ya = O.offsetHeight,
+      ya = (It = Math.min(1, ...ua.map(([tn, Cn]) => Math.min(ta / tn, ba / Cn))));
+    ((O.style.transform = `scale(${ya})`),
+      O.style.setProperty("--u", `${(2 / ya).toFixed(3)}px`),
+      Ct
+        ? ((Ke.style.height = "100%"),
+          (Ke.style.paddingTop = Math.max(8, Math.round((R.clientHeight - Ya * ya) / 2)) + "px"))
+        : ((Ke.style.height = Math.ceil(Ya * ya + 24) + "px"), (Ke.style.paddingTop = "")),
+      R.style.setProperty("--bk", Math.max(0.45, Math.min(1, ya * 1.1)).toFixed(3)));
+  }
+  function Ca() {
+    if (!(!te || !R.offsetWidth)) {
+      (Ra(),
+        (On = pa.width = R.clientWidth),
+        (Me = pa.height = R.clientHeight),
+        (Gt.imageSmoothingEnabled = !1),
+        (us = new Float32Array(Math.ceil(On / Xn) + 1)));
+      for (const O of ls) O.state === "rest" && ((O.state = "drain"), (O.vy = 0));
+      (ee.draw(), rt.draw(), ae(), Rt());
+    }
+  }
+  function gn(O) {
+    if (!lt) {
+      ((pe = O), (He(".cs-slots .cs-betv").textContent = f(At() * V) + " ₽"));
+      for (const Ke of mt)
+        Ft[Ke.id].forEach((Ct) => {
+          (Ct.classList.toggle("on", mt.indexOf(Ke) < Te[O]), Ct.classList.remove("blink"));
+        });
+    }
+  }
+  const yn =
+    '<svg class="loop-ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 9A8 8 0 0 0 5.2 7.2"/><path d="M4.5 15a8 8 0 0 0 14.3 1.8"/><path d="M19.8 4.2V9h-4.8"/><path d="M4.2 19.8V15h4.8"/></svg>';
+  let mn = !1,
+    ln = 0;
+  function In(O) {
+    (Rt(), (mn = O), clearTimeout(ln));
+    const Ke = He(".cs-slots .cs-auto");
+    (Ke &&
+      (Ke.classList.toggle("on", O),
+      Ke.classList.toggle("green", O),
+      Ke.classList.toggle("ghost", !O),
+      Ke.setAttribute("aria-pressed", O)),
+      O && !lt && q());
+  }
+  const xe = () => {
+    (clearTimeout(ln),
+      mn &&
+        (ln = Wa(() => {
+          mn && K && z === "slots" && !lt ? q() : In(!1);
+        }, 700 / fe())));
+  };
+  function Et() {
+    lt ||
+      ((V = yt[(yt.indexOf(V) + 1) % yt.length]),
+      (He(".cs-slots .cs-mult").textContent = `×${V}`),
+      gn(pe),
+      $o());
+  }
+  function oa(O) {
+    (O.classList.remove("pop"), O.offsetWidth, O.classList.add("pop"));
+  }
+  function sa() {
+    const O = He(".cs-pgauge");
+    if (!O) return;
+    const Ke = re(),
+      Ct = et[(Ke.stage || 0) % _(Ke)],
+      ta = Math.min(Ke.gauge || 0, Ct.at);
+    ((O.querySelector("i").style.width = (ta / Ct.at) * 100 + "%"),
+      (O.querySelector(".cs-gaugev").textContent = `${f(ta)} / ${f(Ct.at)}`));
+    const ba = O.querySelector(".cs-gstep"),
+      na = !!B.S.dex[Ct.id] || !!B.S.seen?.[Ct.id];
+    (+ba.dataset.id !== Ct.id &&
+      ((ba.dataset.id = Ct.id), (ba.innerHTML = `${t.UI.sprBox(Ct.id, !0, 2, 72)}<i class="shiny-ico"></i>`)),
+      ba.classList.toggle("unknown", !na),
+      (O.title = e("{n} jetons avant {mon} ✨", { n: f(Ct.at - ta), mon: na ? B.DEX[Ct.id].name : "???" })));
+  }
+  function Ga() {
+    const O = it();
+    ((document.getElementById("cs-sum").innerHTML = De(O)
+      ? `<span><b>${f(J())}</b> ${e("jetons")}</span>`
+      : ""),
+      L && m(".cs-shop button[data-price]").forEach((Ke) => (Ke.disabled = A() - kt < +Ke.dataset.price)));
+  }
+  const cn = 16,
+    Tn = 20,
+    Mn = 8,
+    ks = (() => {
+      const O = document.createElement("canvas");
+      ((O.width = cn * Mn), (O.height = Tn));
+      const Ke = O.getContext("2d"),
+        Ct = 12,
+        ta = 15;
+      for (let ba = 0; ba < Mn; ba++) {
+        const na = Math.cos((ba / Mn) * 2 * Math.PI),
+          ua = Math.max(2, Math.round(Ct * Math.abs(na))),
+          Ya = ba * cn + Math.floor((cn - ua) / 2),
+          ya = Tn - ta - 1,
+          tn = (Rn, Nn) => {
+            const cs = Math.abs((Rn + 0.5 - ua / 2) / (ua / 2)),
+              gs = Math.abs((Nn + 0.5 - ta / 2) / (ta / 2));
+            return Rn >= 0 && Nn >= 0 && Rn < ua && Nn < ta && cs ** 2.6 + gs ** 2.6 <= 1.02;
+          },
+          Cn = (Rn, Nn) => tn(Rn, Nn) && tn(Rn - 1, Nn) && tn(Rn + 1, Nn) && tn(Rn, Nn - 1) && tn(Rn, Nn + 1);
+        for (let Rn = 0; Rn < ta; Rn++)
+          for (let Nn = 0; Nn < ua; Nn++) {
+            if (!tn(Nn, Rn)) continue;
+            const cs = (Nn + 0.5 - ua / 2) / (ua / 2),
+              gs = (Rn + 0.5 - ta / 2) / (ta / 2);
+            let xs;
+            (Cn(Nn, Rn)
+              ? ua <= 4
+                ? (xs = Nn === Math.floor(ua / 2) - (ua > 2) ? "#ffe784" : "#cea500")
+                : Cn(Nn - 1, Rn) && Cn(Nn + 1, Rn) && Cn(Nn, Rn - 1) && Cn(Nn, Rn + 1)
+                  ? Rn === 5 || Rn === 9
+                    ? (xs = "#cea500")
+                    : Rn === 6 || Rn === 10
+                      ? (xs = "#ffe784")
+                      : cs < -0.15 && gs < -0.35 && ua >= 8
+                        ? (xs = "#ffffff")
+                        : cs > 0.45
+                          ? (xs = "#e6b400")
+                          : (xs = "#ffd600")
+                  : (xs = "#cea500")
+              : (xs = "#8c6b00"),
+              (Ke.fillStyle = xs),
+              Ke.fillRect(Ya + Nn, ya + Rn, 1, 1));
+          }
+      }
+      return O;
+    })();
+  let ss = "",
+    us = new Float32Array(1);
+  const Xn = 4,
+    Dn = 2e3,
+    ls = [],
+    Hn = [],
+    Kn = [],
+    Sn = (O) => us[Math.max(0, Math.min(us.length - 1, Math.round(O / Xn)))];
+  function ns(O) {
+    Rt();
+    const Ke = Math.random() < 0.12,
+      Ct = It < 0.75 ? 1 : 2;
+    ls.push(
+      Object.assign(
+        {
+          f: Math.random() * Mn,
+          fs: Je(12, 22),
+          state: "fly",
+          bounces: 0,
+          rolls: 0,
+          s: cn * Ct * (Ke ? 2 : 1),
+        },
+        O,
+      ),
+    );
+  }
+  function Ue(O) {
+    const Ke = Sn(O.x),
+      Ct = Sn(O.x - O.s * 0.6),
+      ta = Sn(O.x + O.s * 0.6),
+      ba = O.s * 0.35;
+    if (O.rolls < 8 && (Ke - Ct > ba || Ke - ta > ba)) {
+      (O.rolls++, (O.vx = (Ct < ta ? -1 : 1) * Je(60, 160)), (O.vy = -Je(40, 90)));
+      return;
+    }
+    ((O.state = "rest"), (O.y = Me - Ke), (O.fs = 0));
+    const na = Math.round(O.x / Xn),
+      ua = Math.ceil((O.s * 0.55) / Xn),
+      Ya = O.s * 0.2;
+    for (let tn = -ua; tn <= ua; tn++) {
+      const Cn = na + tn;
+      Cn >= 0 &&
+        Cn < us.length &&
+        (us[Cn] = Math.min(Me * 0.45, us[Cn] + Ya * (1 - Math.abs(tn) / (ua + 1))));
+    }
+    (kt > 0 && (kt = Math.max(0, kt - O.value)),
+      Ge.coin?.(-Sn(O.x) * 2),
+      Math.random() < 0.3 && Bt(O.x, O.y - O.s / 2, 3, "#fff6b0"));
+    const ya = ls.filter((tn) => tn.state === "rest");
+    ya.length > 500 && ((ya[0].state = "fade"), (ya[0].a = 1));
+  }
+  function Bt(O, Ke, Ct, ta = "#ffd34d", ba = 220) {
+    Rt();
+    for (let na = 0; na < Ct; na++) {
+      const ua = Math.random() * Math.PI * 2,
+        Ya = Je(0.3, 1) * ba * Math.max(0.5, It);
+      Hn.push({
+        kind: "star",
+        x: O,
+        y: Ke,
+        vx: Math.cos(ua) * Ya,
+        vy: Math.sin(ua) * Ya - 60,
+        life: 0,
+        max: Je(0.35, 0.8),
+        color: ta,
+        size: Math.random() < 0.3 ? 3 : 2,
+        g: 300,
+      });
+    }
+  }
+  function st(O, Ke, Ct, ta = -Math.PI / 2, ba = 1.1, na = 1100) {
+    if ((Rt(), Tt())) return;
+    const ua = ["#ff5a5a", "#ffd34d", "#7dff9c", "#5ac8ff", "#c77dff", "#fff"];
+    na *= Math.max(0.55, It);
+    for (let Ya = 0; Ya < Ct; Ya++) {
+      const ya = ta + Je(-ba, ba) / 2,
+        tn = Je(0.45, 1) * na;
+      Hn.push({
+        kind: "conf",
+        x: O,
+        y: Ke,
+        vx: Math.cos(ya) * tn,
+        vy: Math.sin(ya) * tn,
+        life: 0,
+        max: Je(2.2, 3.6),
+        color: ua[Ya % ua.length],
+        w: Je(6, 11),
+        h: Je(4, 7),
+        flip: Je(0, 6),
+        vf: Je(8, 16),
+        g: 900,
+        drag: 1.8,
+      });
+    }
+  }
+  function Zt() {
+    (Rt(), us.fill(0));
+    for (const O of ls)
+      O.state === "rest" &&
+        ((O.state = "drain"), (O.vy = Je(-200, 0)), (O.vx = Je(-60, 60)), (O.fs = Je(10, 18)));
+  }
+  const va = () => Kt(He(z === "pachi" ? ".cs-pachi .cs-topslot" : ".cs-slots .cs-topslot"));
+  function Da(O, Ke, Ct, { fountain: ta = 1, rain: ba = 0 } = {}) {
+    (Rt(), (Ke = Math.max(1, Math.round(Tt() ? Math.min(Ke, 12) : Ke))));
+    const na = O / Ke,
+      ua = zn.now();
+    for (let Ya = 0; Ya < Ke; Ya++) {
+      const ya = ua + (Ya === 0 ? 0 : (Ya / Ke) ** 1.3 * Ct) + Math.random() * 40;
+      Kn.push({ at: ya, value: na, fromTop: Math.random() < ba / (ta + ba) });
+    }
+    Kn.sort((Ya, ya) => Ya.at - ya.at);
+  }
+  let la = 0,
+    Xa = 0,
+    nn = 0,
+    F = 0,
+    Ce = 0;
+  function Xe() {
+    F ||
+      !te ||
+      ((la = zn.now()),
+      (nn = es(ia)),
+      (F = Ss(() => {
+        (Q++, z === "slots" ? ee.drawBulbs() : z === "pachi" && rt.drawBulbs(), !nn && !da(zn.now()) && Rt());
+      }, 70)));
+  }
+  function Ve() {
+    (cancelAnimationFrame(nn), (nn = 0), clearInterval(F), (F = 0));
+  }
+  function Rt() {
+    F && !nn && ((la = zn.now()), (nn = es(ia)));
+  }
+  const da = (O) =>
+    !lt &&
+    !mn &&
+    !w &&
+    !on &&
+    !An &&
+    !za &&
+    (Tt() || z !== "slots" || O <= qn) &&
+    Qe.every((Ke) => Ke.mode === "idle") &&
+    sn <= 0 &&
+    aa <= 0 &&
+    O >= Xa &&
+    !Kn.length &&
+    !Hn.length &&
+    ls.every((Ke) => Ke.state === "rest") &&
+    Math.round(Vt) === Math.round(B.S.money || 0) &&
+    Math.round(Xt) === Math.round(J()) &&
+    !Ls.length &&
+    !hs.length &&
+    !Ws &&
+    !Ks &&
+    !ds.length &&
+    Lt === "idle" &&
+    O - Ce > 500;
+  function ia(O) {
+    nn = es(ia);
+    const Ke = Math.max(0, Math.min(0.033, (O - la) / 1e3));
+    la = O;
+    for (const ba of Qe) En(ba, O, Ke);
+    for (ts(O), ea(Ke), Se(O, Ke); Kn.length && Kn[0].at <= O;) {
+      const ba = Kn.shift();
+      if (ba.fromTop)
+        ns({ x: Je(20, On - 20), y: -Je(10, 120), vx: Je(-40, 40), vy: Je(0, 300), value: ba.value });
+      else {
+        const na = va();
+        (ns({
+          x: na.left + Je(8, na.width - 8),
+          y: na.bottom,
+          vx: Je(-60, 60) * It,
+          vy: Je(40, 260) * Math.max(0.6, It),
+          value: ba.value,
+        }),
+          (Xa = O + 120));
+      }
+    }
+    m(".cs-topslot").forEach((ba) => ba.classList.toggle("gush", O < Xa));
+    const Ct = B.S.money || 0,
+      ta = J();
+    if (Math.round(Vt) !== Math.round(Ct)) {
+      const ba = Ct - Vt,
+        na = Math.sign(ba) * Math.max(1, Math.ceil(Math.abs(ba) * 0.15));
+      ((Vt = Math.abs(na) >= Math.abs(ba) ? Ct : Vt + na), (He(".cs-money").textContent = f(Vt) + " ₽"));
+    }
+    if (Math.round(Xt) !== Math.round(ta)) {
+      const ba = ta - Xt,
+        na = Math.sign(ba) * Math.max(1, Math.ceil(Math.abs(ba) * 0.15));
+      ((Xt = Math.abs(na) >= Math.abs(ba) ? ta : Xt + na),
+        m(".cs-jetons").forEach((ua) => (ua.textContent = f(Xt))),
+        ba > 0 && (Ge.count?.(), m(".cs-jwallet").forEach(oa)),
+        Xt === ta && Ga());
+    }
+    Gt.clearRect(0, 0, On, Me);
+    for (let ba = ls.length - 1; ba >= 0; ba--) {
+      const na = ls[ba];
+      if (na.state === "fly" || na.state === "drain") {
+        if (
+          ((na.vy += Dn * Ke),
+          (na.x += na.vx * Ke),
+          (na.y += na.vy * Ke),
+          (na.f += na.fs * Ke),
+          na.x < na.s / 2 && ((na.x = na.s / 2), (na.vx = Math.abs(na.vx) * 0.5)),
+          na.x > On - na.s / 2 && ((na.x = On - na.s / 2), (na.vx = -Math.abs(na.vx) * 0.5)),
+          na.state === "fly")
+        ) {
+          const ya = Me - Sn(na.x);
+          na.y >= ya &&
+            na.vy > 0 &&
+            ((na.y = ya),
+            na.vy > 380 && na.bounces < 2 ? ((na.vy *= -0.33), (na.vx *= 0.6), na.bounces++) : Ue(na));
+        } else if (na.y > Me + 60) {
+          ls.splice(ba, 1);
+          continue;
+        }
+      } else if (na.state === "fade" && ((na.a -= Ke * 2), na.a <= 0)) {
+        ls.splice(ba, 1);
+        continue;
+      }
+      Gt.globalAlpha = na.state === "fade" ? na.a : 1;
+      const ua =
+          na.state === "rest"
+            ? (na.restFrame ??= [0, 0, 0, 1, 7][Math.floor(Math.random() * 5)])
+            : Math.floor(na.f) % Mn,
+        Ya = na.s / cn;
+      Gt.drawImage(
+        ks,
+        ua * cn,
+        0,
+        cn,
+        Tn,
+        Math.round(na.x - (cn * Ya) / 2),
+        Math.round(na.y - Tn * Ya),
+        cn * Ya,
+        Tn * Ya,
+      );
+    }
+    Gt.globalAlpha = 1;
+    for (let ba = Hn.length - 1; ba >= 0; ba--) {
+      const na = Hn[ba];
+      if (((na.life += Ke), na.life >= na.max)) {
+        Hn.splice(ba, 1);
+        continue;
+      }
+      (na.drag && ((na.vx -= na.vx * na.drag * Ke), (na.vy -= na.vy * na.drag * Ke * 0.5)),
+        (na.vy += na.g * Ke),
+        (na.x += na.vx * Ke),
+        (na.y += na.vy * Ke));
+      const ua = 1 - na.life / na.max;
+      if (((Gt.fillStyle = na.color), (Gt.globalAlpha = Math.min(1, ua * 2)), na.kind === "star")) {
+        const Ya = na.size * (ua > 0.5 ? 2 : 1),
+          ya = Math.round(na.x),
+          tn = Math.round(na.y);
+        (Gt.fillRect(ya - Ya * 2, tn - Ya / 2, Ya * 4, Ya),
+          Gt.fillRect(ya - Ya / 2, tn - Ya * 2, Ya, Ya * 4));
+      } else {
+        na.flip += na.vf * Ke;
+        const Ya = Math.round(na.w / 2) * 2,
+          ya = Math.max(2, Math.round((Math.abs(Math.cos(na.flip)) * na.h) / 2) * 2);
+        Gt.fillRect(Math.round(na.x / 2) * 2 - Ya / 2, Math.round(na.y / 2) * 2 - ya / 2, Ya, ya);
+      }
+    }
+    ((Gt.globalAlpha = 1), da(O) && (cancelAnimationFrame(nn), (nn = 0)));
+  }
+  const Ja = 24,
+    Ia = !t.Perf?.touch,
+    ka = (O) => 1 + 2.25 * (O - 1) ** 3 + 1.25 * (O - 1) ** 2;
+  function Za(O) {
+    const Ke = $(O.p, ce);
+    O.stripEl.style.transform = `translateY(${-Ke * tt}px)`;
+    const Ct = Math.floor(Ke);
+    Ct !== O.lastCell && ((O.lastCell = Ct), O.mode !== "idle" && Ge.tick?.());
+  }
+  function En(O, Ke, Ct) {
+    if (O.mode !== "idle") {
+      if (O.mode === "windup") {
+        const ta = Math.min(1, (Ke - O.t0) / (170 / fe()));
+        ((O.p = O.p0 + 0.4 * Math.sin((ta * Math.PI) / 2)),
+          ta >= 1 && ((O.mode = O.stopping ? "cruise" : "spin"), (O.v = -2), (O.t0 = Ke)));
+      } else if (O.mode === "spin" || O.mode === "cruise") {
+        const ta = O.slow ? -O.slow * fe() : -Ja * fe();
+        O.v += (ta - O.v) * Math.min(1, Ct * (O.slow ? 1.4 : 7));
+        const ba = $(O.p - O.target, ce);
+        if (((O.p += O.v * Ct), O.mode === "cruise")) {
+          const na = Math.max(1.2, Math.abs(O.v) * 0.125),
+            ua = $(O.p - O.target, ce);
+          ba >= na &&
+            ua <= na &&
+            ua < ba &&
+            ((O.mode = "stop"),
+            (O.p0 = O.p),
+            (O.d = ua),
+            (O.t0 = Ke),
+            (O.D = (((4.6 * ua) / Math.abs(O.v)) * 1e3) / fe()),
+            (O.thudded = !1));
+        }
+      } else if (O.mode === "stop") {
+        const ta = Math.min(1, (Ke - O.t0) / O.D);
+        ((O.p = O.p0 - O.d * ka(ta)),
+          !O.thudded && ta > 0.5 && ((O.thudded = !0), Ge.thud?.(O.i), le(15), Wn(O)),
+          ta >= 1 &&
+            ((O.p = O.target), (O.v = 0), (O.mode = "idle"), O.stripEl.classList.remove("blur"), O.done?.()));
+      }
+      (O.stripEl.classList.toggle("blur", Ia && Math.abs(O.v) > 10 && O.mode !== "stop"), Za(O));
+    }
+  }
+  const bn = (O, Ke) =>
+      x(Ke).then(() => {
+        ((O.mode = "windup"), (O.p0 = O.p), (O.t0 = zn.now()), (O.slow = 0), (O.stopping = !1));
+      }),
+    an = (O, Ke) =>
+      new Promise((Ct) => {
+        ((O.target = Ke),
+          (O.done = Ct),
+          (O.stopping = !0),
+          O.mode === "spin" ? (O.mode = "cruise") : O.mode === "idle" && Ct());
+      });
+  function Wn(O) {
+    const Ke = Kt(O.el);
+    (Bt(Ke.left + Ke.width / 2, Ke.bottom, 6, "#fff", 160),
+      Tt() ||
+        nt.animate(
+          [
+            { transform: "translateY(0)" },
+            { transform: `translateY(${3 + O.i}px)` },
+            { transform: "translateY(0)" },
+          ],
+          { duration: 120, easing: "ease-out" },
+        ));
+  }
+  function wn() {
+    const O = ra;
+    ra = null;
+    const Ke = (Ct, ta) => {
+      const ba = Ct.map((na, ua) => (na === ta ? ua : -1)).filter((na) => na >= 0);
+      return ba[Math.floor(Math.random() * ba.length)];
+    };
+    return O === "two"
+      ? [$(Ke(qe[0], "berry") - 1, ce), $(Ke(qe[1], "berry") - 1, ce), $(Ke(qe[2], "koki") - 1, ce)]
+      : O === "twokoki"
+        ? [$(Ke(qe[0], "koki") - 1, ce), $(Ke(qe[1], "koki") - 1, ce), $(Ke(qe[2], "berry") - 1, ce)]
+        : O === "near"
+          ? [$(Ke(qe[0], "seven") - 1, ce), $(Ke(qe[1], "seven") - 1, ce), Ke(qe[2], "seven")]
+          : O
+            ? qe.map((Ct) => $(Ke(Ct, O) - 1, ce))
+            : qe.map(() => Math.floor(Math.random() * ce));
+  }
+  function Bn(O) {
+    const Ke = O.map((ta, ba) => [0, 1, 2].map((na) => qe[ba][$(ta + na, ce)])),
+      Ct = [];
+    for (const ta of mt.slice(0, Te[pe])) {
+      const ba = ta.rows.map((na, ua) => Ke[ua][na]);
+      ba[0] === ba[1] && ba[1] === ba[2]
+        ? Ct.push({ line: ta, pay: _e[ba[0]].pay, sym: ba[0], n: 3 })
+        : ba[0] === "berry" && ba[1] === "berry"
+          ? Ct.push({ line: ta, pay: Re, sym: "berry", n: 2 })
+          : ba[0] === "koki" && ba[1] === "koki" && Ct.push({ line: ta, pay: dt, sym: "koki", n: 2 });
+    }
+    return { grid: Ke, wins: Ct, total: Ct.reduce((ta, ba) => ta + ba.pay, 0) };
+  }
+  function C(O) {
+    for (const Ke of mt.slice(0, Te[pe])) {
+      const Ct = qe[0][$(O[0] + Ke.rows[0], ce)],
+        ta = qe[1][$(O[1] + Ke.rows[1], ce)];
+      if (Ct === ta && (Ct === "seven" || Ct === "bar")) return Ct;
+    }
+    return null;
+  }
+  let g = null,
+    E = 0;
+  async function q() {
+    if ((Rt(), Ge.unlock(), lt)) {
+      g?.();
+      return;
+    }
+    const O = At() * V;
+    if ((B.S.money || 0) < O) {
+      (mn && In(!1),
+        Ge.error?.(),
+        La(8, 300),
+        oa(He(".cs-mwallet")),
+        ue(e("Pas assez d'argent pour cette mise.")));
+      return;
+    }
+    ((lt = !0), clearTimeout(E), at());
+    const Ke = wn(),
+      Ct = C(Ke),
+      ta = Bn(Ke),
+      ba = We();
+    (B.spend(O, "casino"),
+      ba.spins++,
+      (ba.spent += O),
+      (ba.bets = (ba.bets || 0) + V),
+      (ba.bets2 = (ba.bets2 || 0) + V * V),
+      (ta.pay = ta.total * V),
+      ta.pay && (B.coinIn(ta.pay), (ba.won += ta.pay), (kt = ta.pay)),
+      Z(),
+      t.App.refreshHeader(),
+      Zt(),
+      Jn(),
+      Ge.lever?.(),
+      le(20),
+      (qt = "spin"),
+      (He(".cs-slots .cs-mult").disabled = !0));
+    const na = fe();
+    await Promise.all(Qe.map((ua, Ya) => bn(ua, (Ya * 70) / na)));
+    for (let ua = 0; ua < 3; ua++) {
+      const Ya = Qe[ua];
+      let ya = (ua === 0 ? 650 : 330) / na;
+      (ua === 2 &&
+        Ct &&
+        ((qt = "tension"),
+        nt.classList.add("tension"),
+        Ge.tension?.(),
+        (Ya.slow = 7),
+        (ya = 1700 / na),
+        Pn(Ct === "seven" ? "7 … 7 …" : "BAR … BAR …", !0)),
+        await Promise.race([x(ya), new Promise((tn) => (g = tn))]),
+        (g = null),
+        await an(Ya, Ke[ua]));
+    }
+    (nt.classList.remove("tension"),
+      Pe(),
+      ta.total > 0
+        ? await ma(ta)
+        : Ct && (Ge.near?.(), Pn(e("Presque !")), na < 2 && Nt(), La(4, 250), Wa(Pe, 1200 / na)),
+      (qt = "idle"),
+      (lt = !1),
+      (He(".cs-slots .cs-mult").disabled = !1),
+      xe());
+  }
+  function Pe() {
+    const O = He(".cs-banner");
+    ((O.innerHTML = ""), (O.className = "cs-banner"));
+  }
+  function at() {
+    (Le && (Le.remove(), (Le = null)),
+      m(".cs-cell.win").forEach((O) => O.classList.remove("win")),
+      m(".cs-lamp.blink").forEach((O) => O.classList.remove("blink")),
+      Pe(),
+      ht("off"),
+      (kt = 0),
+      (Kn.length = 0));
+  }
+  const Mt = (O, Ke) => {
+    const Ct = Qe[O];
+    return Ct.cells[$(Math.round(Ct.p), ce) + Ke];
+  };
+  function Pa(O) {
+    for (const Ke of O)
+      (Ft[Ke.line.id].forEach((Ct) => Ct.classList.add("blink")),
+        [0, 1, 2].slice(0, Ke.n).forEach((Ct) => Mt(Ct, Ke.line.rows[Ct]).classList.add("win")));
+  }
+  function Ta(O = 0.9, Ke = 380) {
+    Tt() ||
+      He(".cs-flash").animate([{ opacity: O }, { opacity: 0 }], { duration: Ke, easing: "steps(4, end)" });
+  }
+  function La(O, Ke) {
+    if (Tt()) return;
+    const Ct = [];
+    for (let ta = 0; ta <= 12; ta++) {
+      const ba = 1 - ta / 12;
+      Ct.push({ transform: `translate(${Je(-O, O) * ba}px, ${Je(-O, O) * ba}px)` });
+    }
+    He(".cs-stage").animate(Ct, { duration: Ke });
+  }
+  function xa(O = !1, Ke = He(".cs-reels")) {
+    const Ct = He(".cs-banner"),
+      ta = Kt(Ke),
+      ba = (Ct.offsetWidth * en()) / 2;
+    ((Ct.style.left = Math.max(ba + 8, Math.min(On - ba - 8, ta.left + ta.width / 2)) + "px"),
+      (Ct.style.top = (O ? ta.top : ta.top + ta.height / 2) + "px"));
+  }
+  const en = () => +R.style.getPropertyValue("--bk") || 1,
+    rn = (O) => [...O].map((Ke) => `<span>${Ke === " " ? "&nbsp;" : b(Ke)}</span>`).join("");
+  function hn(O, Ke) {
+    O.querySelectorAll(".title span").forEach((Ct, ta) =>
+      Ct.animate(
+        [
+          { transform: "translateY(-160px) scale(.3)", opacity: 0 },
+          { transform: "translateY(16px) scale(1.25, .8)", opacity: 1, offset: 0.6 },
+          { transform: "translateY(0) scale(1)" },
+        ],
+        {
+          duration: Tt() ? 1 : 420,
+          delay: Tt() ? 0 : ta * 55,
+          easing: "cubic-bezier(.3,1.4,.6,1)",
+          fill: "backwards",
+        },
+      ).finished.then(() => {
+        Ke &&
+          !Tt() &&
+          Ct.animate(
+            [
+              { transform: "translateY(0)" },
+              { transform: "translateY(-14px)" },
+              { transform: "translateY(0)" },
+            ],
+            { duration: 600, delay: ta * 60, iterations: 1 / 0, easing: "ease-in-out" },
+          );
+      }),
+    );
+  }
+  function Fn(O, Ke, Ct = "") {
+    const ta = He(".cs-banner");
+    ((ta.className = "cs-banner " + Ct),
+      (ta.innerHTML = `<div class="title">${rn(O)}</div><div class="amount">${e("+{n} jetons", { n: '<span class="amt">0</span>' })}</div>`),
+      xa(),
+      hn(ta, !!Ct));
+    const ba = ta.querySelector(".amt"),
+      na = zn.now(),
+      ua = Math.min(2400, 500 + Ke * 8) / fe();
+    (function Ya(ya) {
+      const tn = Math.min(1, (ya - na) / ua);
+      ((ba.textContent = f(Ke * (1 - (1 - tn) ** 3))), tn < 1 && ba.isConnected && es(Ya));
+    })(na);
+  }
+  function Ln(O, Ke, Ct, ta, ba) {
+    const na = He(".cs-banner");
+    ((na.className = "cs-banner jackpot"),
+      (na.innerHTML = `<div class="title">${rn(O)}</div><div class="prize">${ba || `<img src="${H(Ke)}" alt="">`}${b(Ct)}</div>`),
+      xa(!1, ta),
+      hn(na, !1),
+      na
+        .querySelector(".prize")
+        .animate(
+          [{ transform: "scale(0)" }, { transform: "scale(1.2)", offset: 0.7 }, { transform: "scale(1)" }],
+          { duration: Tt() ? 1 : 500, delay: Tt() ? 0 : 300, easing: "steps(6, end)", fill: "backwards" },
+        ));
+  }
+  function Pn(O, Ke) {
+    const Ct = He(".cs-banner");
+    ((Ct.className = "cs-banner"),
+      (Ct.innerHTML = `<div class="near">${b(O)}</div>`),
+      xa(!0),
+      Tt() ||
+        Ct.firstChild.animate(
+          Ke
+            ? [{ transform: "scale(1)" }, { transform: "scale(1.08)" }]
+            : [{ transform: "rotate(-4deg)" }, { transform: "rotate(4deg)" }],
+          { duration: Ke ? 300 : 140, iterations: Ke ? 1 / 0 : 6, direction: "alternate" },
+        ));
+  }
+  const jn = {
+      walk: { src: "assets/pokemon/pmd/25-walk.png", ms: [8, 10, 8, 10], rows: 8 },
+      pose: { src: "assets/pokemon/pmd/25-pose.png", ms: [12, 2, 8], rows: 8 },
+      lost: { src: "assets/pokemon/pmd/25-lost-balance.png", ms: [8, 8], rows: 1 },
+      sit: { src: "assets/pokemon/pmd/25-sit.png", ms: [8, 8, 8], rows: 1 },
+    },
+    h = 32,
+    k = 40;
+  for (const O of Object.values(jn)) O.ms = O.ms.map((Ke) => (Ke * 1e3) / 60);
+  function ne(O) {
+    const Ke = Math.max(2, Math.round(6 * It)),
+      Ct = document.createElement("div");
+    ((Ct.className = "cs-runner"),
+      Object.assign(Ct.style, { width: h * Ke + "px", height: k * Ke + "px" }),
+      R.appendChild(Ct));
+    const ta = { el: Ct, k: Ke, x: O, gone: !1 },
+      ba = (na, ua, Ya, ya, tn) => {
+        (Ct.dataset.src !== na.src &&
+          ((Ct.dataset.src = na.src),
+          (Ct.style.backgroundImage = `url(${na.src})`),
+          (Ct.style.backgroundSize = `${na.ms.length * h * Ke}px ${na.rows * k * Ke}px`)),
+          (Ct.style.backgroundPosition = `${-Ya * h * Ke}px ${-(na.rows > 1 ? ua : 0) * k * Ke}px`),
+          (Ct.style.transform = `translate(${Math.round((ya - (h * Ke) / 2) / Ke) * Ke}px, ${tn}px)`));
+      };
+    return (
+      (ta.play = ({
+        anim: na,
+        dir: ua = 0,
+        loops: Ya = 1,
+        ms: ya,
+        x0: tn = ta.x,
+        x1: Cn = tn,
+        hold: Rn = !1,
+        speed: Nn = 1,
+      }) =>
+        new Promise((cs) => {
+          const gs = jn[na],
+            xs = gs.ms.reduce((mo, ro) => mo + ro) / Nn,
+            _s = ya ?? xs * Ya,
+            no = zn.now();
+          (function mo(ro) {
+            if (ta.gone) return cs();
+            const so = Math.min(ro - no, _s),
+              go = _s ? so / _s : 1;
+            let fo = 0;
+            if (Rn && so >= xs) fo = gs.ms.length - 1;
+            else {
+              let bo = so % xs;
+              for (; fo < gs.ms.length - 1 && bo >= gs.ms[fo] / Nn;) bo -= gs.ms[fo++] / Nn;
+            }
+            ((ta.x = tn + (Cn - tn) * go),
+              ba(gs, ua, fo, ta.x, na === "walk" && fo % 2 ? -2 * Ke : 0),
+              so >= _s ? cs() : es(mo));
+          })(no);
+        })),
+      (ta.remove = () => {
+        ((ta.gone = !0), Ct.remove());
+      }),
+      ta
+    );
+  }
+  async function Ie() {
+    if (Tt()) return;
+    const O = ne(0),
+      Ke = h * O.k,
+      Ct = On / 2,
+      ta = On / 2.8;
+    (await O.play({ anim: "walk", dir: 2, speed: 1.6, x0: -Ke / 2, x1: Ct, ms: ((Ct + Ke / 2) / ta) * 1e3 }),
+      Bt(Ct, Me * 0.96 - k * O.k * 0.8, 16, "#fff6b0", 260),
+      await O.play({ anim: "pose", dir: 0, loops: 2 }),
+      await O.play({ anim: "pose", dir: 0, ms: 700, hold: !0 }),
+      await O.play({
+        anim: "walk",
+        dir: 2,
+        speed: 1.6,
+        x0: Ct,
+        x1: On + Ke / 2,
+        ms: ((On / 2 + Ke / 2) / ta) * 1e3,
+      }),
+      O.remove());
+  }
+  let Le = null;
+  const Pt = 3e3;
+  async function Nt() {
+    Le?.remove();
+    const O = Kt(He(".cs-reels")),
+      Ke = (Le = ne(O.left + O.width / 2));
+    (Tt() || (await Ke.play({ anim: "lost", loops: 3, speed: 0.8 })),
+      Ke === Le && (await Ke.play({ anim: "sit", hold: !0, ms: Tt() ? 1 : 500 })),
+      Ke === Le && (await Ke.play({ anim: "sit", hold: !0, ms: Pt })),
+      Ke === Le && (Ke.remove(), (Le = null)));
+  }
+  function Qt(O, Ke) {
+    for (const Ct of O)
+      for (const ta of [0, 1, 2].slice(0, Ct.n)) {
+        const ba = Kt(Mt(ta, Ct.line.rows[ta]));
+        Bt(ba.left + ba.width / 2, ba.top + ba.height / 2, Ke, "#ffd34d", 320);
+      }
+  }
+  async function ma({ wins: O, total: Ke, pay: Ct }) {
+    const ta = fe(),
+      ba = Ke >= _e.seven.pay ? "jackpot" : Ke >= _e.bar.pay ? "big" : Ke >= 15 ? "good" : "small";
+    if (
+      ((ba === "jackpot" || ba === "big") &&
+        (await x((ba === "jackpot" ? 260 : 140) / ta),
+        Ta(1, ba === "jackpot" ? 700 : 400),
+        Tt() ||
+          nt.animate(
+            [
+              { transform: "scale(1)" },
+              { transform: "scale(1.06)" },
+              { transform: "scale(.98)" },
+              { transform: "scale(1)" },
+            ],
+            { duration: 420, easing: "ease-out" },
+          )),
+      Pa(O),
+      Qt(O, ba === "small" ? 6 : 14),
+      ba === "small")
+    )
+      (Ge.small?.(), le(30), (qt = "win"), Fn(e("GAGNÉ !"), Ct), Da(Ct, Ke * 3, 500 / ta, { fountain: 1 }));
+    else if (ba === "good")
+      (Ge.good?.(),
+        le([30, 40, 30]),
+        (qt = "win"),
+        Ta(0.35),
+        La(5, 300),
+        Fn(e("SUPER !"), Ct),
+        Da(Ct, Math.min(140, Ke * 5), 1100 / ta, { fountain: 1 }));
+    else if (ba === "big")
+      (Ge.big?.(),
+        le([60, 40, 60, 40, 120]),
+        (qt = "win"),
+        La(14, 600),
+        ht("on"),
+        Fn(e("GROS LOT !"), Ct, "big"),
+        st(0, Me, 70, -Math.PI / 3, 0.8),
+        st(On, Me, 70, (-Math.PI * 2) / 3, 0.8),
+        Da(Ct, 200, 2200 / ta, { fountain: 1, rain: 1 }));
+    else {
+      (Ge.jackpot?.(),
+        le([100, 50, 100, 50, 300]),
+        (qt = "jackpot"),
+        La(22, 900),
+        ht("rainbow"),
+        Fn(e("JACKPOT !!!"), Ct, "jackpot"),
+        ta < 2 && Ie());
+      for (let Ya = 0; Ya < 3; Ya++)
+        Wa(
+          () => {
+            (st(0, Me, 90, -Math.PI / 3, 0.8, 1300),
+              st(On, Me, 90, (-Math.PI * 2) / 3, 0.8, 1300),
+              Ta(0.4, 300),
+              La(12, 400));
+          },
+          (Ya * 700) / ta,
+        );
+      Da(Ct, 360, 3600 / ta, { fountain: 1, rain: 2 });
+    }
+    const na = zn.now(),
+      ua = { small: 1500, good: 2400, big: 3800, jackpot: 5200 }[ba] / ta;
+    (await new Promise((Ya) => {
+      ((g = Ya),
+        (function ya() {
+          kt <= 1e-6 || zn.now() - na > ua ? Ya() : Wa(ya, 80);
+        })());
+    }),
+      (g = null),
+      (kt = 0),
+      (Kn.length = 0),
+      (E = Wa(() => {
+        (Zt(), ht("off"), Pe());
+      }, Pt / ta)));
+  }
+  const $a = 152,
+    Fa = 150,
+    fa = ct,
+    ga = 13,
+    qa = 139,
+    ja = 76,
+    pn = 63,
+    dn = 6 + pn,
+    _n = 3,
+    as = 2,
+    Qn = 138,
+    os = 260,
+    Ms = 55,
+    Cs = 7,
+    rs = 95,
+    Ps = 420,
+    vs = { x: ja, y: 108, hole: 6, gr: 19, last: 256, low: 10, clear: 26, rim: 7 },
+    ys = [
+      vs,
+      ...[-1, 1].map((O) => ({
+        x: ja + O * 55,
+        y: 104,
+        hole: 7,
+        low: 7,
+        clear: 24,
+        rim: 6,
+        side: O,
+        roof: 20,
+      })),
+    ],
+    Ts = (O) => [
+      [195, O.last],
+      [540 - O.last, 345],
+    ],
+    js = (O) => (O.side ? (O.side < 0 ? [90, 180] : [0, 90]) : [25, 155]),
+    As = (O) => ({ x0: O.side < 0 ? ga - 4 : qa + 4, y0: O.y - O.roof, x1: O.x - O.side * 5, y1: O.y - 7 }),
+    $s = [
+      { w: 30, money: !0 },
+      { w: 28, miss: !0 },
+      { w: 10, rare: !0 },
+      { w: 28, miss: !0 },
+      { w: 30, money: !0 },
+    ],
+    qs = () => Math.round((At() * 0.3) / 10) * 10;
+  {
+    let O = ga;
+    for (const Ke of $s) ((Ke.x0 = O), (O += Ke.w), (Ke.x1 = O));
+  }
+  const Xs = $s.slice(1).map((O) => O.x0),
+    Ds = [
+      { x: ja - 32, y: 66, r: 8, hit: -1e9, kx: 0, ky: 0, start: 0 },
+      { x: ja + 32, y: 66, r: 8, hit: -1e9, kx: 0, ky: 0, start: 1 },
+    ],
+    Qs = { "exp-candy-s": 12, "exp-candy-m": 40, "exp-candy-xl": 70, "exp-candy-big": 120 },
+    Us = ["..KKK..", ".KRRRK.", "KRHRRRK", "KKKWKKK", "KWWWWWK", ".KWWWK.", "..KKK.."],
+    Vn = { K: "#1a0d14", R: "#e83838", H: "#ffb3b3", W: "#f4f3f8" },
+    kn = Array.from({ length: 8 }, (O, Ke) => {
+      const Ct = (Ke * Math.PI) / 4,
+        ta = Math.cos(Ct),
+        ba = Math.sin(Ct);
+      return Us.map((na, ua) =>
+        [...na]
+          .map((Ya, ya) => {
+            if (Ya === ".") return ".";
+            const tn = ya - 3,
+              Cn = ua - 3,
+              Rn = Math.round(ta * tn + ba * Cn) + 3,
+              Nn = Math.round(-ba * tn + ta * Cn) + 3,
+              cs = Us[Nn]?.[Rn];
+            return !cs || cs === "." ? "K" : cs;
+          })
+          .join(""),
+      );
+    }),
+    Un = [];
+  for (let O = 0, Ke = 30; Ke <= 128; O++, Ke += 14)
+    for (let Ct = ja - 90 - (O % 2 ? 9 : 0); Ct <= ja + 90; Ct += 18)
+      Ct < ga + 6 ||
+        Ct > qa - 6 ||
+        (Ke < dn && Math.hypot(Ct - ja, Ke - dn) > pn - 8) ||
+        Ds.some((ta) => Math.hypot(Ct - ta.x, Ke - ta.y) < ta.r + 6) ||
+        ys.some((ta) => Math.hypot(Ct - ta.x, Ke - ta.y) < ta.clear) ||
+        Un.push({ x: Ct, y: Ke, r: as, hit: 0 });
+  const ps = [],
+    Gn = (O, Ke, Ct, ta) =>
+      ps.push({
+        x: O + Ct * Math.cos((ta * Math.PI) / 180),
+        y: Ke + Ct * Math.sin((ta * Math.PI) / 180),
+        r: 1.2,
+        hit: 0,
+        gold: !0,
+      });
+  for (const O of ys) {
+    if (O.side) {
+      const Ke = As(O),
+        Ct = Math.ceil(Math.hypot(Ke.x1 - Ke.x0, Ke.y1 - Ke.y0) / 2.4);
+      for (let ta = 0; ta <= Ct; ta++)
+        ps.push({
+          x: Ke.x0 + ((Ke.x1 - Ke.x0) * ta) / Ct,
+          y: Ke.y0 + ((Ke.y1 - Ke.y0) * ta) / Ct,
+          r: 1.2,
+          hit: 0,
+          gold: !0,
+        });
+    } else
+      for (let Ke = O.last; Ke >= 195; Ke -= 7)
+        (Gn(O.x, O.y + 4, O.gr, Ke), Gn(O.x, O.y + 4, O.gr, 540 - Ke));
+    for (let Ke = js(O)[0]; Ke <= js(O)[1]; Ke += 8) Gn(O.x, O.y, O.low, Ke);
+  }
+  Un.push(...ps);
+  for (const O of Xs) Un.push({ x: O, y: Qn, r: 2, hit: 0, cap: !0 });
+  const ms = "#1a0d14",
+    ws = ["#5c2cb8", "#5428aa", "#4c249c", "#44208e", "#3c1c80", "#341872", "#2c1464"],
+    Bs = (O, Ke) => O >= ga && O < qa && (Ke >= dn || Math.hypot(O + 0.5 - ja, Ke + 0.5 - dn) <= pn),
+    Rs = (O, Ke) =>
+      Bs(O, Ke)
+        ? 0
+        : Ke + 0.5 >= dn
+          ? Math.ceil(O < ja ? ga - O - 0.5 : O + 0.5 - qa) || 1
+          : Math.ceil(Math.hypot(O + 0.5 - ja, Ke + 0.5 - dn) - pn) || 1,
+    Gs = (O, Ke) => {
+      if (Ke + 0.5 >= dn) return O < ja ? -1 : 1;
+      const Ct = (Math.atan2(Ke + 0.5 - dn, O + 0.5 - ja) * 180) / Math.PI;
+      return Ct <= -180 + Ms + 2 ? -1 : Ct >= -Ms - 2 ? 1 : 0;
+    },
+    Os = (O, Ke) => Math.min(Rs(O, Ke), 9),
+    Es = [];
+  {
+    for (let O = 180 + Ms + 6; O <= 360 - Ms - 6; O += 6)
+      Es.push([
+        Math.round(ja - 0.5 + (pn + 2) * Math.cos((O * Math.PI) / 180)),
+        Math.round(dn - 0.5 + (pn + 2) * Math.sin((O * Math.PI) / 180)),
+      ]);
+    for (let O = dn + 7; O < Qn - 4; O += 7) Es.push([ga - 2, O], [qa + 1, O]);
+  }
+  let bs = null,
+    zs = 1;
+  function lo() {
+    const O = document.createElement("canvas");
+    ((O.width = $a), (O.height = Fa));
+    const Ke = O.getContext("2d"),
+      Ct = (ya, tn, Cn) => {
+        ((Ke.fillStyle = Cn), Ke.fillRect(ya, tn, 1, 1));
+      },
+      ta = (ya) => ws[Math.max(0, ws.indexOf(ya) - 2)],
+      ba = (ya) => ws[Math.min(ws.length - 1, ws.indexOf(ya) + 2)];
+    for (let ya = 0; ya < Fa; ya++)
+      for (let tn = 0; tn < $a; tn++) {
+        const Cn = Rs(tn, ya),
+          Rn = Cn ? Gs(tn, ya) : 0;
+        if (Cn >= 1 && Cn <= 3) {
+          Ct(tn, ya, ["", "#fff3b0", "#ffd34d", "#b8861b"][Cn]);
+          continue;
+        }
+        if (Cn === 4) {
+          Ct(tn, ya, ms);
+          continue;
+        }
+        if (Rn && Cn >= 5 && Cn <= Cs + 2) {
+          if (Cn === 5 || Cn === Cs + 2) {
+            Ct(tn, ya, ms);
+            continue;
+          }
+          const _s =
+            ya + 0.5 >= dn
+              ? Fa - ya
+              : Fa -
+                dn +
+                Math.abs(Math.atan2(ya + 0.5 - dn, tn + 0.5 - ja) - (Rn < 0 ? -Math.PI : 0)) * (pn + Cs);
+          Ct(tn, ya, Math.floor((_s + Math.abs(Cn - Cs) * 2) / 3) % 2 ? "#5ac8ff" : "#2a3d9e");
+          continue;
+        }
+        if (Rn && Cn === Cs + 3) {
+          Ct(tn, ya, "#b8861b");
+          continue;
+        }
+        if (Cn) {
+          Ct(tn, ya, ge(tn, ya, 0.35 + (ya / Fa) * 0.4) ? D.dither : D.fill);
+          continue;
+        }
+        const Nn = (ya / Qn) * (ws.length - 1),
+          cs = Math.min(ws.length - 1, Math.floor(Nn));
+        let gs = ge(tn, ya, Nn - cs) ? ws[Math.min(ws.length - 1, cs + 1)] : ws[cs];
+        ((tn + ya) % 16 === 0 || (tn - ya + 1600) % 16 === 0) && tn % 2 === 0 && (gs = ta(gs));
+        const xs = Math.hypot(tn + 0.5 - ja, ya + 0.5 - 62);
+        ((Math.abs(xs - 32) < 1 ||
+          Math.abs(xs - 9) < 1 ||
+          (Math.abs(ya + 0.5 - 62) < 1 && xs > 9 && xs < 32)) &&
+          (gs = ta(gs)),
+          (Os(tn - 2, ya) || Os(tn + 2, ya) || Os(tn, ya - 2)) && (gs = ba(gs)),
+          Ct(tn, ya, gs));
+      }
+    for (const ya of $s) {
+      const tn = ya.rare ? "#c4610c" : ya.money ? "#8a6a10" : null;
+      for (let Cn = Qn; Cn < Fa; Cn++)
+        for (let Rn = ya.x0 + 2; Rn < ya.x1 - 2; Rn++) {
+          const Nn = Cn - Qn,
+            cs = Math.min(Rn - ya.x0 - 2, ya.x1 - 3 - Rn);
+          let gs = Nn === 0 ? "#7a5ad0" : Nn === 1 ? ms : ge(Rn, Cn, (Nn - 2) / 8) ? "#05020c" : "#140828";
+          (Nn > 1 && cs === 0 && (gs = "#24104f"),
+            tn && Nn >= Fa - Qn - 3 && ge(Rn, Cn, 0.5) && (gs = tn),
+            Ct(Rn, Cn, gs));
+        }
+    }
+    for (const ya of Xs)
+      for (let tn = Qn - 5; tn < Fa; tn++) {
+        const Cn = tn === Qn - 5;
+        if ((Ct(ya - 2, tn, ms), Ct(ya + 2, tn, ms), Cn)) {
+          (Ct(ya - 1, tn, ms), Ct(ya, tn, ms), Ct(ya + 1, tn, ms));
+          continue;
+        }
+        (Ct(ya - 1, tn, "#fff3b0"), Ct(ya, tn, "#ffd34d"), Ct(ya + 1, tn, "#b8861b"));
+      }
+    for (const ya of [-1, 1])
+      for (let tn = 0; tn <= Cs + 2; tn++)
+        for (let Cn = -3; Cn <= 0; Cn += 0.5) {
+          const Rn = ((ya < 0 ? 180 + Ms - Cn : 360 - Ms + Cn) * Math.PI) / 180,
+            Nn = Math.floor(ja + (pn + tn) * Math.cos(Rn)),
+            cs = Math.floor(dn + (pn + tn) * Math.sin(Rn));
+          Ct(Nn, cs, tn <= 4 ? ws[1] : tn === Cs + 2 ? ms : "#2a3d9e");
+        }
+    for (const ya of [-1, 1])
+      for (let tn = 4; tn <= Cs + 3; tn++) {
+        const Cn = ((ya < 0 ? 180 + Ms + 2.5 : 360 - Ms - 2.5) * Math.PI) / 180;
+        Ct(Math.floor(ja + (pn + tn) * Math.cos(Cn)), Math.floor(dn + (pn + tn) * Math.sin(Cn)), "#ffd34d");
+      }
+    const na = (ya, tn, Cn) => {
+        ya >= ga && ya < qa && Ct(ya, tn, Cn);
+      },
+      ua = ["#f2f4f8", "#c8ccd6", "#8a909c"],
+      Ya = (ya, tn, Cn, Rn, Nn) => {
+        for (let cs = Rn; cs <= Nn; cs += 0.5) {
+          const gs = Math.cos((cs * Math.PI) / 180),
+            xs = Math.sin((cs * Math.PI) / 180);
+          ua.forEach((_s, no) =>
+            na(Math.round(ya + (Cn + 1 - no) * gs), Math.round(tn + (Cn + 1 - no) * xs), _s),
+          );
+        }
+      };
+    for (const ya of ys) {
+      if (ya.side) {
+        const Rn = As(ya),
+          Nn = Math.ceil(Math.hypot(Rn.x1 - Rn.x0, Rn.y1 - Rn.y0));
+        for (let cs = 0; cs <= Nn; cs++) {
+          const gs = Math.round(Rn.x0 + ((Rn.x1 - Rn.x0) * cs) / Nn),
+            xs = Math.round(Rn.y0 + ((Rn.y1 - Rn.y0) * cs) / Nn);
+          ua.forEach((_s, no) => na(gs, xs - 1 + no, _s));
+        }
+      } else for (const [Rn, Nn] of Ts(ya)) Ya(ya.x, ya.y + 4, ya.gr - 0.5, Rn, Nn);
+      Ya(ya.x, ya.y, ya.low, ...js(ya));
+      const tn = ya.rim,
+        Cn = tn / 2;
+      for (let Rn = -tn - 2; Rn <= tn + 2; Rn++)
+        for (let Nn = -tn - 2; Nn <= tn + 2; Nn++) {
+          const cs = Math.hypot(Nn + 0.5, Rn + 0.5);
+          cs <= tn
+            ? Ct(
+                ya.x + Nn,
+                ya.y + 1 + Rn,
+                cs < Cn ? "#05020c" : ge(Nn, Rn, (cs - Cn) / Cn) ? "#24104f" : "#0e0520",
+              )
+            : cs <= tn + 1 && Ct(ya.x + Nn, ya.y + 1 + Rn, Rn < -2 ? "#7a5ad0" : ms);
+        }
+    }
+    for (const ya of Un) !ya.gold && !ya.cap && co(Ke, ya.x, ya.y, !1);
+    bs = O;
+  }
+  const Zs = [".LLM.", "LWLMD", "LLMMD", "MMMDD", ".DDD."],
+    to = {
+      off: { W: "#ffffff", L: "#e6e8ee", M: "#aab0bc", D: "#6b7486" },
+      lit: { W: "#ffffff", L: "#fff3b0", M: "#ffd34d", D: "#b8861b" },
+    };
+  function co(O, Ke, Ct, ta) {
+    const ba = Math.round(Ke) - 2,
+      na = Math.round(Ct) - 2,
+      ua = to[ta ? "lit" : "off"];
+    ((O.fillStyle = "#1e0b45"),
+      O.fillRect(ba + 1, na + 5, 4, 1),
+      O.fillRect(ba + 5, na + 1, 1, 4),
+      Zs.forEach((Ya, ya) =>
+        [...Ya].forEach((tn, Cn) => {
+          tn !== "." && ((O.fillStyle = ua[tn]), O.fillRect(ba + Cn, na + ya, 1, 1));
+        }),
+      ));
+  }
+  function uo(O) {
+    const Ke = Es.length;
+    Es.forEach(([Ct, ta], ba) => {
+      let na,
+        ua = "#fff6b0";
+      (({ lit: na, c: ua = ua } = Y(Lt, ba, Ke)),
+        (O.fillStyle = na ? ua : "#b8861b"),
+        O.fillRect(Ct - 1, ta, 3, 1),
+        O.fillRect(Ct, ta - 1, 1, 3),
+        (O.fillStyle = na ? "#ffffff" : "#ffd34d"),
+        O.fillRect(Ct, ta, 1, 1));
+    });
+  }
+  let Ys = 10,
+    Ws = 0,
+    Ks = 0,
+    Js = 0,
+    ao = 0,
+    po = !1;
+  const Ls = [],
+    hs = [],
+    eo = () => (B.S.link ? B.S.link.side + B.S.link.at : "all");
+  let r = null;
+  function G() {
+    if (r === eo()) return;
+    ((r = eo()), (Ls.length = hs.length = 0));
+    const O = B.handBalls();
+    ((Ws = O.balls), (Ks = O.free));
+  }
+  const be = [1, 5, 10, 50, 100],
+    ot = { 1: 260, 5: 220, 10: 150, 50: 55, 100: 20 },
+    $t = (O) => (O >= 100 ? 110 : O >= 50 ? 48 : 16);
+  function Wt(O) {
+    ((Ys = O),
+      (He(".cs-pqty").innerHTML = `×${O}<img class="cs-pball" alt="" src="${i()}">`),
+      (He(".cs-pcost").innerHTML = `<img class="cs-koban" alt="${e("jetons")}" src="${ss}">${Oe[O]}`));
+  }
+  let d = "";
+  const i = () =>
+    (d ||= (() => {
+      const O = document.createElement("canvas");
+      O.width = O.height = 7;
+      const Ke = O.getContext("2d");
+      return (
+        Us.forEach((Ct, ta) =>
+          [...Ct].forEach((ba, na) => {
+            ba !== "." && ((Ke.fillStyle = Vn[ba]), Ke.fillRect(na, ta, 1, 1));
+          }),
+        ),
+        O.toDataURL()
+      );
+    })());
+  let w = !1,
+    S = 0;
+  function j(O) {
+    (Rt(), (w = O));
+    const Ke = He(".cs-pauto");
+    (Ke &&
+      (Ke.classList.toggle("on", O),
+      Ke.classList.toggle("green", O),
+      Ke.classList.toggle("ghost", !O),
+      Ke.setAttribute("aria-pressed", O)),
+      (S = 0));
+  }
+  function me() {
+    if ((Rt(), Ge.unlock(), !je())) return !1;
+    G();
+    const O = Oe[Ys];
+    if (A() - kt < O)
+      return (
+        w && j(!1),
+        Ge.error?.(),
+        La(6, 250),
+        oa(He(".cs-pachi .cs-jwallet")),
+        ue(e("Pas assez de jetons.")),
+        !1
+      );
+    B.coinOut(O);
+    const Ke = We();
+    (re().zFrom == null && we() && (re().zFrom = Ke.paid),
+      (Ke.balls += Ys),
+      (Ke.paid += O),
+      (re().balls = (re().balls || 0) + Ys),
+      (Ws += Ys));
+    const Ct = re(),
+      ta = [],
+      ba = _(Ct);
+    for (Ct.stage = (Ct.stage || 0) % ba, Ct.gauge = (Ct.gauge || 0) + O; Ct.gauge >= et[Ct.stage].at;)
+      (ta.push(et[Ct.stage]), (Ct.gauge -= et[Ct.stage].at), (Ct.stage = (Ct.stage + 1) % ba));
+    return (ta.forEach((na, ua) => Wa(() => ci(na.id), ua * 4500)), Z(), Ga(), sa(), Ge.click?.(), !0);
+  }
+  const o = (O, Ke) => {
+    const Ct = R.getBoundingClientRect(),
+      ta = N.getBoundingClientRect();
+    return [ta.left - Ct.left + (O / $a) * ta.width, ta.top - Ct.top + (Ke / Fa) * ta.height];
+  };
+  let n = -1;
+  function s(O) {
+    (Rt(),
+      hs.push({ t0: zn.now(), free: O, force: po, side: n }),
+      (n = -n),
+      (po = !1),
+      Ge.clack?.(),
+      (Lt = "spin"));
+  }
+  function l(O, Ke) {
+    const Ct = pn + Cs,
+      ta = Fa - 2 - dn,
+      ba = ((Ms * Math.PI) / 180) * Ct,
+      na = O * (ta + ba);
+    if (na < ta) return [Ke < 0 ? ga - Cs : qa + Cs - 1, Fa - 2 - na];
+    const ua = Ke < 0 ? Math.PI + (na - ta) / Ct : 2 * Math.PI - (na - ta) / Ct;
+    return [ja + Math.cos(ua) * Ct, dn + Math.sin(ua) * Ct];
+  }
+  function c(O) {
+    const Ke = ((O.side < 0 ? 180 + Ms : 360 - Ms) * Math.PI) / 180,
+      Ct = pn - _n - 0.5,
+      ta = Je(0.7, 1.1),
+      ba = ja + Math.cos(Ke) * Ct,
+      na = dn + Math.sin(Ke) * Ct;
+    (Ls.push({
+      x: ba,
+      y: na,
+      vx: (O.side < 0 ? -Math.sin(Ke) : Math.sin(Ke)) * rs * ta,
+      vy: (O.side < 0 ? Math.cos(Ke) : -Math.cos(Ke)) * rs * ta,
+      trail: [],
+      free: O.free,
+      force: O.force,
+      tries: 0,
+    }),
+      Fs(ba, na, 1, 6, 260, fs));
+  }
+  function p(O, Ke, Ct, ta, ba, na = 0, ua) {
+    const Ya = O.x - Ke,
+      ya = O.y - Ct,
+      tn = Math.hypot(Ya, ya),
+      Cn = ta + _n;
+    if (tn >= Cn || tn === 0) return;
+    const Rn = Ya / tn,
+      Nn = ya / tn,
+      cs = O.vx * Rn + O.vy * Nn;
+    ((O.x = Ke + Rn * Cn),
+      (O.y = Ct + Nn * Cn),
+      cs < 0 &&
+        ((O.vx -= (1 + ba) * cs * Rn),
+        (O.vy -= (1 + ba) * cs * Nn),
+        (O.vx += Rn * na + Je(-6, 6)),
+        (O.vy += Nn * na),
+        ua?.(-cs)));
+  }
+  const y = (O) => ys.find((Ke) => Math.hypot(O.x - Ke.x, O.y - Ke.y - 1) < Ke.hole);
+  let v = 0,
+    M = !1;
+  function I(O, Ke) {
+    if (
+      ((O.vy += os * Ke),
+      (O.x += O.vx * Ke),
+      (O.y += O.vy * Ke),
+      O.force && O.y > 30 && ((O.x += (vs.x - O.x) * 0.12), (O.vx *= 0.7)),
+      O.x < ga + _n && ((O.x = ga + _n), (O.vx = Math.abs(O.vx) * 0.4)),
+      O.x > qa - _n && ((O.x = qa - _n), (O.vx = -Math.abs(O.vx) * 0.4)),
+      O.y < dn)
+    ) {
+      const Ct = O.x - ja,
+        ta = O.y - dn,
+        ba = Math.hypot(Ct, ta),
+        na = pn - _n;
+      if (ba > na) {
+        const ua = Ct / ba,
+          Ya = ta / ba,
+          ya = O.vx * ua + O.vy * Ya;
+        ((O.x = ja + ua * na),
+          (O.y = dn + Ya * na),
+          ya > 0 && ((O.vx -= 1.4 * ya * ua), (O.vy -= 1.4 * ya * Ya)));
+      }
+    }
+    if (
+      (Math.hypot(O.vx, O.vy) < 6
+        ? (O.still = (O.still || 0) + 1) > 240 && ((O.vy = -Je(60, 90)), (O.vx = Je(-60, 60)), (O.still = 0))
+        : (O.still = 0),
+      (O.cup = y(O)))
+    ) {
+      return (O.tries++, (v = zn.now()), "cup");
+      ((M = !0),
+        (O.y = vs.y - 13),
+        (O.vy = -Je(110, 150)),
+        (O.vx = (Math.random() < 0.5 ? -1 : 1) * Je(70, 110)),
+        Ge.boing?.());
+      return;
+    }
+    if (!(O.force && O.y > 30)) {
+      for (const Ct of Un)
+        p(O, Ct.x, Ct.y, Ct.r, 0.55, 0, () => {
+          Ct.hit = zn.now();
+        });
+      for (const Ct of Ds)
+        p(O, Ct.x, Ct.y, Ct.r, 0.9, 45, () => {
+          ((Ct.hit = zn.now()),
+            (Ct.kx = Math.sign(Ct.x - O.x)),
+            (Ct.ky = Math.sign(Ct.y - O.y)),
+            Ge.bump?.(),
+            Fs(Ct.x, Ct.y, Ct.r, Ct.r + 10, 340),
+            un(Ct));
+        });
+      if (O.y > Qn)
+        for (const Ct of Xs)
+          Math.abs(O.x - Ct) < _n && ((O.x = Ct + Math.sign(O.x - Ct || 1) * _n), (O.vx = -O.vx * 0.4));
+    }
+  }
+  function ke(O) {
+    const Ke = re();
+    (O.free ? (Ke.free = Math.max(0, (Ke.free || 0) - 1)) : (Ke.balls = Math.max(0, (Ke.balls || 0) - 1)),
+      Z());
+  }
+  function Se(O, Ke) {
+    (G(), (Ls.length || hs.length || Ws || Ks) && (Ce = O), O - Js > 200 && (Js = O));
+    for (let na = 0; na < 3 && (Ks || Ws) && O >= Js && Ls.length < $t(Ys); na++) {
+      const ua = Ks > 0;
+      (ua ? Ks-- : Ws--, s(ua), (Js = Math.max(Js + ot[Ys], O - 3 * ot[Ys])));
+    }
+    const Ct = String(Ks ? `${Ks + Ws}★` : Ws);
+    (Ct !== zt && (He(".cs-ballsv").textContent = zt = Ct),
+      w && !Ws && !Ks && !hs.length && Ls.length <= 2 && O >= S && ((S = O + 400), me()));
+    const ta = 6;
+    for (let na = Ls.length - 1; na >= 0; na--) {
+      const ua = Ls[na];
+      let Ya = !1;
+      for (let ya = 0; ya < ta && !Ya; ya++) Ya = I(ua, Ke / ta) === "cup";
+      if (Ya) {
+        (Ls.splice(na, 1), ke(ua), li(ua.cup));
+        continue;
+      }
+      (ua.trail.unshift([ua.x, ua.y]),
+        (ua.trail.length = Math.min(ua.trail.length, 3)),
+        ua.y > Qn + 8 &&
+          (Ls.splice(na, 1),
+          ke(ua),
+          ii(
+            Math.max(
+              0,
+              $s.findIndex((ya) => ua.x < ya.x1),
+            ),
+          )));
+    }
+    if (
+      (O > ao &&
+        Lt !== "idle" &&
+        (Ls.length || hs.length || Ws || Ks ? Lt !== "spin" && (Lt = "spin") : (Lt = "idle")),
+      z !== "pachi")
+    )
+      return;
+    (W.setTransform(1, 0, 0, 1, 0, 0), W.drawImage(bs, 0, 0), W.setTransform(zs, 0, 0, zs, 0, 0), uo(W));
+    for (let na = hs.length - 1; na >= 0; na--) {
+      const ua = (O - hs[na].t0) / Ps;
+      if (ua >= 1) {
+        (c(hs[na]), hs.splice(na, 1));
+        continue;
+      }
+      const [Ya, ya] = l(ua, hs[na].side);
+      Ae(W, Ya, ya, ua * 12 * hs[na].side);
+    }
+    for (const na of Ds) St(na, O);
+    const ba = O - v < 220;
+    for (const na of Un)
+      (O - na.hit < 130 || (na.gold && ba)) &&
+        (na.gold
+          ? ((W.fillStyle = M ? "#ff5a5a" : "#ffd34d"),
+            W.fillRect(Math.round(na.x) - 1, Math.round(na.y) - 1, 2, 2))
+          : na.cap
+            ? ((W.fillStyle = "#ffffff"), W.fillRect(na.x - 1, Qn - 5, 3, 2))
+            : co(W, na.x, na.y, !0));
+    ba || (M = !1);
+    for (const na of Ls)
+      (Math.hypot(na.vx, na.vy) > 140 &&
+        na.trail.slice(1).forEach(([ua, Ya]) => {
+          ((W.fillStyle = "#7a5ad0"), W.fillRect(Math.round(ua) - 1, Math.round(Ya) - 1, 3, 3));
+        }),
+        (na.rot = (na.rot || 0) + ((Math.abs(na.vx) > 2 ? na.vx : na.vy * 0.5) * Ke) / _n),
+        Ae(W, na.x, na.y, na.rot));
+    xo(O, Ke);
+  }
+  function Ae(O, Ke, Ct, ta = 0) {
+    const ba = Math.round(Ke) - 3,
+      na = Math.round(Ct) - 3,
+      ua = ((Math.round(ta / (Math.PI / 4)) % 8) + 8) % 8;
+    ((O.fillStyle = "rgba(20, 6, 50, .45)"),
+      O.fillRect(ba + 2, na + 7, 5, 1),
+      O.fillRect(ba + 6, na + 2, 1, 5),
+      kn[ua].forEach((Ya, ya) =>
+        [...Ya].forEach((tn, Cn) => {
+          tn !== "." && ((O.fillStyle = Vn[tn]), O.fillRect(ba + Cn, na + ya, 1, 1));
+        }),
+      ));
+  }
+  function St(O, Ke) {
+    const Ct = Ke - O.hit,
+      ta = Ct < 150,
+      ba = W,
+      na = Math.min(1, Jt(O) / Qa(O)),
+      ua = Math.round(O.x) + (Ct < 90 ? O.kx : 0),
+      Ya = Math.round(O.y) + (Ct < 90 ? O.ky : 0);
+    for (let ya = -9; ya <= 9; ya++)
+      for (let tn = -9; tn <= 9; tn++) {
+        const Cn = Math.hypot(tn + 0.5, ya + 0.5);
+        let Rn = null;
+        if (Cn <= 5.6) Rn = "#24104f";
+        else if (Cn <= 6.6) Rn = ms;
+        else if (Cn <= 8) {
+          const Nn = (Math.atan2(tn + 0.5, -(ya + 0.5)) / (2 * Math.PI) + 1) % 1;
+          Rn = ta ? "#ffffff" : Nn < na ? (ya < 0 ? "#ffe27a" : "#ffd34d") : "#3c1c80";
+        } else Cn <= 9 && (Rn = ms);
+        Rn && ((ba.fillStyle = Rn), ba.fillRect(ua + tn, Ya + ya, 1, 1));
+      }
+  }
+  const Jt = (O) => (re().targets ||= [0, 0])[Ds.indexOf(O)] || 0,
+    Oa = (O) => Ne(U[(re().tsize ||= Ds.map((Ke) => Ke.start))[Ds.indexOf(O)]] || U[0]),
+    Qa = (O) => Qs[Oa(O)] || 12;
+  function un(O) {
+    const Ke = Ds.indexOf(O),
+      Ct = re();
+    if (((Ct.targets ||= [0, 0]), (Ct.targets[Ke] = (Ct.targets[Ke] || 0) + 1), Ct.targets[Ke] >= Qa(O))) {
+      Ct.targets[Ke] = 0;
+      const ta = Oa(O),
+        ba = U.filter((tn) => B.shopUnlocked({ id: tn })),
+        na = Oa(Ds[1 - Ke]);
+      let ua = ba[(ba.indexOf(ta) + 1) % ba.length];
+      (ua === na && ba.length > 2 && (ua = ba[(ba.indexOf(ua) + 1) % ba.length]),
+        (Ct.tsize[Ke] = U.indexOf(ua)),
+        (O.el.src = H(Oa(O))),
+        (O.el.alt = vt(Oa(O))),
+        To(ta),
+        Mo());
+      const [Ya, ya] = o(O.x, O.y);
+      (Fs(O.x, O.y, O.r, O.r + 18, 560),
+        Fs(O.x, O.y, O.r, O.r + 11, 420, $n, 130),
+        oo(O.x, O.y - O.r, 14),
+        So(Ya, ya - 40, `+1 ${vt(ta)}`),
+        Ao(ta, Ya, ya),
+        Ge.good?.(),
+        (Lt = "win"),
+        (ao = zn.now() + 1600),
+        Ta(0.25));
+    }
+    Z();
+  }
+  const $n = ["#ffffff", "#fff3b0", "#ffe27a", "#ffd34d", "#e6a82a", "#b8861b"],
+    fs = ["#ffffff", "#ece6ff", "#cfc2ff", "#ae98f2", "#8c72e2", "#6c50c8"],
+    ds = [];
+  function Fs(O, Ke, Ct, ta, ba, na = $n, ua = 0) {
+    (Rt(),
+      (!Tt() || !ua) &&
+        ds.push({ ring: !0, x: O, y: Ke, r0: Ct, r1: ta, dur: ba, pal: na, t0: zn.now() + ua }));
+  }
+  function oo(O, Ke, Ct, ta = $n, ba = 70) {
+    (Rt(), Tt() && (Ct = Math.min(Ct, 4)));
+    const na = zn.now();
+    for (let ua = 0; ua < Ct; ua++)
+      ds.push({
+        x: O + Je(-3, 3),
+        y: Ke,
+        vx: Je(-45, 45),
+        vy: -Je(ba * 0.5, ba * 1.4),
+        life: Je(360, 680),
+        pal: ta,
+        t0: na,
+      });
+  }
+  function yo(O, Ke, Ct, ta = 1) {
+    Rt();
+    const ba = zn.now();
+    (ds.push({ beam: !0, x0: O, x1: Ke, pal: Ct, k: ta, t0: ba, dur: 420 }),
+      ds.push({ ripple: !0, x: (O + Ke) / 2, w: (Ke - O) / 2, pal: Ct, t0: ba, dur: 360 }));
+  }
+  function xo(O, Ke) {
+    for (let Ct = ds.length - 1; Ct >= 0; Ct--) {
+      const ta = ds[Ct],
+        ba = O - ta.t0;
+      if (ba < 0) continue;
+      const na = ba / (ta.ring || ta.beam || ta.ripple ? ta.dur : ta.life);
+      if (na >= 1) {
+        ds.splice(Ct, 1);
+        continue;
+      }
+      if (((W.fillStyle = ta.pal[Math.min(5, Math.floor(na * 6))]), ta.beam)) {
+        const ua = Math.round((Fa - Qn + 34) * ta.k * (1 - (1 - na) ** 2));
+        for (let Ya = 0; Ya < ua; Ya++)
+          for (let ya = ta.x0; ya < ta.x1; ya++)
+            ge(ya, Fa - Ya, (1 - Ya / ua) * (1 - na) * 0.95) && W.fillRect(ya, Fa - 1 - Ya, 1, 1);
+        continue;
+      }
+      if (ta.ripple) {
+        const ua = ta.w * (0.6 + na * 0.9),
+          Ya = ua * 0.3,
+          ya = Qn;
+        for (let tn = 0; tn < Math.PI * 2; tn += 0.08) {
+          const Cn = Math.round(ta.x + ua * Math.cos(tn)),
+            Rn = Math.round(ya + Ya * Math.sin(tn));
+          Rn <= Qn && ge(Cn, Rn, 1 - na) && W.fillRect(Cn, Rn, 1, 1);
+        }
+        continue;
+      }
+      if (ta.ring) {
+        const ua = ta.r0 + (ta.r1 - ta.r0) * (1 - (1 - na) ** 2),
+          Ya = Math.ceil(ua) + 1,
+          ya = Math.round(ta.x),
+          tn = Math.round(ta.y),
+          Cn = na < 0.45 ? 1 : 0.6;
+        for (let Rn = -Ya; Rn <= Ya; Rn++)
+          for (let Nn = -Ya; Nn <= Ya; Nn++)
+            Math.abs(Math.hypot(Nn + 0.5, Rn + 0.5) - ua) < Cn &&
+              ge(Nn, Rn, 1 - na * 0.85) &&
+              W.fillRect(ya + Nn, tn + Rn, 1, 1);
+      } else {
+        ((ta.vy += 260 * Ke), (ta.x += ta.vx * Ke), (ta.y += ta.vy * Ke));
+        const ua = Math.round(ta.x),
+          Ya = Math.round(ta.y),
+          ya = na < 0.4 ? 2 : 1;
+        ge(ua, Ya, 1 - na * 0.7) && W.fillRect(ua, Ya, ya, ya);
+      }
+    }
+  }
+  function ii(O) {
+    const Ke = $s[O],
+      Ct = ze[O];
+    (Ct.classList.remove("hit"), Ct.offsetWidth, Ct.classList.add("hit"));
+    const ta = Kt(Ct),
+      ba = ta.left + ta.width / 2,
+      na = ta.top + ta.height / 2,
+      ua = (Ke.x0 + Ke.x1) / 2;
+    if ((yo(Ke.x0 + 2, Ke.x1 - 2, Ke.rare || Ke.money ? $n : fs, Ke.miss ? 0.45 : 1), Ke.miss)) {
+      Ge.miss?.();
+      return;
+    }
+    if (Ke.money) {
+      const ya = qs();
+      B.earn(ya);
+      const tn = We();
+      ((tn.money = (tn.money || 0) + ya),
+        Z(),
+        t.App.refreshHeader(),
+        oo(ua, Qn - 2, 8),
+        So(ba, ta.top - 8, `+${f(ya)} ₽`));
+      return;
+    }
+    const Ya = We();
+    ((Ya.mid = (Ya.mid || 0) + 1), To("rare-candy"), Mo(3200), Ao("rare-candy", ba, na));
+    for (let ya = 0; ya < 3; ya++) Fs(ua, Qn, 4, 24 + ya * 6, 520 + ya * 80, ya === 1 ? fs : $n, ya * 140);
+    (oo(ua, Qn - 3, 22, $n, 90),
+      Ge.jackpot?.(),
+      le([100, 50, 100, 50, 300]),
+      (Lt = "jackpot"),
+      (ao = zn.now() + 3200),
+      Ta(1, 600),
+      La(18, 800),
+      ht("rainbow", N),
+      Ln(e("SUPER LOT !"), "rare-candy", vt("rare-candy"), N),
+      st(0, Me, 80, -Math.PI / 3, 0.8, 1300),
+      st(On, Me, 80, (-Math.PI * 2) / 3, 0.8, 1300),
+      clearTimeout(E),
+      (E = Wa(() => {
+        (ht("off"), Pe());
+      }, Pt + 600)));
+  }
+  let ei = 0;
+  function Mo(O = 1400) {
+    const Ke = m(".cs-pachi .cs-lamp");
+    (Ke.forEach((Ct) => Ct.classList.add("blink")),
+      clearTimeout(ei),
+      (ei = Wa(() => Ke.forEach((Ct) => Ct.classList.remove("blink")), O)));
+  }
+  function To(O) {
+    B.addItem(O);
+    const Ke = We();
+    ((Ke.items[O] = (Ke.items[O] || 0) + 1), Z());
+  }
+  function li(O = vs) {
+    const Ke = ie(),
+      Ct = We();
+    Ct.mys = (Ct.mys || 0) + 1;
+    const ta = Ke === "stone" ? Ze(T()) : Ne(Ke);
+    (To(ta), Mo());
+    const [ba, na] = o(O.x, O.y);
+    (Fs(O.x, O.y + 1, O.hole, O.hole + 10, 420),
+      Fs(O.x, O.y + 1, O.hole, O.hole + 5, 320, fs, 110),
+      oo(O.x, O.y - 4, 10),
+      So(ba, na - 40, `+1 ${vt(ta)}`),
+      Ao(ta, ba, na),
+      Ge.good?.(),
+      (Lt = "win"),
+      (ao = zn.now() + 1600));
+  }
+  function ci(O, Ke = e("GROS LOT !")) {
+    const Ct = it(),
+      ta = B.makeMon(O, Math.max(...Ct.prizes.map((ya) => ya.level)), { shiny: !0 });
+    ((ta.where = Ct.name), (ta.hp = B.maxHp(ta)), (ta.noEgg = !0), (ta.gauge = !0));
+    const ba = B.receive(ta),
+      na = We();
+    ((na.shiny = (na.shiny || 0) + 1), B.save());
+    const [ua, Ya] = o(vs.x, vs.y);
+    Mo(4200);
+    for (let ya = 0; ya < 4; ya++)
+      Fs(vs.x, vs.y + 1, 6, 28 + ya * 8, 560 + ya * 90, ya % 2 ? fs : $n, ya * 140);
+    (oo(vs.x, vs.y - 4, 26, $n, 100),
+      Ge.jackpot?.(),
+      le([100, 50, 100, 50, 300]),
+      (Lt = "jackpot"),
+      (ao = zn.now() + 4200),
+      Ta(1, 700),
+      La(22, 900),
+      ht("rainbow", N),
+      Ln(Ke, null, `${B.DEX[O].name} ✨`, N, t.UI.sprBox(O, !0, 2, 68)),
+      st(0, Me, 100, -Math.PI / 3, 0.8, 1500),
+      st(On, Me, 100, (-Math.PI * 2) / 3, 0.8, 1500),
+      clearTimeout(E),
+      (E = Wa(() => {
+        (ht("off"), Pe());
+      }, Pt + 1200)),
+      Wa(
+        async () => {
+          if (ba.dup) {
+            const ya = B.famHead(ba.dup.mon.id),
+              tn = b(B.DEX[ya].name),
+              Cn = t.UI.fedXp(ba.dup.fed);
+            ue(
+              Cn
+                ? e("Doublon : +{n} XP pour la famille {fam}", { n: f(Cn), fam: tn })
+                : e("Doublon : famille {fam} au niveau max", { fam: tn }),
+              t.UI.monSrc(ya),
+              "reward",
+            );
+          } else
+            await t.UI.showDexCard(O, {
+              mon: ta,
+              isNew: ba.isNew,
+              actions: [{ label: e("Super !"), cls: "gold" }],
+            });
+          t.App.refresh();
+        },
+        Tt() ? 400 : 2600,
+      ),
+      So(ua, Ya - 40, `${B.DEX[O].name} ✨`));
+  }
+  function So(O, Ke, Ct) {
+    const ta = document.createElement("div");
+    ((ta.className = "cs-pfloat"),
+      (ta.textContent = Ct),
+      R.appendChild(ta),
+      Object.assign(ta.style, { left: O + "px", top: Ke + "px" }),
+      ta
+        .animate(
+          [
+            { transform: "translate(-50%, 0)", opacity: 1 },
+            { transform: "translate(-50%, -48px)", opacity: 1, offset: 0.7 },
+            { transform: "translate(-50%, -64px)", opacity: 0 },
+          ],
+          { duration: 1100, easing: "steps(8, end)" },
+        )
+        .finished.then(() => ta.remove()));
+  }
+  function Ao(O, Ke, Ct) {
+    const ta = document.createElement("img");
+    ((ta.className = "cs-pfly"),
+      (ta.src = H(O)),
+      R.appendChild(ta),
+      Object.assign(ta.style, { left: Ke - 32 + "px", top: Ct - 32 + "px" }),
+      ta
+        .animate(
+          [
+            { transform: "translate(0, 0) scale(.4)", opacity: 1 },
+            { transform: "translate(0, -70px) scale(1.15)", opacity: 1, offset: 0.3 },
+            { transform: "translate(0, -60px) scale(1)", opacity: 1, offset: 0.55 },
+            { transform: "translate(0, -140px) scale(.8)", opacity: 0 },
+          ],
+          { duration: Tt() ? 1 : 1100, easing: "ease-out" },
+        )
+        .finished.then(() => ta.remove()));
+  }
+  function di(O, Ke) {
+    const Ct = B.DEX[O.id],
+      ta = !!B.S.dex[O.id],
+      ba = a(`<div class="sh-item sh-prize">
+      <div class="sh-top"><div class="sh-ic mon">${t.UI.sprBox(O.id, !1, 2, 68)}${ta ? `<img class="ball" src="${H("poke-ball")}" alt="">` : '<span class="new">NEW</span>'}</div>
+        <div class="sh-name"><h4>${b(Ct.name)}</h4><small>${e("Nv. {n}", { n: O.level })}</small></div>
+        <button class="btn gold"><img src="${H("coin")}" alt="">${f(O.price)}</button></div>
+    </div>`),
+      na = ba.querySelector("button");
+    return (
+      (na.dataset.price = O.price),
+      (na.disabled = A() - kt < O.price),
+      (na.onclick = async () => {
+        if (A() - kt < O.price) {
+          t.Sfx.error();
+          return;
+        }
+        if (!B.hasRoom()) {
+          (t.Sfx.error(), ue(e("PC plein : fais de la place avant d'échanger tes jetons.")));
+          return;
+        }
+        (B.coinOut(O.price), (We().prizes = (We().prizes || 0) + O.price));
+        const ua = B.makeMon(O.id, O.level, { shiny: !1 });
+        ((ua.where = Ke.name), (ua.hp = B.maxHp(ua)), O.noEgg && (ua.noEgg = !0));
+        const Ya = B.receive(ua, { home: Ke.regions[0] }),
+          ya = Ya.dup;
+        if (
+          (B.save(),
+          t.Sfx.buy(),
+          await t.GiftFx({
+            mon: ua,
+            title: b(e(Ke.name)),
+            face: `<img class="gx-face gx-coin" src="${H("coin")}" alt="">`,
+            say: e("Tu échanges <b>{n} jetons</b> contre un Pokémon !", { n: f(O.price) }),
+          }),
+          ya)
+        ) {
+          const tn = B.famHead(ya.mon.id),
+            Cn = b(B.DEX[tn].name),
+            Rn = t.UI.fedXp(ya.fed);
+          (ue(
+            Rn
+              ? e("Doublon : +{n} XP pour la famille {fam}", { n: f(Rn), fam: Cn })
+              : e("Doublon : famille {fam} au niveau max", { fam: Cn }),
+            t.UI.monSrc(tn),
+            "reward",
+          ),
+            t.App.refresh());
+          return;
+        }
+        (await t.UI.showDexCard(O.id, {
+          mon: ua,
+          isNew: Ya.isNew,
+          actions: [{ label: e("Super !"), cls: "gold" }],
+        }),
+          t.App.refresh());
+      }),
+      ba
+    );
+  }
+  function ti(O) {
+    const Ke = !!B.S.dex[O.id] || !!B.S.seen?.[O.id];
+    return a(`<div class="sh-item sh-prize cs-locked${Ke ? "" : " unknown"}">
+      <div class="sh-top"><div class="sh-ic mon">${t.UI.sprBox(O.id, !1, 2, 68)}</div>
+        <div class="sh-name"><h4>${Ke ? b(B.DEX[O.id].name) : "???"}</h4><small>${e("Nv. {n}", { n: O.level })}</small></div>
+        <button class="btn gold" disabled><img src="${H("coin")}" alt="">${f(O.price)}</button></div>
+    </div>`);
+  }
+  const ui = () => se.CASINOS.findIndex((O) => O.regions.includes(B.shopRegion().key)),
+    pi = (O) => De(O) && (O === it() || se.CASINOS.indexOf(O) <= ui()),
+    mi = (O) => O.regions.some((Ke) => t.STORY.regionUnlocked(Ke, B.S.adv));
+  function Lo(O, Ke, Ct, ta) {
+    const ba = a(
+      `<div class="cs-ca"><div class="zone-head"><b>${Ke}</b><span class="muted">${Ct}</span></div><div class="cs-prizes"></div></div>`,
+    );
+    return (ba.querySelector(".cs-prizes").append(...ta), ba);
+  }
+  function fi() {
+    He(".cs-cas").replaceChildren(
+      ...se.CASINOS.map((O) =>
+        pi(O)
+          ? Lo(
+              O,
+              b(e(O.name)),
+              `${O.prizes.filter((Ke) => B.S.dex[Ke.id]).length} / ${O.prizes.length}`,
+              O.prizes.map((Ke) => di(Ke, O)),
+            )
+          : mi(O)
+            ? Lo(
+                O,
+                `${t.UI.lockIc}${b(e(O.name))}`,
+                e("Joue à {r} pour l'ouvrir", {
+                  r: b(t.STORY.REGIONS.find((Ke) => Ke.key === O.regions[0]).name),
+                }),
+                O.prizes.map(ti),
+              )
+            : Lo(O, `${t.UI.lockIc}${e("Prochain Casino")}`, e("Une autre région"), O.prizes.map(ti)),
+      ),
+    );
+  }
+  function ai(O) {
+    (O === "pachi" && !je()) ||
+      (O !== "slots" && mn && In(!1),
+      O !== "pachi" && w && j(!1),
+      (z = O),
+      (L.dataset.tab = O),
+      O === "slots" ? ee?.drawBulbs() : O === "pachi" && rt?.drawBulbs(),
+      Rt(),
+      wo(),
+      m(".cs-tabs button").forEach((Ke) => Ke.classList.toggle("on", Ke.dataset.csTab === O)),
+      O !== "shop" ? (Ca(), $o()) : Ga());
+  }
+  function $o() {
+    const O = He(".cs-gains");
+    if (!O || !te) return;
+    const Ke = z === "pachi" || (z === "shop" && ni === "pachi");
+    ni = Ke ? "pachi" : "slots";
+    const Ct = (ya, tn = "") => `<span class="bag-cell cs-gcell ${tn}">${ya}</span>`,
+      ta = (ya, tn, Cn = "") =>
+        `<div class="cs-grow ${Cn}"><span class="cs-gcombo">${ya}</span><span class="cs-gpay">${tn}</span></div>`,
+      ba = (ya) => `<img src="${H(ya)}" alt="">`,
+      na = (ya) => `<b>${f(ya)}</b><img class="cs-gcoin" src="${H("coin")}" alt="${e("jetons")}">`,
+      ua = (ya, tn) =>
+        `<div class="zone-head"><b>${e("Gains")}</b>${t.UI.helpTip(e("Gains"), tn)}<span class="muted">${ya}</span></div>`;
+    if (Ke) {
+      const ya = (Nn) => `${Nn.toLocaleString(t.I18n.lang)}%`,
+        tn = [e("Commun"), e("Peu commun"), e("Rare"), e("Très rare")],
+        Cn = (Nn, cs) => {
+          const gs = vt(Ne(Nn)),
+            xs = `<span class="sprbox"><img src="${H(Ne(Nn))}" alt=""></span>`;
+          return `<div class="zone-cell" title="${b(gs)} · ${ya(cs)}">${xs}<span class="zone-pct">${ya(cs)}</span></div>`;
+        },
+        Rn = Ee.map(
+          (Nn, cs) => `<div class="zone-cond">${tn[cs]}</div>
+        <div class="zone-grid">${Nn.flatMap(([gs, xs]) =>
+          gs === "stone" ? T().map((_s) => [_s, +(xs / T().length).toFixed(2)]) : [[gs, xs]],
+        )
+          .map(([gs, xs]) => Cn(gs, xs))
+          .join("")}</div>`,
+        ).join("");
+      O.innerHTML =
+        ua(
+          e("Pachinko"),
+          e(
+            "Chaque bille finit dans une case : des Pokédollars sur les côtés, rien sur les deux suivantes, un Super Bonbon au milieu. Le trou du milieu garde parfois une bille : un objet au hasard, chances ci-dessous (les Bonbons Exp. grossissent avec les badges de la région). Les deux cibles donnent leur objet au bout d'un nombre de touches.",
+          ),
+        ) + `<div class="cs-godds">${Rn}</div>`;
+      return;
+    }
+    const Ya = (ya) =>
+      ta(
+        Ct(_e[ya].gain, ya === "seven" || ya === "bar" ? "top" : "").repeat(3),
+        na(_e[ya].pay * V),
+        ya === "seven" ? "top" : "",
+      );
+    O.innerHTML =
+      ua(
+        V > 1 ? `${e("Machine à sous")} · ×${V}` : e("Machine à sous"),
+        e(
+          "Trois symboles identiques sur une ligne jouée rapportent des jetons, deux Baies Framby ou deux Kokiyas au début d'une ligne aussi. Les 5 lignes sont jouées à chaque partie.",
+        ),
+      ) +
+      ["seven", "bar", "pika", "magneti", "psy", "koki", "berry"].map(Ya).join("") +
+      ta(Ct(_e.berry.gain).repeat(2) + Ct(""), na(Re * V)) +
+      ta(Ct(_e.koki.gain).repeat(2) + Ct(""), na(dt * V));
+  }
+  let ni = "slots";
+  function hi() {
+    ((L = document.getElementById("screen-casino")),
+      (L.dataset.tab = z),
+      (L.innerHTML = `<div class="map-region cs-frame" style="--c:var(--casino)">
+      <div class="map-head"><img src="assets/ui/coin-case.png" alt=""><h2 id="cs-name">${e("Casino")}</h2><div class="map-sum" id="cs-sum"></div></div>
+      <div class="map-body cs-fbody"><div class="cs-main">
+        <div class="cs-body" id="cs-root" hidden>
+          <div class="seg cs-tabs"><button data-cs-tab="slots" class="on"><span class="full">${e("Machine à sous")}</span><span class="short">${e("Machine")}</span></button><button data-cs-tab="pachi"><span>${e("Pachinko")}</span></button><button data-cs-tab="shop">${e("Boutique")}</button></div>
+          <div class="cs-stagebox"></div>
+          <div class="cs-shop"><div class="cs-cas"></div></div>
+        </div>
+      </div>
+      <div class="zone-panel cs-side"><div class="zone-box cs-gains"></div></div></div></div>`),
+      m(".cs-tabs button").forEach((O) => O.addEventListener("click", () => ai(O.dataset.csTab))));
+  }
+  function si() {
+    ((He(".cs-stagebox").innerHTML = Ht()),
+      (R = He(".cs-scene")),
+      (nt = He(".cs-slots")),
+      (Ot = He(".cs-pachi")),
+      t.Screens.market?.poster(R));
+    for (const ua of Object.values(_e))
+      (ua.mon && ((ua.html = de(ua.mon, 5)), (ua.gain = de(ua.mon, 1.5))),
+        ua.item &&
+          ((ua.html = `<img class="item" src="${H(ua.item)}" alt="">`),
+          (ua.gain = `<img src="${H(ua.item)}" alt="">`)));
+    const O = He(".cs-reels");
+    Qe = qe.map((ua, Ya) => {
+      const ya = document.createElement("div");
+      ya.className = "cs-reel";
+      const tn = document.createElement("div");
+      tn.className = "cs-strip";
+      for (let Cn = 0; Cn < ce + 3; Cn++) {
+        const Rn = document.createElement("div");
+        ((Rn.className = "cs-cell"), (Rn.innerHTML = _e[ua[Cn % ce]].html), tn.appendChild(Rn));
+      }
+      return (
+        ya.appendChild(tn),
+        O.appendChild(ya),
+        {
+          i: Ya,
+          strip: ua,
+          el: ya,
+          stripEl: tn,
+          cells: [...tn.children],
+          p: Math.floor(Math.random() * ce),
+          v: 0,
+          mode: "idle",
+          lastCell: 0,
+        }
+      );
+    });
+    const Ke = { 2: 16, 4: 34, 1: 50, 5: 66, 3: 84 };
+    Ft = {};
+    for (const ua of ["L", "R"])
+      for (const Ya of mt) {
+        const ya = document.createElement("div");
+        ((ya.className = "cs-lamp"),
+          (ya.textContent = Ya.id),
+          (ya.style.top = `${Ke[Ya.id]}%`),
+          He(`.cs-lamps[data-side="${ua}"]`).appendChild(ya),
+          (Ft[Ya.id] ||= []).push(ya));
+      }
+    for (const ua of ["L", "R"])
+      for (let Ya = 0; Ya < 6; Ya++) {
+        const ya = document.createElement("div");
+        ((ya.className = "cs-lamp on"),
+          (ya.style.top = `${10 + Ya * 16}%`),
+          He(`.cs-pachi .cs-lamps[data-side="${ua}"]`).appendChild(ya));
+      }
+    ((ss = (() => {
+      const ua = document.createElement("canvas");
+      return (
+        (ua.width = cn),
+        (ua.height = Tn),
+        ua.getContext("2d").drawImage(ks, 0, 0, cn, Tn, 0, 0, cn, Tn),
+        ua.toDataURL()
+      );
+    })()),
+      m("img.cs-koban").forEach((ua) => (ua.src = ss)));
+    const Ct = (ua, Ya) => {
+      ua.innerHTML = rn(Ya);
+    };
+    (Ct(He(".cs-slots .cs-logo"), e("CASINO")), Ct(He(".cs-plogo"), e("PACHINKO")));
+    const ta = (ua) => {
+      const Ya = ua.querySelector(".cs-logo"),
+        ya = ua.querySelector(".cs-sub"),
+        [tn, , Cn] = ua.children,
+        Rn = getComputedStyle(ua);
+      for (const _s of [Ya, ya]) _s.style.fontSize = _s.style.letterSpacing = "";
+      if (!ua.clientWidth) return;
+      const Nn =
+          ua.clientWidth -
+          parseFloat(Rn.paddingLeft) -
+          parseFloat(Rn.paddingRight) -
+          2 * parseFloat(Rn.columnGap) -
+          2 * Math.max(tn.offsetWidth, Cn.offsetWidth),
+        cs = Ya.firstElementChild,
+        gs = Ya.lastElementChild,
+        xs = (_s, no, mo) => {
+          if (no <= Nn) return;
+          const ro = getComputedStyle(_s),
+            so = Nn / no,
+            go = parseFloat(ro.letterSpacing);
+          ((_s.style.letterSpacing = `${Math.floor(go * so * so)}px`),
+            (_s.style.fontSize = `${Math.max(mo, Math.floor(parseFloat(ro.fontSize) * so))}px`));
+        };
+      (xs(Ya, gs.offsetLeft + gs.offsetWidth - cs.offsetLeft, 22), xs(ya, ya.offsetWidth, 12));
+    };
+    for (const ua of m(".cs-mrow")) {
+      const Ya = new ResizeObserver(() => ta(ua));
+      (Ya.observe(ua), ua.querySelectorAll(".cs-wallet").forEach((ya) => Ya.observe(ya)));
+    }
+    ((ee = ye(nt, xt, () => qt)),
+      (rt = ye(Ot, D, () => Lt)),
+      (Ye = He(".cs-lever canvas")),
+      (bt = Ye.getContext("2d")),
+      (Ye.width = Ma),
+      (Ye.height = Na),
+      (Ye.style.width = Ma * ct + "px"),
+      (Ye.style.height = Na * ct + "px"),
+      (Yt = He(".cs-rays")),
+      (wa = Yt.getContext("2d")),
+      (pa = He(".cs-fx")),
+      (Gt = pa.getContext("2d")),
+      (N = He(".cs-board canvas")),
+      (W = N.getContext("2d")),
+      (zs = 1),
+      (N.width = Math.round($a * zs)),
+      (N.height = Math.round(Fa * zs)),
+      (N.style.width = $a * fa + "px"),
+      (N.style.height = Fa * fa + "px"),
+      lo());
+    const ba = He(".cs-pockets");
+    ze = $s.map((ua) => {
+      const Ya = document.createElement("div");
+      return (
+        (Ya.className = "cs-pocket" + (ua.rare ? " mys" : ua.miss ? " miss" : " pay")),
+        Object.assign(Ya.style, {
+          left: 12 + ua.x0 * fa + "px",
+          width: ua.w * fa + "px",
+          top: 12 + Qn * fa + "px",
+          height: (Fa - Qn) * fa + "px",
+        }),
+        (Ya.innerHTML = ua.rare
+          ? `<img class="cs-prare" src="${H("rare-candy")}" alt="${b(vt("rare-candy"))}">`
+          : ua.miss
+            ? '<span class="miss">✕</span>'
+            : '<i class="cs-pcoin"></i>'),
+        ba.appendChild(Ya),
+        Ya
+      );
+    });
+    for (const ua of ys) {
+      const Ya = document.createElement("div");
+      ((Ya.className = "cs-cupq" + (ua.side ? " small" : "")),
+        (Ya.textContent = "?"),
+        Object.assign(Ya.style, { left: 12 + ua.x * fa - 20 + "px", top: 12 + (ua.y + 1) * fa - 22 + "px" }),
+        ba.appendChild(Ya));
+    }
+    for (const ua of Ds) {
+      const Ya = (ua.el = document.createElement("img"));
+      ((Ya.className = "cs-ptarget"),
+        Object.assign(Ya.style, { left: 12 + ua.x * fa - 24 + "px", top: 12 + ua.y * fa - 24 + "px" }),
+        ba.appendChild(Ya));
+    }
+    const na = He(".cs-lever");
+    (He(".cs-scene")?.addEventListener("pointerdown", Rt, !0),
+      na.addEventListener("pointerdown", (ua) => {
+        if ((Ge.unlock(), lt)) {
+          q();
+          return;
+        }
+        ((on = { y: ua.clientY }), na.setPointerCapture(ua.pointerId), (An = null));
+      }),
+      na.addEventListener("pointermove", (ua) => {
+        on &&
+          ((za = Math.max(0, Math.min(1, (ua.clientY - on.y) / (140 * It)))),
+          za >= 0.85 && !on.fired && ((on = null), q()));
+      }),
+      na.addEventListener("pointerup", () => {
+        on && ((on = null), lt || q());
+      }),
+      na.addEventListener("pointercancel", () => {
+        ((on = null), (An = zn.now() - 210));
+      }),
+      He(".cs-reels").addEventListener("pointerdown", () => {
+        lt && q();
+      }),
+      He(".cs-pqty").addEventListener("click", (ua) => {
+        (Ge.unlock(), Wt(be[(be.indexOf(Ys) + 1) % be.length]), ua.currentTarget.blur());
+      }),
+      He(".cs-launch").addEventListener("click", (ua) => {
+        (me(), ua.currentTarget.blur());
+      }),
+      He(".cs-slots .cs-start").addEventListener("click", (ua) => {
+        (q(), ua.currentTarget.blur());
+      }),
+      He(".cs-slots .cs-mult").addEventListener("click", (ua) => {
+        (Et(), ua.currentTarget.blur());
+      }),
+      He(".cs-slots .cs-auto").addEventListener("click", (ua) => {
+        (Ge.unlock(), In(!mn), ua.currentTarget.blur());
+      }),
+      He(".cs-pauto").addEventListener("click", (ua) => {
+        (Ge.unlock(), j(!w), ua.currentTarget.blur());
+      }),
+      new ResizeObserver(() => {
+        K && Ca();
+      }).observe(R),
+      document.fonts?.ready.then(() => {
+        K && Ca();
+      }),
+      (te = !0),
+      gn(3),
+      Wt(10),
+      $o(),
+      Qe.forEach(Za),
+      Tt() ||
+        m(".cs-logo span").forEach((ua, Ya) =>
+          ua.animate(
+            [
+              { transform: "translateY(0)" },
+              { transform: "translateY(-5px)" },
+              { transform: "translateY(0)" },
+            ],
+            { duration: 1400, delay: Ya * 120, iterations: 1 / 0, easing: "ease-in-out" },
+          ),
+        ),
+      wo());
+  }
+  function wo() {
+    if (te)
+      for (const [O, Ke] of [
+        [".cs-slots .cs-logo span", "slots"],
+        [".cs-plogo span", "pachi"],
+      ]) {
+        const Ct = K && z === Ke && !Tt();
+        for (const ta of m(O))
+          for (const ba of ta.getAnimations())
+            ba.effect?.getTiming().iterations === 1 / 0 &&
+              (Ct ? ba.playState === "paused" && ba.play() : ba.pause());
+      }
+  }
+  (addEventListener("calm", () => wo()),
+    document.addEventListener("keydown", (O) => {
+      if (
+        !(
+          !K ||
+          !te ||
+          document.getElementById("cs-root").hidden ||
+          O.ctrlKey ||
+          O.metaKey ||
+          O.altKey ||
+          document.querySelector("#modal-root.open") ||
+          O.target.closest?.("input, textarea, select, [contenteditable]")
+        ) &&
+        (O.code === "Space" || O.code === "Enter")
+      ) {
+        if (
+          (O.target.closest?.("button, a") && !O.target.closest(".cs-scene")) ||
+          (O.preventDefault(), document.activeElement?.blur?.(), O.repeat)
+        )
+          return;
+        z === "pachi" ? me() : z === "slots" && q();
+      }
+    }),
+    document.addEventListener("visibilitychange", () => {
+      K && (document.hidden ? (Ve(), $e()) : Xe());
+    }));
+  function gi() {
+    const O = He('[data-cs-tab="pachi"]'),
+      Ke = je() ? "" : e("Bats la Ligue de Kanto pour le débloquer");
+    (O.dataset.why || "") !== Ke &&
+      (O.classList.toggle("locked", !!Ke),
+      O.classList.toggle("tip-host", !!Ke),
+      O.setAttribute("aria-disabled", !!Ke),
+      (O.dataset.why = Ke),
+      O.querySelector(".info-tip-box")?.remove(),
+      Ke &&
+        O.insertAdjacentHTML(
+          "beforeend",
+          `<span class="bag-tip info-tip-box" role="tooltip"><b>${b(e("Pachinko"))}</b><p>${b(Ke)}</p></span>`,
+        ),
+      Ke && z === "pachi" && ai("slots"));
+  }
+  function yi() {
+    const O = it(),
+      Ke = De(O);
+    if (
+      ((document.getElementById("cs-name").textContent = e(Ke ? O.name : "Casino")),
+      Ga(),
+      (document.getElementById("cs-root").hidden = !Ke),
+      !!Ke)
+    ) {
+      (te || si(),
+        gi(),
+        (He(".cs-slots .cs-sub").textContent = (O.city ? e(O.city) : "").toLocaleUpperCase()),
+        gn(pe),
+        sa());
+      for (const Ct of Ds) {
+        const ta = Oa(Ct);
+        ((Ct.el.src = H(ta)), (Ct.el.alt = vt(ta)));
+      }
+      (m(".cs-pocket .cs-pcoin").forEach((Ct) => (Ct.title = f(qs()) + " ₽")), $o(), fi());
+    }
+  }
+  t.Screens.casino = {
+    render: yi,
+    lockWhy: pt,
+    isOpen: De,
+    init() {
+      (hi(),
+        t.UI.headTip(
+          "#cs-name",
+          e("Casino"),
+          e(
+            "La machine à sous se joue avec tes Pokédollars (la mise écrite sur LANCER, × le multiplicateur, 5 lignes) : trois symboles identiques sur une ligne jouée rapportent des jetons. Le pachinko se joue avec tes jetons et rend des jetons ou des objets. Les jetons s'échangent aussi contre les Pokémon des lots.",
+          ),
+        ));
+    },
+    enter() {
+      if (((K = !0), !!De(it()))) {
+        if ((te || si(), G(), !Ls.length && !hs.length)) {
+          const O = B.handBalls();
+          ((Ws = O.balls), (Ks = O.free));
+        }
+        ((Vt = B.S.money || 0),
+          (Xt = J()),
+          (He(".cs-money").textContent = f(Vt) + " ₽"),
+          m(".cs-jetons").forEach((O) => (O.textContent = f(Xt))),
+          (qn = zn.now() + 4e3),
+          es(() => {
+            (Ca(), Xe());
+          }),
+          wo());
+      }
+    },
+    leave() {
+      ((K = !1), mn && In(!1), w && j(!1), Ve(), $e(), wo());
+    },
+    ...(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)
+      ? {
+          force(O) {
+            O === "cup"
+              ? (po = !0)
+              : O === "gauge"
+                ? ((re().gauge = et[(re().stage || 0) % _(re())].at - 10), sa())
+                : (ra = O);
+          },
+        }
+      : {}),
+  };
+})();

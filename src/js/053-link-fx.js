@@ -1,0 +1,1751 @@
+/**
+ * link fx
+ *
+ * Public API on the game namespace `t`: t.LinkFx
+ *
+ * Recovered from the shipped bundle — original chunk #52 at byte 1398927 (42416 bytes, sha256:f7ccad8696e59769).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+t.LinkFx = (function () {
+  const { h: a, esc: b } = t.UI,
+    f = () => t.CaptureFX,
+    ue = (he) => new Promise((fe) => Wa(fe, he)),
+    H = "assets/items/poke-ball.png",
+    vt = new Map();
+  function B(he) {
+    for (const fe of he.querySelectorAll("img")) {
+      const Oe = () => {
+        const Ee = fe.naturalWidth,
+          et = fe.naturalHeight;
+        if (!Ee) return;
+        let _ = vt.get(fe.src);
+        if (!_) {
+          try {
+            const ie = document.createElement("canvas");
+            ((ie.width = Ee), (ie.height = et));
+            const U = ie.getContext("2d");
+            U.drawImage(fe, 0, 0);
+            const Ne = U.getImageData(0, 0, Ee, et).data;
+            let T = Ee,
+              L = -1,
+              R = -1;
+            for (let te = 0; te < et; te++)
+              for (let K = 0; K < Ee; K++)
+                Ne[(te * Ee + K) * 4 + 3] > 40 && (K < T && (T = K), K > L && (L = K), te > R && (R = te));
+            _ = L < 0 ? null : { dx: Ee / 2 - (T + L + 1) / 2, dy: et - 1 - R };
+          } catch {
+            _ = null;
+          }
+          vt.set(fe.src, _);
+        }
+        if (!_) return;
+        const we = fe.getBoundingClientRect().width / Ee || 1;
+        fe.style.translate = `${Math.round(_.dx * we)}px ${Math.round(_.dy * we)}px`;
+      };
+      fe.complete && fe.naturalWidth ? Oe() : fe.addEventListener("load", Oe, { once: !0 });
+    }
+  }
+  const se = 2,
+    Ge = ["#ffffff", "#d4f4ff", "#8fdcff", "#45a6f2", "#2160c2", "#112f6c"],
+    Je = ["#ffffff", "#fff6c2", "#ffe066", "#ffb02e", "#d9701c", "#7a3416"],
+    Ze = ["#ffffff", "#f2ffc4", "#d8f77a", "#b5e04a", "#7fbf2e", "#3f7a17"],
+    x = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5],
+    $ = (he, fe, Oe) => Oe >= 1 || (Oe > 0 && x[(fe & 3) * 4 + (he & 3)] < Oe * 16),
+    X = (he) => 1 - (1 - he) ** 3,
+    Tt = (he) => {
+      if (!he) return Ge;
+      const [fe, Oe, Ee] = he.split(",").map(Number),
+        et = (_, we) => Math.round(we > 0 ? _ + (255 - _) * we : _ * (1 + we));
+      return [1, 0.7, 0.35, 0, -0.4, -0.7].map((_) =>
+        _ === 1 ? "#ffffff" : `rgb(${et(fe, _)}, ${et(Oe, _)}, ${et(Ee, _)})`,
+      );
+    };
+  function le(he) {
+    const fe = document.createElement("canvas"),
+      Oe = fe.getContext("2d");
+    fe.className = "lk-cv";
+    const Ee = () => {
+      ((fe.width = Math.ceil(innerWidth / se)),
+        (fe.height = Math.ceil(innerHeight / se)),
+        (fe.style.width = fe.width * se + "px"),
+        (fe.style.height = fe.height * se + "px"));
+    };
+    Ee();
+    let et = [],
+      _ = [],
+      we = [],
+      ie = 0,
+      U = zn.now(),
+      Ne = !0;
+    const T = (ge, Fe, gt, Dt = 1) => {
+        ((ge = Math.round(ge)),
+          (Fe = Math.round(Fe)),
+          $(ge, Fe, Dt) && ((Oe.fillStyle = gt), Oe.fillRect(ge, Fe, 1, 1)));
+      },
+      L = (ge, Fe, gt, Dt, ha = 1) => {
+        ((Oe.fillStyle = Dt), (ge = Math.round(ge)), (Fe = Math.round(Fe)));
+        const _t = Math.ceil(gt);
+        for (let Ea = -_t; Ea <= _t; Ea++)
+          for (let ut = -_t; ut <= _t; ut++)
+            ut * ut + Ea * Ea <= gt * gt && $(ge + ut, Fe + Ea, ha) && Oe.fillRect(ge + ut, Fe + Ea, 1, 1);
+      },
+      R = (ge, Fe, gt, Dt, ha, _t = 1, Ea = 0) => {
+        if (gt < 0.5 || Dt < 0.5) return;
+        ((Oe.fillStyle = ha), (ge = Math.round(ge)), (Fe = Math.round(Fe)));
+        const ut = Math.ceil(gt),
+          jt = Math.ceil(Dt);
+        for (let xt = -jt; xt <= jt; xt++)
+          for (let D = -ut; D <= ut; D++) {
+            const Q = (D * D) / (gt * gt) + (xt * xt) / (Dt * Dt);
+            Q <= 1 && Q >= Ea * Ea && $(ge + D, Fe + xt, _t) && Oe.fillRect(ge + D, Fe + xt, 1, 1);
+          }
+      },
+      te = (ge, Fe, gt, Dt, ha = 1) => {
+        ((ge = Math.round(ge)), (Fe = Math.round(Fe)));
+        for (let _t = -gt; _t <= gt; _t++) (T(ge + _t, Fe, Dt, ha), T(ge, Fe + _t, Dt, ha));
+        if (gt > 2)
+          for (const [_t, Ea] of [
+            [-1, -1],
+            [1, -1],
+            [-1, 1],
+            [1, 1],
+          ])
+            T(ge + _t, Fe + Ea, Dt, ha);
+        T(ge, Fe, "#fff", ha);
+      },
+      K = (ge) => {
+        const Fe = ge.getBoundingClientRect();
+        return {
+          x: Fe.left / se,
+          y: Fe.top / se,
+          w: Fe.width / se,
+          h: Fe.height / se,
+          cx: (Fe.left + Fe.width / 2) / se,
+          cy: (Fe.top + Fe.height / 2) / se,
+          a: +getComputedStyle(ge).opacity,
+        };
+      },
+      He = (ge, Fe, gt = {}) =>
+        et.push({
+          x: ge,
+          y: Fe,
+          vx: 0,
+          vy: 0,
+          life: 0,
+          wait: 0,
+          max: 400,
+          size: 1,
+          heat: 0,
+          grav: 0.02,
+          drag: 0.96,
+          pal: Ge,
+          ...gt,
+        }),
+      m = (ge, Fe, gt, Dt, ha = {}) => {
+        for (let _t = 0; _t < gt; _t++) {
+          const Ea = Math.random() * 6.283,
+            ut = Dt * 1.5 * (0.4 + Math.random() * 0.8);
+          He(ge, Fe, {
+            vx: Math.cos(Ea) * ut,
+            vy: Math.sin(Ea) * ut,
+            max: 300 + Math.random() * 300,
+            size: 1 + ((Math.random() * 2) | 0),
+            ...ha,
+          });
+        }
+      },
+      z = (ge, Fe, gt, Dt = 460, ha = 1, _t = Ge) =>
+        _.push({ x: ge, y: Fe, r: gt, dur: Dt, flat: ha, pal: _t, t0: ie });
+    function pe(ge) {
+      const Fe = K(ge.pad);
+      if (Fe.a <= 0 || Fe.w < 2) return;
+      const gt = ge.lit,
+        Dt = gt || Ge,
+        { cx: ha, cy: _t } = Fe,
+        Ea = Fe.a * 0.85 * (ge.dim ? 0.45 : 1),
+        ut = Fe.w / 2,
+        jt = Fe.h / 2,
+        xt = 0.5 + 0.5 * Math.sin(ie / (gt ? 200 : 320));
+      (R(ha, _t + 1, ut, jt, Ge[5], Ea),
+        R(ha, _t, ut, jt, Dt[gt ? 3 : 4], Ea, 0.9),
+        R(ha, _t, ut * (0.5 + 0.06 * xt), jt * (0.5 + 0.06 * xt), Dt[4], Ea * (gt ? 0.8 : 0.5)),
+        gt && R(ha, _t, ut * (0.28 + 0.06 * xt), jt * (0.28 + 0.06 * xt), Dt[3], Ea * 0.7));
+      for (let D = -ut * 0.6; D <= ut * 0.6; D++)
+        T(ha + D, _t - jt * Math.sqrt(1 - (D / ut) ** 2) + 1, Dt[2], Ea);
+      Math.random() < (gt ? 0.3 : 0.05) * Ea &&
+        He(ha + (Math.random() - 0.5) * ut * 1.2, _t - 1, {
+          vy: -0.3 - Math.random() * 0.3,
+          max: 700,
+          grav: 0,
+          drag: 1,
+          heat: 0.3,
+          pal: Dt,
+        });
+    }
+    const V = ["#ffffff", "#c9d2e6", "#8f9bba", "#5d6788", "#383f5c", "#1a1d2e"];
+    function lt(ge, Fe) {
+      const gt = ge.a,
+        Dt = 2,
+        ha = Math.round(Fe ? ge.y : ge.x),
+        _t = Math.round(Fe ? ge.y + ge.h : ge.x + ge.w),
+        Ea = Math.round(Fe ? ge.cx : ge.cy),
+        ut = (ye, nt, Ot) => (Fe ? T(Ea + nt, ye, Ot, gt) : T(ye, Ea + nt, Ot, gt));
+      for (let ye = ha; ye <= _t; ye++)
+        for (let nt = -Dt - 1; nt <= Dt + 1; nt++)
+          ut(ye, nt, Math.abs(nt) > Dt ? V[5] : nt === -Dt ? V[1] : nt < 0 ? V[2] : V[3]);
+      if (!Fe || ge.h < 4) return;
+      const jt = 9,
+        xt = 12,
+        D = Ea - (jt >> 1),
+        Q = _t - 2;
+      for (let ye = -1; ye <= jt; ye++)
+        for (let nt = -1; nt <= xt; nt++)
+          T(
+            D + ye,
+            Q + nt,
+            ye < 0 || ye === jt || nt < 0 || nt === xt
+              ? V[5]
+              : ye < 2
+                ? V[1]
+                : ye > jt - 3
+                  ? V[4]
+                  : nt > xt - 3
+                    ? V[3]
+                    : V[2],
+            gt,
+          );
+      const Y = 0.6 + 0.4 * Math.sin(ie / 140);
+      for (let ye = 1; ye < jt - 1; ye += 2)
+        (T(D + ye, Q + xt + 1, Ge[1], gt), T(D + ye, Q + xt + 2, Ge[3], gt * Y));
+    }
+    function kt(ge) {
+      const Fe = ge.ax / se,
+        gt = ge.bx / se,
+        Dt = Math.round(ge.y / se),
+        ha = (Fe + gt) / 2,
+        _t = 2,
+        Ea = 7,
+        ut = 11,
+        jt = Math.max(0, (ha - Fe - Ea - 1) * Math.min(1, ge.k)),
+        xt = (Q, Y) => {
+          for (let ye = Math.round(Math.min(Q, Y)); ye <= Math.round(Math.max(Q, Y)); ye++)
+            for (let nt = -_t - 1; nt <= _t + 1; nt++)
+              T(ye, Dt + nt, Math.abs(nt) > _t ? V[5] : nt === -_t ? V[1] : nt < 0 ? V[2] : V[3]);
+        },
+        D = (Q, Y) => {
+          Q = Math.round(Q);
+          const ye = Y > 0 ? Q : Q - Ea,
+            nt = Dt - (ut >> 1);
+          for (let ee = -1; ee <= Ea; ee++)
+            for (let rt = -1; rt <= ut; rt++)
+              T(
+                ye + ee,
+                nt + rt,
+                ee < 0 || ee === Ea || rt < 0 || rt === ut ? V[5] : rt < 2 ? V[1] : rt > ut - 3 ? V[4] : V[2],
+              );
+          const Ot = ge.k >= 1 ? 1 : 0.5 + 0.5 * Math.sin(ie / 120);
+          for (let ee = 1; ee < ut - 1; ee += 2)
+            T(Y > 0 ? ye + Ea + 1 : ye - 2, nt + ee, Ge[ge.k >= 1 ? 1 : 3], Ot);
+        };
+      (xt(Fe, Fe + jt), D(Fe + jt, 1), xt(gt, gt - jt), D(gt - jt, -1));
+    }
+    const ra = (ge) => {
+      const Fe = ge.getBoundingClientRect();
+      return { x: Fe.left + Fe.width / 2, y: Fe.bottom + 14 * se };
+    };
+    function Vt() {
+      we = we.filter((ge) => {
+        const Fe = (ie - ge.t0) / ge.dur;
+        if (Fe >= 1) return !1;
+        const gt = X(Fe),
+          Dt = ge.y0 + (ge.y1 - ge.y0) * gt,
+          ha = ge.rx * (1 - 0.45 * gt),
+          _t = Math.max(1.5, ha * 0.22),
+          Ea = Fe < 0.7 ? 1 : 1 - (Fe - 0.7) / 0.3,
+          ut = Math.ceil(ha * 7);
+        for (let jt = 0; jt < ut; jt++) {
+          const xt = (jt / ut) * 6.283,
+            D = Math.sin(xt) > 0;
+          T(ge.x + Math.cos(xt) * ha, Dt + Math.sin(xt) * _t, D ? ge.pal[1] : ge.pal[3], Ea * (D ? 1 : 0.5));
+        }
+        return !0;
+      });
+    }
+    function Xt() {
+      _ = _.filter((ge) => {
+        const Fe = (ie - ge.t0) / ge.dur;
+        if (Fe >= 1) return !1;
+        const gt = Math.max(1, X(Fe) * ge.r),
+          Dt = gt * ge.flat,
+          ha = Math.max(1, 3 * (1 - Fe)),
+          _t = Fe < 0.55 ? 1 : 1 - (Fe - 0.55) / 0.45,
+          Ea = Math.ceil(gt),
+          ut = Math.ceil(Dt),
+          jt = Math.round(ge.x),
+          xt = Math.round(ge.y);
+        for (let D = -ut; D <= ut; D++)
+          for (let Q = -Ea; Q <= Ea; Q++) {
+            const Y = Math.sqrt(Q * Q + (D / ge.flat) ** 2);
+            Y > gt || Y <= gt - ha || T(jt + Q, xt + D, Y > gt - ha / 2 ? ge.pal[3] : ge.pal[1], _t);
+          }
+        return !0;
+      });
+    }
+    function Ht(ge) {
+      const Fe = ge / 16;
+      et = et.filter((gt) => {
+        if (
+          ((gt.life += ge),
+          gt.life > gt.max + gt.wait ||
+            (gt.to &&
+              gt.life > gt.wait &&
+              ((gt.vx += (gt.to.x - gt.x) * 0.03 * Fe),
+              (gt.vy += (gt.to.y - gt.y) * 0.03 * Fe),
+              Math.abs(gt.to.x - gt.x) + Math.abs(gt.to.y - gt.y) < 3)))
+        )
+          return !1;
+        gt.life > gt.wait &&
+          ((gt.vx *= gt.drag ** Fe),
+          (gt.vy = gt.vy * gt.drag ** Fe + gt.grav * Fe),
+          (gt.x += gt.vx * Fe),
+          (gt.y += gt.vy * Fe));
+        const Dt = Math.max(0, gt.life - gt.wait) / gt.max,
+          ha = gt.pal,
+          _t = Math.min(5, Math.floor(gt.heat * 2 + Dt * 4.4));
+        if (Dt > 0.7 && (Math.round(gt.x) + Math.round(gt.y)) & 1) return !0;
+        if (gt.star) te(gt.x, gt.y, Math.max(1, Math.round(gt.size * (1 - Dt))), ha[Math.min(3, _t)]);
+        else if (gt.round) {
+          const Ea = gt.size * (0.6 + Dt * 0.6);
+          (L(gt.x, gt.y, Ea, ha[Math.min(5, _t + 1)]),
+            _t < 3 && L(gt.x - Ea * 0.2, gt.y - Ea * 0.2, Ea * 0.5, ha[_t]));
+        } else {
+          Oe.fillStyle = ha[_t];
+          const Ea = Math.max(1, Math.round(gt.size * (1 - Dt * 0.5)));
+          Oe.fillRect(Math.round(gt.x - Ea / 2), Math.round(gt.y - Ea / 2), Ea, Ea);
+        }
+        return !0;
+      });
+    }
+    const ct = (ge) => {
+      if (!Ne) return;
+      const Fe = Math.min(50, ge - U);
+      ((U = ge),
+        (ie += Fe),
+        fe.width !== Math.ceil(innerWidth / se) && Ee(),
+        Oe.clearRect(0, 0, fe.width, fe.height));
+      for (const Dt of he.views || he.slots) pe(Dt);
+      const gt = K(he.tube);
+      gt.a > 0 && gt.w > 1 && lt(gt, !1);
+      for (const Dt of he.slots) {
+        const ha = K(Dt.beam);
+        ha.h > 1 && lt(ha, !0);
+      }
+      (he.link && kt(he.link), Vt(), Xt(), Ht(Fe), es(ct));
+    };
+    es(ct);
+    const wt = (ge) => ge / se;
+    return {
+      cv: fe,
+      tip: ra,
+      stop: () => {
+        Ne = !1;
+      },
+      emit: (ge, Fe, gt) => He(wt(ge), wt(Fe), gt),
+      burst: (ge, Fe, gt, Dt, ha) => m(wt(ge), wt(Fe), gt, Dt, ha),
+      ring: (ge, Fe, gt, Dt, ha, _t) => z(wt(ge), wt(Fe), wt(gt), Dt, ha, _t),
+      halo: (ge, Fe, gt, Dt, ha = 700, _t = Ge) =>
+        we.push({ x: wt(ge), y0: wt(Fe), y1: wt(gt), rx: wt(Dt), dur: ha, pal: _t, t0: ie }),
+      dissolve(ge, Fe) {
+        const gt = ge.getBoundingClientRect(),
+          Dt = Math.max(1, Math.round(gt.width / se)),
+          ha = Math.max(1, Math.round(gt.height / se)),
+          _t = document.createElement("canvas");
+        ((_t.width = Dt), (_t.height = ha));
+        let Ea;
+        try {
+          const Q = _t.getContext("2d");
+          (Q.drawImage(ge, 0, 0, Dt, ha), (Ea = Q.getImageData(0, 0, Dt, ha).data));
+        } catch {
+          return;
+        }
+        const ut = gt.left / se,
+          jt = gt.top / se,
+          xt = wt(Fe.x),
+          D = { x: xt, y: wt(Fe.y) };
+        for (let Q = 0; Q < ha; Q++)
+          for (let Y = 0; Y < Dt; Y++)
+            Ea[(Q * Dt + Y) * 4 + 3] < 120 ||
+              He(ut + Y, jt + Q, {
+                to: D,
+                wait: (Q / ha) * 200 + Math.random() * 60,
+                vx: (Math.random() - 0.5) * 0.6,
+                vy: -0.2 - Math.random() * 0.3,
+                grav: 0,
+                drag: 0.82,
+                max: 420 + Math.random() * 200,
+                heat: Math.random() < 0.5 ? 0 : 0.25,
+                size: 1,
+              });
+      },
+    };
+  }
+  function P({ cls: he = "", title: fe, face: Oe = "", slots: Ee = 1 }) {
+    const et = document.body.appendChild(
+      a(`<div class="rc-fx lk-fx ${he}">
+      <i class="lk-sky"></i>
+      <div class="rc-title lk-title">${fe}</div>
+      <div class="lk-stage">
+        <i class="lk-tube"><b class="lk-portal a"></b><b class="lk-portal b"></b></i>
+        ${'<div class="lk-slot"><span class="lk-pad"></span><div class="lk-mon"></div></div>'.repeat(Ee)}
+      </div>
+      <div class="lk-box">${Oe}<p class="lk-say">&nbsp;</p><i class="lk-more">▼</i></div>
+      <div class="lk-msg"></div>
+      <div class="rc-tap">${e("Touche pour continuer")}</div>
+      ${'<i class="lk-beam"></i>'.repeat(Ee)}
+      <div class="hm-fx"></div></div>`),
+    );
+    Ee > 1 && et.classList.add("multi");
+    const _ = (Ne) => et.querySelector(Ne),
+      we = et.querySelectorAll(".lk-beam"),
+      ie = [...et.querySelectorAll(".lk-slot")].map((Ne, T) => ({
+        node: Ne,
+        pad: Ne.querySelector(".lk-pad"),
+        mon: Ne.querySelector(".lk-mon"),
+        beam: we[T],
+      })),
+      U = {
+        el: et,
+        slots: ie,
+        ...ie[0],
+        fx: _(".hm-fx"),
+        stage: _(".lk-stage"),
+        tube: _(".lk-tube"),
+        title: _(".lk-title"),
+        box: _(".lk-box"),
+        text: _(".lk-say"),
+        more: _(".lk-more"),
+        msg: _(".lk-msg"),
+        tap: _(".rc-tap"),
+      };
+    ((U.px = le(U)),
+      _(".lk-sky").after(U.px.cv),
+      (U.skip = t.UI.skippable(et)),
+      (U.pause = (Ne) => (U.skip.skipped ? Promise.resolve() : ue(Ne))),
+      (U.T = (Ne) => (U.skip.skipped ? 1 : Ne)),
+      (U.at = (Ne) => {
+        const T = Ne.getBoundingClientRect(),
+          L = et.getBoundingClientRect();
+        return { x: T.left - L.left + T.width / 2, y: T.top - L.top + T.height / 2 };
+      }));
+    for (const Ne of [
+      U.title,
+      U.box,
+      U.tap,
+      U.more,
+      U.msg,
+      U.tube,
+      ...ie.flatMap((T) => [T.pad, T.mon, T.beam]),
+    ])
+      Ne.style.opacity = 0;
+    return ((U.views = ie.map((Ne) => Object.assign(Object.create(U), Ne))), U);
+  }
+  async function u(he) {
+    const fe = "cubic-bezier(.2,1.4,.4,1)";
+    t.Sfx.whoosh?.();
+    const Oe = [
+      he.el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, fill: "forwards" }),
+      he.title.animate(
+        [
+          { transform: "translateY(-18px)", opacity: 0 },
+          { transform: "none", opacity: 1 },
+        ],
+        { duration: 320, delay: 120, easing: "ease-out", fill: "both" },
+      ),
+      ...he.slots.map((Ee, et) =>
+        Ee.pad.animate(
+          [
+            { transform: "scale(0, 0)", opacity: 0 },
+            { transform: "scale(1.25, .7)", opacity: 1, offset: 0.6 },
+            { transform: "scale(.92, 1.12)", offset: 0.8 },
+            { transform: "none", opacity: 1 },
+          ],
+          { duration: he.T(480), delay: 160 + et * 90, easing: "ease-out", fill: "both" },
+        ),
+      ),
+      he.box.animate(
+        [
+          { transform: "translateY(14px) scale(.9, 1.1)", opacity: 0 },
+          { transform: "translateY(-3px) scale(1.03, .96)", opacity: 1, offset: 0.6 },
+          { transform: "none", opacity: 1 },
+        ],
+        { duration: he.T(360), delay: 240, easing: fe, fill: "both" },
+      ),
+    ];
+    for (const Ee of [he.title, he.box, ...he.slots.map((et) => et.pad)]) Ee.style.opacity = "";
+    await Promise.all(Oe.map((Ee) => Ee.finished));
+  }
+  async function ve(he, fe) {
+    const Oe = (he.sayId = (he.sayId || 0) + 1);
+    ((he.more.style.opacity = 0), (he.text.innerHTML = fe));
+    const Ee = [],
+      et = (_) => (_.nodeType === 3 ? Ee.push([_, _.textContent]) : _.childNodes.forEach(et));
+    if ((et(he.text), !he.skip.skipped)) {
+      Ee.forEach(([_]) => {
+        _.textContent = "";
+      });
+      for (const [_, we] of Ee)
+        for (let ie = 1; ie <= we.length && !he.skip.skipped; ie++) {
+          if (he.sayId !== Oe) return;
+          ((_.textContent = we.slice(0, ie)), we[ie - 1] !== " " && (await he.pause(22)));
+        }
+      if (he.sayId !== Oe) return;
+      Ee.forEach(([_, we]) => {
+        _.textContent = we;
+      });
+    }
+    he.more.style.opacity = "";
+  }
+  const it = (he, fe, Oe) => {
+      const Ee = he.fx.appendChild(a(`<img class="tx-ball" src="${H}" alt="">`));
+      return (Object.assign(Ee.style, { left: fe + "px", top: Oe + "px" }), Ee);
+    },
+    De = (he, fe = 0.6) => {
+      const Oe = he.fx.appendChild(a('<span class="rc-flash"></span>'));
+      Oe.animate([{ opacity: fe }, { opacity: 0 }], {
+        duration: 380,
+        easing: "ease-out",
+        fill: "both",
+      }).finished.then(() => Oe.remove());
+    },
+    je = (he) => {
+      const fe = he.at(he.pad);
+      return { x: fe.x, y: fe.y };
+    },
+    pt = (he) => {
+      const fe = je(he);
+      return (
+        Object.assign(he.beam.style, {
+          left: fe.x + "px",
+          height: Math.max(20, fe.y - (he.gap || 190)) + "px",
+          transformOrigin: "50% 0",
+        }),
+        (he.beam.style.opacity = ""),
+        fe
+      );
+    },
+    re = (he, fe = 1) =>
+      he.beam.animate(
+        [
+          { transform: "scaleY(0)" },
+          { transform: "scaleY(1.06)", offset: 0.8 },
+          { transform: "scaleY(.98)", offset: 0.9 },
+          { transform: "none" },
+        ],
+        { duration: he.T(650 * fe), easing: "ease-out", fill: "forwards" },
+      ).finished,
+    We = (he) =>
+      he.beam.animate(
+        [{ transform: "none" }, { transform: "scaleY(1.05)", offset: 0.2 }, { transform: "scaleY(0)" }],
+        { duration: he.T(420), easing: "ease-in", fill: "forwards" },
+      ).finished,
+    oe = (he, fe = 1) => {
+      const Oe = je(he);
+      (he.pad.animate(
+        [
+          { transform: "none" },
+          { transform: `scale(${1 + 0.25 * fe}, ${1 - 0.3 * fe})` },
+          { transform: "scale(.95, 1.08)" },
+          { transform: "none" },
+        ],
+        { duration: he.T(320), easing: "ease-out" },
+      ),
+        he.px.ring(Oe.x, Oe.y, 90 * fe, 460, 0.3),
+        he.px.burst(Oe.x, Oe.y, Math.round(10 * fe), 1.6, { grav: 0.06, heat: 0.2 }));
+    };
+  async function $e(he, fe = je(he), { above: Oe = !1 } = {}) {
+    const Ee = he.mon.querySelector("img"),
+      et = Ee && he.at(Ee).y - Ee.getBoundingClientRect().height / 2,
+      _ = Oe && Ee ? et - 28 : fe.y - 16,
+      we = it(he, fe.x, _);
+    return (
+      he.px.ring(fe.x, _, 40, 300),
+      await we.animate(
+        [
+          { transform: "translate(-50%, -50%) scale(0)" },
+          { transform: "translate(-50%, -50%) scale(1.35, .7)", offset: 0.6 },
+          { transform: "translate(-50%, -50%) scale(.9, 1.1)", offset: 0.8 },
+          { transform: "translate(-50%, -50%)" },
+        ],
+        { duration: he.T(320), easing: "ease-out", fill: "forwards" },
+      ).finished,
+      await he.mon.animate(
+        [
+          { transform: "none", filter: "none" },
+          { transform: "scale(1.2, .8)", filter: "brightness(0) invert(1)", offset: 0.5 },
+          { transform: "scale(1.3, .7)", filter: "brightness(0) invert(1)" },
+        ],
+        { duration: he.T(340), easing: "ease-in", fill: "forwards" },
+      ).finished,
+      t.Sfx.open?.(),
+      await he.mon.animate([{ transform: "scale(1.3, .7)" }, { transform: "scale(.7, 1.3)" }], {
+        duration: he.T(120),
+        easing: "ease-out",
+        fill: "forwards",
+      }).finished,
+      he.skip.skipped || he.px.dissolve(he.mon.querySelector("img"), { x: fe.x, y: _ }),
+      he.mon.getAnimations().forEach((ie) => ie.cancel()),
+      (he.mon.style.opacity = 0),
+      we.animate([{ filter: "brightness(1)" }, { filter: "brightness(1.8)" }, { filter: "brightness(1)" }], {
+        duration: he.T(700),
+        easing: "steps(6)",
+      }),
+      await he.pause(700),
+      De(he, 0.3),
+      he.px.ring(fe.x, _, 50, 340),
+      oe(he, 0.6),
+      await we.animate(
+        [
+          { transform: "translate(-50%, -50%)" },
+          { transform: "translate(-50%, -50%) scale(1.3, .75)", offset: 0.4 },
+          { transform: "translate(-50%, -50%) scale(.92, 1.08)", offset: 0.75 },
+          { transform: "translate(-50%, -50%)" },
+        ],
+        { duration: he.T(300), easing: "ease-out", fill: "forwards" },
+      ).finished,
+      { b: we, by: _ }
+    );
+  }
+  async function Z(he) {
+    const fe = pt(he);
+    (he.beam.getAnimations().forEach((we) => we.cancel()), await re(he), t.Sfx.heal?.());
+    const { b: Oe, by: Ee } = await $e(he, fe);
+    await he.pause(150);
+    const et = he.px.tip(he.beam),
+      _ = Ee - et.y;
+    return (
+      t.Sfx.whoosh?.(),
+      await Oe.animate(
+        [
+          { transform: "translate(-50%, -50%)" },
+          { transform: "translate(-50%, calc(-50% + 4px)) scale(1.35, .65)", offset: 0.3 },
+          { transform: `translate(-50%, calc(-50% - ${_ * 0.6}px)) scale(.6, 1.6)`, offset: 0.75 },
+          { transform: `translate(-50%, calc(-50% - ${_}px)) scale(.2, .6)` },
+        ],
+        { duration: he.T(480), easing: "cubic-bezier(.5,0,.7,1)", fill: "forwards" },
+      ).finished,
+      Oe.remove(),
+      he.px.ring(et.x, et.y, 30, 300),
+      he.px.burst(et.x, et.y, 8, 1.2, { grav: 0, heat: 0.2 }),
+      he.beam.animate([{ transform: "none" }, { transform: "scaleY(.94)" }, { transform: "none" }], {
+        duration: he.T(180),
+      }),
+      await he.pause(220),
+      await We(he),
+      he.mon.getAnimations().forEach((we) => we.cancel()),
+      (he.mon.style.opacity = 0),
+      fe
+    );
+  }
+  async function A(he, fe) {
+    (he.pad.animate(
+      [
+        { transform: "none", opacity: 1 },
+        { transform: "scale(1.3, 0)", opacity: 0 },
+      ],
+      { duration: he.T(240), easing: "ease-in", fill: "forwards" },
+    ),
+      (he.tube.style.opacity = ""),
+      await he.tube.animate(
+        [
+          { transform: "scaleX(0) scaleY(.2)" },
+          { transform: "scaleX(1.04) scaleY(1.4)", offset: 0.7 },
+          { transform: "none" },
+        ],
+        { duration: he.T(420), easing: "ease-out", fill: "both" },
+      ).finished,
+      t.Sfx.heal?.());
+    const [Oe, Ee] = [...he.tube.querySelectorAll(".lk-portal")].map(he.at);
+    (he.px.ring(Oe.x, Oe.y, 36, 300), he.px.ring(Ee.x, Ee.y, 36, 300));
+    const et = it(he, Oe.x, Oe.y),
+      _ = it(he, Ee.x, Ee.y),
+      we = Ee.x - Oe.x,
+      ie = (R, te) =>
+        R.animate(
+          [
+            { transform: "translate(-50%, -50%) scale(0)" },
+            { transform: "translate(-50%, -50%) scale(.7, 1.3)", offset: 0.08 },
+            {
+              transform: `translate(calc(-50% + ${te * we * 0.1}px), -50%) scale(1.5, .7) rotate(${te * 180}deg)`,
+              offset: 0.2,
+            },
+            {
+              transform: `translate(calc(-50% + ${te * we * 0.5}px), -50%) scale(1.8, .6) rotate(${te * 720}deg)`,
+              offset: 0.5,
+            },
+            {
+              transform: `translate(calc(-50% + ${te * we * 0.9}px), -50%) scale(1.5, .7) rotate(${te * 1260}deg)`,
+              offset: 0.85,
+            },
+            {
+              transform: `translate(calc(-50% + ${te * we}px), -50%) scale(.6, 1.3) rotate(${te * 1440}deg)`,
+              offset: 0.94,
+            },
+            { transform: `translate(calc(-50% + ${te * we}px), -50%) scale(0) rotate(${te * 1440}deg)` },
+          ],
+          { duration: he.T(1600), easing: "cubic-bezier(.45,0,.55,1)", fill: "forwards" },
+        ),
+      U = ie(et, 1),
+      Ne = ie(_, -1),
+      T = (async () => {
+        for (let R = 0; R < 26 && !he.skip.skipped; R++) {
+          for (const [te, K] of [
+            [et, -1],
+            [_, 1],
+          ]) {
+            const He = he.at(te);
+            he.px.emit(He.x, He.y, {
+              vx: K * 0.5,
+              vy: (Math.random() - 0.5) * 0.2,
+              size: 1,
+              heat: 0.2,
+              max: 220,
+              grav: 0,
+            });
+          }
+          await he.pause(60);
+        }
+      })();
+    await he.pause(800);
+    const L = he.at(he.tube);
+    (De(he, 0.55),
+      he.px.ring(L.x, L.y, 90, 480, 1, Je),
+      he.px.ring(L.x, L.y, 55, 380),
+      he.px.burst(L.x, L.y, 26, 2.6, { pal: Je, round: !0, grav: 0.03, heat: 0.1 }),
+      he.px.burst(L.x, L.y, 8, 1.8, { pal: Je, star: !0, size: 3, grav: 0, drag: 0.93, max: 520 }),
+      f().shake(he.stage, 5, 200),
+      he.tube.animate(
+        [
+          { transform: "none" },
+          { transform: "scaleY(1.8)" },
+          { transform: "scaleY(.8)" },
+          { transform: "none" },
+        ],
+        { duration: he.T(300) },
+      ),
+      fe?.(),
+      await Promise.all([U.finished, Ne.finished, T]),
+      he.px.ring(Oe.x, Oe.y, 40, 320),
+      he.px.ring(Ee.x, Ee.y, 40, 320),
+      et.remove(),
+      _.remove(),
+      await he.tube.animate(
+        [
+          { transform: "none", opacity: 1 },
+          { transform: "scaleX(1.05) scaleY(0)", opacity: 0 },
+        ],
+        { duration: he.T(260), easing: "ease-in", fill: "forwards" },
+      ).finished,
+      he.pad.getAnimations().forEach((R) => R.cancel()),
+      await he.pad.animate(
+        [{ transform: "scale(0, 0)" }, { transform: "scale(1.25, .7)", offset: 0.6 }, { transform: "none" }],
+        { duration: he.T(360), easing: "ease-out", fill: "both" },
+      ).finished);
+  }
+  async function J(he, fe) {
+    await _e(he, await de(he, fe));
+  }
+  async function de(he, { sp: fe = 1, onTouch: Oe, cable: Ee = !0 } = {}) {
+    const et = (U) => he.T(U * fe),
+      _ = Ee ? pt(he) : je(he);
+    let we = _.y - 16 + 40;
+    const ie = it(he, _.x, _.y - 16);
+    if (Ee) {
+      (he.beam.getAnimations().forEach((Ne) => Ne.cancel()),
+        (ie.style.opacity = 0),
+        await re(he, fe),
+        t.Sfx.heal?.());
+      const U = he.px.tip(he.beam);
+      ((we = _.y - 16 - U.y),
+        (ie.style.opacity = ""),
+        he.px.ring(U.x, U.y, 30, 300),
+        await ie.animate(
+          [
+            { transform: `translate(-50%, calc(-50% - ${we}px)) scale(0)` },
+            { transform: `translate(-50%, calc(-50% - ${we}px)) scale(1.3, .7)`, offset: 0.6 },
+            { transform: `translate(-50%, calc(-50% - ${we}px)) scale(.8, 1.25)` },
+          ],
+          { duration: et(200), easing: "ease-out", fill: "forwards" },
+        ).finished);
+    } else t.Sfx.whoosh?.();
+    (await ie.animate(
+      [
+        { transform: `translate(-50%, calc(-50% - ${we}px)) scale(.8, 1.25) rotate(0)` },
+        { transform: "translate(-50%, calc(-50% - 16px)) scale(.75, 1.35) rotate(900deg)", offset: 0.9 },
+        { transform: "translate(-50%, calc(-50% + 6px)) scale(1.5, .55) rotate(1080deg)" },
+      ],
+      { duration: et(600), easing: "cubic-bezier(.5,0,.9,.6)", fill: "forwards" },
+    ).finished,
+      oe(he),
+      Oe?.(),
+      Ee && We(he),
+      f().shake(he.stage, 3, 160));
+    for (const [U, Ne, T] of [
+      [48, 420, 0.6],
+      [16, 260, 0.3],
+    ])
+      (await ie.animate(
+        [
+          { transform: "translate(-50%, calc(-50% + 6px)) scale(1.5, .55) rotate(1080deg)" },
+          {
+            transform: `translate(-50%, calc(-50% - ${U * 0.7}px)) scale(.85, 1.2) rotate(1080deg)`,
+            offset: 0.3,
+          },
+          { transform: `translate(-50%, calc(-50% - ${U}px)) scale(1, 1) rotate(1080deg)`, offset: 0.5 },
+          {
+            transform: `translate(-50%, calc(-50% - ${U * 0.4}px)) scale(.88, 1.15) rotate(1080deg)`,
+            offset: 0.82,
+          },
+          {
+            transform: `translate(-50%, calc(-50% + ${T * 8}px)) scale(${1 + T * 0.7}, ${1 - T * 0.6}) rotate(1080deg)`,
+          },
+        ],
+        { duration: et(Ne), easing: "linear", fill: "forwards" },
+      ).finished,
+        oe(he, T));
+    return (
+      await ie.animate(
+        [
+          { transform: "translate(-50%, calc(-50% + 3px)) scale(1.2, .82) rotate(1080deg)" },
+          { transform: "translate(-50%, -50%) rotate(1080deg)" },
+        ],
+        { duration: et(160), easing: "ease-out", fill: "forwards" },
+      ).finished,
+      ie
+    );
+  }
+  async function _e(he, fe, { quick: Oe = !1 } = {}) {
+    const Ee = je(he);
+    for (const [et, _] of Oe
+      ? [[24, 200]]
+      : [
+          [18, 340],
+          [24, 260],
+          [30, 190],
+        ])
+      (await fe.animate(
+        [
+          { transform: "translate(-50%, -50%) rotate(0)" },
+          { transform: `translate(-50%, -50%) rotate(${-et}deg) scale(1.1, .9)` },
+          { transform: `translate(-50%, -50%) rotate(${et}deg) scale(1.1, .9)` },
+          { transform: "translate(-50%, -50%) rotate(0)" },
+        ],
+        { duration: he.T(_), easing: "ease-in-out" },
+      ).finished,
+        await he.pause(90));
+    (await fe.animate(
+      [
+        { transform: "translate(-50%, -50%)", filter: "none" },
+        { transform: "translate(-50%, -50%) scale(1.3, .75)", filter: "brightness(2)" },
+      ],
+      { duration: he.T(180), fill: "forwards" },
+    ).finished,
+      fe.remove(),
+      t.Sfx.open?.(),
+      De(he),
+      oe(he, 1.2),
+      he.px.ring(Ee.x, Ee.y - 12, 70, 420, 1, Je),
+      he.px.burst(Ee.x, Ee.y - 12, 30, 2.4, { pal: Je, round: !0, grav: 0.04 }),
+      he.px.burst(Ee.x, Ee.y - 12, 8, 1.6, { pal: Je, star: !0, size: 3, grav: 0, drag: 0.93, max: 560 }));
+  }
+  async function Re(he, fe, Oe) {
+    (he.mon.getAnimations().forEach((_) => _.cancel()), (he.mon.innerHTML = fe), B(he.mon));
+    const Ee = he.mon.querySelector("img");
+    ((Ee.style.filter = "brightness(0) invert(1)"),
+      (he.mon.style.opacity = ""),
+      await he.mon.animate(
+        [
+          { transform: "translateY(0) scale(.2)", opacity: 0 },
+          { transform: "translateY(-60px) scale(.85, 1.2)", opacity: 1, offset: 0.4 },
+          { transform: "translateY(0) scale(1.3, .75)", offset: 0.65 },
+          { transform: "translateY(-14px) scale(.94, 1.08)", offset: 0.82 },
+          { transform: "none", opacity: 1 },
+        ],
+        { duration: he.T(760), easing: "ease-out", fill: "both" },
+      ).finished,
+      (Ee.style.filter = ""));
+    const et = he.at(he.mon);
+    (De(he, 0.25),
+      he.px.burst(et.x, et.y, 14, 1.8, { pal: Je, grav: 0.05 }),
+      he.px.burst(et.x, et.y - 10, 6, 1.2, { pal: Je, star: !0, size: 2, grav: 0, drag: 0.93, max: 600 }),
+      Oe && f().shinySparkle(he.fx, he.mon),
+      t.Sfx.caught?.(),
+      he.mon.animate(
+        [
+          { transform: "none" },
+          { transform: "scale(1.12, .88)", offset: 0.12 },
+          { transform: "translateY(-12px) scale(.92, 1.1)", offset: 0.3 },
+          { transform: "scale(1.1, .9)", offset: 0.5 },
+          { transform: "translateY(-9px) scale(.94, 1.07)", offset: 0.7 },
+          { transform: "scale(1.06, .94)", offset: 0.88 },
+          { transform: "none" },
+        ],
+        { duration: 760, delay: 150 },
+      ));
+  }
+  async function dt({ title: he, choices: fe, level: Oe, onEscape: Ee }) {
+    const { artImg: et, types: _, setArtAnim: we, spriteGlow: ie } = t.UI,
+      U = t.Game,
+      Ne = P({ cls: "lk-choice", title: he, slots: fe.length });
+    Ne.gap = 150;
+    const T = await Promise.all(
+        fe.map(
+          (kt) =>
+            new Promise((ra) => {
+              const Vt = new Image();
+              ((Vt.onload = () => ra(Math.max(Vt.naturalWidth, Vt.naturalHeight))),
+                (Vt.onerror = () => ra(0)),
+                (Vt.src = t.UI.artSrc(kt, !1, !0)));
+            }),
+        ),
+      ),
+      L = Math.max(1, Math.min(2, Math.floor(160 / Math.max(1, ...T)))),
+      R = Ne.views,
+      te = (kt) => et(kt, !1, { still: !0, k: L }),
+      K = Tt,
+      He = await Promise.all(fe.map((kt) => ie(t.UI.monSrc(kt)).catch(() => null))),
+      m = a(`<button class="btn primary lg lk-go" disabled>${e("Choisis un Pokémon")}</button>`);
+    let z = null,
+      pe,
+      V = new Promise((kt) => {
+        pe = kt;
+      }),
+      lt = null;
+    try {
+      (await u(Ne), ve(Ne, e("Choisis un Pokémon !")));
+      const kt = [];
+      (await new Promise((wt) => {
+        let ge = R.length;
+        const Fe = (gt, Dt) => {
+          (He[gt] && R[gt].node.style.setProperty("--g", He[gt]),
+            kt.push(
+              de(R[gt], {
+                sp: Dt,
+                cable: !1,
+                onTouch: () => {
+                  gt + 1 < R.length && Fe(gt + 1, Dt * 0.8);
+                },
+              })
+                .then((ha) => _e(R[gt], ha, { quick: !0 }))
+                .then(() => Re(R[gt], te(fe[gt]), !1)),
+            ),
+            --ge || wt());
+        };
+        Fe(0, 0.85);
+      }),
+        await Promise.all(kt),
+        Ne.skip.end(),
+        Ne.tap.replaceWith(m),
+        m.animate(
+          [
+            { transform: "scale(.85)", opacity: 0 },
+            { transform: "scale(1.05)", opacity: 1, offset: 0.6 },
+            { transform: "none", opacity: 1 },
+          ],
+          { duration: 260, easing: "ease-out", fill: "both" },
+        ));
+      const ra = (wt) => {
+        if (z === fe[wt]) return;
+        (z != null && we(R[fe.indexOf(z)].mon.querySelector("img"), z, !1, !1),
+          (z = fe[wt]),
+          R.forEach((gt, Dt) => {
+            (gt.node.classList.toggle("on", Dt === wt),
+              gt.node.classList.toggle("off", Dt !== wt),
+              (gt.lit = Dt === wt && He[wt] ? K(He[wt]) : Dt === wt ? Ge : null),
+              (gt.dim = Dt !== wt));
+          }));
+        const ge = R[wt],
+          Fe = ge.mon.querySelector("img");
+        (we(Fe, z, !1, !0),
+          t.Sfx.click?.(),
+          ge.mon.animate(
+            [
+              { transform: "none" },
+              { transform: "scale(1.15, .85)", offset: 0.2 },
+              { transform: "translateY(-16px) scale(.9, 1.12)", offset: 0.5 },
+              { transform: "scale(1.08, .92)", offset: 0.8 },
+              { transform: "none" },
+            ],
+            { duration: 420, easing: "ease-out" },
+          ),
+          ge.pad.animate([{ transform: "none" }, { transform: "scale(1.15, .85)" }, { transform: "none" }], {
+            duration: 300,
+            easing: "ease-out",
+          }),
+          Ne.px.ring(Ne.at(ge.pad).x, Ne.at(ge.pad).y, 70, 420, 0.3, ge.lit),
+          ve(Ne, `<b>${b(U.DEX[z].name)}</b> ${_(z, !0)} <small>${e("Nv. {n}", { n: Oe })}</small>`),
+          (m.disabled = !1),
+          (m.textContent = e("Choisir {name}", { name: U.DEX[z].name })));
+      };
+      (R.forEach((wt, ge) => {
+        (wt.node.classList.add("pick"), (wt.node.onclick = () => ra(ge)));
+      }),
+        (m.onclick = () => {
+          z != null && pe(z);
+        }),
+        Ee &&
+          ((lt = (wt) => {
+            wt.key === "Escape" && (wt.preventDefault(), pe("escape"));
+          }),
+          document.addEventListener("keydown", lt)));
+      const Vt = await V;
+      if (
+        (lt && document.removeEventListener("keydown", lt),
+        R.forEach((wt) => {
+          ((wt.node.onclick = null), wt.node.classList.remove("pick"));
+        }),
+        (m.disabled = !0),
+        Vt === "escape")
+      ) {
+        const wt = Ee(),
+          ge = R[R.length >> 1];
+        return (
+          m.replaceWith(Ne.tap),
+          (Ne.tap.style.opacity = 0),
+          R.forEach((Fe) => {
+            ((Fe.lit = null),
+              (Fe.dim = !1),
+              Fe.node.classList.remove("on", "off"),
+              Fe.mon.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, fill: "forwards" }));
+          }),
+          R.filter((Fe) => Fe !== ge).forEach((Fe) =>
+            Fe.pad.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: "forwards" }),
+          ),
+          (Ne.title.textContent = wt.title),
+          ve(Ne, "…"),
+          await ue(400),
+          ge.mon.getAnimations().forEach((Fe) => Fe.cancel()),
+          await J(ge, { cable: !1 }),
+          await Re(ge, et(wt.id, !1, { k: 2, fit: 128 }), !1),
+          await ve(Ne, e("Tu reçois <b>{name}</b> Nv. {n} !", { name: b(U.DEX[wt.id].name), n: Oe })),
+          Ne.tap.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: "both" }),
+          (Ne.tap.style.opacity = ""),
+          await new Promise((Fe) => Ne.el.addEventListener("pointerdown", Fe, { once: !0 })),
+          wt.id
+        );
+      }
+      const Xt = fe.indexOf(Vt),
+        Ht = R[Xt];
+      (m.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: "forwards" }),
+        R.forEach((wt, ge) => {
+          ge !== Xt &&
+            (wt.mon.animate(
+              [
+                { opacity: 1, transform: "none" },
+                { opacity: 0, transform: "scale(.6) translateY(20px)" },
+              ],
+              { duration: 300, easing: "ease-in", fill: "forwards" },
+            ),
+            wt.pad.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: "forwards" }));
+        }),
+        await ve(Ne, e("Tu choisis <b>{name}</b> !", { name: b(U.DEX[Vt].name) })),
+        (Ht.lit = Ht.lit || Ge));
+      const { b: ct } = await $e(Ht, void 0, { above: !0 });
+      return (
+        await ue(200),
+        t.Sfx.whoosh?.(),
+        await ct.animate(
+          [
+            { transform: "translate(-50%, -50%)", opacity: 1 },
+            { transform: "translate(-50%, calc(-50% + 4px)) scale(1.3, .7)", offset: 0.25 },
+            { transform: "translate(-50%, calc(-50% - 40px)) scale(2.2, 2.6)", opacity: 1, offset: 0.7 },
+            { transform: "translate(-50%, calc(-50% - 20px)) scale(4)", opacity: 0 },
+          ],
+          { duration: 520, easing: "ease-in", fill: "forwards" },
+        ).finished,
+        ct.remove(),
+        De(Ne, 0.5),
+        await ue(200),
+        Vt
+      );
+    } finally {
+      (lt && document.removeEventListener("keydown", lt), await At(Ne));
+    }
+  }
+  async function qe({ from: he, to: fe, shiny: Oe, onEvolve: Ee, duplicate: et }) {
+    const { artImg: _, artSrc: we, setArtAnim: ie, spriteGlow: U } = t.UI,
+      Ne = t.Game,
+      T = b(Ne.DEX[he].name),
+      L = b(Ne.DEX[fe].name),
+      R = P({ cls: "lk-evo", title: e("Évolution") }),
+      te = R.mon,
+      K = te.cloneNode();
+    (te.after(K),
+      (te.innerHTML = _(he, Oe, { still: !0, k: 3, fit: 220 })),
+      (K.innerHTML = _(fe, Oe, { still: !0, k: 3, fit: 220 })),
+      B(te),
+      B(K),
+      (K.style.opacity = 0));
+    const [He, m] = await Promise.all(
+        [U(we(he, Oe, !0)), U(we(fe, Oe, !0))].map((lt) => lt.catch(() => null)),
+      ),
+      z = Oe ? Je : null;
+    R.views[0].dim = !0;
+    const pe = (lt) =>
+      `brightness(0) invert(1) drop-shadow(0 0 ${2 + lt * 0.6}px rgba(255,255,255,.9)) drop-shadow(0 0 ${6 + lt * 1.4}px rgba(${He || "255,255,255"}, .5))`;
+    let V = !1;
+    try {
+      (await u(R),
+        (te.style.opacity = ""),
+        await te.animate(
+          [
+            { transform: "translateY(-80px) scale(.8, 1.25)", opacity: 0 },
+            { transform: "translateY(0) scale(1.3, .72)", opacity: 1, offset: 0.55 },
+            { transform: "translateY(-12px) scale(.94, 1.08)", offset: 0.78 },
+            { transform: "none", opacity: 1 },
+          ],
+          { duration: R.T(520), easing: "ease-in", fill: "both" },
+        ).finished,
+        oe(R, 0.6),
+        t.Sfx.evolve?.(),
+        await ve(R, e("Hein ? <b>{name}</b> évolue !", { name: T })),
+        await R.pause(300),
+        De(R, 0.3),
+        (te.querySelector("img").style.filter = pe(0)),
+        (V = !0),
+        (async () => {
+          for (; V && !R.skip.skipped;) {
+            const ge = R.at(te.style.opacity === "0" ? K : te);
+            (f().particles(R.fx, ge.x + (Math.random() - 0.5) * 180, ge.y + 60, {
+              n: 1,
+              colors: Oe ? ["#ffe066", "#fff6d8"] : ["#fff", "#fff6d8"],
+              size: 6,
+              spread: 6,
+              up: 120,
+              dur: 900,
+              gravity: -40,
+            }),
+              await ue(70));
+          }
+        })());
+      let lt = 0;
+      const kt = Oe ? Je : Tt(He),
+        ra = ["#ffffff", "#ffffff", "#fff6d8", "#ffe9b8", "#e8d6a8", "#b8a888"];
+      (async () => {
+        let ge = 0;
+        for (; V && !R.skip.skipped;) {
+          const Fe = te.style.opacity === "0" ? K : te,
+            gt = Fe.querySelector("img").getBoundingClientRect(),
+            Dt = R.el.getBoundingClientRect(),
+            ha = gt.left - Dt.left + gt.width / 2,
+            _t = gt.top - Dt.top + gt.height * 0.55,
+            Ea = gt.bottom - Dt.top,
+            ut = gt.top - Dt.top;
+          for (let jt = 1 + Math.round(lt * 2); jt--;) {
+            const xt = Math.random() * 6.283,
+              D = 110 + Math.random() * 60;
+            R.px.emit(ha + Math.cos(xt) * D, _t + Math.sin(xt) * D * 0.8, {
+              to: { x: ha / se, y: _t / se },
+              vx: -Math.sin(xt) * 1.2,
+              vy: Math.cos(xt) * 1.2,
+              drag: 0.9,
+              grav: 0,
+              round: Math.random() < 0.6,
+              size: 1.5 + Math.random(),
+              pal: kt,
+              heat: 0.1,
+              max: 900,
+            });
+          }
+          (ge % Math.max(2, 7 - Math.round(lt * 5)) === 0 &&
+            R.px.halo(ha, Ea - 4, ut + 10, gt.width * 0.55, 650 - lt * 250, Math.random() < 0.5 ? kt : ra),
+            Math.random() < 0.3 + lt * 0.4 &&
+              R.px.emit(
+                gt.left - Dt.left + Math.random() * gt.width,
+                gt.top - Dt.top + Math.random() * gt.height,
+                { star: !0, size: 2 + (Math.random() < 0.3), pal: ra, grav: 0, drag: 1, max: 380 },
+              ),
+            ge++,
+            await ue(60));
+        }
+      })();
+      const Vt = 15;
+      K.querySelector("img").style.filter = pe(0);
+      let Xt = 460;
+      for (let ge = 0; ge < Vt; ge++) {
+        const [Fe, gt] = ge % 2 ? [K, te] : [te, K];
+        ((gt.querySelector("img").style.filter = pe(ge)),
+          Fe.animate(
+            [
+              { transform: "none", opacity: 1 },
+              { transform: "scale(1.25, .55)", opacity: 0 },
+            ],
+            { duration: R.T(Xt), easing: "ease-in", fill: "forwards" },
+          ),
+          await gt.animate(
+            [
+              { transform: "scale(.55, 1.45)", opacity: 0 },
+              { transform: "scale(.9, 1.15)", opacity: 1, offset: 0.55 },
+              { transform: "scale(1.06, .95)", opacity: 1, offset: 0.85 },
+              { transform: "none", opacity: 1 },
+            ],
+            { duration: R.T(Xt), easing: "ease-out", fill: "forwards" },
+          ).finished,
+          (Xt *= (70 / 460) ** (1 / (Vt - 1))),
+          (lt = (ge + 1) / Vt));
+      }
+      ((V = !1),
+        te.getAnimations().forEach((ge) => ge.cancel()),
+        (te.style.opacity = 0),
+        await K.animate(
+          [
+            { transform: "none" },
+            { transform: "scale(1.3, .72)", offset: 0.45, easing: "ease-in" },
+            { transform: "scale(.85, 1.35)", offset: 0.8 },
+            { transform: "scale(1.25)" },
+          ],
+          { duration: R.T(520), fill: "forwards" },
+        ).finished,
+        Ee?.());
+      const Ht = R.at(K),
+        ct = z || Tt(m),
+        wt = K.querySelector("img");
+      (De(R, 0.8),
+        t.Sfx.open?.(),
+        f().shake(R.stage, 6, 300),
+        R.px.ring(Ht.x, Ht.y, 170, 620, 1, Je),
+        R.px.ring(Ht.x, Ht.y, 110, 500, 1, ct),
+        Wa(() => R.px.ring(Ht.x, Ht.y, 230, 800), 120),
+        R.px.burst(Ht.x, Ht.y, 34, 3, { pal: ct, round: !0, grav: 0.04, heat: 0.1 }),
+        R.px.burst(Ht.x, Ht.y, 12, 2.2, { pal: Je, star: !0, size: 3, grav: 0, drag: 0.93, max: 700 }),
+        (wt.style.filter = ""),
+        ie(wt, fe, Oe, !0),
+        (K.style.opacity = ""),
+        K.getAnimations().forEach((ge) => ge.cancel()),
+        await K.animate(
+          [
+            { transform: "scale(1.25)", easing: "ease-in" },
+            { transform: "translateY(-30px) scale(.9, 1.12)", offset: 0.25, easing: "ease-in" },
+            { transform: "translateY(0) scale(1.4, .62)", offset: 0.5, easing: "ease-out" },
+            { transform: "translateY(-24px) scale(.9, 1.14)", offset: 0.7, easing: "ease-in" },
+            { transform: "translateY(0) scale(1.15, .86)", offset: 0.86 },
+            { transform: "none" },
+          ],
+          { duration: R.T(900), fill: "both" },
+        ),
+        await R.pause(450),
+        oe(R, 1),
+        f().shake(R.stage, 3, 160),
+        await R.pause(450),
+        Oe ? f().shinySparkle(R.fx, K, { waves: 3 }) : t.Sfx.caught?.(),
+        K.animate(
+          [
+            { transform: "none" },
+            { transform: "scale(1.12, .88)", offset: 0.12 },
+            { transform: "translateY(-26px) scale(.92, 1.1)", offset: 0.3 },
+            { transform: "scale(1.12, .88)", offset: 0.48 },
+            { transform: "translateY(-16px) scale(.95, 1.06)", offset: 0.66 },
+            { transform: "scale(1.06, .94)", offset: 0.84 },
+            { transform: "none" },
+          ],
+          { duration: 900, delay: 200 },
+        ),
+        R.skip.hide(),
+        await ve(R, e("Félicitations ! <b>{from}</b> a évolué en <b>{to}</b> !", { from: T, to: L })),
+        et && (await ve(R, e("Tu en as déjà un…")), (R.mon = K), await ce(R, et)),
+        await Te(R));
+    } finally {
+      ((V = !1), await At(R));
+    }
+  }
+  async function ce(he, fe) {
+    (await he.pause(900),
+      t.Sfx.bonk?.(),
+      he.mon.getAnimations().forEach((_) => _.cancel()),
+      await he.mon.animate(
+        [
+          { filter: "none", transform: "none" },
+          { filter: "brightness(0) invert(1)", transform: "scale(1.1)", offset: 0.35 },
+          { filter: "brightness(0) invert(1)", transform: "scale(0)" },
+        ],
+        { duration: he.T(600), easing: "ease-in", fill: "forwards" },
+      ).finished);
+    const Oe = he.slots[0].node,
+      Ee = Oe.appendChild(a(`<div class="lk-xp">${t.UI.xpIcon()}</div>`)),
+      et = he.at(Ee);
+    (he.px.burst(et.x, et.y, 14, 1.8, { pal: Ze, star: !0, size: 2, grav: 0, drag: 0.93, max: 700 }),
+      t.Sfx.caught?.());
+    for (let _ = 0; _ < 9; _++) {
+      const we = Oe.appendChild(a('<div class="xp-ball lk-ball"></div>')),
+        ie = Math.PI * (1.1 + (0.8 * _) / 8),
+        U = 50 + Math.random() * 40;
+      we.animate(
+        [
+          { transform: "translate(-50%, 50%) scale(.3)", opacity: 0 },
+          {
+            transform: `translate(calc(-50% + ${Math.cos(ie) * U}px), calc(50% + ${Math.sin(ie) * U * 0.7}px)) scale(1.2)`,
+            opacity: 1,
+            offset: 0.35,
+          },
+          {
+            transform: `translate(calc(-50% + ${Math.cos(ie) * U * 1.1}px), calc(50% + ${Math.sin(ie) * U * 0.7 - 70}px)) scale(.6)`,
+            opacity: 0,
+          },
+        ],
+        { duration: he.T(900 + Math.random() * 300), easing: "ease-out", fill: "forwards" },
+      ).finished.then(() => we.remove());
+    }
+    (await Ee.animate(
+      [
+        { transform: "scale(0)" },
+        { transform: "scale(1.3, .8)", offset: 0.6 },
+        { transform: "scale(.9, 1.1)", offset: 0.8 },
+        { transform: "none" },
+      ],
+      { duration: he.T(520), easing: "ease-out", fill: "both" },
+    ).finished,
+      oe(he, 0.5),
+      await ve(he, fe.html));
+  }
+  async function tt({ id: he, shiny: fe, egg: Oe, eggSrc: Ee, duplicate: et, ask: _ }) {
+    const { artImg: we, artSrc: ie, spriteGlow: U } = t.UI,
+      Ne = t.Game,
+      T = b(Ne.DEX[he].name),
+      L = P({ cls: "lk-hatch" + (fe ? " shiny" : ""), title: e("Éclosion") });
+    L.views[0].dim = !0;
+    const R = L.slots[0].node,
+      te = a(`<div class="hx-egg lk-egg">${Oe}</div>`),
+      K = [
+        a(`<img class="hx-half lk-half top" src="${Ee}" alt="">`),
+        a(`<img class="hx-half lk-half bot" src="${Ee}" alt="">`),
+      ];
+    (R.append(te, ...K),
+      (te.style.opacity = 0),
+      (L.mon.innerHTML = we(he, fe, { k: 3, fit: 220 })),
+      B(L.mon));
+    const He = U(ie(he, fe, !0)).catch(() => null),
+      m = ["#ffffff", "#fbf8e6", "#f3efd8", "#cfe7b0", "#9fd27a", "#5e8f45"],
+      z = ["#ffffff", "#ffffff", "#fff6d8", "#ffe9b8", "#e8d6a8", "#b8a888"],
+      pe = () => L.at(te.querySelector(".hx-shell"));
+    try {
+      await u(L);
+      const V = L.at(L.pad).y + 40;
+      ((te.style.opacity = ""), t.Sfx.whoosh?.());
+      const lt = te.animate(
+        [
+          { transform: `translateY(${-V}px) scale(.85, 1.2)`, easing: "cubic-bezier(.5,0,1,.6)" },
+          { transform: "translateY(0) scale(1.4, .65)", offset: 0.45, easing: "ease-out" },
+          { transform: "translateY(-44px) scale(.9, 1.12)", offset: 0.65, easing: "ease-in" },
+          { transform: "translateY(0) scale(1.18, .85)", offset: 0.8, easing: "ease-out" },
+          { transform: "translateY(-12px) scale(.97, 1.04)", offset: 0.9, easing: "ease-in" },
+          { transform: "none" },
+        ],
+        { duration: L.T(950), fill: "both" },
+      );
+      (await L.pause(430),
+        t.Sfx.thud?.(),
+        oe(L, 0.8),
+        await L.pause(330),
+        oe(L, 0.35),
+        await lt.finished,
+        await ve(L, e("Oh ?")),
+        await L.pause(300));
+      for (const [ct, wt] of [
+        [0, 10],
+        [1, 18],
+        [2, 28],
+      ]) {
+        (t.Sfx.shake?.(),
+          te.style.setProperty("--gi", 1 + ct * 0.6),
+          await te.animate(
+            [
+              { transform: "rotate(0)" },
+              { transform: `rotate(${-wt}deg) scale(1.04, .96)`, offset: 0.2 },
+              { transform: `rotate(${wt}deg) scale(1.04, .96)`, offset: 0.45 },
+              { transform: `rotate(${-wt / 2}deg)`, offset: 0.7 },
+              { transform: "rotate(0)" },
+            ],
+            { duration: L.T(520 - ct * 60), easing: "ease-in-out" },
+          ).finished);
+        const ge = pe();
+        (L.el.classList.add("crack" + (ct + 1)),
+          L.px.burst(ge.x, ge.y + 10, 4 + ct * 4, 1.4 + ct * 0.4, { pal: m, grav: 0.12, heat: 0, size: 2 }),
+          L.px.halo(ge.x, ge.y + 50, ge.y - 40, 46 + ct * 6, 600, ct === 2 ? Je : z),
+          ct && t.Sfx.bonk?.(),
+          await L.pause([550, 420, 200][ct]));
+      }
+      (await te.animate(
+        [
+          { filter: "brightness(1)", transform: "none", easing: "ease-out" },
+          { filter: "brightness(1.5)", transform: "scale(1.3, .7)", offset: 0.4, easing: "ease-in" },
+          { filter: "brightness(0) invert(1)", transform: "scale(.82, 1.3)", offset: 0.75 },
+          { filter: "brightness(0) invert(1)", transform: "scale(1.35)" },
+        ],
+        { duration: L.T(560), fill: "forwards" },
+      ).finished,
+        t.Sfx.open?.());
+      const kt = pe();
+      ((te.style.opacity = 0),
+        De(L, 0.85),
+        f().shake(L.stage, 8, 320),
+        L.px.ring(kt.x, kt.y, 160, 600, 1, fe ? Je : z),
+        L.px.ring(kt.x, kt.y, 100, 480, 1, m),
+        L.px.burst(kt.x, kt.y, 26, 3, { pal: m, grav: 0.14, heat: 0, size: 2 + (Math.random() < 0.5) }),
+        L.px.burst(kt.x, kt.y, 12, 2.2, {
+          pal: fe ? Je : z,
+          star: !0,
+          size: 3,
+          grav: 0,
+          drag: 0.93,
+          max: 700,
+        }),
+        K[0].animate(
+          [
+            { opacity: 1, transform: "none" },
+            { opacity: 1, transform: "translate(-90px, -150px) rotate(-80deg)", offset: 0.5 },
+            { opacity: 0, transform: "translate(-130px, -60px) rotate(-140deg)" },
+          ],
+          { duration: 900, easing: "cubic-bezier(.2,.8,.4,1)", fill: "forwards" },
+        ),
+        K[1].animate(
+          [
+            { opacity: 1, transform: "none" },
+            { opacity: 1, transform: "translate(90px, -60px) rotate(60deg)", offset: 0.45 },
+            { opacity: 0, transform: "translate(130px, 40px) rotate(120deg)" },
+          ],
+          { duration: 900, easing: "cubic-bezier(.2,.8,.4,1)", fill: "forwards" },
+        ));
+      const ra = await He;
+      ra && L.mon.style.setProperty("--g", ra);
+      const Vt = L.mon.querySelector("img");
+      ((Vt.style.filter = "brightness(0) invert(1)"), (L.mon.style.opacity = ""));
+      const Xt = L.mon.animate(
+        [
+          { transform: "translateY(30px) scale(.1)", opacity: 0, easing: "cubic-bezier(.2,.9,.4,1)" },
+          { transform: "translateY(-90px) scale(.75, 1.35)", opacity: 1, offset: 0.3, easing: "ease-in" },
+          { transform: "translateY(-110px) scale(.95, 1.05)", offset: 0.4, easing: "ease-in" },
+          { transform: "translateY(0) scale(1.45, .6)", offset: 0.62, easing: "ease-out" },
+          { transform: "translateY(-34px) scale(.88, 1.16)", offset: 0.76, easing: "ease-in" },
+          { transform: "translateY(0) scale(1.15, .86)", offset: 0.88, easing: "ease-out" },
+          { transform: "none", opacity: 1 },
+        ],
+        { duration: L.T(1150), fill: "both" },
+      );
+      (await L.pause(1150 * 0.62),
+        t.Sfx.thud?.(),
+        oe(L, 1),
+        (Vt.style.filter = ""),
+        De(L, 0.25),
+        await Xt.finished);
+      const Ht = L.at(L.mon);
+      if (
+        (fe ? f().shinySparkle(L.fx, L.mon, { waves: 3 }) : t.Sfx.caught?.(),
+        L.px.burst(Ht.x, Ht.y, 14, 1.8, { pal: fe ? Je : Tt(ra), grav: 0.05 }),
+        L.px.burst(Ht.x, Ht.y - 10, 6, 1.2, { pal: Je, star: !0, size: 2, grav: 0, drag: 0.93, max: 600 }),
+        L.mon.animate(
+          [
+            { transform: "none" },
+            { transform: "scale(1.12, .88)", offset: 0.12 },
+            { transform: "translateY(-26px) scale(.92, 1.1)", offset: 0.3 },
+            { transform: "scale(1.12, .88)", offset: 0.48 },
+            { transform: "translateY(-16px) scale(.95, 1.06)", offset: 0.66 },
+            { transform: "scale(1.06, .94)", offset: 0.84 },
+            { transform: "none" },
+          ],
+          { duration: 900, delay: 200 },
+        ),
+        _)
+      ) {
+        (await ve(L, _.html), (L.more.style.opacity = 0));
+        const ct = a(
+          `<div class="lk-ask"><button class="btn ghost">${_.no}</button><button class="btn">${e("Garder")}</button></div>`,
+        );
+        (L.tap.replaceWith(ct),
+          ct.animate(
+            [
+              { transform: "scale(.85)", opacity: 0 },
+              { transform: "scale(1.05)", opacity: 1, offset: 0.6 },
+              { transform: "none", opacity: 1 },
+            ],
+            { duration: 260, easing: "ease-out" },
+          ));
+        const wt = await new Promise((Fe) => {
+          const [gt, Dt] = ct.querySelectorAll("button");
+          ((gt.onclick = () => Fe(!1)), (Dt.onclick = () => Fe(!0)));
+        });
+        ct.replaceWith(L.tap);
+        const ge = await _.pick(wt);
+        ge ? await ce(L, ge) : (t.Sfx.caught?.(), await ve(L, e("<b>{name}</b> est né !", { name: T })));
+      } else
+        (await ve(
+          L,
+          et
+            ? e("C'était un <b>{name}</b> ! Déjà dans ton PC…", { name: T })
+            : e("<b>{name}</b> est né !", { name: T }) + (fe ? " " + t.UI.shinyIc() : ""),
+        ),
+          et && (await ce(L, et)));
+      (L.skip.hide(), await Te(L));
+    } finally {
+      await At(L);
+    }
+  }
+  async function mt({ from: he, to: fe, fliers: Oe, total: Ee, money: et }) {
+    const _ = P({ cls: "lk-rc", title: e("Connexion"), slots: 2 }),
+      [we, ie] = _.views;
+    for (const [R, te] of [
+      [we, he],
+      [ie, fe],
+    ])
+      ((R.mon.innerHTML = `<div class="lk-pc"><b>${b(e(te.name))}</b><img src="assets/ui/box-link.png" alt=""></div>`),
+        (R.dim = !0));
+    const U = a(
+      '<div class="lk-sum"><span><b class="n">0</b> Pokémon</span><span><b class="m">0</b> ₽</span></div>',
+    );
+    (_.box.after(U), (U.style.opacity = 0));
+    const Ne = U.querySelector(".n"),
+      T = U.querySelector(".m"),
+      L = (R) => _.at(R.mon.querySelector("img"));
+    try {
+      (await u(_),
+        t.Sfx.whoosh?.(),
+        await Promise.all(
+          [we, ie].map(async (kt, ra) => {
+            (await _.pause(ra * 120),
+              (kt.mon.style.opacity = ""),
+              await kt.mon.animate(
+                [
+                  { transform: "translateY(-90px) scale(.8, 1.25)", opacity: 0 },
+                  { transform: "translateY(0) scale(1.3, .72)", opacity: 1, offset: 0.55 },
+                  { transform: "translateY(-12px) scale(.94, 1.08)", offset: 0.78 },
+                  { transform: "none", opacity: 1 },
+                ],
+                { duration: _.T(520), easing: "ease-in", fill: "both" },
+              ).finished,
+              oe(kt, 0.6));
+          }),
+        ),
+        await ve(_, e("Connexion avec <b>{name}</b>…", { name: b(he.name) })));
+      const R = L(we),
+        te = L(ie),
+        K = { x: (R.x + te.x) / 2, y: R.y };
+      _.link = { ax: R.x, bx: te.x, y: R.y, k: 0 };
+      let He = !0;
+      ((async () => {
+        for (let kt = 160; He && !_.skip.skipped; kt = Math.max(40, kt * 0.85)) {
+          const ra = R.x + (te.x - R.x) * Math.random();
+          (_.px.emit(ra, R.y, {
+            vx: (Math.random() - 0.5) * 1.4,
+            vy: (Math.random() - 0.5) * 1.4,
+            size: 1 + (Math.random() < 0.3),
+            heat: 0.1,
+            grav: 0,
+            drag: 0.9,
+            max: 260,
+          }),
+            await ue(kt));
+        }
+      })(),
+        await new Promise((kt) => {
+          const ra = zn.now(),
+            Vt = _.T(900),
+            Xt = (Ht) => {
+              const ct = Math.min(1, (Ht - ra) / Vt);
+              ((_.link.k = 1 - (1 - ct) ** 2), ct < 1 && !_.skip.skipped ? es(Xt) : ((_.link.k = 1), kt()));
+            };
+          es(Xt);
+        }),
+        (He = !1),
+        t.Sfx.shut?.(),
+        t.Sfx.heal?.(),
+        De(_, 0.55),
+        f().shake(_.stage, 4, 180),
+        _.px.ring(K.x, K.y, 140, 620),
+        _.px.burst(K.x, K.y, 24, 2.4, { round: !0, grav: 0.03, heat: 0.1 }),
+        [we, ie].forEach((kt) =>
+          kt.mon
+            .querySelector("img")
+            .animate([{ filter: "none" }, { filter: "brightness(1.8)" }, { filter: "none" }], {
+              duration: _.T(220),
+              iterations: 3,
+            }),
+        ));
+      for (const [kt, ra] of [
+        [R, te],
+        [te, R],
+      ])
+        for (let Vt = 0; Vt < 14; Vt++)
+          _.px.emit(kt.x + ((ra.x - kt.x) * Vt) / 28, kt.y, {
+            wait: Vt * 18,
+            vx: (ra.x - kt.x) / 280,
+            size: 2,
+            heat: 0,
+            grav: 0,
+            drag: 1,
+            max: 260,
+            pal: Je,
+          });
+      (_.px.burst(K.x, K.y, 14, 2.6, { pal: Je, star: !0, size: 3, grav: 0, drag: 0.93, max: 600 }),
+        ve(_, e("Connexion rétablie avec <b>{name}</b> !", { name: b(he.name) })),
+        U.animate(
+          [
+            { opacity: 0, transform: "translateY(6px)" },
+            { opacity: 1, transform: "none" },
+          ],
+          { duration: 300, fill: "both" },
+        ),
+        (U.style.opacity = ""));
+      let m = 0;
+      const z = Oe.map((kt, ra) =>
+          (async () => {
+            (await _.pause(ra * Math.max(70, 260 - ra * 12)),
+              we.mon
+                .querySelector("img")
+                .animate([{ filter: "brightness(1.8)" }, { filter: "none" }], { duration: 200 }),
+              _.px.burst(R.x, R.y - 10, 4, 1.2, { grav: 0, drag: 0.9, max: 260 }));
+            const Vt = _.fx.appendChild(
+              a(`<span class="rc-fly">${t.UI.sprBox(kt.id, kt.shiny, 2, 72)}</span>`),
+            );
+            Object.assign(Vt.style, { left: R.x + "px", top: R.y + "px" });
+            const Xt = { playState: "running" },
+              Ht = new Promise((wt) => {
+                let ge = R.x,
+                  Fe = R.y,
+                  gt = ((te.x - R.x) / 60) * (0.6 + Math.random() * 0.5),
+                  Dt = -(3 + Math.random() * 4),
+                  ha = 0,
+                  _t = 0,
+                  Ea = zn.now();
+                const ut = (Math.random() - 0.5) * 6,
+                  jt = Math.random() * 6,
+                  xt = (D) => {
+                    const Q = Math.min(3, (D - Ea) / 16);
+                    if (((Ea = D), (_t += Q), _.skip.skipped || _t > 90))
+                      return ((Xt.playState = "finished"), wt());
+                    const Y = te.x - ge,
+                      ye = te.y - Fe,
+                      nt = Math.hypot(Y, ye),
+                      Ot = Math.min(1, _t / 25) * 0.06;
+                    ((gt += (Y * Ot * 0.1 + Math.sin(_t / 7 + jt) * 0.12) * Q),
+                      (Dt += (ye * Ot * 0.1 + 0.16 + Math.cos(_t / 9 + jt) * 0.1) * Q));
+                    const ee = _t > 30 ? 0.9 : 0.97;
+                    if (((gt *= ee ** Q), (Dt *= ee ** Q), (ge += gt * Q), (Fe += Dt * Q), _t > 45)) {
+                      const bt = Math.min(1, (_t - 45) / 20) * 0.3 * Q;
+                      ((ge += (te.x - ge) * bt), (Fe += (te.y - Fe) * bt));
+                    }
+                    const rt = Math.hypot(gt, Dt),
+                      Qe = Math.min(0.35, rt * 0.03),
+                      Ft = (Math.atan2(Dt, gt) * 180) / Math.PI,
+                      Ye = _t < 8 ? 0.3 + (_t / 8) * 0.8 : nt < 40 ? Math.max(0.5, nt / 40) : 1.1;
+                    if (
+                      ((Vt.style.opacity = _t < 4 ? _t / 4 : 1),
+                      (Vt.style.transform = `translate(calc(-50% + ${ge - R.x}px), calc(-50% + ${Fe - R.y}px)) rotate(${Ft}deg) scale(${(1 + Qe) * Ye}, ${(1 - Qe) * Ye}) rotate(${ha - Ft}deg)`),
+                      nt < 12 && _t > 20)
+                    )
+                      return ((Xt.playState = "finished"), wt());
+                    es(xt);
+                  };
+                es(xt);
+              }),
+              ct = (async () => {
+                for (; Xt.playState === "running" && !_.skip.skipped;) {
+                  const wt = _.at(Vt);
+                  (_.px.emit(wt.x, wt.y, { size: 1, heat: 0.2, grav: 0, max: 240 }), await ue(50));
+                }
+              })();
+            if (
+              (await Ht,
+              Vt.remove(),
+              (Ne.textContent = ++m),
+              ie.mon.animate([{ transform: "scale(1.12, .9)" }, { transform: "none" }], { duration: 180 }),
+              _.px.ring(te.x, te.y, 40, 300),
+              t.Sfx.shut?.(),
+              kt.merge)
+            ) {
+              _.px.burst(te.x, te.y, 10, 1.6, { pal: Je, round: !0, grav: 0.04 });
+              const wt = _.fx.appendChild(
+                a(
+                  `<span class="rc-lv">${kt.merge.to > kt.merge.from ? e("Nv. {from} → <b>{to}</b>", { from: kt.merge.from, to: kt.merge.to }) : e("Fusion !")}</span>`,
+                ),
+              );
+              (Object.assign(wt.style, { left: te.x + "px", top: te.y - 54 - (ra % 3) * 18 + "px" }),
+                wt
+                  .animate(
+                    [
+                      { transform: "translate(-50%, 0)", opacity: 0 },
+                      { transform: "translate(-50%, -14px)", opacity: 1, offset: 0.2 },
+                      { transform: "translate(-50%, -40px)", opacity: 0 },
+                    ],
+                    { duration: 1100, easing: "ease-out", fill: "both" },
+                  )
+                  .finished.then(() => wt.remove()));
+            }
+            await ct;
+          })(),
+        ),
+        pe = zn.now(),
+        V = Math.max(1200, Oe.length * 160),
+        lt = (async () => {
+          for (;;) {
+            const kt = Math.min(1, (zn.now() - pe) / V);
+            if (
+              ((T.textContent = Math.round(et * kt).toLocaleString(t.I18n?.lang || "fr")),
+              kt >= 1 || _.skip.skipped)
+            )
+              break;
+            await ue(40);
+          }
+        })();
+      (await Promise.all([...z, lt]),
+        (Ne.textContent = Ee),
+        (T.textContent = et.toLocaleString(t.I18n?.lang || "fr")),
+        t.Sfx.buy?.(),
+        _.skip.hide(),
+        await Te(_));
+    } finally {
+      await At(_);
+    }
+  }
+  async function Te(he) {
+    (he.skip.hide(),
+      he.tap.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 300, fill: "both" }),
+      (he.tap.style.opacity = ""),
+      await he.skip.tap(he.el));
+  }
+  async function At(he) {
+    (he.skip.end(),
+      he.px.stop(),
+      await he.el
+        .animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: "forwards" })
+        .finished.catch(() => {}),
+      he.el.remove());
+  }
+  return {
+    open: P,
+    enter: u,
+    say: ve,
+    send: Z,
+    cross: A,
+    land: J,
+    reveal: Re,
+    toCandy: ce,
+    finish: Te,
+    close: At,
+    showMsg: (he, fe) => {
+      fe &&
+        ((he.msg.textContent = `« ${fe} »`),
+        he.msg.animate(
+          [
+            { opacity: 0, transform: "translateY(6px) scale(.95, 1.05)" },
+            { opacity: 1, transform: "none" },
+          ],
+          { duration: 280, delay: 200, easing: "cubic-bezier(.2,1.4,.4,1)", fill: "both" },
+        ),
+        (he.msg.style.opacity = ""));
+    },
+    choose: dt,
+    evolve: qe,
+    hatch: tt,
+    reconnect: mt,
+    center: B,
+    esc: b,
+  };
+})();
