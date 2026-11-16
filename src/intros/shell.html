@@ -1,0 +1,425 @@
+<!doctype html>
+<!-- Generator: tools/build.mjs assembles this shell + app.css + boot.js + app.js
+     into the single-file page the game loads as GAME_INTRO. Recovered by tools/extract-intros.mjs. -->
+<html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atelier des intros légendaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Jersey+15&display=swap" rel="stylesheet">
+<style>{{APP_CSS}}</style>
+<!-- player mode before the first paint: the class set by the script at the end came after the workshop had shown (#bugs 03/11, .smaxy. « ça qui pop 0.1s ») -->
+<script>{{BOOT_JS}}</script>
+<main><div class="tag">POKECATCH / ATELIER DES INTROS LÉGENDAIRES · V4</div><h1 id="title">Deoxys : venu de l'espace</h1>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="heat"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.05" numOctaves="1" seed="3"/><feDisplacementMap in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter><filter id="waves" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.06" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<div class="arena" id="arena">
+ <div id="stage">
+  <img id="bg" alt="">
+  <canvas id="pan" width="710" height="400"></canvas>
+  <img id="sea" alt="">
+  <div id="dark"></div>
+  <canvas id="cv" width="320" height="180"></canvas>
+  <div class="bi-who" id="who"><img class="bi-trainer" id="mon" alt=""><canvas class="bi-sil" id="sil" width="68" height="77"></canvas></div>
+  <canvas id="fv" width="320" height="180"></canvas>
+  <div id="sun"></div>
+  <div class="weather-strike"></div>
+  <div id="neg"></div>
+ </div>
+ <canvas id="iris" width="160" height="90"></canvas>
+ <div class="bi-info" id="info"><small id="ctitle"></small><b id="cname"></b>
+  <span class="bi-tags"><span class="type" id="ctype"></span><span class="type" id="ctype2" style="display:none"></span><em id="zone"></em></span></div>
+ <i class="bi-bar top" id="barT"></i><i class="bi-bar bot" id="barB"></i>
+ <div id="flash"></div>
+</div>
+<div id="ph"></div>
+<div class="row">
+ <label>Pokémon <select id="pick"><optgroup label="Kanto"><option value="artikodin">Artikodin</option><option value="electhor">Électhor</option><option value="sulfura">Sulfura</option><option value="mewtwo">Mewtwo</option><option value="mew">Mew</option><option value="blue">Blue (Maître)</option></optgroup><optgroup label="Johto"><option value="raikou">Raikou</option><option value="entei">Entei</option><option value="suicune">Suicune</option><option value="lugia">Lugia</option><option value="hooh">Ho-Oh</option><option value="celebi">Celebi</option><option value="leviator">Léviator rouge</option><option value="red">Red (Mont Argenté)</option></optgroup><optgroup label="Hoenn"><option value="regirock">Regirock</option><option value="regice">Regice</option><option value="registeel">Registeel</option><option value="groudon">Groudon</option><option value="kyogre">Kyogre</option><option value="rayquaza">Rayquaza</option><option value="latias">Latias</option><option value="latios">Latios</option><option value="jirachi">Jirachi</option><option value="deoxys">Deoxys</option></optgroup><optgroup label="Sinnoh"><option value="uxie">Créhelf</option><option value="mesprit">Créfollet</option><option value="azelf">Créfadet</option><option value="dialga">Dialga</option><option value="palkia">Palkia</option><option value="giratina">Giratina (Alternative)</option><option value="giratina-origine">Giratina (Originelle)</option><option value="heatran">Heatran</option><option value="regigigas">Regigigas</option><option value="cresselia">Cresselia</option><option value="darkrai">Darkrai</option><option value="shaymin">Shaymin</option><option value="shaymin-celeste">Shaymin (Céleste)</option><option value="spiritomb">Spiritomb (Tour Sacrée)</option><option value="arceus">Arceus (Sommet)</option><option value="arceus-shield">Arceus (Bouclier · phase 1)</option><option value="cynthia">Cynthia (Maître)</option></optgroup></select></label>
+ <button class="main" id="replay">▶ Rejouer</button><button id="pause">⏸ Pause</button>
+ <label>Arrêt sur image <input type="range" id="seek" min="0" max="14000" step="50" value="0"> <span id="seekv">0,0 s</span></label>
+ <label>Version <select id="ver"><option value="full" selected>Complète (1ʳᵉ rencontre)</option><option value="short">Courte (rencontres suivantes)</option></select></label>
+ <label>Vitesse <select id="spd"><option value=".25">×0,25</option><option value=".5">×0,5</option><option value="1" selected>×1</option></select></label>
+ <label>Décor <select id="scene"></select></label>
+ <label><input type="checkbox" id="loop"> Boucle</label>
+ <label><input type="checkbox" id="phone"> Largeur mobile (375 px)</label>
+</div>
+<div class="note" data-mon="deoxys">
+ <b>Découpage</b> (rendu sur un canvas 320×180 agrandi sans lissage, palettes de 6 tons, fondus tramés, comme les attaques) :
+ <ol>
+  <li><b>Iris</b> : le décor de la zone se ferme en tramé sur le noir de l'espace, les bandes cinéma arrivent.</li>
+  <li><b>A · Poursuite</b> : la caméra suit la météorite à travers l'espace, les étoiles filent en traînées ; une lumière violette respire autour de la roche, ses fissures (celles qui s'ouvriront au sol) brillent déjà, une longue traînée violette la suit.</li>
+  <li><b>B · La planète</b> : un point bleu au loin grossit jusqu'à remplir l'écran ; la météorite décroche de la caméra et plonge, s'embrase de violet en touchant l'atmosphère (toute sa chaleur reste violette jusqu'au cratère). Une seule caméra du début de la poursuite jusqu'au souffle : zoom et vitesse des étoiles suivent une courbe continue, sans arrêt entre les étapes.</li>
+  <li><b>B2 · Zoom</b> sur le point d'impact (vu de biais) : cratère incandescent, colonne de feu, sol soufflé au bord irrégulier. <b>B3 · Le souffle</b> : l'onde grandit et monte vers la caméra jusqu'à remplir l'écran de feu puis de poussière.</li>
+  <li><b>C · Au sol</b> (le décor de la zone, assombri) : la poussière se déchire depuis le cratère et roule au ras du sol ; cratère rougeoyant, fumée ; la roche se fissure trois fois, la lumière violette fuit par les fentes.</li>
+  <li><b>C2</b> : la roche éclate en morceaux qui rebondissent ; le cristal libéré monte jusqu'à sa place, et Deoxys se reconstruit autour de lui, pixel par pixel (silhouette noire, front lumineux, poussières aspirées). <b>C3</b> : flash, couleurs, anneau et étincelles ; une double hélice (l'ADN, Deoxys = « désoxyribo… ») monte autour de lui. <b>C4</b> : la carte habituelle (titre, nom, type, zone).</li>
+ </ol>
+ <b>Version courte</b> : pas de poursuite ni de fissures, on entre directement dans la plongée. Idée pour le jeu : la complète à la première rencontre, la courte ensuite (et le bouton « Passer » des cinématiques dans les deux cas).
+</div>
+<div class="note" data-mon="groudon" hidden>
+ <b>Découpage</b> (même rendu pixel) :
+ <ol>
+  <li><b>A · La grotte gronde</b> : sur le décor de la zone, l'air commence à onduler de chaleur (de plus en plus jusqu'à la chambre de magma), le sol tremble, cailloux et poussière tombent du plafond, une lueur rouge monte d'en bas.</li>
+  <li><b>B · La descente</b> : depuis la Grotte Terra (le donjon), la caméra plonge à travers les couches de roche, de plus en plus chaudes (fissures qui rougeoient), jusqu'à l'arène de Groudon (la chambre magmatique) ; des éboulis et des braises défilent vers le haut.</li>
+  <li><b>C · Le lac de lave</b> : la lave coule et bouillonne (bulles qui éclatent, petits jets çà et là), l'air ondule de chaleur, la lueur vacille sur les parois, des rochers se détachent du plafond et tombent dans la lave (jet et ondes à l'impact). <b>C1</b> : une ombre sous la surface, son œil éteint (à l'endroit exact de l'œil du sprite) ; il vacille, puis s'allume comme le cristal de Deoxys dans un éclat (croix de lumière, flash chaud, étincelles), et reste allumé jusqu'à la révélation. <b>C2</b> : trois battements sourds, la lave se soulève et envoie des ondes, des rochers tombent, de plus en plus.</li>
+  <li><b>D · Éruption</b> : un geyser de lave, Groudon en sort couvert de lave en fusion qui dégouline ; jets tout autour, rochers, pluie de lave. <b>D2</b> : la lave se fige sur lui en croûte noire, de la tête aux pieds, quelques veines restent incandescentes, de la vapeur s'échappe le long du front qui refroidit.</li>
+  <li><b>E · Le réveil</b> : son œil brûle de plus en plus fort, des veines de lumière partent de l'œil et courent sur toute la croûte, le sol tremble de plus en plus. <b>E2 · La croûte éclate</b> : grand éclat en étoile sur l'œil, la croûte vole en morceaux (pris sur ses propres pixels) qui retombent dans la lave, onde de choc et jets tout autour ; Sécheresse (son talent) : flash chaud, soleil ardent, l'air bout (chaleur au plus fort puis qui retombe), ses couleurs, la surface du lac se fige. Puis la carte ; le combat a lieu dans l'arène. La lave animée reste sur le lac (côté Groudon), le plateau de gauche, où se place l'équipe, n'est pas touché.</li>
+ </ol>
+ <b>Version courte</b> : on arrive directement dans l'arène par l'iris, un seul battement, éruption, carte.
+</div>
+<div class="note" data-mon="kyogre" hidden>
+ <b>Découpage</b> (en miroir de Groudon : l'eau à la place du feu) :
+ <ol>
+  <li><b>A · L'abysse</b> : tout est noir ; Kyogre est déjà tourné vers la surface et il est la seule source de lumière : son œil s'allume et éclaire un halo autour de lui, puis ses lignes rouges, qui agrandissent ce halo.</li>
+  <li><b>C1</b> : l'œil vacille et s'allume (même éclat que Groudon). <b>C2</b> : trois battements : ses lignes rouges s'allument depuis l'œil jusqu'au bout des nageoires, l'eau tremble, la vase se soulève, des bulles montent.</li>
+  <li><b>D · Il remonte</b> : il recule un peu en soulevant la vase, puis fonce vers le haut en accélérant, la caméra à sa poursuite ; les bulles filent vers le bas, il s'éclaircit ; près de la surface, la pluie et un éclair là-haut. Il se remet à l'horizontale en sortant de l'eau.</li>
+  <li><b>D3 · La mer se soulève</b> : la caméra remonte d'un seul mouvement, de très loin (deux chaînes de pics, des algues, des reflets), et crève la surface dans une vague façon Surf : un mur d'eau monte du bas avec une crête qui roule et écume, recouvre entièrement l'écran (bleus qui tourbillonnent, écume, bulles partout), puis s'efface sur son arène ; lui, bien plus profond, a décroché sous l'image ; la mer bouillonne à l'endroit où il va sortir.</li>
+  <li><b>E · Il jaillit</b> des profondeurs jusqu'à sa place (la mer en tempête) : flash, gerbe d'eau, rideau de gouttes ; Crachin (son talent) : averse, éclairs, ses couleurs. Puis la carte. L'orage reste pour le combat (pluie, éclair de temps en temps) ; le plateau de gauche reste libre pour l'équipe.</li>
+ </ol>
+ <b>Version courte</b> : même chose plus vite, un seul battement.
+</div>
+<div class="note" data-mon="rayquaza" hidden>
+ <b>Découpage</b> (une seule caméra, comme Latias / Latios ; sa lumière à lui est vert jade) :
+ <ol>
+  <li><b>A · Le ciel</b> : on ouvre sur le ciel au-dessus de la mer de nuages. <b>A2</b> : au loin, une toute petite forme blanche qui luit en vert, avec un éclat.</li>
+  <li><b>A3 · Il file d'un point à l'autre</b> : trois dashs (A→B→C→D), chacun plus rapide et plus proche : une traînée de lumière jade, ses images fantômes le long du trajet, un petit claquement d'air à l'arrivée.</li>
+  <li><b>B · Le mur du son</b> : il se ramasse, ses anneaux s'allument, un éclat dans l'œil ; il fonce sur nous et passe le mur du son : arrêt sur image, flash, anneaux de choc.</li>
+  <li><b>C · À travers les nuages</b> : travelling à pleine vitesse (le fond « ciel bleu nuages » en bandes à vitesses différentes). Il est en silhouette blanche, anneaux jaunes, halo vert, et rase la mer de nuages : son ombre dessus, un sillon creusé dans les sommets, des bouffées de nuage soulevées derrière lui, deux rubans jade en hélice derrière sa queue, traits de vitesse, nuages au premier plan.</li>
+  <li><b>D · Il file hors champ</b> pendant que la caméra freine sur son arène, recouverte de bancs de nuages (arrivés avec le décor). <b>D2</b> : un éclat, tout là-haut. <b>D3 · Bam</b> : il tombe à la verticale comme une météorite et s'écrase sur le sommet : flash, ses couleurs, le souffle disperse les nuages de l'arène, l'air se tord, cratère et fissures, ondes de choc à plat, rochers projetés, mur de poussière. <b>E</b> : son rugissement. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="jirachi" hidden>
+ <b>Découpage</b> (contemplatif, puis l'explosion ; sa lumière à lui est or pâle) :
+ <ol>
+  <li><b>A · La nuit des vœux</b> : son ciel (« jirachi ciel introduction »), lent travelling avant ; une pluie d'étoiles filantes de toutes les couleurs (celles du jeu), des étoiles qui tombent doucement à trois profondeurs. Au loin, la grosse étoile dorée du décor, c'est lui : une toute petite silhouette blanche qui flotte et respire dans sa lueur, sa croix de lumière s'efface à mesure qu'on approche.</li>
+  <li><b>A2 · Une étoile filante</b> le frôle ; ses trois vœux (les étiquettes de sa tête) s'allument un par un.</li>
+  <li><b>B · Le ciel retient son souffle</b> : tout s'arrête, les étoiles filantes figées en plein vol ; un battement. <b>B2</b> : la caméra fonce sur lui, son troisième œil s'ouvre (une fente de lumière sur son ventre, ses rayons). <b>B3 · Les vœux affluent</b> : toutes les étoiles sont aspirées en spirale dans son œil, avec leurs traînées ; le ciel s'assombrit autour de sa lumière.</li>
+  <li><b>C · Vœu exaucé</b> : deux ondes de choc en forme d'étoile, éclats d'or, éclair de lumière. <b>C2</b> : il devient une étoile filante dorée (traînée irisée, étincelles) qui traverse la pluie d'étoiles en grande courbe pendant que la caméra descend d'un seul tenant du ciel jusqu'au Sommet des Vœux (les deux décors raccordés en une bande, fondus l'un dans l'autre) ; elle ralentit à sa place et éclate en étincelles : sa silhouette, toute blanche.</li>
+  <li><b>D · Ses couleurs</b> : fondu du blanc vers ses couleurs, des étincelles sur lui ; un « ting » sur la pointe de son étoile, ses trois vœux brillent ; la pluie d'étoiles retombe au rythme de la zone. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="regi" hidden>
+ <b>Découpage</b> (simple : le noir, le braille, puis le réveil, propre à chaque golem) :
+ <ol>
+  <li><b>A · Dans le noir</b> : la salle de son temple, presque noire ; le golem n'est qu'une ombre.</li>
+  <li><b>A2 · Ses yeux s'allument</b> : ses points braille un par un, de plus en plus vite (une machine qui démarre) ; leur lumière gagne sa face.</li>
+  <li><b>A3 · Le motif</b> : tout le motif pulse deux fois ; le braille de la porte du temple (dans le décor) répond, point par point.</li>
+  <li><b>Regirock</b> : <b>B · Le roc se fend</b>, des veines de lumière orange courent sur son corps, la salle gronde, des cailloux tombent du plafond ; <b>C · Il frappe le sol</b> : flash, la roche éclate de son corps, un mur de poussière, la lumière revient en paliers.</li>
+  <li><b>Regice</b> : <b>B · Le froid gagne</b>, le givre recouvre son corps et s'étend sur tout l'écran en cristaux, la salle bleuit, une brume froide monte ; <b>C · La glace vole en éclats</b> : tout se brise en éclats, flash bleuté, paillettes de neige.</li>
+  <li><b>Registeel</b> : <b>B · Analyse</b>, un laser rouge le balaie de haut en bas puis remonte (sa ligne court sur le mur), les points de ses mains s'allument, un reflet métallique glisse sur lui ; <b>C · CLANG</b> : flash, gerbes d'étincelles de ses mains, ondes de choc, l'air qui se tord.</li>
+ </ol>
+ Puis la carte. <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="regigigas" hidden>
+ <b>Découpage</b> (le maître des trois Regis, endormi sous Frimapic ; son talent : Début Calme ; sa lumière à lui est dorée) :
+ <ol>
+  <li><b>A · Le temple gelé</b> : le blizzard souffle dans le temple plongé dans le noir (flocons à trois profondeurs, rafales, brume au sol) ; une statue de glace en sort peu à peu, un reflet glisse dessus.</li>
+  <li><b>A2 · Ses points s'allument</b> : les sept points de sa tête, un par un, de plus en plus lentement (l'inverse des Regis), chacun un coup sourd ; du givre tombe de sa tête. <b>A3 · Début Calme</b> : la lumière vacille et faiblit.</li>
+  <li><b>B · Les trois lumières</b> : celles des Regis arrivent tour à tour, chacune de son côté en courbe, avec son motif (cailloux de Regirock, flocon de Regice, braille rouge de Registeel), et se fendent dans leur paire de gemmes (rouge, bleue, grise) ; chacune le réveille à sa façon, comme dans son intro : veines orange dans la glace, onde de givre, balayage rouge puis reflet d'acier ; une lanterne du temple s'allume à chaque fois, le noir recule.</li>
+  <li><b>C · Le givre se fend</b> : trois battements de plus en plus forts, toutes ses lumières pulsent, la glace se fend de lumière dorée, le temple tremble, de la glace tombe de la voûte.</li>
+  <li><b>D · Le colosse s'éveille</b> : la glace vole en éclats, la neige est soufflée ; sa silhouette dorée, ses couleurs montent de ses pieds pendant qu'il se redresse. <b>E · La poussée</b> : un pas lourd en avant, le sol tremble (ondes au sol, poussière de neige). <b>E2</b> : ses points brillent une dernière fois. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : points plus rapides, sans le vacillement, lumières plus serrées, un seul battement.
+</div>
+<div class="note" data-mon="lugia" hidden>
+ <b>Découpage</b> (le gardien des mers qui calme la tempête ; sa lumière à lui est argentée) :
+ <ol>
+  <li><b>A · La tempête</b> : la nuit au-dessus des Îles Tourbillon (« lugia introduction ») ; pluie, éclairs (ceux du jeu) jusqu'à l'horizon, la mer qui se soulève.</li>
+  <li><b>A2 · Les trois oiseaux</b> arrivent de trois côtés et volent librement : ils visent un point du ciel, plongent, planent, se prennent en chasse ; leurs traînées de flammes, de givre et d'éclairs se croisent en gerbes d'étincelles. (Les posséder ouvre sa zone.)</li>
+  <li><b>B · Une lueur sous la mer</b> : une lumière argentée monte sous les vagues. <b>B2 · Le tourbillon</b> s'ouvre là. <b>B3 · Le typhon</b> : une seule trombe, l'écume qui monte et l'entonnoir qui descend des nuages qui tournent ; autour d'elle, des bandes de vent qui la font le tour (devant et derrière), la pluie et les embruns aspirés en spirale, un anneau d'écume à son pied, des éclairs tout près ; les oiseaux s'enfuient ; une lumière argentée grandit à l'intérieur.</li>
+  <li><b>C · Le gardien jaillit</b> haut dans le ciel : la trombe explose, Lugia apparaît en silhouette blanche et déploie ses ailes, et d'un coup le ciel se dégage (« lugia introduction calme ») : étoiles, lune et rayons, mer apaisée. <b>C2 · Le calme</b> : il plane un instant.</li>
+  <li><b>C3 · Il fonce dans la mer</b> : il se ramasse et plonge à toute vitesse (traînée argentée, images fantômes, claquement d'air) : une colonne d'eau jaillit puis retombe, anneaux, brume. <b>D · Dans sa grotte</b> : une lueur monte sous le bassin, au fond ; il en jaillit dans une colonne d'eau et file hors du cadre par le haut. <b>D2 · Il atterrit</b> : bam, il retombe à la verticale à sa place (comme Rayquaza) : flash, secousse, ondes au sol, embruns et bourrasque. <b>E</b> : ses couleurs en fondu. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="celebi" hidden>
+ <b>Découpage</b> (le gardien de la forêt qui voyage dans le temps ; sa lumière à lui est vert tendre, celle du temps or pâle) :
+ <ol>
+  <li><b>A · Le Bois aux Chênes</b> : le crépuscule sur son arène (le décor assombri), des lucioles qui clignotent, des feuilles qui tombent en tournoyant, déjà là dès la première image.</li>
+  <li><b>A2 · Une lueur entre les arbres</b> : au loin, un éclat, et une toute petite silhouette verte lumineuse (son sprite animé) virevolte d'un arbre à l'autre en zigzags, une traînée de lumière et des feuilles derrière elle ; elle fait le tour du toit du vieil autel (plus petite derrière, plus grande devant), puis plonge devant lui et disparaît dans un éclat.</li>
+  <li><b>B · Le temps s'arrête</b> : une onde part de là ; tout ce qu'elle touche se fige (les feuilles suspendues en l'air, les lucioles, avec un scintillement) et perd ses couleurs (sépia, vert). Une horloge de lumière se dessine autour de l'endroit, son aiguille essaie d'avancer et n'y arrive pas.</li>
+  <li><b>B2 · Le temps remonte</b> : les aiguilles tournent à l'envers, de plus en plus vite ; les feuilles et les lucioles remontent puis s'enroulent en spirale vers l'endroit, des ondes se referment sur une lumière verte qui grandit, tout tremble.</li>
+  <li><b>C · Celebi apparaît</b> : l'horloge s'effondre dans la lumière : flash, une gerbe de feuilles, Celebi en silhouette vert pâle ; le temps reprend dans une onde de couleurs qui part de lui, le crépuscule se lève. <b>D</b> : ses couleurs en fondu, un « ting » sur sa tête, un petit bond. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide (deux zigzags, un seul tic).
+</div>
+<div class="note" data-mon="mew" hidden>
+ <b>Découpage</b> (joueur et insaisissable, tout le contraire de Mewtwo ; sa lumière à lui est rose) :
+ <ol>
+  <li><b>A · L'Île Lointaine</b> : la jungle de son arène, des rais de lumière à travers la canopée, du pollen qui flotte et scintille ; une bulle rose irisée monte des fougères en ondulant, et éclate (anneau, gouttelettes, étincelles).</li>
+  <li><b>A2 · Des rires dans les feuilles</b> : de petites étincelles roses sautillent deux fois, ici et là (« hi hi ») ; de grandes fougères au premier plan, contre l'objectif : elles bruissent, sa silhouette rose pâle pointe le bout de son nez derrière, un éclat dans son œil, et elle replonge.</li>
+  <li><b>B · Une lueur rose</b> : une boule de lumière rose jaillit des fougères (feuilles arrachées) et file à travers l'écran en se téléportant d'un point à l'autre : à chaque disparition un scintillement rose qui s'attarde, à chaque apparition une lueur aspirée puis un petit anneau ; une traînée rose derrière elle. Elle finit par foncer droit sur l'objectif, puis file à gauche.</li>
+  <li><b>C · La poursuite</b> : la caméra s'élance à sa poursuite le long de la jungle (comme Latias : le décor en bandes, la canopée plus lente, le premier plan plus rapide ; traits de vitesse, herbes qui fouettent l'objectif) ; la lumière ondule, fait une boucle, se téléporte un peu plus loin, puis fait demi-tour par la canopée pendant que la caméra freine et retombe pile sur l'arène.</li>
+  <li><b>D · Invisible</b> : elle disparaît à sa place dans un scintillement… plus rien. Puis l'air ondule : le décor se déforme à travers son corps invisible, son contour accroche la lumière, des reflets glissent dessus, un rire. <b>D2 · Dans sa bulle</b> : une grande bulle irisée se gonfle autour de lui et, dedans, il apparaît depuis son œil, silhouette rose pâle et lumineuse, qui flotte.</li>
+  <li><b>E · La bulle éclate</b> : flash rose, anneaux, gouttelettes, tassement. <b>F · Ses couleurs</b> : elles se répandent depuis son œil derrière un front aux couleurs de tous les types, anneau après anneau (il porterait l'ADN de tous les Pokémon) ; un éclat dans son œil. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : sans les rires ni la silhouette derrière les fougères ; deux bonds au lieu de trois, une poursuite plus courte, le reste plus rapide.
+</div>
+<div class="note" data-mon="mewtwo" hidden>
+ <b>Découpage</b> (froid et menaçant ; sa lumière à lui est violette) :
+ <ol>
+  <li><b>A · Le labo</b> (« mewtwo centre intact ») : il flotte paisiblement dans sa cuve, des bulles montent, la caméra s'approche lentement.</li>
+  <li><b>A2 · Ça s'emballe</b> : les alarmes clignotent en rouge, de plus en plus fort, la vitre se fissure à chaque battement, ça gronde, son œil vacille puis s'ouvre.</li>
+  <li><b>A3 · Le labo détruit</b> : la vitre éclate (éclats, liquide), coupe sur le labo dévasté (« mewtwo centre détruit ») : sa silhouette debout sur ce qui reste de la cuve, fumée, étincelles des câbles arrachés, alarmes.</li>
+  <li><b>B · Les profondeurs</b> : coupe sur la Caverne Azurée dans le noir, l'eau goutte, une lueur violette bat comme un cœur. <b>B2 · Télékinésie</b> : les gouttes s'arrêtent et remontent, les rochers flottent, l'écran se tord.</li>
+  <li><b>C · Son œil s'allume</b>, sa silhouette sort du noir et décolle. <b>C2</b> : tout se resserre vers lui. <b>D · Frappe Psy</b> : flash, trois ondes violettes, rochers projetés, la nuit se lève par paliers. <b>E · Son aura</b>. <b>F · Ses couleurs</b>. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="betes" hidden>
+ <b>Découpage</b> (une seule caméra, comme Latias / Latios ; Raikou, Entei et Suicune partagent la même animation, chacun son élément et sa météo) :
+ <ol>
+  <li><b>A · Une ombre surgit</b> : le décor de la zone ; le soir tombe et la météo arrive avec lui (<b>Raikou</b> : un plafond de nuages d'orage descend, pluie battante ; <b>Entei</b> : la cendre du jeu tombe, braises qui montent ; <b>Suicune</b> : la pluie, ou dans la Route de Glace des gouttes qui tombent de la glace) pendant qu'une ombre traverse le cadre à toute vitesse : sa silhouette presque noire, un liseré à sa couleur, ses yeux qui brillent et laissent une traînée. La caméra s'élance à sa poursuite.</li>
+  <li><b>A2 · À toute vitesse, dans l'ombre</b> : travelling très bas et très rapide ; il galope (le corps monte, descend, se cabre) et ses pattes disparaissent dans un nuage qu'il soulève et qui file derrière lui (flou de vitesse) : boue et étincelles pour <b>Raikou</b>, fumée, cendre et flammes aux pattes pour <b>Entei</b>, embruns pour <b>Suicune</b> ; ses images fantômes, ses empreintes. <b>Raikou</b> : l'orage à fond, des éclairs frappent l'horizon tout le long (le décor en noir et blanc comme l'orage du jeu), le tonnerre secoue la caméra, les nuages s'allument ; derrière lui deux rubans électriques, jaune et bleu, qui crépitent et se tressent, des arcs qui sautent jusqu'au sol (étincelles, brûlures). <b>Entei</b> : la cendre file avec la caméra, l'air ondule, une traînée de flammes lèche le sol derrière lui puis retombe en fumée, ses empreintes brûlent. <b>Suicune</b> : la pluie en biais, petites couronnes au sol et ronds sur le lac, ses foulées éclaboussent, la brume et ses deux rubans d'aurore derrière lui. Herbes, poutres calcinées ou pics de glace filent en ombres au premier plan.</li>
+  <li><b>B · Il dépasse la caméra</b> : il se ramasse et file hors du cadre ; mur du son, le sol arraché.</li>
+  <li><b>C · Au loin</b> : la caméra freine ; au loin, on le revoit courir dans l'autre sens, minuscule : <b>Raikou</b> frappé par la foudre en pleine course, <b>Entei</b> une traînée de feu sur la crête, <b>Suicune</b> court sur le lac sous la pluie (gerbes, ronds dans l'eau). En intérieur (Tour Cendrée, Route de Glace), son ombre géante court sur le mur.</li>
+  <li><b>C2 · Il revient</b> : de derrière la caméra (pour <b>Raikou</b>, le ciel se fend d'un éclair derrière lui), grand et au ras du sol, dans son nuage ; il dérape jusqu'à sa place devant le dresseur, le nuage de ses pattes est arraché et ses pattes réapparaissent ; la caméra s'arrête pile sur le décor du combat ; son élément se charge sur lui.</li>
+  <li><b>D · Bam</b> : flash, secousse, anneaux, poussière ; <b>Raikou</b> : un coup de tonnerre s'abat sur lui (noir et blanc), étincelles, traces brûlées en étoile au sol ; <b>Entei</b> : une gerbe de flammes jaillit autour de lui (un brasier haut derrière lui, bas devant ses pattes, qui retombe en langues), flammes projetées, fumée, anneaux, colonnes de feu, rochers, l'air bout ; <b>Suicune</b> : le vent du nord souffle vers le dresseur et couche la pluie, rafales, neige, le givre s'étend à ses pieds. L'ombre se déchire de sa tête à sa queue, le soir se lève : ses couleurs. Puis la carte, la météo se calme (pluie et cendre plus légères, les nuages se lèvent un peu).</li>
+ </ol>
+ <b>Version courte</b> : on entre directement dans la course (dans l'ombre, la météo déjà là, un premier éclair tout de suite pour Raikou), il dépasse la caméra, revient en dérapage (sans le plan au loin), bam, la carte.
+</div>
+<div class="note" data-mon="oiseaux" hidden>
+ <b>Découpage</b> (les trois oiseaux légendaires de Kanto partagent la même animation, chacun arrive comme une météo ; chaque zone s'ouvre en possédant des Pokémon de son type, posséder les trois ouvre celle de Lugia) :
+ <ol>
+  <li><b>Électhor · l'orage dans la Centrale</b> : <b>A</b> la centrale morte, presque noire ; dehors, l'orage monte derrière la fenêtre (nuages, pluie), l'électricité statique crépite sur les machines. <b>A2 · Une silhouette dans l'éclair</b> : deux éclairs (ceux du jeu : l'image en noir et blanc, le négatif) ; à chaque fois sa silhouette au loin dans la fenêtre, plus proche la seconde fois. <b>B · Le courant revient</b> : un arc part du générateur (sa roue se met à tourner en lumière) et court le long des tuyaux de lampe en lampe ; les lumières s'allument en grésillant comme des néons, le noir recule par paliers. <b>B2 · Tout se charge</b> : des arcs partent de chaque lampe et de chaque machine vers un même point, une boule d'électricité y grossit, les lumières faiblissent, ça gronde, des éclairs dehors. <b>C · La foudre</b> : un énorme éclair tombe sur ce point, arrêt sur image, flash, il est là en silhouette jaune pâle, étincelles, ondes, le sol brûlé ; <b>C2</b> l'électricité crépite encore sur son corps.</li>
+  <li><b>Artikodin · le blizzard sur la mer</b> (deux versions alignées du même décor : la mer de banquise la nuit, puis la même mer gelée, qui est son arène) : <b>A · Le calme glacé</b> : la banquise la nuit, ses chenaux sombres, la lune qui scintille sur l'eau, quelques flocons. <b>B · La tempête se lève</b> : le vent forcit, la neige file à l'horizontale, des nuages roulent depuis la droite et assombrissent le ciel (la lune à moitié cachée) ; au loin, sa petite silhouette pâle passe devant la lune (un éclat). <b>B2 · Son cri</b> : des ondes traversent tout le ciel, la neige frissonne. <b>B3</b> : il plonge vers la mer au loin dans un trait de lumière glacée et se retourne sur l'horizon. <b>C · Le passage en rase-mottes</b> : il fonce sur nous au ras de l'eau, de plus en plus énorme jusqu'à remplir l'écran (traînée de lumière, images fantômes tramées, lignes de vitesse, la caméra tremble) ; derrière lui la mer gèle d'un coup en une longue bande de glace qui craque (bords blancs qui crépitent, givre qui s'étend autour) ; ses éclaboussures gèlent en plein vol en éclats de glace qui restent suspendus puis retombent. <b>C2</b> : il passe au-dessus de nous, la caméra fouette vers le haut. <b>C3 · Le Blizzard</b> : il revient haut dans le ciel, se cabre, un grand battement d'ailes : le blizzard balaie l'écran en couches de neige jusqu'au blanc total, le givre envahit l'objectif depuis les bords (des plumes de glace). <b>C4 · La révélation</b> : la neige s'éclaircit, le givre reste sur l'objectif ; à travers, la mer gelée et sa silhouette pâle. <b>C5</b> : un éclat froid sur sa tête, le givre se fend en deux secousses ; <b>C6</b> : il vole en éclats hors de l'écran : toute la mer est gelée (le décor du combat), il est là, ailes déployées, dans la poussière de diamant.</li>
+  <li><b>Sulfura · la Grotte Ardente s'embrase</b> (deux versions alignées du même décor : la grotte sombre et froide, puis la même en feu, qui est son arène) : <b>A · Cendres et chaleur</b> : la cendre tombe (celle de la météo du jeu), l'air ondule, des braises montent, la teinte vire au rouge orangé ; l'arche du fond prend feu. <b>A2 · Il éclaire le fond de la grotte</b> : il sort de l'arche, silhouette de feu au loin, et traverse la galerie ; sa lumière embrase les parois sur son passage et le feu reste derrière lui, avec sa traînée de flammes. <b>A3</b> : il remonte et file hors de l'écran. <b>B · La grotte s'embrase</b> : le feu gagne tout le fond, la chaleur monte d'un coup, le sol rougeoie là où il va tomber, ça gronde, un éclat tout là-haut. <b>B2 · Il plonge</b> d'un coup, tout droit, une colonne de flammes derrière lui. <b>C · Gerbe de flammes</b> : impact (flash, secousse, ondes), une gerbe de flammes, le feu part de lui et embrase tout le premier plan, fumée, éclats de roche, le sol se fend en rayons de lave, un cercle de flammes autour de lui. <b>C2</b> : les flammes retombent, la lave refroidit.</li>
+  <li><b>D · Ses couleurs</b> en fondu, sa météo se calme. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="leviator" hidden>
+ <b>Découpage</b> (pas un légendaire : le boss de fin du chapitre « Lac Colère » de Johto ; les ondes de la Team Rocket ont forcé les Magicarpe du lac à évoluer, le rouge est fou de rage ; sa lumière à lui est rouge) :
+ <ol>
+  <li><b>A · Le Lac Colère au crépuscule</b> : le décor de la zone, une lumière chaude ; l'eau du lac ondule doucement, un Magicarpe saute.</li>
+  <li><b>A2 · Le lac s'agite</b> : l'eau se met à bouillonner en ronds, les vagues grossissent, le vent se lève (rafales, feuilles arrachées au grand arbre), le ciel s'assombrit sous un plafond de nuages d'orage ; des Magicarpe sautent dans tous les sens, paniqués, puis s'enfuient en ricochets vers les rives.</li>
+  <li><b>B · Une ombre rouge sous l'eau</b> : une longue forme rouge sombre tourne sous la surface (on la voit à travers l'eau, une lueur rouge autour d'elle, son sillage en V et des ronds à la surface), de plus en plus vite et de plus en plus serrée ; un tourbillon se creuse au milieu du lac. L'orage éclate : pluie battante, éclairs (ceux du jeu), tonnerre.</li>
+  <li><b>B2 · Ses yeux</b> : elle plonge dans l'œil du tourbillon, qui rougeoie par en dessous ; deux yeux furieux vacillent sous l'eau puis s'allument dans un éclat, l'eau se soulève, ça gronde.</li>
+  <li><b>C · Il jaillit</b> : flash, une énorme colonne d'eau, Léviator en sort en silhouette rouge sombre, immense, ruisselant ; les embruns retombent en pluie sur tout l'écran. <b>C2 · Fou de rage</b> : il rugit (ondes de choc, l'air qui se tord, un éclair juste à côté, l'écran tremble), son œil brûle, un Ultralaser se charge dans sa gueule.</li>
+  <li><b>C3 · Il fond sur sa place</b> : il se cabre puis plonge sur nous (traînée rouge, images fantômes) ; <b>D · Bam</b> : il s'abat sur la rive, flash, secousse, l'Ultralaser éclate dans sa gueule, ondes au sol, gerbes d'eau et de boue. <b>E</b> : ses couleurs (chromatiques) en fondu. Puis la carte ; l'orage se calme, les nuages se lèvent, le combat a lieu sur le décor du lac.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide (moins de Magicarpe, un seul rugissement).
+</div>
+<div class="note" data-mon="hooh" hidden>
+ <b>Découpage</b> (le feu qui renaît ; sa lumière à lui est dorée) :
+ <ol>
+  <li><b>A · La Tour Cendrée en feu</b> : des flammes au premier plan, la cendre qui tombe (celle de la météo du jeu), des braises qui montent ; trois silhouettes derrière les flammes (Raikou, Entei, Suicune : il les a ramenés à la vie ici, les posséder ouvre sa zone).</li>
+  <li><b>B · La tour s'écroule</b> : poutres en feu et débris qui tombent, tout gronde ; les flammes montent et recouvrent l'écran.</li>
+  <li><b>C · Au loin, dans l'aube</b> : les flammes retombent sur le ciel de l'aube (« ho-oh introduction ») ; Ho-Oh vole au loin, silhouette dorée, ailes qui battent (comme dans le premier épisode de l'animé).</li>
+  <li><b>D · Une lumière</b> : il brille d'un coup ; <b>D2</b> il fonce vers la Tour Carillon au loin, une traînée de lumière dorée et ses images fantômes derrière lui.</li>
+  <li><b>E</b> : à la Tour Carillon, il tombe à la verticale comme Rayquaza et s'écrase dans une gerbe de flammes : flash, secousse, ondes, fumée, cercle de flammes, les cloches sonnent, des feuilles tombent. <b>F</b> : ses couleurs en fondu. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="latias" hidden>
+ <b>Découpage</b> (une seule caméra, comme Deoxys et Rayquaza ; Latias et Latios partagent la même animation, chacun ses couleurs : rouge et blanc pour Latias, bleu et blanc pour Latios) :
+ <ol>
+  <li><b>A · Un souffle invisible</b> : le décor de la zone, immobile ; quelque chose le traverse à toute vitesse sans qu'on le voie : seulement une ondulation (le décor déformé à travers ses plumes de verre), son ombre au sol et le sillage qu'il arrache (herbe, pétales, poussière ; embruns sur l'eau). La caméra s'élance à sa poursuite.</li>
+  <li><b>A2 · Au ras du sol</b> : travelling latéral très rapide et très bas : le décor défile en couches (le ciel lentement, le sol vite, le premier plan encore plus vite), traits de vitesse, petite vibration ; l'ondulation reste dans le cadre, des reflets glissent sur sa silhouette.</li>
+  <li><b>B · Il se dévoile</b> : son contour et ses plumes accrochent la lumière de plus en plus, ses couleurs clignotent à travers, puis un éclat : ses couleurs se répandent depuis son œil derrière un front lumineux, des éclats de verre s'envolent ; deux rubans de lumière à ses couleurs le suivent.</li>
+  <li><b>B2 · Il dépasse la caméra</b> : il se ramasse, puis file hors du cadre en s'étirant ; mur du son (arrêt sur image, flash, ondes de choc), le sol arraché derrière lui.</li>
+  <li><b>C · Demi-tour, en duo</b> : la caméra freine ; tout au loin dans le ciel, le duo (Latias et Latios) fait une boucle, rubans tressés ; le partenaire s'éloigne et redevient invisible en scintillant.</li>
+  <li><b>C2 · Il revient se poser</b> : il revient de derrière la caméra au ras du sol, grossit, freine (cabré, ailes en avant) et se pose à sa place pendant que la caméra s'arrête pile sur le décor du combat ; tassement, poussière et pétales projetés devant lui.</li>
+  <li><b>D · Il s'arrête net : Ball'Brume (Latias) / Lumen Éclat (Latios)</b> : la sphère se forme à sa poitrine pendant qu'il freine (brume ou lumière aspirée en spirale) ; à l'instant où il s'arrête, elle éclate et c'est la révélation : flash, ses vraies couleurs, tassement, anneaux, brume, étincelles, derniers éclats de verre, poussière projetée. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : on entre directement dans la course (l'ondulation déjà là), il se dévoile, dépasse la caméra, revient se poser (sans la boucle en duo), son attaque, la carte.
+</div>
+<div class="note" data-mon="shaymin" hidden>
+ <b>Découpage</b> (léger et joyeux, tout le contraire des légendaires imposants ; <b>de nuit</b> : sa zone ne s'ouvre que la nuit, la Forme Céleste redevenant Terrestre ; la lumière de nuit du jeu sur le décor, des étoiles, la lune ; sa lumière à lui est vert tendre, ses pétales rose Gracidée) :
+ <ol>
+  <li><b>A · Le Paradis Fleuri la nuit</b> : la caméra tout près du champ (à gauche) ; une brume bleu nuit, partout des boutons fermés, quelques pétales roses dans la brise, les étoiles qui scintillent.</li>
+  <li><b>A2 · La vague de fleurs</b> : une vague traverse le champ de gauche à droite (un front irrégulier qui ondule, une bande de lumière verte dessus), la caméra la suit puis recule sur tout le pré ; chaque bouton qu'elle touche éclot, des pétales et du pollen s'envolent, la brume se lève derrière elle. Elle finit sur une petite boule d'herbe au bord du chemin, qui frémit.</li>
+  <li><b>B · La boule d'herbe</b> : des pétales montent du champ et tourbillonnent autour d'elle (un tourbillon irrégulier, devant et derrière, qui se resserre et accélère) ; elle tremble de plus en plus, la lumière filtre entre ses brins.</li>
+  <li><b>C · Shaymin surgit</b> : pop ! la boule éclate (brins d'herbe, pétales soufflés, anneaux, flash doux) ; Shaymin en jaillit, petite silhouette blanche, et arrive en petits bonds vers sa place (il grandit en approchant, son ombre sur le chemin) ; à chaque atterrissage, des fleurs éclosent en cercle autour de ses pattes.</li>
+  <li><b>D · Bouffée de pollen</b> : il se pose à sa place, une bouffée de pollen lumineux part de sa fleur ; ses couleurs se répandent depuis la fleur de son dos derrière un front rose. <b>E</b> : un « ting » sur sa fleur, un petit bond joyeux. Puis la carte ; à la sortie, ses fleurs s'effacent dans le pré.</li>
+ </ol>
+ <b>Version courte</b> : sans le travelling (le champ entier dès le début), une vague plus rapide, un seul bond, le reste plus rapide.
+</div>
+<div class="note" data-mon="shaymin-celeste" hidden>
+ <b>Découpage</b> (Shaymin Forme Céleste, Paradis Fleuri ; le même pré en plein jour, aussi doux que sa Forme Terrestre : la Gracidée, les pétales, le ciel ; sa lumière vert tendre, ses pétales rose Gracidée) :
+ <ol>
+  <li><b>A · Le Paradis Fleuri</b> : une brise légère, les boutons du pré fermés ; la caméra tout près d'une Gracidée en bouton sur le chemin.</li>
+  <li><b>A2 · La Gracidée s'ouvre</b> : un éclat, une bouffée de pollen ; une vague de fleurs part d'elle <b>en cercle</b> et fait éclore tout le pré (des étincelles sur son front), la caméra recule sur tout le pré.</li>
+  <li><b>B · Le ruban de pétales</b> : les pétales montent lentement en spirale autour de la Gracidée, un ruban jusqu'au ciel.</li>
+  <li><b>C · Le nuage de pétales</b> : là-haut, ils forment un petit nuage de lumière rose ; Shaymin y apparaît, silhouette blanche. <b>C2 · Il descend comme une feuille</b> : en se balançant, en semant du pollen, son ombre qui grandit sur le pré.</li>
+  <li><b>D · Ses couleurs</b> : il se pose en douceur (fleurs en cercle autour de ses pattes) ; ses couleurs se répandent depuis la fleur de sa tête derrière un front rose, une bouffée de pollen. <b>E</b> : un « ting » sur sa fleur, un petit bond joyeux. Puis la carte ; à la sortie, ses fleurs et la Gracidée s'effacent dans le pré.</li>
+ </ol>
+ <b>Version courte</b> : sans le travelling, le reste plus rapide (un balancement de moins).
+</div>
+<div class="note" data-mon="heatran" hidden>
+ <b>Découpage</b> (le cœur du Mont Abrupt, une éruption ; sa lumière à lui est celle de la lave) :
+ <ol>
+  <li><b>A · Le Mont Abrupt gronde</b> : le décor dans le noir ; la lave du décor (lue dans l'image) bouillonne et coule, rougeoie de plus en plus, des bulles éclatent, la cendre tombe (celle de la météo du jeu), des braises montent, l'air ondule au-dessus de la lave (des lignes du décor décalées, sans filtre), le sol gronde. <b>A2 · La lave monte</b> : sa lueur grimpe le long des parois, le bassin du fond crache des gerbes de plus en plus fortes, un dôme de lave y enfle, le grondement monte.</li>
+  <li><b>B · L'éruption</b> : une colonne de magma jaillit du bassin jusqu'en haut de l'écran (éclair orange, secousse), des paquets de lave s'arrachent de ses flancs. <b>B2 · La bombe</b> : une bombe de lave sort du pied de la colonne, monte en tournoyant, traînée de feu, et quitte le cadre par le haut ; la colonne retombe en pluie.</li>
+  <li><b>C · Le météore</b> : des gouttes de lave pleuvent, un éclat tout là-haut ; la bombe retombe en météore vers le centre de l'écran, en tournoyant, chauffée au rouge (l'air brille devant elle), une traînée de feu et de fumée derrière, de plus en plus grosse à mesure qu'elle approche (la caméra avance avec elle), sa lumière balaie le sol.</li>
+  <li><b>D · Impact</b> au centre : flash, secousse, une gerbe de braises (certaines rebondissent et laissent des éclaboussures qui refroidissent), des étincelles qui rasent la pierre, la poussière, des ondes de choc à plat, une flaque de lave sous la bombe. <b>D2 · La croûte se fend</b> : la bombe refroidit en croûte noire ; des fissures dorées s'y ouvrent en deux poussées (secousse, éclats, fumée, braises), elle enfle. <b>D3 · Elle éclate</b> : la croûte vole en morceaux à partir des fissures ; Heatran est là, au centre et en grand, silhouette chauffée à blanc, il se déploie.</li>
+  <li><b>E · Chauffé à blanc</b> : l'air bout autour de lui, ses couleurs montent de ses pattes à sa tête derrière un front incandescent. <b>E2 · Rugissement</b> : ses yeux s'allument, il se cabre et rugit, une onde de chaleur, ses taches crachent des braises, la cendre est soufflée. <b>E3 · À sa place</b> : un bond lourd jusqu'à sa place de combat (la flaque reste au centre et refroidit). Puis la carte ; la lave et l'air se calment, la cendre continue.</li>
+ </ol>
+ <b>Version courte</b> : la lueur déjà à mi-hauteur, une montée plus brève, une seule poussée de fissures, le reste plus rapide.
+</div>
+<div class="note" data-mon="giratina" hidden>
+ <b>Découpage</b> (Giratina Forme Alternative, Grotte Retour ; sa lumière à lui est violette, son œil rouge ; il sort du Monde Distorsion par le sol, au centre, par l'ombre) :
+ <ol>
+  <li><b>A · La Grotte Retour</b> : la grotte s'assombrit, des poussières flottent, ça commence à gronder.</li>
+  <li><b>A2 · Le sol se fend</b> : une fissure court sur presque toute la largeur du sol, du centre vers les côtés, une lumière violette filtre, de petites fissures partent sur les dalles ; la grotte tressaute, des cailloux tombent.</li>
+  <li><b>A3 · Le gouffre dévore le sol</b> en trois secousses : un gouffre violet et noir qui avale presque tout le sol jusqu'au pied des piliers (son bord lointain éclairé par en dessous, l'abîme qui tourbillonne) ; à chaque secousse des dalles se détachent des bords, basculent et tombent dedans en s'assombrissant, des blocs se décrochent du plafond et y plongent ; la lumière violette monte, des volutes d'ombre s'en échappent.</li>
+  <li><b>B · Deux yeux dans l'abîme</b> : deux yeux rouges s'ouvrent au fond (un clignement) et montent vers nous en grandissant, la grotte gronde de plus en plus fort.</li>
+  <li><b>B2 · La colonne d'ombre</b> : une colonne de lumière violette (cœur blanc, traînées d'ombre qui filent vers le haut, bord d'ombre déchiqueté) jaillit du gouffre jusqu'en haut de l'écran ; éclair, un souffle de poussière rase le sol des deux côtés, des pierres volent.</li>
+  <li><b>C · Il surgit</b> dans la colonne, en ombre (noir, contour violet, ses marques rouges), énorme : presque la hauteur de l'écran, la tête juste sous la barre du haut, le bas du corps encore dans le gouffre ; il dépasse sa place puis retombe dessus, vraie secousse (arrêt sur image, éclair, ondes, cailloux du plafond).</li>
+  <li><b>C2 · Ses ailes d'ombre</b> se déploient au-delà des bords de l'écran (trois côtes noires de chaque côté, griffes rouges, membrane en lambeaux qui fume), la colonne s'éteint derrière lui, un souffle chasse la poussière. <b>C3 · Le noir</b> : l'ombre de ses ailes balaie l'écran depuis les deux bords et le plonge dans le noir ; un instant, rien que l'éclat rouge de son œil.</li>
+  <li><b>C4 · Le cri</b> : le noir se déchire depuis son œil (silhouette blanche) et, un instant, la grotte bascule dans les couleurs du Monde Distorsion (sa lumière inversée en violet, ses ombres en vert), des morceaux du sol et de l'encre montent vers le haut, ses ailes partent en lambeaux ; puis la grotte revient, en trame. <b>D · Ses couleurs</b> montent de ses pieds à sa tête derrière un front violet.</li>
+  <li><b>D2 · Il se pose</b> : il bondit hors du gouffre jusqu'à sa place (un choc, de la poussière) pendant que le gouffre se referme en grinçant ; un éclat dans son œil. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : deux secousses au lieu de trois, le reste plus rapide.
+</div>
+<div class="note" data-mon="giratina-origine" hidden>
+ <b>Découpage</b> (Giratina Forme Originelle, Monde Distorsion ; le monde à l'envers, lumière verte et violette ; il déchire l'écran lui-même ; lui reste à l'endroit du début à la fin) :
+ <ol>
+  <li><b>A · Le Monde Distorsion</b> : le décor teinté de violet ; des débris de roche montent lentement (la gravité inversée), roulent sur eux-mêmes, perdent des miettes qui tombent vers le haut ; des étincelles vertes et violettes dérivent.</li>
+  <li><b>A2 · L'écran se fissure</b> : une fissure verte traverse le milieu de l'écran, du centre vers les bords (étincelles aux deux pointes, petites fissures qui partent).</li>
+  <li><b>A3 · La faille s'ouvre</b> : les lèvres déchiquetées s'écartent, l'autre monde tourbillonne derrière (un tunnel violet et vert qui vient vers nous).</li>
+  <li><b>A4 · Des griffes agrippent la faille</b> : au fond, une forme sombre ; ses tentacules d'ombre en sortent et leurs griffes rouges s'accrochent aux deux lèvres.</li>
+  <li><b>A5 · Il déchire l'écran</b> : en trois secousses, elles écartent la faille jusqu'à couvrir la plus grande partie de l'écran ; des morceaux de l'image s'arrachent des bords (projetés vers nous en tournoyant, ou aspirés dans la faille), les débris proches sont avalés.</li>
+  <li><b>B · Il sort de la faille</b> : il vient du fond vers nous, à l'endroit (tête en haut), en ombre (noir, contour vert), de plus en plus grand, en se balançant ; ses griffes lâchent prise, ses tentacules ondulent et s'écartent.</li>
+  <li><b>B2 · Il crève l'écran</b> d'un élan vers nous (il grandit au-delà, puis se pose), en grand au centre : la faille s'arrache encore, une gerbe de morceaux d'écran, éclair vert. <b>C · Le cri</b> : silhouette blanche depuis son œil, l'encre s'envole vers le haut, les débris sont repoussés.</li>
+  <li><b>D · Ses couleurs</b> coulent de sa tête vers le bas derrière un front vert, ses tentacules se replient dans ses ailes. <b>D2 · La faille se recoud</b> : il rejoint sa place d'un grand mouvement pendant que la faille se referme, puis des points verts la recousent des deux bouts vers le milieu ; un éclat dans son œil. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : deux secousses au lieu de trois, le reste plus rapide.
+</div>
+<div class="note" data-mon="dialga" hidden>
+ <b>Découpage</b> (le maître du temps, le jour, aux Colonnes Lances ; sa lumière à lui est bleu diamant) :
+ <ol>
+  <li><b>A · Les Colonnes Lances</b> : le décor sans faille, en plein jour ; la neige file dans le vent, un premier « tic » au loin, là où le portail s'ouvrira.</li>
+  <li><b>A2 · Les anneaux du temps</b> : trois anneaux d'horloge se dessinent dans le ciel (graduations et losanges, une couronne dentée qui tourne à l'envers, six arcs) ; chacun avance par à-coups, comme une trotteuse, et chaque à-coup est plus lent : la neige ralentit avec eux.</li>
+  <li><b>A3 · Le temps s'arrête</b> : la neige reste suspendue, un éclat bleu sur chaque flocon, les anneaux tremblent sans avancer.</li>
+  <li><b>B · Le temps recule</b> : tout repart en arrière, de plus en plus vite : la neige remonte en traînées, les anneaux tournent à l'envers, le jour défile à rebours (aube, nuit, crépuscule) ; une lumière bleue grandit au centre.</li>
+  <li><b>B2 · La faille bleue</b> : les anneaux s'effondrent dans la lumière, qui se déchire en une faille ; tout au fond, sa petite silhouette blanche.</li>
+  <li><b>C · Il surgit</b> : il jaillit de la faille vers nous et vers le haut (traînée bleue, images fantômes), un éclat là-haut ; <b>C2</b> : il s'abat à sa place comme une météorite (colonne de lumière, flash, ondes, poussière, éclats de dallage) : le temps repart. La faille devient le portail du décor (ou se referme sur le décor sans faille).</li>
+  <li><b>D · Le diamant s'éveille</b> : la caméra s'approche de sa poitrine (le diamant glisse vers le centre) ; le diamant s'allume et bat, et à chaque battement un anneau de distorsion part de lui : autour, le décor et sa propre silhouette ondulent comme sous une bulle de verre, des éclats de diamant se mettent à tourner autour.</li>
+  <li><b>D2 · Le temps se tord</b> : les battements s'accélèrent, la zone se tord dans un sens puis dans l'autre, des lignes glissent de quelques pixels, les éclats ralentissent et tremblent en laissant deux échos derrière eux ; la neige ralentit, celle qui passe dans la zone est happée.</li>
+  <li><b>D3 · La pulsation</b> : tout se contracte vers le diamant (la zone rétrécit et se pince), puis une dernière onde balaie l'écran : flash, les éclats volent, la neige rattrape le temps perdu, la caméra recule. <b>E</b> : ses couleurs se répandent depuis son diamant. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="palkia" hidden>
+ <b>Découpage</b> (le maître de l'espace, la nuit, aux Colonnes Lances ; sa lumière à lui est rose nacré) :
+ <ol>
+  <li><b>A · La nuit</b> : la nuit tombe sur le décor, les étoiles s'allument dans le ciel, des poussières nacrées montent.</li>
+  <li><b>A2 · L'espace se fissure</b> : l'air se fêle comme du verre autour du point où le portail s'ouvrira, en trois secousses.</li>
+  <li><b>A3 · L'espace glisse</b> : des éclats d'espace entre les fêlures glissent de quelques pixels (on voit le décor décalé à travers).</li>
+  <li><b>B · La déchirure</b> : les fêlures s'ouvrent en une faille nacrée, éclats roses projetés, les poussières aspirées.</li>
+  <li><b>B2 · L'écran se fend</b> : depuis la faille, des fissures filent jusqu'aux bords de l'écran en deux secousses, comme une vitre étoilée.</li>
+  <li><b>B3 · L'espace vole en éclats</b> : l'écran tombe en morceaux, du centre de l'impact vers les bords ; chaque éclat emporte son bout d'image, tourne, bascule (il s'assombrit de profil) et tombe ; derrière, le vide de l'espace nacré.</li>
+  <li><b>C · Il surgit du vide</b> au centre de l'écran, en grand (sa silhouette blanche jaillit d'un éclat lointain ; flash, ondes, éclats roses), les derniers morceaux tombent encore derrière lui. <b>C2</b> : un instant au centre, il respire. <b>C3</b> : il rejoint sa place pendant que le vide se referme dans la faille derrière lui et que le décor revient ; il se pose (ondes, poussière), la faille devient le portail du décor (ou se referme).</li>
+  <li><b>D · Spatio-Rift</b> : sa perle se charge ; deux croissants roses tranchent l'écran, l'espace glisse le long de chaque coupure puis se ressoude en éclats roses. <b>E</b> : ses couleurs se répandent depuis sa perle ; la nuit se lève pendant la carte.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus rapide.
+</div>
+<div class="note" data-mon="lacs" hidden>
+ <b>Découpage</b> (le trio des lacs : une animation partagée, chacun sa signature ; l'esprit apparaît en silhouette pâle, dorée pour Créhelf, blanche pour les deux autres, tirée de son sprite animé image par image, puis ses couleurs montent de ses queues à sa tête derrière un front lumineux ; la gemme rouge de son front, la marque du trio, brille sur sa propre couche et suit son flottement) :
+ <ol>
+  <li><b>Créhelf · le Savoir</b> : <b>A · Le lac gelé</b> (dehors, le Lac Savoir pris par la glace, la neige tombe) : une lueur dorée s'éveille sous la glace au pied de l'îlot et bat deux fois. <b>A2 · La glace se fend</b> : au troisième battement, la glace se fend en lignes de lumière dorée qui partent de l'îlot et courent sur tout le lac ; des runes du savoir remontent par les fissures, des étincelles. <b>A3 · Vers la caverne</b> : la lumière reflue le long des fissures vers l'îlot, l'entrée de la caverne s'illumine, la caméra plonge vers elle, l'iris se ferme dessus. <b>B · Il sort du lac</b> (la caverne, dans le noir) : une lumière dorée sous l'eau, des ronds, puis sa petite silhouette dorée émerge au fond. <b>B2 · Il vient</b> : en S (un écart à droite au fond, puis à gauche), vers nous en grandissant (perspective), des paillettes d'or derrière lui, jusqu'au centre de l'écran, plus grand qu'à sa place. <b>C · Les runes du savoir</b> : des runes montent du lac et tournent autour de sa tête, grandes, chacune sur son orbite ; ses couleurs montent ; sa gemme s'allume, son aura dorée s'éveille. <b>C2 · L'aura s'embrase</b> : des rayons d'or tout autour de lui, les runes tournent de plus en plus vite, la caverne s'assombrit et tremble, des étincelles affluent vers lui. <b>C3 · Le monde devient savoir</b> : flash ; de sa gemme part une mer de runes dorées qui envahit tout l'écran, les rayons projetés vers l'extérieur. <b>C4 · Le savoir afflue</b> : la mer coule vers sa tête, des runes s'en détachent et tournent vers lui de plus en plus vite, aspirées ; un éclat sur sa gemme. <b>D · Tout se reconstruit</b> : la caverne revient rune par rune, à partir de lui (chaque rune s'allume puis redevient décor), en pleine lumière ; un « ting » sur sa gemme. <b>D2 · À sa place</b> : il recule jusqu'à sa place de combat.</li>
+  <li><b>Créfollet · l'Émotion</b> (errant comme Latias / Latios : une seule caméra, le décor en bandes) : <b>A · Des traînées roses</b> filent d'un bord à l'autre, deux fois (loin et haut, puis plus près et plus vite), une tête de lumière et deux rubans tressés, de petits cœurs. <b>A2 · La poursuite</b> : la caméra s'élance ; il file devant elle en silhouette blanche, ondule, fait une boucle, ses deux queues laissent des rubans roses, il sème des cœurs. <b>B · Il file</b> hors du cadre (un petit éclat rose). <b>C · Il revient se poser</b> : du fond du ciel, en grande courbe, pendant que la caméra freine et s'arrête pile sur le décor du combat ; ses couleurs montent. <b>D · Émotion</b> : il s'arrête, une gerbe de cœurs, anneaux roses, sa gemme brille.</li>
+  <li><b>Créfadet · la Volonté</b> : <b>A · Le lac asséché</b> (par la bombe de la Team Galaxie) : boue craquelée, flaques, poussière dans le vent ; dans la grotte de l'îlot, un point rouge bat deux fois, faiblement (anneaux, les flaques frémissent). <b>A2 · L'eau revient</b> : au troisième battement, l'eau remonte du pied de l'îlot et des flaques et s'étend (fronts d'écume, embruns, reflets) jusqu'au lac plein. <b>A3 · Vers la grotte</b> : la caméra plonge vers l'entrée de la grotte, le point rouge grandit, l'iris se ferme dessus. <b>B · Il sort du lac</b> (la caverne, dans le noir) : la lueur rouge sous l'eau, puis sa petite silhouette blanche émerge au fond. <b>B2 · Il vient</b> : grand virage vers la gauche au fond, puis vers nous en grandissant (perspective), traînée d'étincelles, jusqu'au centre de l'écran, plus grand qu'à sa place. <b>C · La gemme bat</b> trois fois, de plus en plus fort : anneaux, le lac frémit (ronds, gouttes qui sautent). <b>C2 · L'eau du lac remonte</b> : des gouttes quittent le lac et sont aspirées vers lui, six courants d'eau montent en spirale autour de lui (devant et derrière), ses couleurs montent avec l'eau ; l'eau se referme en une sphère qui ondule. <b>C3 · La volonté</b> : la gemme flamboie, la sphère éclate en gouttes, flash, anneaux, la pénombre se lève, les gouttes retombent sur le lac. <b>D · À sa place</b> : il recule jusqu'à sa place de combat.</li>
+ </ol>
+ Puis la carte. <b>Version courte</b> : la même chose, plus rapide (Créhelf : directement dans la caverne, sans le lac gelé ; Créfollet : directement dans la poursuite, sans les traînées ni la boucle ; Créfadet : directement dans la caverne, sans le lac asséché, deux battements).
+</div>
+<div class="note" data-mon="cresselia" hidden>
+ <b>Découpage</b> (la douceur, les beaux rêves ; sa lumière à elle est or pâle et rose ; la nuit, sur son île ; elle ne tourne jamais) :
+ <ol>
+  <li><b>A · Le croissant se lève</b> : l'île sans sa lune, plus sombre, les étoiles qui scintillent, de la poussière de rêve qui monte doucement ; un croissant de lune sort de derrière les nuages et monte (il s'arrête sous la bande cinéma ; pendant la carte il finit sa course jusqu'à la lune du décor, qui prend le relais à la sortie), la lumière revient sur l'île.</li>
+  <li><b>A2 · Elle naît de la lune</b> : un scintillement, une toute petite silhouette dorée s'en détache ; un rayon de lune tombe de la lune jusqu'au milieu de l'île ; trois rubans d'aurore (rose, lilas, or pâle) sortent du croissant et traversent tout le ciel vers la gauche, en rideaux qui ondulent.</li>
+  <li><b>B · Le long du rayon de lune</b> : elle descend lentement le long du rayon, face à nous, en grandissant jusqu'au centre de l'écran, en grand (une légère dérive d'un côté à l'autre, le corps immobile) ; une pluie de poussière de rêve tombe autour d'elle ; ses anneaux de tulle se déploient depuis son corps derrière un front blanc, deux rubans roses et lilas en partent et ondulent (ils traînent derrière elle quand elle bouge, flottent quand elle s'arrête).</li>
+  <li><b>B2 · La pleine lune</b> : la lune descend avec elle : derrière elle, une immense pleine lune argentée éclot depuis un bord blanc (plus haute que l'écran entre les bandes cinéma), ses mers apparaissent quand elle se pose ; le croissant du ciel s'efface ; une éclosion de croissants de lumière s'ouvre en éventail depuis elle (du haut vers le bas des deux côtés) et file jusqu'aux bords de l'écran ; la nuit s'assombrit autour.</li>
+  <li><b>C · Danse-Lune</b> : trois grands anneaux de lumière (deux inclinés qui tournent autour d'elle, derrière puis devant, puis un très large qui s'ouvre à ses pieds et dépasse l'écran) ; la vague de clair de lune part du bord de la lune et balaie toute l'île : tout ce qu'elle touche devient argent et rose (front blanc irrégulier, paillettes laissées derrière). <b>C2 · Ses couleurs</b> montent de ses pieds jusqu'à son croissant derrière un front blanc, dans la nuit d'argent.</li>
+  <li><b>D · Sa place</b> : elle glisse du centre jusqu'à sa place de combat, ses rubans derrière elle ; la grande lune remonte dans le ciel en rapetissant jusqu'à redevenir le croissant, l'argent reflue vers elle et l'île reprend ses couleurs, l'aurore s'éteint ; un « ting » sur son croissant, la lune répond. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : la lune déjà haute, le reste plus rapide.
+</div>
+<div class="note" data-mon="darkrai" hidden>
+ <b>Découpage</b> (la menace, les cauchemars ; sa lumière à lui est le bleu de son œil et le violet du Trou Noir ; la nuit, sur son île ; tout se joue au centre de l'écran) :
+ <ol>
+  <li><b>A · La nouvelle lune</b> : l'île sous la nouvelle lune (son ciel est sous la bande cinéma : on la voit dans le lac, un disque noir cerclé de froid qui tremble sur l'eau), les premières volutes de fumée noire rampent depuis les bords.</li>
+  <li><b>A2 · Le noir avale tout</b> : la fumée arrive par vagues depuis les côtés et le sol (chaque vague recule un peu avant la suivante), des volutes roulent devant ; le reflet de la nouvelle lune est avalé, la scène disparaît presque.</li>
+  <li><b>B · Un œil dans le noir</b> : au centre de l'écran, en très gros plan, une fente bleue vacille trois fois, puis reste allumée en tremblant (la caméra recule déjà, très lentement). <b>B2 · L'œil s'ouvre</b> : son œil s'ouvre en amande (iris cyan, pupille, reflet), un éclat, un anneau, sa lueur éclaire la fumée autour.</li>
+  <li><b>B3 · Sa silhouette autour de l'œil</b> : la caméra recule d'un seul mouvement (vite puis de plus en plus doucement), l'œil rapetisse et devient le sien ; son corps sort du noir autour de lui, son contour s'allume depuis l'œil et court jusqu'au bout de ses bras ; il reste centré et en grand, son ombre monte de lui, son col rougeoie.</li>
+  <li><b>C · Trou Noir</b> : une sphère noire cerclée de violet grossit sur son col, des points de lumière y sont aspirés en spirale, ça gronde. <b>C2 · La fumée se déchire</b> : elle éclate, la fumée se déchire autour de lui (bords déchiquetés éclairés de violet, lambeaux projetés).</li>
+  <li><b>D · Il glisse à sa place</b> : du centre jusqu'à sa place de combat, pendant que ses couleurs se répandent depuis son œil. <b>D2</b> : un dernier éclat dans l'œil. Puis la carte.</li>
+ </ol>
+ <b>Version courte</b> : deux vagues au lieu de trois, le reste plus rapide.
+</div>
+<div class="note" data-mon="red" hidden>
+ <b>Découpage</b> (pas un légendaire : Red, le dresseur qui attend au sommet du Mont Argenté, et son Pikachu ; le froid gris-bleu du blizzard, puis le jaune de la foudre) :
+ <ol>
+  <li><b>A · Le vent se lève</b> : le sommet au soleil, tel que le combat le montre ; le vent forcit, les premiers flocons filent, des nuages sombres arrivent par la gauche et la lumière baisse derrière eux (le décor passe au gris froid, en tramé) ; la caméra commence à avancer.</li>
+  <li><b>B · Le blizzard</b> : la neige file à l'horizontale sur trois profondeurs, des rafales traversent l'écran, un brouillard blanc tramé noie le décor jusqu'au blanc presque total.</li>
+  <li><b>C · Une silhouette au loin</b> : dans le brouillard, Red apparaît tout petit, au loin, en silhouette sombre ; la caméra vole vers lui d'un seul mouvement lent, sans arrêt : lui et le décor grandissent autour d'un même point (le milieu de sa poitrine), la neige file hors de l'écran depuis ce point en plus du vent ; le brouillard s'éclaircit autour de lui à mesure qu'il approche ; une fois, au loin dans le brouillard, la lueur orange d'une flamme passe (Dracaufeu, quelque part) ; un liseré froid se dessine de sa casquette vers le bas, l'ombre de la visière cache ses yeux, le bas de sa veste et ses cheveux battent au vent.</li>
+  <li><b>D · Sous la casquette</b> : tout près (la caméra avance encore), deux pixels s'allument sous la visière, avec un petit éclat.</li>
+  <li><b>E · « … »</b> : la caméra se pose en douceur ; une bulle de dialogue s'ouvre devant son visage, les trois points s'écrivent un à un : sa seule réplique.</li>
+  <li><b>F · Pikachu débarque</b> : la bulle s'efface ; Pikachu bondit dans le cadre depuis la droite à travers la tempête, en silhouette au liseré jaune (tourné comme son sprite, jamais retourné), et atterrit aux pieds de Red dans une gerbe de neige ; ses joues se mettent à crépiter, grossissent, des arcs en partent ; le ciel s'assombrit et se charge, le sol gronde.</li>
+  <li><b>G · Fatal-Foudre</b> : un éclair géant, au milieu de l'écran, tombe du ciel sur Pikachu et frappe trois fois ; à chaque coup, l'éclair éclaire le blizzard par derrière et son équipe apparaît dans l'orage : des silhouettes géantes derrière Red, plus hautes que l'écran (Dracaufeu au centre, ailes ouvertes, la flamme de sa queue seule couleur ; Tortank à droite, Florizarre et Ronflex plus loin, plus pâles), sombres, avec un liseré froid ; Red et Pikachu blancs devant eux, cernés de noir ; le décor passe un instant en noir et blanc (une seule image en négatif), secousse, la caméra cogne. <b>G3</b> : le blizzard est soufflé d'un coup : un trou s'ouvre depuis Pikachu et déchire le brouillard jusqu'aux bords (un bord jaune), les géants s'effacent avec lui en tramé, la neige est projetée vers l'extérieur, ondes de choc au sol ; le soleil revient, il ne reste que Red et Pikachu.</li>
+  <li><b>H · Leurs couleurs</b> : tous deux blancs ; les couleurs de Pikachu montent de ses pieds, celles de Red descendent de sa casquette un instant après, chacune derrière un front d'étincelles ; la neige retombe doucement, les joues de Pikachu crépitent encore un peu.</li>
+  <li><b>I · Carte</b> (Maître de la Ligue · Red · Normal ; si la carte manque de place, sur téléphone, le duo glisse un peu à droite), puis la sortie : la caméra revient sur le sommet tel que le combat le montre.</li>
+ </ol>
+ <b>Version courte</b> : le blizzard souffle déjà, Red est déjà à mi-distance ; l'approche plus courte, ses yeux, « … », Pikachu qui débarque, la foudre et son équipe dans l'orage (un peu plus brève), les couleurs, la carte.
+</div>
+<div class="note" data-mon="blue" hidden>
+ <b>Découpage</b> (pas un légendaire : Blue, le Maître de Kanto, le rival du joueur, dans la salle du Maître ; l'or de la porte, le blanc froid des néons, puis la lumière qui inonde tout) :
+ <ol>
+  <li><b>A · La salle dans le noir</b> : la salle de nuit, froide ; la caméra glisse lentement vers la porte. <b>A2</b> : la grande Poké Ball de la porte s'allume trait par trait en or : son cercle, tracé depuis le haut par une étincelle, puis sa bande et la jointure de la porte, puis le bouton, avec une pulsation. <b>A3</b> : les néons blancs des colonnes s'allument deux par deux, de la porte vers les côtés, en clignotant, chacun avec sa flaque de lumière froide.</li>
+  <li><b>B · La porte s'ouvre</b> : un trait de lumière le long de la jointure, la salle gronde ; la porte s'ouvre en coulissant (les deux battants rentrent dans le mur, la Poké Ball se sépare en deux), une lumière or et blanche aveuglante en jaillit : des rayons balaient la salle et le sol, le dallage la reflète, la lumière envahit tout l'écran ; la caméra pousse vers la porte, l'écran tremble.</li>
+  <li><b>C · Il sort de la lumière</b> : Blue sort de la lumière et marche vers nous, à contre-jour, en silhouette noire au liseré doré, son ombre longue étirée vers nous sur le sol ; il grandit depuis l'embrasure jusqu'au milieu de l'écran, en grand, pendant que la lumière se calme et que la caméra recule.</li>
+  <li><b>D · Le lancer</b> : sûr de lui, il lance une Poké Ball de sa main basse, elle tourne, un éclat au sommet, il la rattrape sans la regarder, le bras toujours pointé vers nous (la pose de son sprite).</li>
+  <li><b>E · Révélation</b> : flash, il est blanc ; ses couleurs descendent de sa tête derrière un front d'étincelles, la lumière de la salle remonte depuis lui, la porte se referme derrière lui.</li>
+  <li><b>F · Carte</b> (Maître de la Ligue · Blue · Normal ; si la carte manque de place, sur téléphone, il glisse un peu à droite), puis la sortie : la caméra revient sur la salle telle que le combat la montre.</li>
+ </ol>
+ <b>Version courte</b> : la porte et les néons déjà allumés ; l'ouverture, la silhouette qui sort de la lumière, le lancer, la révélation, la carte.
+</div>
+<div class="note" data-mon="spiritomb" hidden>
+ <b>Découpage</b> (pas un légendaire : la rencontre cachée de la Tour Sacrée, la nuit, une seule fois, quand les 16 Pokémon Spectre sont capturés et les 108 Âmes réunies ; Spiritomb = 108 esprits liés à la Clé de Voûte ; ses lumières : le bleu-violet pâle des âmes, le violet du vortex, le vert de sa face) :
+ <ol>
+  <li><b>A · La nuit sur la Tour Sacrée</b> : le décor sous la lumière de nuit du jeu, plus sombre vers le ciel, quelques étoiles, une brume basse qui dérive au pied de la tour, un vent léger ; la Clé de Voûte posée sur le chemin devant la tour. Une première âme (le feu follet de l'objet Âme) s'allume au ras du sol.</li>
+  <li><b>A2 · Les âmes s'éveillent</b> : d'autres s'allument une à une autour de la tour, puis partout, de plus en plus vite (les 108), chacune avec une petite lueur au sol ; elles montent en vacillant, chacune à son rythme, et flottent.</li>
+  <li><b>B · La ronde</b> : elles se rassemblent en spirale autour de la pierre (les plus proches d'abord), une colonne qui tourne de plus en plus vite et se resserre (plus haut, plus large ; les plus proches tournent plus vite) ; la nuit vire au violet, le vent forcit, la brume tourbillonne autour de la pierre, qui commence à luire ; l'air commence à se tordre. La caméra s'approche.</li>
+  <li><b>C · Dans la Clé de Voûte</b> (la pierre au centre, en grand) : les âmes y plongent en spirale une à une, puis de plus en plus vite ; à chaque âme la pierre s'illumine, se fissure un peu plus (lumière vert-violet dans les fentes), une onde passe dans l'air autour d'elle (le décor se tord : loupe, torsion, ondes), sa lumière éclaire le décor. <b>C2</b> : elle retient son souffle (l'air se pince et s'enroule, sa lueur se resserre, elle tremble).</li>
+  <li><b>D · Le vortex</b> : flash violet, un tourbillon violet jaillit de la pierre (fumée au ras du sol, étincelles, la brume soufflée, une onde dans tout le décor) ; Spiritomb en monte, en silhouette noire, sa face et ses âmes allumées en vert ; la caméra recule en levant les yeux vers lui, il finit au centre, en grand. <b>D2</b> : les 108 âmes ne font qu'un : onde de choc depuis sa face, l'écran tremble.</li>
+  <li><b>E · Ses couleurs</b> en fondu, au centre, en grand ; la nuit redevient bleue. <b>E2</b> : il s'avance jusqu'à sa place pendant que la caméra revient au cadre du combat. Puis la carte (Spectre et Ténèbres) ; le combat garde la lumière de nuit du jeu.</li>
+ </ol>
+ <b>Version courte</b> : la même chose, plus vite (les âmes s'allument presque ensemble, plongent en un seul flot).
+</div>
+<div class="note" data-mon="arceus" hidden>
+ <b>Découpage</b> (le dieu des Pokémon : né d'un œuf dans le néant, il a façonné le monde ; il arrive par l'event mondial, son intro ouvre le combat quand son bouclier est tombé ; ses lumières : l'or de sa roue et des runes du bouclier, les 16 couleurs de ses plaques ; aucun flash blanc, des lueurs dorées en fondu) :
+ <ol>
+  <li><b>A · Le vide</b> : le noir, le silence ; un point doré bat deux fois (son œuf, son cœur), une onde de lumière à chaque battement.</li>
+  <li><b>B · Les premiers traits</b> : le point s'embrase, cinq traits de lumière partent en spirale et dessinent le monde derrière eux : le ciel de nuit vu d'en bas (ses nuages en spirale vers le centre), des étoiles. La caméra recule à mesure que le monde se dessine.</li>
+  <li><b>C · La création</b> : seize lumières (les types de ses plaques) s'allument l'une après l'autre et tournent autour du point, chacune à son rythme ; les quatre anneaux de runes du bouclier s'écrivent autour de lui. Un souffle : ses créations, Dialga, Palkia et Giratina, immenses et pâles dans les nuages, s'inclinent vers lui, puis s'effacent.</li>
+  <li><b>D · Il retient son souffle</b> : tout s'arrête un battement : les lumières et les runes se figent et se resserrent, un grondement sourd, le point se pince en une étoile dure.</li>
+  <li><b>D2 · Le rayon</b> : l'étoile tire un pilier de lumière jusqu'au sommet (et vers le haut du ciel) : son chemin ; les seize lumières y plongent, les runes s'effacent dedans. <b>D3 · La chute</b> : la boule de lumière dévale le rayon à toute vitesse, une longue traînée derrière elle, la caméra plonge avec elle (comme la chute de Rayquaza).</li>
+  <li><b>E · L'impact</b>, au milieu du sommet : un arrêt sur l'impact (quelques images), un éclat doré dense en fondu (jamais blanc), l'écran tremble fort (amorti), des ondes de choc filent sur les dalles et montent dans le ciel, un cratère de dalles fendues qui rougeoient, poussière et rochers projetés, un dôme de lumière dorée, des rafales chassent les nuages depuis le centre. <b>E1 · Il se lève de la lumière</b> : sa silhouette blanche bordée d'or monte de la colonne de lumière, immense, au centre (révélée des pieds à la tête derrière un front doré) ; ses runes s'écrivent de nouveau autour de lui. <b>E2</b> : les runes se resserrent autour de lui et éclatent en poussière d'or ; sa roue flamboie, le ciel de nuit s'éclaircit.</li>
+  <li><b>F · Le jugement</b> : ses couleurs se répandent depuis sa roue, derrière un front doré. <b>F2 · Son cri</b> : une vague de lumière balaie toute la scène, qui pulse une fois.</li>
+  <li><b>G</b> : il glisse jusqu'à sa place pendant que la caméra revient au cadre du combat. <b>H · Carte</b> (Pokémon fabuleux · Arceus · Normal), puis la sortie ; le combat garde le sommet de nuit (ou de jour, selon le décor choisi).</li>
+ </ol>
+ <b>Version courte</b> : un seul battement, les traits et la création plus vite, sans ses créations dans les nuages ; le souffle retenu, le rayon, la chute, l'impact, il se lève, les couleurs, le cri, la carte. Les fentes des dalles s'effacent pendant la carte (le combat garde la plateforme intacte).
+</div>
+<div class="note" data-mon="arceus-shield" hidden>
+ <b>Découpage</b> (le World boss, phase 1 « Le bouclier » : la communauté se rassemble au sommet pour frapper le bouclier ; Arceus reste une silhouette blanche bordée d'or, ses couleurs sont pour la capture, qui a sa propre intro ; la fin rejoint l'écran jouable : dôme, runes, foule, barre à 4 couches) :
+ <ol>
+  <li><b>1 · Le ciel s'ouvre</b> : la nuit au-dessus du sommet, vue d'en bas ; ses nuages se mettent à tourner en spirale vers le centre (l'image s'enroule autour de son milieu, des nuages affluent le long des bras), des poussières d'or aspirées, une lumière blanche qui grandit au centre.</li>
+  <li><b>2 · L'apparition</b> : la lumière se resserre, sa silhouette blanche bordée d'or en descend, au loin, lentement (elle grandit en S) ; les runes de lumière s'allument une à une autour de lui, anneau après anneau. <b>2b · La cloche</b> : le dôme se referme sur lui comme une cloche (abaissé du haut, son bord en ellipse lumineuse), un « dong » : la coque s'illumine, des anneaux de lumière.</li>
+  <li><b>3 · L'appel</b> : la caméra descend sur la plateforme pendant que le dôme descend à sa place au-dessus ; les dresseurs arrivent par vagues : toi d'abord (du côté de la caméra), puis tes amis (des bords), puis la foule, rangée après rangée, des deux côtés ; chacun lance ses Poké Balls, les Pokémon en sortent (blancs, puis leurs couleurs) : une onde d'éclats sur tout le sommet.</li>
+  <li><b>4 · Le bouclier</b> : le dôme prend son souffle, son onde balaie toute la scène (la foule encaisse), les bandes cinéma s'effacent et la barre à 4 couches se remplit d'un coup en haut (×1 … ×4, façon jeu de combat) : l'écran jouable prend le relais.</li>
+ </ol>
+ <b>Version courte</b> (les ouvertures suivantes) : le sommet avec sa foule déjà là ; la lumière, la silhouette, les runes, la cloche, puis l'onde et la barre.
+</div>
+<div class="note" data-mon="cynthia" hidden>
+ <b>Découpage</b> (pas un légendaire : la Maître de la Ligue et son Carchacrok, ensemble, dans la dernière salle ; la lumière froide de la lune, l'or des lanternes, le violet Dragon et le sable de Carchacrok) :
+ <ol>
+  <li><b>A · Les lanternes s'allument</b> : la salle dans le noir, seule la lumière froide de la lune par la fenêtre ; les lanternes s'allument une à une, de la porte vers l'escalier (un halo chaud, une petite flamme qui vacille), la caméra glisse vers l'escalier.</li>
+  <li><b>B · En haut des marches</b> : Cynthia en silhouette noire, à contre-jour, un liseré de lumière froide le long de ses cheveux et de son manteau ; un reflet descend lentement dans ses cheveux.</li>
+  <li><b>C · Elle envoie son Pokémon</b> : la Poké Ball part de sa main, traverse la salle au ralenti en tournoyant et s'ouvre dans un éclat ; une traînée de lumière file vers le haut, hors du cadre. La salle s'assombrit un peu, du sable se lève du sol (Voile Sable, son talent).</li>
+  <li><b>D · L'ombre, puis le passage</b> : son ombre immense, tout là-haut, balaie les murs et le sol (les flammes se couchent, la poussière se soulève) ; puis il traverse l'écran tout près, de droite à gauche, à toute vitesse : un claquement d'air, un sillon de sable.</li>
+  <li><b>E · Bam, devant les marches</b> : la caméra cadre les deux, un éclat tout là-haut ; il tombe comme une météorite à côté d'elle, au pied de l'escalier : ondes de choc, le marbre se fend, des éclats volent ; une vague de sable recouvre tout l'écran.</li>
+  <li><b>F · Le rugissement</b> : des anneaux de vent partent de sa gueule et déchirent le sable : Cynthia et Carchacrok au centre, en grand, en silhouette, lui devant elle et plus grand. Flash, tous deux blancs ; ses couleurs à lui montent de ses pieds, celles de Cynthia descendent de sa tête un instant après, chacune derrière un front d'étincelles ; la lumière de la salle revient depuis eux ; un éclat dans son œil, un reflet doré dans ses cheveux.</li>
+  <li><b>G · Carte</b> (Maître de la Ligue · Cynthia · Dragon), puis la sortie : la caméra revient sur la salle telle que le combat la montre, les fissures s'effacent.</li>
+ </ol>
+ <b>Version courte</b> : les lanternes déjà allumées ; sa silhouette, la Poké Ball, le passage tout près, la chute, le rugissement, le duo en couleurs, la carte.
+</div>
+</main>
+<script>{{APP_JS}}</script></html>

@@ -1,0 +1,8 @@
+/**
+ * gen 5-9 mega stones — authored extension (gen 5–9 content pack).
+ *
+ * Mega-stone / primal-orb items used by the form evolutions.
+ * Recovered source files (src/js/**) are untouched; the build concatenates src/js and src/ext/js
+ * in filename order.
+ */
+Object.assign(t.ITEM_NAMES, {"venusaurite":"Florizarrite","charizardite-x":"Dracaufite X","charizardite-y":"Dracaufite Y","blastoisinite":"Tortankite","beedrillite":"Dardargnite","pidgeotite":"Roucarnagite","alakazite":"Alakazamite","slowbronite":"Flagadossite","gengarite":"Ectoplasmite","kangaskhanite":"Kangourexite","pinsirite":"Scarabruite","gyaradosite":"Léviatorite","aerodactylite":"Ptéraïte","mewtwonite-x":"Mewtwoïte X","mewtwonite-y":"Mewtwoïte Y","ampharosite":"Pharampite","steelixite":"Steelixite","scizorite":"Cizayoxite","heracronite":"Scarhinoïte","houndoominite":"Démolossite","tyranitarite":"Tyranocivite","sceptilite":"Jungkite","blazikenite":"Braségalite","swampertite":"Laggronite","gardevoirite":"Gardevoirite","sablenite":"Ténéfixite","mawilite":"Mysdibulite","aggronite":"Galekingite","medichamite":"Charminite","manectite":"Élecsprintite","sharpedonite":"Sharpedite","cameruptite":"Caméruptite","altarianite":"Altarite","banettite":"Branettite","absolite":"Absolite","glalitite":"Oniglalite","salamencite":"Drattakite","metagrossite":"Métalossite","latiasite":"Latiasite","latiosite":"Latiosite","lopunnite":"Lockpinite","garchompite":"Carchacrokite","lucarionite":"Lucarite","abomasnowite":"Abomasnowite","galladite":"Gallamite","audinite":"Nanméouïte","diancite":"Diancite","blue-orb":"Gemme Bleue","red-orb":"Gemme Rouge"});

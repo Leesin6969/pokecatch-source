@@ -1,0 +1,189 @@
+/**
+ * weather
+ *
+ * Public API on the game namespace `t`: t.WEATHER
+ *
+ * Recovered from the shipped bundle — original chunk #24 at byte 471841 (4343 bytes, sha256:93d123fbf3ef091a).
+ * This file is one original source file; the build concatenates them in filename order.
+ */
+t.WEATHER = (function () {
+  const a = () => t.CONFIG.WEATHER;
+  let b = null;
+  const f = ($e) => Math.floor($e / a().SLOT_MS),
+    ue = () => t.Clock?.now() ?? Date.now(),
+    H = ($e) => {
+      let Z = 2166136261;
+      for (const A of $e) Z = Math.imul(Z ^ A.charCodeAt(0), 16777619);
+      return (
+        (Z ^= Z >>> 16),
+        (Z = Math.imul(Z, 2246822507)),
+        (Z ^= Z >>> 13),
+        (Z = Math.imul(Z, 3266489909)),
+        (Z ^= Z >>> 16),
+        (Z >>> 0) / 4294967296
+      );
+    },
+    vt = ($e) => {
+      const Z =
+          (typeof $e?.climate == "string" ? a().CLIMATES[$e.climate] : $e?.climate) || a().CLIMATES[$e?.bg],
+        A = t.STORY?.regionOf($e.ch ?? t.Adventure?.state?.chapter)?.key,
+        J = Z && a().REGION_OFF?.[A],
+        de = Z && a().REGION_WEIGHTS?.[A];
+      if (!J && !de) return Z || null;
+      const _e = { ...Z };
+      for (const Re of J || []) delete _e[Re];
+      for (const Re of [de?.all, de?.[$e.bg]])
+        for (const [dt, qe] of Object.entries(Re || {})) _e[dt] && (_e[dt] *= qe);
+      return Object.keys(_e).length ? _e : null;
+    },
+    B = {};
+  function se($e) {
+    if (B[$e]) return B[$e];
+    const Z = {};
+    for (const A of t.STORY?.CHAPTERS?.[$e]?.steps || [])
+      if (!(A.kind !== "route" || A.indoor))
+        for (const [J, de] of Object.entries(vt({ ...A, ch: $e }) || {})) Z[J] = (Z[J] || 0) + de;
+    return (B[$e] = Object.keys(Z).length ? Z : null);
+  }
+  function Ge($e, Z) {
+    if (!vt($e) || t.DAYTIME.indoorNode($e)) return null;
+    const A = $e.ch ?? t.Adventure?.state?.chapter,
+      J = A != null && t.STORY?.CHAPTERS?.[A] && $e.name !== "Parc de la pension" ? "ch" + A : $e.name,
+      de = vt($e),
+      _e = J === $e.name ? de : se(A) || de,
+      Re = (yt) => H(J + "|" + yt) < a().CHANCE;
+    let dt = 0;
+    for (; dt < 64 && Re(Z - dt);) dt++;
+    if (dt % 2 === 0) return null;
+    const qe = t.DAYTIME,
+      ce = Z === f(ue()) ? qe.index() === 2 : qe.indexAt(new Date(Z * a().SLOT_MS)) === 2,
+      tt = Object.entries(_e).filter(([yt]) => !(ce && a().TYPES[yt]?.daylight));
+    if (!tt.length) return null;
+    const mt = tt.reduce((yt, [, he]) => yt + he, 0);
+    let Te = H(Z + "|" + J) * mt,
+      At = tt[0][0];
+    for (const [yt, he] of tt)
+      if ((Te -= he) <= 0) {
+        At = yt;
+        break;
+      }
+    return Je(At, de, ce);
+  }
+  function Je($e, Z, A) {
+    const J = (de) => Z[de] && !(A && a().TYPES[de]?.daylight);
+    return J($e) ? $e : (a().TRANSLATE?.[$e] || []).find(J) || null;
+  }
+  const Ze = ($e, Z) => {
+      const A = t.STORY?.CHAPTERS?.[$e?.ch ?? t.Adventure?.state?.chapter]?.weather;
+      return !A || $e?.name === "Parc de la pension" ? null : Array.isArray(A) ? A[Z % A.length] : A;
+    },
+    x = ($e) =>
+      $e?.name === "Parc de la pension"
+        ? null
+        : t.Roaming?.weatherAt($e?.ch ?? t.Adventure?.state?.chapter) || null;
+  function $($e) {
+    return $e && $e.weather !== void 0
+      ? $e.weather
+      : !$e || t.DAYTIME.indoorNode($e)
+        ? null
+        : b
+          ? b === "clear"
+            ? null
+            : b
+          : Ze($e, f(ue())) || x($e) || Ge($e, f(ue()));
+  }
+  function X($e, Z = 4) {
+    if (!$e || $e.weather !== void 0 || b || t.DAYTIME.indoorNode($e)) return null;
+    const A = f(ue());
+    if (Ze($e, A)) {
+      for (let de = A + 1; de <= A + Z; de++)
+        if (Ze($e, de) !== Ze($e, A)) return { key: Ze($e, de), at: de * a().SLOT_MS };
+      return null;
+    }
+    const J = Ge($e, A);
+    if (x($e)) {
+      const de = t.Roaming.here($e.ch ?? t.Adventure?.state?.chapter);
+      return de ? { key: Ge($e, f(de.until)), at: de.until } : null;
+    }
+    for (let de = A + 1; de <= A + Z; de++) {
+      const _e = Ge($e, de);
+      if (_e !== J) return { key: _e, at: de * a().SLOT_MS };
+    }
+    return null;
+  }
+  function Tt($e, Z = 3, A = 16) {
+    if (!$e || $e.weather !== void 0 || b || t.DAYTIME.indoorNode($e)) return [];
+    const J = [],
+      de = f(ue());
+    let _e = $($e);
+    for (let Re = de + 1; Re <= de + A && J.length < Z; Re++) {
+      const dt = Ge($e, Re);
+      dt !== _e && (J.push({ key: dt, at: Re * a().SLOT_MS }), (_e = dt));
+    }
+    return J;
+  }
+  function le($e, Z = 24) {
+    if (!$e || $e.weather !== void 0 || b || t.DAYTIME.indoorNode($e)) return null;
+    const A = f(ue()),
+      J = $e.ch ?? t.Adventure?.state?.chapter,
+      de = $e.name !== "Parc de la pension" ? t.Roaming?.here(J) : null,
+      _e = x($e),
+      Re = [];
+    for (let dt = A; dt < A + Z; dt++) {
+      const qe = dt * a().SLOT_MS;
+      Re.push({
+        at: qe,
+        key: dt === A ? $($e) : Ze($e, dt) || (_e && de && qe < de.until ? _e : null) || Ge($e, dt),
+      });
+    }
+    return Re.some((dt) => dt.key) || vt($e) ? Re : null;
+  }
+  const P = ($e) => ($e ? a().TYPES[$e] : null),
+    u = () => (f(ue()) + 1) * a().SLOT_MS;
+  function ve($e, Z) {
+    const A = P($($e));
+    return A ? t.Game.DEX[Z].types.reduce((J, de) => J * (A.encounters[de] ?? 1), 1) : 1;
+  }
+  const it = ($e) => (t.DAYTIME?.phase().key === "night" ? (t.CONFIG.NIGHT_DAMAGE?.[$e] ?? 1) : 1),
+    De = ($e, Z) => ($e?.weatherDamage ? ($e.weatherDamage[Z] ?? 1) : (P($($e))?.damage?.[Z] ?? 1)) * it(Z),
+    je = () => (t.Roaming?.update() || []).map(($e) => $e.id + ":" + $e.ch).join();
+  let pt = f(ue()),
+    re = je();
+  Ss(() => {
+    const $e = f(ue()),
+      Z = je();
+    ($e !== pt || Z !== re) && ((pt = $e), (re = Z), t.dispatchEvent(new CustomEvent("weather")));
+  }, 3e4);
+  function We($e) {
+    ((b = $e), t.dispatchEvent(new CustomEvent("weather")));
+  }
+  function oe() {
+    const $e = t.STORY,
+      Z = t.Game?.S?.adv,
+      A = $e?.firstChapterOf("hoenn") ?? -1;
+    return {
+      name: "Parc de la pension",
+      scene: 63,
+      bg: "prairie",
+      ...(A >= 0 && !!Z && Z.unlocked >= A && $e.REGIONS.find((de) => de.key === "hoenn")?.open
+        ? { ch: A, climate: { rain: 2, sun: 2, storm: 0.5, snow: 1 } }
+        : {}),
+    };
+  }
+  return {
+    current: $,
+    forecast: X,
+    changes: Tt,
+    hours: le,
+    info: P,
+    endsAt: u,
+    climateOf: vt,
+    encounterMult: ve,
+    damageMult: De,
+    force: We,
+    parkNode: oe,
+    get forced() {
+      return b;
+    },
+  };
+})();

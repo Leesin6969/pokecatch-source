@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #10141f;
+  color: #f4eddc;
+  font:
+    15px system-ui,
+    sans-serif;
+}
+main {
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+h1 {
+  font-size: 26px;
+  margin: 4px 0 14px;
+}
+.tag {
+  color: #b48cff;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+  align-items: center;
+}
+button,
+select {
+  font: inherit;
+  border: 2px solid #4a5370;
+  background: #20283a;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button.main {
+  background: #5a2f9a;
+  border-color: #b48cff;
+}
+label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #b9c3d8;
+  font-size: 14px;
+}
+.note {
+  color: #9aa5bd;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.note b {
+  color: #f4eddc;
+}
+.note ol {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+#ph {
+  font:
+    700 13px ui-monospace,
+    monospace;
+  color: #b48cff;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+/* ---- player mode (?player=1: the game plays an intro in a frame over its arena): only the arena, full frame ---- */
+html.player body {
+  background: #000;
+}
+html.player main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+html.player main > :not(#arena) {
+  display: none !important;
+}
+html.player .arena,
+html.player .arena.phone {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+}
+/* ---- the arena (game's #arena, 16:9) ---- */
+.arena {
+  --c: #f95587;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border: 4px solid #2c3446;
+  border-radius: 10px;
+  background: #05040d;
+  font-family: "Jersey 10", system-ui, sans-serif;
+  font-size: 16px;
+}
+.arena.phone {
+  width: 375px;
+}
+#stage {
+  position: absolute;
+  inset: 0;
+}
+#bg,
+#pan {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#pan {
+  display: none;
+}
+#sea {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  filter: url(#waves);
+}
+#dark {
+  position: absolute;
+  inset: 0;
+  background: #05070c;
+  opacity: 0;
+}
+#neg {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  display: none;
+}
+.arena canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+#iris {
+  z-index: 1;
+}
+.weather-strike {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: none;
+  opacity: 0.8;
+}
+.arena[data-strike] .weather-strike {
+  display: block;
+  backdrop-filter: grayscale(1) contrast(40) brightness(1.15);
+}
+.arena[data-strike="neg"] .weather-strike {
+  backdrop-filter: grayscale(1) contrast(40) brightness(1.15) invert(1);
+}
+#sun {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  background: linear-gradient(180deg, #fff3c0 0%, #ffd98a 35%, rgba(255, 200, 110, 0) 80%);
+}
+#flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+/* boss intro, as in css/style.css (.boss-intro / .bi-*) */
+.bi-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 13%;
+  background: #05070c;
+  z-index: 3;
+}
+.bi-bar.top {
+  top: 0;
+  transform: translateY(-100%);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c) 70%, transparent);
+}
+.bi-bar.bot {
+  bottom: 0;
+  transform: translateY(100%);
+  box-shadow: 0 -2px 0 color-mix(in srgb, var(--c) 70%, transparent);
+}
+.bi-who {
+  position: absolute;
+  left: 58%;
+  opacity: 0;
+}
+.bi-trainer {
+  display: block;
+  image-rendering: pixelated;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, 0.4));
+}
+.bi-sil {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  image-rendering: pixelated;
+  visibility: hidden;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--c) 80%, transparent));
+}
+.bi-trainer.sil {
+  filter: brightness(0) drop-shadow(0 0 10px color-mix(in srgb, var(--c) 80%, transparent));
+}
+.bi-info {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  max-width: 48%;
+}
+.bi-info small {
+  font-size: clamp(12px, 1.4vw, 16px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c);
+  text-shadow: 0 2px 0 #05070c;
+}
+.bi-info b {
+  font-size: clamp(28px, 4.6vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-shadow:
+    4px 4px 0 #05070c,
+    -2px -2px 0 #05070c,
+    2px -2px 0 #05070c,
+    -2px 2px 0 #05070c;
+}
+.bi-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.bi-tags em {
+  font-style: normal;
+  font-size: 14px;
+  color: #c9cfdd;
+}
+.type {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+.phone .bi-info small {
+  font-size: 12px;
+}
+.phone .bi-info b {
+  font-size: 28px;
+}
+.phone .bi-who {
+  left: 52%;
+}
