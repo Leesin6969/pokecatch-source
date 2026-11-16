@@ -1,0 +1,73 @@
+{
+ "files": [
+  {
+   "mirror": "mirror/boot.js",
+   "live": ".cache/boot-live.js",
+   "bytesMirror": 48986,
+   "bytesLive": 48986,
+   "identical": true,
+   "shaMirror": "74ffb1ee23ec37c1",
+   "shaLive": "74ffb1ee23ec37c1"
+  },
+  {
+   "mirror": "mirror/index.html",
+   "live": ".cache/index-live.html",
+   "bytesMirror": 4715,
+   "bytesLive": 4715,
+   "identical": true,
+   "shaMirror": "c316581f008ed52c",
+   "shaLive": "c316581f008ed52c"
+  },
+  {
+   "mirror": "mirror/sw.js",
+   "live": ".cache/sw-live.js",
+   "bytesMirror": 5427,
+   "bytesLive": 5427,
+   "identical": true,
+   "shaMirror": "ff9a281d6c608ea2",
+   "shaLive": "ff9a281d6c608ea2"
+  },
+  {
+   "mirror": "mirror/apple-touch-icon.png",
+   "live": ".cache/icon-live.png",
+   "bytesMirror": 659,
+   "bytesLive": 659,
+   "identical": true,
+   "shaMirror": "1e407510e67e8f04",
+   "shaLive": "1e407510e67e8f04"
+  }
+ ],
+ "hashes": {},
+ "build": {
+  "live": {
+   "BUILD": "59d637ffd1",
+   "app": "0e84ded8d8",
+   "css": "7130b4d937",
+   "vendor": "8596965fe9",
+   "langs": [
+    "lang-en.8974090e4d.js",
+    "lang-es.9b4b6eb7d4.js",
+    "lang-de.6f05ff07a4.js",
+    "lang-ko.f0964656fa.js",
+    "lang-ja.099c3f121d.js"
+   ],
+   "adminFiles": "[]",
+   "online": "100"
+  },
+  "mirror": {
+   "BUILD": "59d637ffd1",
+   "app": "0e84ded8d8",
+   "css": "7130b4d937",
+   "vendor": "8596965fe9",
+   "langs": [
+    "lang-en.8974090e4d.js",
+    "lang-es.9b4b6eb7d4.js",
+    "lang-de.6f05ff07a4.js",
+    "lang-ko.f0964656fa.js",
+    "lang-ja.099c3f121d.js"
+   ],
+   "adminFiles": "[]",
+   "online": "100"
+  }
+ }
+}

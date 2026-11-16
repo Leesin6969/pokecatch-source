@@ -1,0 +1,285 @@
+{
+ "dataModules": 28,
+ "tables": [
+  "POKEDEX",
+  "EVOLUTIONS",
+  "MOVES",
+  "ITEM_NAMES",
+  "ENCOUNTERS",
+  "BASE_EXP",
+  "UNOWN",
+  "SPECIALS",
+  "FORMS",
+  "CONFIG",
+  "TYPES",
+  "TYPE_CHART",
+  "HABITATS",
+  "STATUS",
+  "STORY",
+  "SCENES",
+  "LEAGUE_TEAMS",
+  "Underground",
+  "RAID_SWAPS",
+  "SPRITE_BOUNDS",
+  "CHANGELOG"
+ ],
+ "expectedAssets": 2934,
+ "missing": [
+  {
+   "path": "assets/items/berry-oran.png",
+   "why": "item sprite"
+  },
+  {
+   "path": "assets/items/berry-pecha.png",
+   "why": "item sprite"
+  },
+  {
+   "path": "assets/items/berry-sitrus.png",
+   "why": "item sprite"
+  },
+  {
+   "path": "assets/items/link-cable.png",
+   "why": "item sprite"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20101.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20102.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20103.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20104.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20105.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20106.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20107.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20108.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20109.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20110.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20111.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20112.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20113.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20114.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20115.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20116.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20117.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20118.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20119.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20120.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20121.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20122.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20123.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20124.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20125.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20126.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/shiny/still/20127.png",
+   "why": "shiny artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20101.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20102.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20103.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20104.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20105.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20106.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20107.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20108.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20109.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20110.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20111.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20112.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20113.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20114.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20115.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20116.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20117.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20118.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20119.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20120.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20121.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20122.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20123.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20124.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20125.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20126.png",
+   "why": "artwork"
+  },
+  {
+   "path": "assets/pokemon/art/still/20127.png",
+   "why": "artwork"
+  }
+ ],
+ "missingReal": [],
+ "missingUpstreamAbsentCount": 58,
+ "packsFiles": 1468,
+ "packsMissing": 0,
+ "literalRefs": 2488,
+ "literalMissing": [],
+ "trainerKeys": 129,
+ "dexIds": 556,
+ "itemIds": 69,
+ "scenes": 529,
+ "assetsOnDisk": 7386,
+ "distMissingAssets": 0,
+ "evalProblems": [
+  [
+   "EVAL FAIL",
+   "024-daytime.js",
+   "ReferenceError: Ss is not defined"
+  ],
+  [
+   "EVAL FAIL",
+   "025-weather.js",
+   "ReferenceError: Ss is not defined"
+  ]
+ ]
+}

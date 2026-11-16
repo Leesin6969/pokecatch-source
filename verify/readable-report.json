@@ -1,0 +1,25 @@
+{
+ "files": 96,
+ "nodes": 228305,
+ "identifiers": 228305,
+ "renames": 13475,
+ "unresolvedEqual": true,
+ "problems": [],
+ "boot": 0,
+ "audit": 0,
+ "bindingPairs": 26598,
+ "unresolvedBefore": 68,
+ "unresolvedAfter": 68,
+ "auditSummary": {
+  "steps": 23,
+  "screens": 17,
+  "consoleErrors": 0,
+  "consoleWarnings": 0,
+  "pageErrors": 3,
+  "failedRequests": 0,
+  "httpErrors": 0,
+  "brokenImages": 0,
+  "modals": 13,
+  "modules": 77
+ }
+}

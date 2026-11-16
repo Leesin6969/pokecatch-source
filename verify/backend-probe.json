@@ -1,0 +1,1223 @@
+{
+ "key": "sb_publishable_BCiE_porcfjQJ-a7-H5tIA_uj_MriW8",
+ "rpcResults": {
+  "admin_ban": {
+   "clientKeys": [
+    "uid",
+    "days",
+    "reason"
+   ],
+   "payload": {
+    "uid": 1,
+    "days": 1,
+    "reason": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_ban",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_ban without parameters in the schema cache"
+   }
+  },
+  "admin_clock": {
+   "clientKeys": [
+    "uids"
+   ],
+   "payload": {
+    "uids": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_clock",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_clock without parameters in the schema cache"
+   }
+  },
+  "admin_economy": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_economy",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function admin_economy"
+   }
+  },
+  "admin_find": {
+   "clientKeys": [
+    "q"
+   ],
+   "payload": {
+    "q": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_find",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_find without parameters in the schema cache"
+   }
+  },
+  "admin_gift": {
+   "clientKeys": [
+    "uid",
+    "kind",
+    "payload",
+    "message",
+    "days"
+   ],
+   "payload": {
+    "uid": 1,
+    "kind": "x",
+    "payload": {},
+    "message": "x",
+    "days": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_gift",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_gift without parameters in the schema cache"
+   }
+  },
+  "admin_gift_cancel": {
+   "clientKeys": [
+    "gid"
+   ],
+   "payload": {
+    "gid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_gift_cancel",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_gift_cancel without parameters in the schema cache"
+   }
+  },
+  "admin_hold": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_hold",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_hold without parameters in the schema cache"
+   }
+  },
+  "admin_mod": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_mod",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_mod without parameters in the schema cache"
+   }
+  },
+  "admin_player": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_player",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_player without parameters in the schema cache"
+   }
+  },
+  "admin_progress": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_progress",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function admin_progress"
+   }
+  },
+  "admin_rename": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_rename",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_rename without parameters in the schema cache"
+   }
+  },
+  "admin_reset": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_reset",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_reset without parameters in the schema cache"
+   }
+  },
+  "admin_restore": {
+   "clientKeys": [
+    "uid",
+    "bid"
+   ],
+   "payload": {
+    "uid": 1,
+    "bid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_restore",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_restore without parameters in the schema cache"
+   }
+  },
+  "admin_server": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_server",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function admin_server"
+   }
+  },
+  "admin_snapshot": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_snapshot",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function admin_snapshot"
+   }
+  },
+  "admin_stats": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_stats",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function admin_stats"
+   }
+  },
+  "admin_take": {
+   "clientKeys": [
+    "uid",
+    "items",
+    "money"
+   ],
+   "payload": {
+    "uid": 1,
+    "items": [],
+    "money": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_take",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_take without parameters in the schema cache"
+   }
+  },
+  "admin_take_mons": {
+   "clientKeys": [
+    "uid",
+    "mons"
+   ],
+   "payload": {
+    "uid": 1,
+    "mons": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_take_mons",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_take_mons without parameters in the schema cache"
+   }
+  },
+  "admin_unban": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_unban",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_unban without parameters in the schema cache"
+   }
+  },
+  "admin_verify": {
+   "clientKeys": [
+    "uid"
+   ],
+   "payload": {
+    "uid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function admin_verify",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.admin_verify without parameters in the schema cache"
+   }
+  },
+  "candy_day": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function candy_day",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function candy_day"
+   }
+  },
+  "cloud_head": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function cloud_head",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function cloud_head"
+   }
+  },
+  "cloud_load": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function cloud_load",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function cloud_load"
+   }
+  },
+  "cloud_sync": {
+   "clientKeys": [
+    "base",
+    "fc"
+   ],
+   "payload": {
+    "base": {},
+    "fc": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function cloud_sync",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function cloud_sync"
+   }
+  },
+  "friend_card": {
+   "clientKeys": [
+    "other"
+   ],
+   "payload": {
+    "other": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friend_card",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.friend_card without parameters in the schema cache"
+   }
+  },
+  "friend_remove": {
+   "clientKeys": [
+    "other"
+   ],
+   "payload": {
+    "other": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friend_remove",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.friend_remove without parameters in the schema cache"
+   }
+  },
+  "friend_request": {
+   "clientKeys": [
+    "code"
+   ],
+   "payload": {
+    "code": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friend_request",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.friend_request without parameters in the schema cache"
+   }
+  },
+  "friend_respond": {
+   "clientKeys": [
+    "other",
+    "yes"
+   ],
+   "payload": {
+    "other": null,
+    "yes": false
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friend_respond",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.friend_respond without parameters in the schema cache"
+   }
+  },
+  "friends_clear": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friends_clear",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function friends_clear"
+   }
+  },
+  "friends_list": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function friends_list",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function friends_list"
+   }
+  },
+  "gift_claim": {
+   "clientKeys": [
+    "gid"
+   ],
+   "payload": {
+    "gid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function gift_claim",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.gift_claim without parameters in the schema cache"
+   }
+  },
+  "linked_to": {
+   "clientKeys": [
+    "mid"
+   ],
+   "payload": {
+    "mid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function linked_to",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function linked_to"
+   }
+  },
+  "log_session": {
+   "clientKeys": [],
+   "payload": {
+    "sid": null,
+    "anon": null,
+    "ms": null,
+    "o": null,
+    "b": null,
+    "d": {},
+    "v": null,
+    "n": 1,
+    "ev": null,
+    "since": null,
+    "dev": null,
+    "tz": null,
+    "fp": null,
+    "ios": null
+   },
+   "status": "exists-bad-args",
+   "http": 400,
+   "code": "22P02",
+   "message": "invalid input syntax for type integer: \"{}\"",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.log_session without parameters in the schema cache"
+   }
+  },
+  "mkt_buy": {
+   "clientKeys": [
+    "mid",
+    "name"
+   ],
+   "payload": {
+    "mid": 1,
+    "name": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function mkt_buy",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.mkt_buy without parameters in the schema cache"
+   }
+  },
+  "mkt_close": {
+   "clientKeys": [
+    "mid"
+   ],
+   "payload": {
+    "mid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function mkt_close",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.mkt_close without parameters in the schema cache"
+   }
+  },
+  "mkt_create": {
+   "clientKeys": [
+    "mon",
+    "price",
+    "region",
+    "name",
+    "sprite"
+   ],
+   "payload": {
+    "mon": [],
+    "price": 1,
+    "region": "x",
+    "name": "x",
+    "sprite": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function mkt_create",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.mkt_create without parameters in the schema cache"
+   }
+  },
+  "mkt_list": {
+   "clientKeys": [
+    "regs",
+    "ids",
+    "shy",
+    "sort",
+    "frm",
+    "lim"
+   ],
+   "payload": {
+    "regs": [],
+    "ids": [],
+    "shy": null,
+    "sort": null,
+    "frm": null,
+    "lim": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function mkt_list",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.mkt_list without parameters in the schema cache"
+   }
+  },
+  "mkt_recent": {
+   "clientKeys": [
+    "ids"
+   ],
+   "payload": {
+    "ids": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function mkt_recent",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.mkt_recent without parameters in the schema cache"
+   }
+  },
+  "pick_check": {
+   "clientKeys": [
+    "tid",
+    "mid"
+   ],
+   "payload": {
+    "tid": 1,
+    "mid": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function pick_check",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function pick_check"
+   }
+  },
+  "raid_board": {
+   "clientKeys": [
+    "reg",
+    "boss"
+   ],
+   "payload": {
+    "reg": "x",
+    "boss": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function raid_board",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.raid_board without parameters in the schema cache"
+   }
+  },
+  "raid_card": {
+   "clientKeys": [
+    "other"
+   ],
+   "payload": {
+    "other": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function raid_card",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.raid_card without parameters in the schema cache"
+   }
+  },
+  "raid_days": {
+   "clientKeys": [
+    "regs",
+    "with_all"
+   ],
+   "payload": {
+    "regs": [],
+    "with_all": false
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function raid_days",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.raid_days without parameters in the schema cache"
+   }
+  },
+  "raid_submit_many": {
+   "clientKeys": [
+    "entries"
+   ],
+   "payload": {
+    "entries": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function raid_submit_many",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.raid_submit_many without parameters in the schema cache"
+   }
+  },
+  "save_push": {
+   "clientKeys": [
+    "d",
+    "base"
+   ],
+   "payload": {
+    "d": {},
+    "base": {}
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function save_push",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.save_push without parameters in the schema cache"
+   }
+  },
+  "save_put": {
+   "clientKeys": [
+    "d",
+    "base"
+   ],
+   "payload": {
+    "d": {},
+    "base": {}
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function save_put",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.save_put without parameters in the schema cache"
+   }
+  },
+  "tower_friends": {
+   "clientKeys": [
+    "week"
+   ],
+   "payload": {
+    "week": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function tower_friends",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.tower_friends without parameters in the schema cache"
+   }
+  },
+  "tower_submit": {
+   "clientKeys": [
+    "entry"
+   ],
+   "payload": {
+    "entry": {}
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function tower_submit",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.tower_submit without parameters in the schema cache"
+   }
+  },
+  "trade_accept": {
+   "clientKeys": [
+    "tid",
+    "mon",
+    "name",
+    "sprite"
+   ],
+   "payload": {
+    "tid": 1,
+    "mon": [],
+    "name": "x",
+    "sprite": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_accept",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_accept without parameters in the schema cache"
+   }
+  },
+  "trade_close": {
+   "clientKeys": [],
+   "payload": {
+    "tid": 1,
+    "game": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_close",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_close without parameters in the schema cache"
+   }
+  },
+  "trade_create": {
+   "clientKeys": [
+    "mon",
+    "want",
+    "region",
+    "days",
+    "name",
+    "sprite"
+   ],
+   "payload": {
+    "mon": [],
+    "want": null,
+    "region": "x",
+    "days": 1,
+    "name": "x",
+    "sprite": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_create",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_create without parameters in the schema cache"
+   }
+  },
+  "trade_list": {
+   "clientKeys": [
+    "regs",
+    "can",
+    "shy"
+   ],
+   "payload": {
+    "regs": [],
+    "can": null,
+    "shy": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_list",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_list without parameters in the schema cache"
+   }
+  },
+  "trade_offers": {
+   "clientKeys": [
+    "regs"
+   ],
+   "payload": {
+    "regs": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_offers",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_offers without parameters in the schema cache"
+   }
+  },
+  "trade_species": {
+   "clientKeys": [
+    "regs",
+    "can",
+    "shy"
+   ],
+   "payload": {
+    "regs": [],
+    "can": null,
+    "shy": null
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function trade_species",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.trade_species without parameters in the schema cache"
+   }
+  },
+  "wb_admin": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function wb_admin",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function wb_admin"
+   }
+  },
+  "wb_attack": {
+   "clientKeys": [
+    "n",
+    "day",
+    "uids",
+    "dmg"
+   ],
+   "payload": {
+    "n": 1,
+    "day": 1,
+    "uids": [],
+    "dmg": 1
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function wb_attack",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.wb_attack without parameters in the schema cache"
+   }
+  },
+  "wb_launch": {
+   "clientKeys": [
+    "first",
+    "players"
+   ],
+   "payload": {
+    "first": false,
+    "players": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function wb_launch",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.wb_launch without parameters in the schema cache"
+   }
+  },
+  "wb_state": {
+   "clientKeys": [],
+   "payload": {},
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function wb_state",
+   "emptyArgs": {
+    "http": 401,
+    "code": "42501",
+    "message": "permission denied for function wb_state"
+   }
+  },
+  "zone_board": {
+   "clientKeys": [
+    "zone"
+   ],
+   "payload": {
+    "zone": "x"
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function zone_board",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.zone_board without parameters in the schema cache"
+   }
+  },
+  "zone_submit_many": {
+   "clientKeys": [
+    "entries"
+   ],
+   "payload": {
+    "entries": []
+   },
+   "status": "exists-needs-auth",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for function zone_submit_many",
+   "emptyArgs": {
+    "http": 404,
+    "code": "PGRST202",
+    "message": "Could not find the function public.zone_submit_many without parameters in the schema cache"
+   }
+  },
+  "extra:save": {
+   "clientKeys": [],
+   "status": "absent-or-requires-args",
+   "http": 404,
+   "code": "PGRST202",
+   "message": "Could not find the function public.save without parameters in the schema cache"
+  },
+  "extra:saves": {
+   "clientKeys": [],
+   "status": "absent-or-requires-args",
+   "http": 404,
+   "code": "PGRST202",
+   "message": "Could not find the function public.saves without parameters in the schema cache"
+  }
+ },
+ "tableResults": {
+  "saves": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table saves"
+  },
+  "trades": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table trades"
+  },
+  "market": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table market"
+  },
+  "profiles": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.profiles' in the schema cache"
+  },
+  "sessions": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table sessions"
+  },
+  "logs": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.logs' in the schema cache"
+  },
+  "events": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.events' in the schema cache"
+  },
+  "friends": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table friends"
+  },
+  "gifts": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table gifts"
+  },
+  "bans": {
+   "kind": "exists",
+   "http": 401,
+   "code": "42501",
+   "message": "permission denied for table bans"
+  },
+  "players": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.players' in the schema cache"
+  },
+  "raid_days": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.raid_days' in the schema cache"
+  },
+  "raid_scores": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.raid_scores' in the schema cache"
+  },
+  "zone_scores": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.zone_scores' in the schema cache"
+  },
+  "tower_scores": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.tower_scores' in the schema cache"
+  },
+  "wb_state": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.wb_state' in the schema cache"
+  },
+  "candy_days": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.candy_days' in the schema cache"
+  },
+  "devices": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.devices' in the schema cache"
+  },
+  "admin_logs": {
+   "kind": "absent",
+   "http": 404,
+   "code": "PGRST205",
+   "message": "Could not find the table 'public.admin_logs' in the schema cache"
+  }
+ },
+ "auth": {
+  "external": {
+   "anonymous_users": false,
+   "apple": false,
+   "azure": false,
+   "bitbucket": false,
+   "discord": true,
+   "facebook": false,
+   "snapchat": false,
+   "figma": false,
+   "fly": false,
+   "github": false,
+   "gitlab": false,
+   "google": true,
+   "keycloak": false,
+   "kakao": false,
+   "linkedin": false,
+   "linkedin_oidc": false,
+   "notion": false,
+   "spotify": false,
+   "slack": false,
+   "slack_oidc": false,
+   "workos": false,
+   "twitch": false,
+   "twitter": false,
+   "email": false,
+   "phone": false,
+   "zoom": false
+  },
+  "disable_signup": false,
+  "mailer_autoconfirm": true,
+  "phone_autoconfirm": false,
+  "sms_provider": "twilio",
+  "saml_enabled": false,
+  "saml_private_key_next_configured": true,
+  "passkeys_enabled": false
+ }
+}

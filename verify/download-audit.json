@@ -1,0 +1,1101 @@
+{
+ "at": "2026-11-15T10:04:30.737Z",
+ "artifacts": [
+  {
+   "name": "index.html",
+   "url": "https://pokecatch-online.netlify.app/",
+   "http": 200,
+   "liveBytes": 4715,
+   "local": "mirror/index.html",
+   "localBytes": 4715,
+   "identical": true,
+   "sha": "c316581f008ed52c"
+  },
+  {
+   "name": "boot.js",
+   "url": "https://pokecatch-online.pages.dev/boot.js",
+   "http": 200,
+   "liveBytes": 48986,
+   "local": "mirror/boot.js",
+   "localBytes": 48986,
+   "identical": true,
+   "sha": "74ffb1ee23ec37c1"
+  },
+  {
+   "name": "sw.js",
+   "url": "https://pokecatch-online.netlify.app/sw.js",
+   "http": 200,
+   "liveBytes": 5427,
+   "local": "mirror/sw.js",
+   "localBytes": 5427,
+   "identical": true,
+   "sha": "ff9a281d6c608ea2"
+  },
+  {
+   "name": "apple-touch-icon.png",
+   "url": "https://pokecatch-online.netlify.app/apple-touch-icon.png",
+   "http": 200,
+   "liveBytes": 659,
+   "local": "mirror/apple-touch-icon.png",
+   "localBytes": 659,
+   "identical": true,
+   "sha": "1e407510e67e8f04"
+  },
+  {
+   "name": "favicon.ico",
+   "url": "https://pokecatch-online.netlify.app/favicon.ico",
+   "http": 200,
+   "liveBytes": 280,
+   "local": "mirror/deploy/favicon.ico",
+   "localBytes": 280,
+   "identical": true,
+   "sha": "5c771db791abd747"
+  },
+  {
+   "name": "packs.json",
+   "url": "https://pokecatch-online.pages.dev/packs.json",
+   "http": 200,
+   "liveBytes": 81173,
+   "local": "mirror/packs.json",
+   "localBytes": 81173,
+   "identical": true,
+   "sha": "d18264c40fb9faa8"
+  },
+  {
+   "name": "bundle/app.js",
+   "url": "https://pokecatch-online.pages.dev/bundle/app.0e84ded8d8.js",
+   "http": 200,
+   "liveBytes": 2701707,
+   "local": "mirror/bundle/app.js",
+   "localBytes": 2701707,
+   "identical": true,
+   "sha": "0e84ded8d8485f2e"
+  },
+  {
+   "name": "bundle/app.css",
+   "url": "https://pokecatch-online.pages.dev/bundle/app.7130b4d937.css",
+   "http": 200,
+   "liveBytes": 671506,
+   "local": "mirror/bundle/app.css",
+   "localBytes": 671506,
+   "identical": true,
+   "sha": "7130b4d937e06bcb"
+  },
+  {
+   "name": "bundle/vendor-supabase.js",
+   "url": "https://pokecatch-online.pages.dev/bundle/vendor-supabase.8596965fe9.js",
+   "http": 200,
+   "liveBytes": 110797,
+   "local": "mirror/bundle/vendor-supabase.js",
+   "localBytes": 110797,
+   "identical": true,
+   "sha": "8596965fe918e656"
+  },
+  {
+   "name": "intros page",
+   "url": "https://pokecatch-online.pages.dev/intros/legend-intros",
+   "http": 200,
+   "liveBytes": 1354941,
+   "local": "mirror/intros/legend-intros.html",
+   "localBytes": 1354941,
+   "identical": true,
+   "sha": "338dbdfbc89872c4"
+  }
+ ],
+ "hiddenProbe": [
+  {
+   "origin": "netlify",
+   "path": "/manifest.json",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/manifest.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/manifest.webmanifest",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/manifest.webmanifest",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/site.webmanifest",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/site.webmanifest",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/robots.txt",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/robots.txt",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/sitemap.xml",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/sitemap.xml",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/sitemap-index.xml",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/sitemap-index.xml",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/404.html",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/404.html",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/500.html",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/500.html",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/_headers",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/_headers",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/_redirects",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/_redirects",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/_routes.json",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/_routes.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/netlify.toml",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/netlify.toml",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/package.json",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/package.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/README.md",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/README.md",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/.well-known/security.txt",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/.well-known/security.txt",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/.netlify/functions/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/.netlify/functions/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/.netlify/functions/cloud",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/.netlify/functions/cloud",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/api/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/api/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/functions/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/functions/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/_worker.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/_worker.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/_middleware.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/_middleware.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/app.js.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/app.js.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/app.css.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/app.css.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/boot.js.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/boot.js.map",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/config.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/config.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/manifest.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/manifest.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/bundle/chunk-names.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/bundle/chunk-names.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/cheats.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/cheats.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/admin.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/admin.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/screens/admin.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/screens/admin.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/screens/admin-attack.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/screens/admin-attack.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/js/screens/admin-players.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/js/screens/admin-players.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/src/js/030-game.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/src/js/030-game.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/workbox.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/workbox.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/workbox-abc.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/workbox-abc.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/sw.js",
+   "status": 200,
+   "bytes": 5427,
+   "type": "application/javascript; charset=UTF-8",
+   "real": true,
+   "fallback": false
+  },
+  {
+   "origin": "cdn",
+   "path": "/sw.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/index.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/index.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/game.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/game.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/app.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/app.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/main.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/main.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/config.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/config.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/lang/en.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/lang/en.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/lang/fr.js",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/lang/fr.js",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/packs.json",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/packs.json",
+   "status": 200,
+   "bytes": 81173,
+   "type": "application/json",
+   "real": true,
+   "fallback": false
+  },
+  {
+   "origin": "netlify",
+   "path": "/packs/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/packs/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/assets/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/assets/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/css/app.css",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/css/app.css",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/fonts/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/fonts/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/data/pokedex.json",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/data/pokedex.json",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "netlify",
+   "path": "/data/",
+   "status": 404,
+   "bytes": 3449,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  },
+  {
+   "origin": "cdn",
+   "path": "/data/",
+   "status": 200,
+   "bytes": 145,
+   "type": "text/html; charset=utf-8",
+   "real": false,
+   "fallback": true
+  }
+ ],
+ "hiddenReal": [
+  {
+   "origin": "netlify",
+   "path": "/sw.js",
+   "status": 200,
+   "bytes": 5427,
+   "type": "application/javascript; charset=UTF-8",
+   "real": true,
+   "fallback": false
+  },
+  {
+   "origin": "cdn",
+   "path": "/packs.json",
+   "status": 200,
+   "bytes": 81173,
+   "type": "application/json",
+   "real": true,
+   "fallback": false
+  }
+ ],
+ "mirror": {
+  "files": 2836,
+  "bytes": 24656580
+ },
+ "packs": {
+  "groups": 6,
+  "files": 0
+ },
+ "references": {
+  "literalRefs": 2492,
+  "present": 2492,
+  "missingLocally": 0,
+  "realHoles": 0
+ },
+ "runtimeRequests": {
+  "verdict": "every live request has a local counterpart",
+  "liveAssets": 606,
+  "missingAssets": 0,
+  "roles": 0
+ },
+ "liveVsMirror": {
+  "files": 4,
+  "allIdentical": true,
+  "build": {
+   "live": {
+    "BUILD": "59d637ffd1",
+    "app": "0e84ded8d8",
+    "css": "7130b4d937",
+    "vendor": "8596965fe9",
+    "langs": [
+     "lang-en.8974090e4d.js",
+     "lang-es.9b4b6eb7d4.js",
+     "lang-de.6f05ff07a4.js",
+     "lang-ko.f0964656fa.js",
+     "lang-ja.099c3f121d.js"
+    ],
+    "adminFiles": "[]",
+    "online": "100"
+   },
+   "mirror": {
+    "BUILD": "59d637ffd1",
+    "app": "0e84ded8d8",
+    "css": "7130b4d937",
+    "vendor": "8596965fe9",
+    "langs": [
+     "lang-en.8974090e4d.js",
+     "lang-es.9b4b6eb7d4.js",
+     "lang-de.6f05ff07a4.js",
+     "lang-ko.f0964656fa.js",
+     "lang-ja.099c3f121d.js"
+    ],
+    "adminFiles": "[]",
+    "online": "100"
+   }
+  }
+ }
+}

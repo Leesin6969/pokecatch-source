@@ -1,0 +1,158 @@
+{
+ "original": {
+  "label": "original",
+  "url": "https://pokecatch-online.netlify.app/",
+  "before": {
+   "hidden": false,
+   "hasApp": true,
+   "money": "0",
+   "chapterBtn": "",
+   "chapterBtnHtmlLen": 0,
+   "zonePanelLen": 0,
+   "bagPanelLen": 0,
+   "battleLog": "En route pour l'aventure !",
+   "advEmptyHidden": true,
+   "newsbar": "",
+   "teamSlotsLen": 0,
+   "pcGridLen": 0,
+   "activeScreen": [
+    "screen-adventure"
+   ],
+   "lsKeys": [
+    "pokecatch-anon",
+    "pokecatch-tab",
+    "pokecatch.clock"
+   ],
+   "saveBytes": 0,
+   "imgs": 57,
+   "brokenImgs": 0
+  },
+  "clicked": [
+   {
+    "name": "map",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 1
+   },
+   {
+    "name": "team",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 45
+   },
+   {
+    "name": "pokedex",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 44
+   }
+  ],
+  "after": {
+   "hidden": false,
+   "hasApp": true,
+   "money": "0",
+   "chapterBtn": "",
+   "chapterBtnHtmlLen": 0,
+   "zonePanelLen": 0,
+   "bagPanelLen": 0,
+   "battleLog": "En route pour l'aventure !",
+   "advEmptyHidden": true,
+   "newsbar": "",
+   "teamSlotsLen": 0,
+   "pcGridLen": 0,
+   "activeScreen": [
+    "screen-adventure"
+   ],
+   "lsKeys": [
+    "pokecatch-anon",
+    "pokecatch-tab",
+    "pokecatch.clock"
+   ],
+   "saveBytes": 0,
+   "imgs": 58,
+   "brokenImgs": 0
+  },
+  "logs": []
+ },
+ "local": {
+  "label": "local",
+  "url": "http://127.0.0.1:4318/",
+  "before": {
+   "hidden": false,
+   "hasApp": true,
+   "money": "0",
+   "chapterBtn": "",
+   "chapterBtnHtmlLen": 0,
+   "zonePanelLen": 0,
+   "bagPanelLen": 0,
+   "battleLog": "En route pour l'aventure !",
+   "advEmptyHidden": true,
+   "newsbar": "",
+   "teamSlotsLen": 0,
+   "pcGridLen": 0,
+   "activeScreen": [
+    "screen-adventure"
+   ],
+   "lsKeys": [
+    "pokecatch-anon",
+    "pokecatch-tab",
+    "pokecatch.clock"
+   ],
+   "saveBytes": 0,
+   "imgs": 58,
+   "brokenImgs": 0
+  },
+  "clicked": [
+   {
+    "name": "map",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 1
+   },
+   {
+    "name": "team",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 45
+   },
+   {
+    "name": "pokedex",
+    "active": [
+     "screen-adventure"
+    ],
+    "nodes": 44
+   }
+  ],
+  "after": {
+   "hidden": false,
+   "hasApp": true,
+   "money": "0",
+   "chapterBtn": "",
+   "chapterBtnHtmlLen": 0,
+   "zonePanelLen": 0,
+   "bagPanelLen": 0,
+   "battleLog": "En route pour l'aventure !",
+   "advEmptyHidden": true,
+   "newsbar": "",
+   "teamSlotsLen": 0,
+   "pcGridLen": 0,
+   "activeScreen": [
+    "screen-adventure"
+   ],
+   "lsKeys": [
+    "pokecatch-anon",
+    "pokecatch-tab",
+    "pokecatch.clock"
+   ],
+   "saveBytes": 0,
+   "imgs": 58,
+   "brokenImgs": 0
+  },
+  "logs": []
+ }
+}

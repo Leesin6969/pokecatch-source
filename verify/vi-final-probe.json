@@ -1,0 +1,37 @@
+{
+ "before": {
+  "lang": "en",
+  "title": "Poke'Catch New game How to play ChangelogsNEW Sign in with Discord Sign in with Google Per",
+  "nav": [
+   "Adventure",
+   "Progress",
+   "Team/PC",
+   "Pokédex"
+  ]
+ },
+ "after": {
+  "lang": "vi",
+  "title": "Poke'Catch Chơi mới Cách chơi ChangelogsNEW Đăng nhập bằng Discord Đăng nhập bằng Google Dự án fan cá nhân, phi thương m",
+  "nav": [
+   "Phiêu lưu",
+   "Tiến trình",
+   "Đội/PC",
+   "Pokédex",
+   "Hoạt động",
+   "Nhà trẻ Pokémon",
+   "Sòng bạc",
+   "Raids"
+  ],
+  "buttons": [
+   "Chơi mới",
+   "Cách chơi",
+   "ChangelogsNEW",
+   "Đăng nhập bằng Discord",
+   "Đăng nhập bằng Google"
+  ]
+ },
+ "adventure": {
+  "text": "Red Pokédex 0 ₽ Lưu ⚙ Tiến trình Đội/PC Pokédex Hoạt động Nhà trẻ Pokémon Sòng bạc Raids Hầm ngục Xã hội Bạn bè Trao đổi Chợ Đen Cửa hàng Thành tựu Hướng dẫn Discord Lên đường phiêu lưu! ×1 ×2 ×3 GS. Oak Xin chào! Chào mừng đến với thế giới Pokémon! Tôi là Oak, nhưng mọi người vẫn gọi tôi là Giáo sư"
+ },
+ "errors": []
+}

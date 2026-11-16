@@ -1,0 +1,38 @@
+{
+ "at": "2026-11-16T01:45:26.885Z",
+ "pack": "gen 5-9 (species + forms + gyms/league)",
+ "species": {
+  "entries": 532,
+  "legendary": 45,
+  "mythical": 14,
+  "learnRefs": 8444,
+  "moves": 673
+ },
+ "evolutions": 307,
+ "moves": 173,
+ "forms": {
+  "total": 103,
+  "regional": 53,
+  "mega": 48,
+  "primal": 2,
+  "items": 49
+ },
+ "story": {
+  "regions": 5,
+  "chapters": 65,
+  "gyms": 40,
+  "badges": [],
+  "leagueChapters": 25
+ },
+ "assets": {
+  "speciesFiles": 3192,
+  "formFiles": 618,
+  "itemIcons": 49,
+  "badges": 5
+ },
+ "checksPassed": 57,
+ "checksFailed": 0,
+ "failed": [],
+ "warnings": [],
+ "passed": true
+}

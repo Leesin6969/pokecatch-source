@@ -1,0 +1,25 @@
+{
+ "scanned": [
+  "mirror/bundle/app.js",
+  "mirror/bundle/app.css",
+  "mirror/boot.js",
+  "mirror/index.html",
+  "mirror/sw.js",
+  "mirror/packs.json",
+  "src/intros/app.js",
+  "src/intros/app.css",
+  "src/intros/shell.html",
+  "src/lang/de.js",
+  "src/lang/en.js",
+  "src/lang/es.js",
+  "src/lang/ja.js",
+  "src/lang/ko.js",
+  "src/lang/zh-Hans.js",
+  "src/lang/zh-Hant.js"
+ ],
+ "literalRefs": 2492,
+ "present": 2492,
+ "missingLocally": 0,
+ "dynamicTemplates": [],
+ "classified": []
+}

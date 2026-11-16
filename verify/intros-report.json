@@ -1,0 +1,32 @@
+{
+ "original": {
+  "url": "https://pokecatch-online.pages.dev/intros/legend-intros",
+  "state": {
+   "title": "Atelier des intros légendaires",
+   "buttons": 2,
+   "selects": 4,
+   "inputs": 3,
+   "canvas": 10,
+   "textLen": 2700,
+   "hasAtelierTitle": true
+  },
+  "errors": [],
+  "fails": []
+ },
+ "rebuilt": {
+  "url": "http://127.0.0.1:4415/intros/legend-intros.html",
+  "state": {
+   "title": "Atelier des intros légendaires",
+   "buttons": 2,
+   "selects": 4,
+   "inputs": 3,
+   "canvas": 10,
+   "textLen": 2700,
+   "hasAtelierTitle": true
+  },
+  "errors": [],
+  "fails": []
+ },
+ "sameShell": true,
+ "ok": true
+}

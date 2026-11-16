@@ -1,0 +1,44 @@
+{
+ "at": "2026-11-15T12:38:58.230Z",
+ "live": {
+  "urls": 671,
+  "assets": 606,
+  "roles": [
+   "app-bundle",
+   "app-css",
+   "asset",
+   "boot",
+   "other",
+   "vendor-supabase"
+  ],
+  "other": [
+   "/",
+   "/_/bscframe",
+   "/favicon.ico",
+   "/generate_204"
+  ],
+  "external": 6
+ },
+ "local": {
+  "urls": 1257,
+  "assets": 1198,
+  "roles": [
+   "app-bundle",
+   "app-css",
+   "asset",
+   "boot",
+   "other",
+   "vendor-supabase"
+  ],
+  "other": [
+   "/",
+   "/_/bscframe",
+   "/favicon.ico",
+   "/generate_204"
+  ],
+  "external": 6
+ },
+ "liveAssetsMissingLocally": [],
+ "liveRolesMissingLocally": [],
+ "verdict": "every live request has a local counterpart"
+}

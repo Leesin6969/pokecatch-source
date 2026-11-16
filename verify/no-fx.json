@@ -1,0 +1,12 @@
+{
+ "pixelFX": "undefined",
+ "moveFX": "undefined",
+ "movePalettes": "undefined",
+ "pfxCanvas": false,
+ "pfxStyle": false,
+ "pfxBanner": false,
+ "assetFixStyle": true,
+ "baseBattleFX": true,
+ "fighters": "1/1",
+ "errors": []
+}

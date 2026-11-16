@@ -1,0 +1,57 @@
+{
+ "at": "2026-11-15T13:52:07.135Z",
+ "final": {
+  "before": {
+   "lang": "en",
+   "title": "Poke'Catch New game How to play ChangelogsNEW Sign in with Discord Sign in with Google Per",
+   "nav": [
+    "Adventure",
+    "Progress",
+    "Team/PC",
+    "Pokédex"
+   ]
+  },
+  "after": {
+   "lang": "vi",
+   "title": "Poke'Catch Chơi mới Cách chơi ChangelogsNEW Đăng nhập bằng Discord Đăng nhập bằng Google Dự án fan cá nhân, phi thương m",
+   "nav": [
+    "Phiêu lưu",
+    "Tiến trình",
+    "Đội/PC",
+    "Pokédex",
+    "Hoạt động",
+    "Nhà trẻ Pokémon",
+    "Sòng bạc",
+    "Raids"
+   ],
+   "buttons": [
+    "Chơi mới",
+    "Cách chơi",
+    "ChangelogsNEW",
+    "Đăng nhập bằng Discord",
+    "Đăng nhập bằng Google"
+   ]
+  },
+  "adventure": {
+   "text": "Red Pokédex 0 ₽ Lưu ⚙ Tiến trình Đội/PC Pokédex Hoạt động Nhà trẻ Pokémon Sòng bạc Raids Hầm ngục Xã hội Bạn bè Trao đổi Chợ Đen Cửa hàng Thành tựu Hướng dẫn Discord Lên đường phiêu lưu! ×1 ×2 ×3 GS. Oak Xin chào! Chào mừng đến với thế giới Pokémon! Tôi là Oak, nhưng mọi người vẫn gọi tôi là Giáo sư"
+  },
+  "errors": []
+ },
+ "options": {
+  "count": 9,
+  "hasVietnamese": true
+ },
+ "dex": {
+  "hasVnFlavor": true,
+  "detail": "Test#0001 Pokédex 1 / 1025 123.456 ₽ 0 0 0 Lưu ⚙ Kanto · Chương 1 Huy hiệu Đá tảng ▾ Bước 1 / 20 · 0 % Cấp 14–20 Tiến trình Đội/PC Pokédex Hoạt động Nhà trẻ Pokémon Sòng bạc Raids Hầm ngục Xã hội Bạn bè Trao đổi Cửa hàng Thành tựu Hướng dẫn Discord Pokédex i Đã thấy 1 Dạng sáng 0 Vùng hoàn thành 0/9"
+ },
+ "checks": {
+  "switchEnToVi": true,
+  "noPlaceholders": true,
+  "noErrors": true,
+  "languageList9": true,
+  "pokeFlavorVi": true,
+  "navVi": true
+ },
+ "passed": true
+}

@@ -1,0 +1,207 @@
+[
+ {
+  "lang": "fr",
+  "ok": true,
+  "docLang": "fr",
+  "i18nKeys": [],
+  "titleBtn": null,
+  "nav": [
+   "Aventure",
+   "Progression",
+   "Équipe/PC",
+   "Pokédex",
+   "Activités",
+   "Pension"
+  ],
+  "h1": "Succès",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "Red Pokédex 0 ₽ Sauvegarder ⚙ Progression Équipe/PC Pokédex Activités Pension Casino Raids Souterrain Social Amis Échang",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "en",
+  "ok": true,
+  "docLang": "en",
+  "i18nKeys": [
+   "en"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "Adventure",
+   "Progress",
+   "Team/PC",
+   "Pokédex",
+   "Activities",
+   "Day Care"
+  ],
+  "h1": "Achievements",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "Red Pokédex 0 ₽ Save ⚙ Progress Team/PC Pokédex Activities Day Care Game Corner Raids Underground Social Friends Trades ",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "es",
+  "ok": true,
+  "docLang": "es",
+  "i18nKeys": [
+   "es"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "Aventura",
+   "Progreso",
+   "Equipo/PC",
+   "Pokédex",
+   "Actividades",
+   "Guardería"
+  ],
+  "h1": "Logros",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "Rojo Pokédex 0 ₽ Guardar ⚙ Progreso Equipo/PC Pokédex Actividades Guardería Casino Incursiones Subsuelo Social Amigos In",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "de",
+  "ok": true,
+  "docLang": "de",
+  "i18nKeys": [
+   "de"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "Abenteuer",
+   "Fortschritt",
+   "Team/PC",
+   "Pokédex",
+   "Aktivitäten",
+   "Pension"
+  ],
+  "h1": "Erfolge",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "Rot Pokédex 0 ₽ Speichern ⚙ Fortschritt Team/PC Pokédex Aktivitäten Pension Spielhalle Raids Untergrund Sozial Freunde T",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "zh-Hans",
+  "ok": true,
+  "docLang": "zh-Hans",
+  "i18nKeys": [
+   "zh-Hans"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "冒险",
+   "进度",
+   "队伍/电脑",
+   "图鉴",
+   "活动",
+   "培育屋"
+  ],
+  "h1": "成就",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "赤红 图鉴 0 ₽ 保存 ⚙ 进度 队伍/电脑 图鉴 活动 培育屋 游戏城 团体战 地下通道 社交 好友 交换 黑市 商店 成就 指南 Discord 出发冒险吧！ ×1 ×2 ×3 大木博士 你好！欢迎来到宝可梦的世界！我叫大木，大家都叫",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "zh-Hant",
+  "ok": true,
+  "docLang": "zh-Hant",
+  "i18nKeys": [
+   "zh-Hant"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "冒險",
+   "進度",
+   "隊伍/電腦",
+   "圖鑑",
+   "活動",
+   "培育屋"
+  ],
+  "h1": "成就",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "赤紅 圖鑑 0 ₽ 儲存 ⚙ 進度 隊伍/電腦 圖鑑 活動 培育屋 遊戲城 團體戰 地下通道 社交 好友 交換 黑市 商店 成就 指南 Discord 出發冒險吧！ ×1 ×2 ×3 大木博士 你好！歡迎來到寶可夢的世界！我叫大木，大家都叫",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "ko",
+  "ok": true,
+  "docLang": "ko",
+  "i18nKeys": [
+   "ko"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "모험",
+   "진행도",
+   "팀/컴퓨터",
+   "도감",
+   "활동",
+   "키우미집"
+  ],
+  "h1": "업적",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "레드 도감 0 ₽ 저장 ⚙ 진행도 팀/컴퓨터 도감 활동 키우미집 게임코너 레이드 지하통로 소셜 친구 교환 암시장 상점 업적 가이드 Discord 모험을 떠나자! ×1 ×2 ×3 오박사 안녕! 포켓몬스터의 세계에 온 ",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "ja",
+  "ok": true,
+  "docLang": "ja",
+  "i18nKeys": [
+   "ja"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "冒険",
+   "進行度",
+   "手持ち/PC",
+   "図鑑",
+   "あそび",
+   "育て屋"
+  ],
+  "h1": "実績",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "レッド 図鑑 0 ₽ セーブ ⚙ 進行度 手持ち/PC 図鑑 あそび 育て屋 ゲームコーナー レイド 地下通路 交流 フレンド 交換 闇市 ショップ 実績 ガイド Discord 冒険に出発！ ×1 ×2 ×3 オーキド博士 はじめまして！",
+  "errors": [],
+  "bad": []
+ },
+ {
+  "lang": "vi",
+  "ok": true,
+  "docLang": "vi",
+  "i18nKeys": [
+   "vi"
+  ],
+  "titleBtn": null,
+  "nav": [
+   "Phiêu lưu",
+   "Tiến trình",
+   "Đội/PC",
+   "Pokédex",
+   "Hoạt động",
+   "Nhà trẻ Pokémon"
+  ],
+  "h1": "Thành tựu",
+  "money": null,
+  "brokenImgs": 0,
+  "bodyText": "Red Pokédex 0 ₽ Lưu ⚙ Tiến trình Đội/PC Pokédex Hoạt động Nhà trẻ Pokémon Sòng bạc Raids Hầm ngục Xã hội Bạn bè Trao đổi",
+  "errors": [],
+  "bad": []
+ }
+]

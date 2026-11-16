@@ -1,0 +1,887 @@
+{
+ "at": "2026-11-16T01:45:26.329Z",
+ "files": [
+  {
+   "file": "asset-black-scan.json",
+   "kind": "json",
+   "keys": [
+    "scanned",
+    "bad",
+    "tiny",
+    "frameBad"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "asset-id-audit.json",
+   "kind": "json",
+   "keys": [
+    "missing",
+    "suspicious",
+    "dims"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "asset-visibility.json",
+   "kind": "json",
+   "keys": [
+    "before",
+    "after",
+    "errors"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "audit-all.json",
+   "kind": "json",
+   "keys": [
+    "build",
+    "download",
+    "references",
+    "boot",
+    "data",
+    "i18n",
+    "runtime",
+    "requests",
+    "readable",
+    "intros",
+    "diff",
+    "logs"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "audit-data.json",
+   "kind": "json",
+   "keys": [
+    "dataModules",
+    "tables",
+    "expectedAssets",
+    "missing",
+    "missingReal",
+    "missingUpstreamAbsentCount",
+    "packsFiles",
+    "packsMissing",
+    "literalRefs",
+    "literalMissing",
+    "trainerKeys",
+    "dexIds",
+    "itemIds",
+    "scenes",
+    "assetsOnDisk",
+    "distMissingAssets",
+    "evalProblems"
+   ],
+   "missingReal": 0,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "audit-diff.json",
+   "kind": "json",
+   "keys": [
+    "onlyLive",
+    "onlyLocal",
+    "counts",
+    "assets"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "audit-i18n-local.json",
+   "kind": "json",
+   "keys": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "audit-local.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "console",
+    "consoleWarnings",
+    "consoleInfo",
+    "pageErrors",
+    "failedRequests",
+    "httpErrors",
+    "brokenImages",
+    "modals",
+    "screens",
+    "steps",
+    "i18n",
+    "requests",
+    "assets",
+    "titleState",
+    "modules",
+    "screensAvailable",
+    "optionsLangs",
+    "battle"
+   ],
+   "consoleErrors": 0,
+   "consoleWarnings": 0,
+   "pageErrors": 3,
+   "httpErrors": 0,
+   "failedRequests": 0,
+   "brokenImages": 0,
+   "modules": 77,
+   "screens": 17,
+   "modals": 13,
+   "steps": 23,
+   "problemsList": [],
+   "pageErrorSamples": [
+    "show market: Cannot read properties of undefined (reading 'show')",
+    "show friends: Cannot read properties of undefined (reading 'show')",
+    "show admin: Cannot read properties of undefined (reading 'show')"
+   ],
+   "knownPageErrors": 3,
+   "unexplained": []
+  },
+  {
+   "file": "audit-original.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "console",
+    "consoleWarnings",
+    "consoleInfo",
+    "pageErrors",
+    "failedRequests",
+    "httpErrors",
+    "brokenImages",
+    "modals",
+    "screens",
+    "steps",
+    "i18n",
+    "requests",
+    "assets",
+    "titleState",
+    "modules",
+    "screensAvailable",
+    "optionsLangs",
+    "battle"
+   ],
+   "consoleErrors": 0,
+   "consoleWarnings": 0,
+   "pageErrors": 4,
+   "httpErrors": 0,
+   "failedRequests": 0,
+   "brokenImages": 0,
+   "modules": 77,
+   "screens": 17,
+   "modals": 13,
+   "steps": 23,
+   "problemsList": [],
+   "pageErrorSamples": [
+    "Error: Uncaught TypeError: Cannot read properties of null (reading 'floor')\n    at Z (https://pokecatch-online.pages.dev/bundle/app.0e84ded8d8.js:569:412)\n    a",
+    "show market: Cannot read properties of undefined (reading 'show')",
+    "show friends: Cannot read properties of undefined (reading 'show')",
+    "show admin: Cannot read properties of undefined (reading 'show')"
+   ],
+   "knownPageErrors": 4,
+   "unexplained": []
+  },
+  {
+   "file": "audit-readable.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "console",
+    "consoleWarnings",
+    "consoleInfo",
+    "pageErrors",
+    "failedRequests",
+    "httpErrors",
+    "brokenImages",
+    "modals",
+    "screens",
+    "steps",
+    "i18n",
+    "requests",
+    "assets",
+    "titleState",
+    "modules",
+    "screensAvailable",
+    "optionsLangs",
+    "battle"
+   ],
+   "consoleErrors": 0,
+   "consoleWarnings": 0,
+   "pageErrors": 3,
+   "httpErrors": 0,
+   "failedRequests": 0,
+   "brokenImages": 0,
+   "modules": 77,
+   "screens": 17,
+   "modals": 13,
+   "steps": 23,
+   "problemsList": [],
+   "pageErrorSamples": [
+    "show market: Cannot read properties of undefined (reading 'show')",
+    "show friends: Cannot read properties of undefined (reading 'show')",
+    "show admin: Cannot read properties of undefined (reading 'show')"
+   ],
+   "knownPageErrors": 3,
+   "unexplained": []
+  },
+  {
+   "file": "backend-probe.json",
+   "kind": "json",
+   "keys": [
+    "key",
+    "rpcResults",
+    "tableResults",
+    "auth"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "compare.json",
+   "kind": "json",
+   "keys": [
+    "original",
+    "local"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "download-audit.json",
+   "kind": "json",
+   "keys": [
+    "at",
+    "artifacts",
+    "hiddenProbe",
+    "hiddenReal",
+    "mirror",
+    "packs",
+    "references",
+    "runtimeRequests",
+    "liveVsMirror"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "ext-audit.json",
+   "kind": "json",
+   "keys": [
+    "at",
+    "pack",
+    "species",
+    "evolutions",
+    "moves",
+    "forms",
+    "story",
+    "assets",
+    "checksPassed",
+    "checksFailed",
+    "failed",
+    "warnings",
+    "passed"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "ext-probe.json",
+   "kind": "json",
+   "keys": [
+    "seeded",
+    "state",
+    "map",
+    "uiTravel",
+    "evo",
+    "wildEnemies",
+    "extras",
+    "badgeHtml",
+    "after",
+    "dex",
+    "errors"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "fetch-missing-report.json",
+   "kind": "json",
+   "keys": [
+    "ok",
+    "absent"
+   ],
+   "ok": 94,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "intros-assets.json",
+   "kind": "json",
+   "keys": [
+    "literal",
+    "sceneNames",
+    "downloaded",
+    "absent"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "intros-report.json",
+   "kind": "json",
+   "keys": [
+    "original",
+    "rebuilt",
+    "sameShell",
+    "ok"
+   ],
+   "ok": true,
+   "sameShell": true,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "last-check.json",
+   "kind": "json",
+   "keys": [
+    "ok",
+    "dir",
+    "play",
+    "at"
+   ],
+   "ok": true,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "live-vs-mirror.json",
+   "kind": "json",
+   "keys": [
+    "files",
+    "hashes",
+    "build"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "log-ast.txt",
+   "kind": "text",
+   "lines": 21,
+   "bytes": 654,
+   "hits": []
+  },
+  {
+   "file": "log-audit.json",
+   "kind": "json",
+   "keys": [
+    "at",
+    "files",
+    "totals"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "log-build.txt",
+   "kind": "text",
+   "lines": 12,
+   "bytes": 431,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx.txt",
+   "kind": "text",
+   "lines": 104,
+   "bytes": 3524,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx10.txt",
+   "kind": "text",
+   "lines": 106,
+   "bytes": 3829,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx2.txt",
+   "kind": "text",
+   "lines": 106,
+   "bytes": 3830,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx3.txt",
+   "kind": "text",
+   "lines": 106,
+   "bytes": 3839,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx4.txt",
+   "kind": "text",
+   "lines": 104,
+   "bytes": 3570,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx5.txt",
+   "kind": "text",
+   "lines": 105,
+   "bytes": 3686,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx6.txt",
+   "kind": "text",
+   "lines": 104,
+   "bytes": 3545,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx7.txt",
+   "kind": "text",
+   "lines": 104,
+   "bytes": 3548,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx8.txt",
+   "kind": "text",
+   "lines": 105,
+   "bytes": 3671,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-fx9.txt",
+   "kind": "text",
+   "lines": 105,
+   "bytes": 3679,
+   "hits": []
+  },
+  {
+   "file": "log-check-play-nofx.txt",
+   "kind": "text",
+   "lines": 105,
+   "bytes": 3693,
+   "hits": []
+  },
+  {
+   "file": "log-check-play.txt",
+   "kind": "text",
+   "lines": 107,
+   "bytes": 3976,
+   "hits": []
+  },
+  {
+   "file": "log-data.txt",
+   "kind": "text",
+   "lines": 35,
+   "bytes": 1466,
+   "hits": [
+    {
+     "line": 3,
+     "text": "! EVAL FAIL | 024-daytime.js | ReferenceError: Ss is not defined",
+     "known": "audit-data eval module 024/025 ngoài sandbox — hai module cần timer alias từ prelude, không phải lỗi source"
+    },
+    {
+     "line": 4,
+     "text": "! EVAL FAIL | 025-weather.js | ReferenceError: Ss is not defined",
+     "known": "audit-data eval module 024/025 ngoài sandbox — hai module cần timer alias từ prelude, không phải lỗi source"
+    }
+   ]
+  },
+  {
+   "file": "log-diff.txt",
+   "kind": "text",
+   "lines": 42,
+   "bytes": 1569,
+   "hits": [
+    {
+     "line": 29,
+     "text": "\"Error: Uncaught TypeError: Cannot read properties of null (reading 'floor')\\n\" +",
+     "known": "lỗi nội tại raid của game gốc (bundle gốc dòng 569), xuất hiện khi audit click đúng nhánh RNG"
+    }
+   ]
+  },
+  {
+   "file": "log-i18n.txt",
+   "kind": "text",
+   "lines": 11,
+   "bytes": 768,
+   "hits": []
+  },
+  {
+   "file": "log-packs.txt",
+   "kind": "text",
+   "lines": 3,
+   "bytes": 114,
+   "hits": []
+  },
+  {
+   "file": "log-play-original.txt",
+   "kind": "text",
+   "lines": 33,
+   "bytes": 2136,
+   "hits": []
+  },
+  {
+   "file": "log-runtime-local.txt",
+   "kind": "text",
+   "lines": 44,
+   "bytes": 1799,
+   "hits": [
+    {
+     "line": 37,
+     "text": "\"show market: Cannot read properties of undefined (reading 'show')\",",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    },
+    {
+     "line": 38,
+     "text": "\"show friends: Cannot read properties of undefined (reading 'show')\",",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    },
+    {
+     "line": 39,
+     "text": "\"show admin: Cannot read properties of undefined (reading 'show')\"",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    }
+   ]
+  },
+  {
+   "file": "log-runtime-original.txt",
+   "kind": "text",
+   "lines": 51,
+   "bytes": 2519,
+   "hits": [
+    {
+     "line": 37,
+     "text": "\"Error: Uncaught TypeError: Cannot read properties of null (reading 'floor')\\n\" +",
+     "known": "lỗi nội tại raid của game gốc (bundle gốc dòng 569), xuất hiện khi audit click đúng nhánh RNG"
+    },
+    {
+     "line": 44,
+     "text": "\"show market: Cannot read properties of undefined (reading 'show')\",",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    },
+    {
+     "line": 45,
+     "text": "\"show friends: Cannot read properties of undefined (reading 'show')\",",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    },
+    {
+     "line": 46,
+     "text": "\"show admin: Cannot read properties of undefined (reading 'show')\"",
+     "known": "harness gọi App.show vào market/friends/admin — site gốc ném y hệt"
+    }
+   ]
+  },
+  {
+   "file": "no-fx.json",
+   "kind": "json",
+   "keys": [
+    "pixelFX",
+    "moveFX",
+    "movePalettes",
+    "pfxCanvas",
+    "pfxStyle",
+    "pfxBanner",
+    "assetFixStyle",
+    "baseBattleFX",
+    "fighters",
+    "errors"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "play-check.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "clickedNew",
+    "world",
+    "nav",
+    "progressed",
+    "errors",
+    "missing",
+    "modals",
+    "steps"
+   ],
+   "modals": 2,
+   "steps": 24,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "play-debug.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "clickedNew",
+    "world",
+    "nav",
+    "progressed",
+    "errors",
+    "missing",
+    "modals",
+    "steps"
+   ],
+   "modals": 0,
+   "steps": 22,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "play-local.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "clickedNew",
+    "world",
+    "nav",
+    "progressed",
+    "errors",
+    "missing",
+    "modals",
+    "steps"
+   ],
+   "modals": 3,
+   "steps": 25,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "play-minified.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "clickedNew",
+    "world",
+    "nav",
+    "progressed",
+    "errors",
+    "missing",
+    "modals",
+    "steps"
+   ],
+   "modals": 0,
+   "steps": 20,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "play-original.json",
+   "kind": "json",
+   "keys": [
+    "label",
+    "url",
+    "clickedNew",
+    "world",
+    "nav",
+    "progressed",
+    "errors",
+    "missing",
+    "modals",
+    "steps"
+   ],
+   "modals": 3,
+   "steps": 25,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "probe-cdn.json",
+   "kind": "json",
+   "keys": [
+    "candidates",
+    "downloaded",
+    "absent"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "readable-report.json",
+   "kind": "json",
+   "keys": [
+    "files",
+    "nodes",
+    "identifiers",
+    "renames",
+    "unresolvedEqual",
+    "problems",
+    "boot",
+    "audit",
+    "bindingPairs",
+    "unresolvedBefore",
+    "unresolvedAfter",
+    "auditSummary"
+   ],
+   "problems": 0,
+   "unresolvedEqual": true,
+   "renames": 13475,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "reference-audit.json",
+   "kind": "json",
+   "keys": [
+    "scanned",
+    "literalRefs",
+    "present",
+    "missingLocally",
+    "dynamicTemplates",
+    "classified"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "report.json",
+   "kind": "json",
+   "keys": [
+    "url",
+    "chrome",
+    "consoleErrors",
+    "pageErrors",
+    "failedRequests",
+    "ok",
+    "boot",
+    "modal"
+   ],
+   "consoleErrors": 0,
+   "pageErrors": 0,
+   "failedRequests": 0,
+   "ok": true,
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "requests-diff.json",
+   "kind": "json",
+   "keys": [
+    "at",
+    "live",
+    "local",
+    "liveAssetsMissingLocally",
+    "liveRolesMissingLocally",
+    "verdict"
+   ],
+   "verdict": "every live request has a local counterpart",
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "vi-dex-probe.json",
+   "kind": "json",
+   "keys": [
+    "hasVnFlavor",
+    "detail"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "vi-final-probe.json",
+   "kind": "json",
+   "keys": [
+    "before",
+    "after",
+    "adventure",
+    "errors"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "vi-options-probe.json",
+   "kind": "json",
+   "keys": [
+    "count",
+    "hasVietnamese"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  },
+  {
+   "file": "vi-probe.json",
+   "kind": "json",
+   "keys": [
+    "at",
+    "final",
+    "options",
+    "dex",
+    "checks",
+    "passed"
+   ],
+   "problemsList": [],
+   "pageErrorSamples": [],
+   "unexplained": []
+  }
+ ],
+ "totals": {
+  "textFiles": 21,
+  "jsonFiles": 36,
+  "hits": 10,
+  "known": 10,
+  "unknown": 0,
+  "unexplainedReports": 0
+ }
+}
