@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs & caches
+dist/
+.cache/
+.eslintcache
+.stylelintcache
+
+# Environment & local configurations
+.env
+.env.local
+.env.*.local
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python cache (tools/gens scripts)
+__pycache__/
+*.py[cod]
+
+# Scratch space used by tools/recovery while extracting
+raw/
+
+# Verification artifacts
+# Ignore heavy screenshot captures and runtime logs
+verify/*.png
+verify/*.txt
+verify/play-check.json
+verify/play-debug.json
+verify/report.json
+verify/play-local.json
+verify/play-minified.json
+verify/play-original.json
+
+# Keep canonical audit reports referenced in documentation (prevent 404 on GitHub)
+!verify/AUDIT.md
+!verify/DOWNLOAD-AUDIT.md
+!verify/LOG-AUDIT.md
+!verify/fidelity.md
+!verify/ext-audit.json
+!verify/ext-probe.json
+!verify/asset-visibility.json
+!verify/compare.json
+!verify/backend-probe.json
+!verify/readable-report.json
+!verify/intros-report.json
+!verify/reference-audit.json
+!verify/requests-diff.json
+!verify/audit-all.json
+!verify/audit-data.json
+!verify/audit-diff.json
+!verify/audit-i18n-local.json
+!verify/audit-local.json
+!verify/audit-original.json
+!verify/audit-readable.json
+!verify/log-audit.json
+!verify/no-fx.json
+!verify/probe-cdn.json
+!verify/vi-*.json
